@@ -1,8 +1,21 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/* Aeonik Regular Font */
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/aeonik-regular.woff2') format('woff2'),
+    url('/fonts/aeonik-regular.woff') format('woff'),
+    url('/fonts/aeonik-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-aeonik: 'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
 }
 
 @theme inline {
@@ -10,6 +23,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-aeonik: var(--font-aeonik);
+}
+
+.font-aeonik {
+  font-family: var(--font-aeonik);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +40,55 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-aeonik);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  outline: none !important;
+}
+
+/* Glass effect utility class */
+.glass-text {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 255, 255, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 rgba(255, 255, 255, 0.1);
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(255, 255, 255, 0.98);
+}
+
+/* Marquee Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) linear infinite;
+}
+
+.animate-scroll-reverse {
+  animation: scroll-reverse var(--animation-duration, 40s) linear infinite;
+}
+
+.pause-on-hover:hover .animate-scroll,
+.pause-on-hover:hover .animate-scroll-reverse {
+  animation-play-state: paused;
 }
