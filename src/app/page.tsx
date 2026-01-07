@@ -4,6 +4,7 @@ import ClientMarquee from '@/components/ClientMarquee';
 import MeetSam from '@/components/Meet';
 import LatestWork from '@/components/LatestWork';
 import ProcessSection from '@/components/ProcessSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <MeetSam />
       <LatestWork />
       <ProcessSection />
+      <TestimonialsSection />
     </main>
   );
 }
