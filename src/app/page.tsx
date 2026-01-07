@@ -1,7 +1,8 @@
 import HeroSection from '@/components/HeroSection';
 import VideoSection from '@/components/VideoSection';
 import ClientMarquee from '@/components/ClientMarquee';
-import MeetSam from '@/components/Meet';
+import Meet from '@/components/Meet';
+import ServicesSection from '@/components/ServicesSection';
 import LatestWork from '@/components/LatestWork';
 import ProcessSection from '@/components/ProcessSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
@@ -13,11 +14,12 @@ export default function Home() {
       <HeroSection />
       <VideoSection />
       <ClientMarquee />
-      <MeetSam />
+      <Meet />
       <LatestWork />
       <ProcessSection />
       <TestimonialsSection />
       <ProjectSection />
+      <ServicesSection />
     </main>
   );
 }
