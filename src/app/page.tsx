@@ -5,6 +5,7 @@ import MeetSam from '@/components/Meet';
 import LatestWork from '@/components/LatestWork';
 import ProcessSection from '@/components/ProcessSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import ProjectSection from '@/components/ProjectSection';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <LatestWork />
       <ProcessSection />
       <TestimonialsSection />
+      <ProjectSection />
     </main>
   );
 }
