@@ -15,7 +15,6 @@ import ContactSection from '@/components/ContactSection';
 import BlogSection from '@/components/BlogSection';
 import BlueprintAISection from '@/components/BlueprintAISection';
 import FAQSection from '@/components/FAQSection';
-import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -37,7 +36,6 @@ export default function Home() {
       <BlogSection />
       <BlueprintAISection />
       <FAQSection />
-      <Footer />
     </main>
   );
 }

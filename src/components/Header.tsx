@@ -13,8 +13,8 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', href: '#' },
-  { label: 'About', href: '#' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
   {
     label: 'Services',
     dropdownItems: [
@@ -163,7 +163,7 @@ export default function Header() {
               <li key={item.label} className="group relative">
                 {item.dropdownItems ? (
                   <>
-                    <button className="flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium text-white/70 transition-colors group-hover:bg-white/[0.05] group-hover:text-white">
+                    <button className="flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium text-white transition-colors group-hover:bg-white/[0.05] group-hover:text-white">
                       <span className="h-1.5 w-0 rounded-full bg-white opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100" />
                       <span className="flex items-center gap-1.5">
                         {item.label}
@@ -184,15 +184,15 @@ export default function Header() {
                     </button>
                     {/* Dropdown Menu */}
                     <div className="invisible absolute left-1/2 top-full mt-2 w-80 -translate-x-1/2 opacity-0 transition-all duration-200 group-hover:visible group-hover:mt-4 group-hover:opacity-100">
-                      <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#1a1f2e] p-2 shadow-2xl backdrop-blur-xl">
+                      <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#343538] p-2 shadow-2xl backdrop-blur-xl">
                         <div className="space-y-1">
                           {item.dropdownItems.map((subItem) => (
                             <a
                               key={subItem.title}
                               href="#"
-                              className="flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-white/[0.04]"
+                              className="flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-[#516C83]"
                             >
-                              <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-white/10 text-white/70">
+                              <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-white/10 text-white">
                                 <svg
                                   className="h-4 w-4"
                                   fill="none"
@@ -220,7 +220,7 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="group flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium text-white/70 transition-colors hover:bg-white/[0.05] hover:text-white"
+                    className="group flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium text-white transition-colors hover:bg-white/[0.05] hover:text-white"
                   >
                     <span className="h-1.5 w-0 rounded-full bg-white opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100" />
                     {item.label}
@@ -233,7 +233,7 @@ export default function Header() {
 
         {/* Desktop CTA Button */}
         <button className="hidden rounded-full bg-[#506c83] px-6 py-4 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669] hover:shadow-lg lg:flex lg:items-center lg:gap-2 cursor-pointer">
-          Schedule a call
+          Get in touch now
           <svg
             className="h-4 w-4"
             fill="none"
