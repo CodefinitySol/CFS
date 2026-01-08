@@ -130,8 +130,6 @@ export default function Header() {
 
   const closeSubmenu = () => {
     setSubmenuVisible(false);
-    // Optional: clear active submenu after animation if desired, 
-    // but keeping it populated makes reusable easier if opening same menu again.
   };
 
   return (

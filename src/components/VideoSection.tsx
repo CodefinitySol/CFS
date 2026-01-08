@@ -6,7 +6,6 @@ import Image from 'next/image';
 export default function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // You can replace this with your actual video link
   const VIDEO_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ"; 
 
   return (
@@ -17,7 +16,6 @@ export default function VideoSection() {
             <>
               {/* Thumbnail Image */}
               <div className="absolute inset-0 z-0">
-                {/* Replace '/video-thumbnail.png' with your actual thumbnail image path */}
                 <Image
                   src="/video-thumbnail.png" 
                   alt="Video Thumbnail"

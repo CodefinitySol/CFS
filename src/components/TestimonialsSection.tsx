@@ -92,7 +92,7 @@ function StarRating({ rating }: { rating: number }) {
 function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof TESTIMONIALS_ROW_1, speed?: number }) {
   const [offset, setOffset] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const cardWidth = 500 + 24; // card width + gap
+  const cardWidth = 500 + 24;
   const totalWidth = testimonials.length * cardWidth;
 
   useEffect(() => {
@@ -105,12 +105,9 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
       lastTimestamp = timestamp;
 
       setOffset((prevOffset) => {
-        // Use cardWidth / speed so that the user's timing (seconds per card) stays consistent
         const movement = (delta / 1000) * (cardWidth / speed);
         const newOffset = prevOffset + movement;
         
-        // Reset whenever we've scrolled exactly one full set of items
-        // This makes the transition completely invisible
         if (newOffset >= totalWidth) {
           return newOffset - totalWidth;
         }
@@ -125,7 +122,6 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
     return () => cancelAnimationFrame(animationFrameId);
   }, [speed, totalWidth]);
 
-  // Use 3 sets to ensure there is always content visible ahead and behind during the reset
   const displayItems = [...testimonials, ...testimonials, ...testimonials];
 
   return (

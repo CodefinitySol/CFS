@@ -1,8 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
 import Header from './Header';
 import ContactForm from './ContactForm';
 
@@ -115,7 +113,6 @@ export default function HeroSection() {
               </button>
             </div>
 
-            {/* Awards Section */}
             {/* Awards Section */}
             <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
               <div className="relative h-20 w-20 flex-shrink-0 sm:h-24 sm:w-24 md:h-32 md:w-32">

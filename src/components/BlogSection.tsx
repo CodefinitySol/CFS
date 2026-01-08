@@ -1,19 +1,16 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 const BLOG_POSTS = [
-  // ... existing posts
   {
     category: 'Anchor Links',
     title: 'How to Link Buttons to Sections in Squarespace (Anchor Link Guide)',

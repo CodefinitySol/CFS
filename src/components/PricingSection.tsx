@@ -99,9 +99,9 @@ function PricingCard({ plan, isLast }: { plan: typeof PLANS[0], isLast: boolean 
         ${isLast ? 'lg:z-10' : ''}
       `}
     >
-      {/* Badge with decorative background image */}
+      {/* Badge */}
       <div className="relative mb-14 inline-flex items-center justify-center min-w-[120px] h-[44px] self-start">
-        {/* Decorative corner background (square.png) */}
+        {/* Decorative corner background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none">
           <Image 
             src="/square.png" 

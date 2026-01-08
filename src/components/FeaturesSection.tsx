@@ -78,7 +78,7 @@ export default function FeaturesSection() {
               key={index}
               className="group relative flex flex-col items-start p-10 rounded-[20px] border border-gray-100 bg-[#516C83] lg:bg-white transition-all duration-500 lg:hover:bg-[#516C83] min-h-[560px]"
             >
-              {/* Hover Image Area - Visible on mobile, hover-only on lg */}
+              {/* Hover Image Area */}
               <div 
                 className={`absolute left-0 w-full opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 overflow-hidden ${feature.hoverStyles.height} ${feature.hoverStyles.top}`}
               >
@@ -91,14 +91,14 @@ export default function FeaturesSection() {
                 <div className="absolute inset-0 bg-[#516C83]/5" />
               </div>
 
-              {/* Icon - Hidden on mobile, hidden on lg hover */}
+              {/* Icon */}
               <div className="relative z-20 mb-10 transition-all duration-300 opacity-0 lg:opacity-100 lg:group-hover:opacity-0 lg:group-hover:pointer-events-none">
                 <div className="text-[#181A1D] transition-colors duration-500">
                   {feature.icon}
                 </div>
               </div>
 
-              {/* Content - White on mobile, transitions on lg */}
+              {/* Content */}
               <div className="relative z-10 mt-auto">
                 <h3 className="font-aeonik text-2xl font-normal text-white lg:text-[#181A1D] lg:group-hover:text-white transition-colors mb-6">
                   {feature.title}

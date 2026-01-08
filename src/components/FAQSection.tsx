@@ -109,7 +109,6 @@ export default function FAQSection() {
                     <div className="font-aeonik text-sm sm:text-base text-[#181A1D]/60 leading-relaxed space-y-4">
                       <p>{faq.answer}</p>
                       
-                      {/* Detailed list as shown in reference */}
                       {openIndex === index && (
                         <div className="mt-4">
                           <p>Squarespace is a popular choice among creative professionals and web designers for several reasons:</p>
