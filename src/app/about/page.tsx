@@ -6,6 +6,7 @@ import LatestWork from '@/components/LatestWork';
 import ClientReviewsSection from '@/components/ClientReviewsSection';
 import OurOfficesSection from '@/components/OurOfficesSection';
 import ProcessSection from '@/components/ProcessSection';
+import StartProjectSection from '@/components/StartProjectSection';
 import FAQSection from '@/components/FAQSection';
 
 export default function AboutPage() {
@@ -19,6 +20,7 @@ export default function AboutPage() {
             <LatestWork />
             <ClientReviewsSection />
             <OurOfficesSection />
+            <StartProjectSection />
             <FAQSection />
         </main>
     );
