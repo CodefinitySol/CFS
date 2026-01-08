@@ -109,7 +109,7 @@ export default function BlogSection() {
           >
             {BLOG_POSTS.map((post, index) => (
               <SwiperSlide key={index} className="!h-auto !flex">
-                <div className="group flex w-full flex-col rounded-[24px] bg-[#E8ECF0]/50 border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 h-full">
+                <div className="group flex w-full flex-col rounded-[18px] bg-[#E8ECF0]/50 border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 h-full">
                   {/* Image Container */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden flex-shrink-0">
                     <Image 

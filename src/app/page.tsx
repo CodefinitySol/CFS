@@ -13,6 +13,8 @@ import WhyChooseSection from '@/components/WhyChooseSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import ContactSection from '@/components/ContactSection';
 import BlogSection from '@/components/BlogSection';
+import BlueprintAISection from '@/components/BlueprintAISection';
+import FAQSection from '@/components/FAQSection';
 
 export default function Home() {
   return (
@@ -32,6 +34,8 @@ export default function Home() {
       <FeaturesSection />
       <ContactSection />
       <BlogSection />
+      <BlueprintAISection />
+      <FAQSection />
     </main>
   );
 }
