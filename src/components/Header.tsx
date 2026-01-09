@@ -9,6 +9,7 @@ type NavItem = {
     title: string;
     desc: string;
     iconPath: string;
+    href?: string;
   }[];
 };
 
@@ -23,6 +24,7 @@ const NAV_ITEMS: NavItem[] = [
         desc: 'Bespoke Squarespace websites.',
         iconPath:
           'M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 2v10h12V8H6z',
+        href: '/services/website-builds',
       },
       {
         title: 'SEO',
@@ -124,7 +126,7 @@ export default function Header() {
   const openSubmenu = (label: string) => {
     setActiveSubmenu(label);
     requestAnimationFrame(() => {
-        setSubmenuVisible(true);
+      setSubmenuVisible(true);
     });
   };
 
@@ -189,7 +191,7 @@ export default function Header() {
                           {item.dropdownItems.map((subItem) => (
                             <a
                               key={subItem.title}
-                              href="#"
+                              href={subItem.href || '#'}
                               className="flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-[#516C83]"
                             >
                               <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-white/10 text-white">
@@ -251,9 +253,8 @@ export default function Header() {
 
         {/* Mobile Menu Overlay */}
         <div
-          className={`fixed inset-0 z-[60] flex flex-col bg-white transition-transform duration-500 ease-in-out lg:hidden ${
-            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          className={`fixed inset-0 z-[60] flex flex-col bg-white transition-transform duration-500 ease-in-out lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
         >
           {/* Mobile Header */}
           <div className="flex items-center justify-between px-6 py-6 sm:px-10 sm:py-8">
@@ -283,9 +284,8 @@ export default function Header() {
           {/* Mobile Navigation Sliding Container */}
           <div className="relative w-full flex-1 overflow-hidden">
             <div
-              className={`flex h-full w-[200%] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-                submenuVisible ? '-translate-x-1/2' : 'translate-x-0'
-              }`}
+              className={`flex h-full w-[200%] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${submenuVisible ? '-translate-x-1/2' : 'translate-x-0'
+                }`}
             >
               {/* Main Menu Pane (Left Half) */}
               <div className="flex w-1/2 flex-col items-center overflow-y-auto px-6 pb-20">
@@ -316,13 +316,13 @@ export default function Header() {
                           </svg>
                         </button>
                       ) : (
-                      <a
-                        href={item.href}
-                        className="font-aeonik text-3xl font-medium text-[#1E293B] transition-colors hover:text-[#506C83]"
-                      >
-                        {item.label}
-                      </a>
-                    )}
+                        <a
+                          href={item.href}
+                          className="font-aeonik text-3xl font-medium text-[#1E293B] transition-colors hover:text-[#506C83]"
+                        >
+                          {item.label}
+                        </a>
+                      )}
                     </div>
                   ))}
                 </nav>
@@ -356,7 +356,7 @@ export default function Header() {
                     )?.dropdownItems?.map((subItem) => (
                       <a
                         key={subItem.title}
-                        href="#"
+                        href={subItem.href || '#'}
                         className="font-aeonik text-2xl font-medium text-[#1E293B] transition-colors hover:text-[#506C83]"
                       >
                         {subItem.title}
