@@ -57,6 +57,7 @@ const NAV_ITEMS: NavItem[] = [
         desc: 'Schedule as per needed',
         iconPath:
           'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+        href: '/services/acuity-scheduling',
       },
     ],
   },
@@ -100,7 +101,11 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Contact', href: '#' },
 ];
 
-export default function Header() {
+interface HeaderProps {
+  isLight?: boolean;
+}
+
+export default function Header({ isLight = false }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [submenuVisible, setSubmenuVisible] = useState(false);
@@ -142,7 +147,7 @@ export default function Header() {
     <header className="relative z-50 px-6 py-6 sm:px-10 sm:py-8 lg:px-12">
       <div className="mx-auto flex max-w-[1600px] items-center justify-between">
         {/* Logo */}
-        <div className="font-aeonik text-xl font-medium tracking-tight text-white z-50 transition-colors duration-300">
+        <div className={`font-aeonik text-xl font-medium tracking-tight z-50 transition-colors duration-300 ${isLight ? 'text-[#1E293B]' : 'text-white'}`}>
           <span className="opacity-60">by</span> Crawford
         </div>
 
@@ -151,17 +156,19 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen(true)}
           className="group flex h-12 w-12 flex-col items-end justify-center gap-1.5 rounded-full bg-transparent p-2 lg:hidden"
         >
-          <span className="h-0.5 w-6 bg-white transition-transform group-hover:w-8" />
-          <span className="h-0.5 w-8 bg-white" />
-          <span className="h-0.5 w-4 bg-white transition-transform group-hover:w-8" />
+          <span className={`h-0.5 w-6 transition-transform group-hover:w-8 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
+          <span className={`h-0.5 w-8 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
+          <span className={`h-0.5 w-4 transition-transform group-hover:w-8 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
         </button>
 
         {/* Desktop Navigation Pill */}
         <nav
           className="hidden rounded-[100px] px-1 py-2 backdrop-blur-[4px] transition-all duration-300 ease-out lg:block"
           style={{
-            background:
-              'linear-gradient(180deg, rgba(255, 255, 255, .05) 0%, rgba(255, 255, 255, .01) 100%)',
+            background: isLight
+              ? '#F1F4F6'
+              : 'linear-gradient(180deg, rgba(255, 255, 255, .05) 0%, rgba(255, 255, 255, .01) 100%)',
+            border: isLight ? '1px solid rgba(0,0,0,0.05)' : 'none'
           }}
         >
           <ul className="flex items-center gap-1">
@@ -169,12 +176,12 @@ export default function Header() {
               <li key={item.label} className="group relative">
                 {item.dropdownItems ? (
                   <>
-                    <button className="flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium text-white transition-colors group-hover:bg-white/[0.05] group-hover:text-white">
-                      <span className="h-1.5 w-0 rounded-full bg-white opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100" />
+                    <button className={`flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium transition-colors ${isLight ? 'text-[#1E293B] hover:bg-black/[0.03]' : 'text-white hover:bg-white/[0.05]'}`}>
+                      <span className={`h-1.5 w-0 rounded-full opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
                       <span className="flex items-center gap-1.5">
                         {item.label}
                         <svg
-                          className="h-3 w-3 opacity-60 transition-transform group-hover:rotate-180"
+                          className={`h-3 w-3 transition-transform group-hover:rotate-180 ${isLight ? 'opacity-40' : 'opacity-60'}`}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -234,9 +241,12 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="group flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium text-white transition-colors hover:bg-white/[0.05] hover:text-white"
+                    className={`group flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium transition-colors ${isLight
+                      ? 'text-[#1E293B] hover:bg-black/[0.03]'
+                      : 'text-white hover:bg-white/[0.05]'
+                      }`}
                   >
-                    <span className="h-1.5 w-0 rounded-full bg-white opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100" />
+                    <span className={`h-1.5 w-0 rounded-full opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
                     {item.label}
                   </a>
                 )}
@@ -247,7 +257,7 @@ export default function Header() {
 
         {/* Desktop CTA Button */}
         <button className="hidden rounded-full bg-[#506c83] px-6 py-4 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669] hover:shadow-lg lg:flex lg:items-center lg:gap-2 cursor-pointer">
-          Get in touch now
+          Schedule a call
           <svg
             className="h-4 w-4"
             fill="none"

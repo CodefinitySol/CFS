@@ -87,7 +87,6 @@ export default function ServiceHeroSection({
 
                     {/* Right Image */}
                     <div className="w-full lg:w-[55%] relative">
-                        {/* We can add some floating elements animation later if needed, for now just the main image */}
                         <div className="relative w-full aspect-[4/3] lg:aspect-[16/10]">
                             <Image
                                 src={imageSrc}
