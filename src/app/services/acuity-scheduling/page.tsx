@@ -79,19 +79,20 @@ const ACUITY_FAQS = [
 ];
 
 import AcuityProjectSection from '@/components/services/AcuityProjectSection';
+import FounderSection from '@/components/services/FounderSection';
+import AcuitySetupSection from '@/components/services/AcuitySetupSection';
+import AcuityServiceFeatures from '@/components/services/AcuityServiceFeatures';
 
 export default function AcuitySchedulingPage() {
     return (
         <main className="min-h-screen bg-white text-[#1E293B]">
             <AcuityHeroSection />
             <ClientMarquee />
+            <AcuitySetupSection />
             <LatestWork />
             <TestimonialsSection />
-            <ServiceWhyChooseSection
-                badge="Why choose us"
-                title={<>Optimizing Schedules<br />With Purpose And Precision</>}
-                items={WHY_CHOOSE_ITEMS}
-            />
+            <FounderSection />
+            <AcuityServiceFeatures />
             <PlatformSelectionSection
                 title="The Scheduling Strategy"
                 description="Download our free guide on how to optimize your booking flow to increase appointment volume and reduce no-shows."
