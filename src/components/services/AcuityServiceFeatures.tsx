@@ -136,7 +136,7 @@ export default function AcuityServiceFeatures() {
                                 <div className="text-[#1E293B] group-hover:text-white transition-colors duration-300">
                                     {feature.icon}
                                 </div>
-                                <h3 className="font-aeonik text-2xl font-normal leading-tight heading-hover-gradient">
+                                <h3 className="font-aeonik text-2xl font-normal leading-tight text-[#1E293B] transition-all duration-300 group-hover:bg-[linear-gradient(94.13deg,#e8ecf0_0.14%,#506c83_153.8%)] group-hover:bg-clip-text group-hover:text-transparent inline-block">
                                     {feature.title}
                                 </h3>
                             </div>
@@ -149,21 +149,6 @@ export default function AcuityServiceFeatures() {
                     ))}
                 </div>
             </div>
-
-            <style jsx>{`
-                .heading-hover-gradient {
-                    color: #1E293B;
-                    transition: all 0.3s ease;
-                    display: inline-block;
-                }
-                .group:hover .heading-hover-gradient {
-                    background: linear-gradient(94.13deg, #e8ecf0 0.14%, #506c83 153.8%) !important;
-                    -webkit-background-clip: text !important;
-                    background-clip: text !important;
-                    -webkit-text-fill-color: transparent !important;
-                    color: transparent !important;
-                }
-            `}</style>
         </section>
     );
 }

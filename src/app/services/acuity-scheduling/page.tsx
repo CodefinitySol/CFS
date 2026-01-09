@@ -82,6 +82,7 @@ import AcuityProjectSection from '@/components/services/AcuityProjectSection';
 import FounderSection from '@/components/services/FounderSection';
 import AcuitySetupSection from '@/components/services/AcuitySetupSection';
 import AcuityServiceFeatures from '@/components/services/AcuityServiceFeatures';
+import AcuityManagementSection from '@/components/services/AcuityManagementSection';
 
 export default function AcuitySchedulingPage() {
     return (
@@ -93,6 +94,7 @@ export default function AcuitySchedulingPage() {
             <TestimonialsSection />
             <FounderSection />
             <AcuityServiceFeatures />
+            <AcuityManagementSection />
             <PlatformSelectionSection
                 title="The Scheduling Strategy"
                 description="Download our free guide on how to optimize your booking flow to increase appointment volume and reduce no-shows."
