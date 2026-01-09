@@ -11,15 +11,33 @@ export interface ChooseItem {
 }
 
 interface ServiceWhyChooseSectionProps {
-    badge: string;
-    title: React.ReactNode;
-    items: ChooseItem[];
+    badge?: string;
+    title?: React.ReactNode;
+    items?: ChooseItem[];
 }
 
+const DEFAULT_CHOOSE_ITEMS: ChooseItem[] = [
+    {
+        title: "Certified Squarespace Expertise",
+        description: "As experienced Squarespace experts, we know the platform inside and out, allowing us to push its capabilities to deliver a truly unique website.",
+        icon: "/services-section/choose-item-1.webp"
+    },
+    {
+        title: "Client-Centered Approach",
+        description: "We prioritize your input at every step, ensuring your website feels authentically you.",
+        icon: "/services-section/choose-item-2.webp"
+    },
+    {
+        title: "Proven Results",
+        description: "With 700+ successful projects completed, We've helped businesses like yours achieve their online goals with style and ease.",
+        icon: "/services-section/choose-item-3.webp"
+    }
+];
+
 export default function ServiceWhyChooseSection({
-    badge,
-    title,
-    items
+    badge = "Why choose us",
+    title = <>Designing Websites With<br />Purpose And Passion</>,
+    items = DEFAULT_CHOOSE_ITEMS
 }: ServiceWhyChooseSectionProps) {
     return (
         <section className="bg-white py-24 sm:py-32 overflow-hidden">

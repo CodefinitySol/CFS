@@ -4,7 +4,19 @@ import React from 'react';
 import Image from 'next/image';
 import { HiOutlineBookOpen, HiOutlineAcademicCap, HiOutlineLightBulb } from 'react-icons/hi2';
 
-export default function PlatformSelectionSection() {
+interface PlatformSelectionSectionProps {
+    title: React.ReactNode;
+    description: React.ReactNode;
+    imageSrc: string;
+    buttonText?: string;
+}
+
+export default function PlatformSelectionSection({
+    title,
+    description,
+    imageSrc,
+    buttonText = "Subscribe"
+}: PlatformSelectionSectionProps) {
     const textGradient = {
         backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 0.14%, #506c83 153.8%)',
         WebkitBackgroundClip: 'text',
@@ -21,8 +33,8 @@ export default function PlatformSelectionSection() {
                         {/* Left: Image */}
                         <div className="w-full lg:w-[40%] relative aspect-[16/10] rounded-lg overflow-hidden shadow-2xl">
                             <Image
-                                src="/services-section/platform.webp"
-                                alt="Modern workspace with laptop and keyboard"
+                                src={imageSrc}
+                                alt="Platform Selection Plateform"
                                 fill
                                 className="object-cover"
                             />
@@ -35,10 +47,10 @@ export default function PlatformSelectionSection() {
                                     className="font-aeonik text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-normal leading-[1.1] tracking-tight"
                                     style={textGradient}
                                 >
-                                    Choosing The Right Platform
+                                    {title}
                                 </h2>
                                 <p className="font-aeonik text-sm sm:text-base text-white/60 leading-relaxed max-w-xl">
-                                    Grab the free Squarespace vs. WordPress vs. Webflow vs. Wix whitepaper and discover which one&apos;s best for custom web design.
+                                    {description}
                                 </p>
                             </div>
 
@@ -51,7 +63,7 @@ export default function PlatformSelectionSection() {
                                         className="flex-1 bg-transparent px-5 py-1.5 text-white placeholder-white/40 focus:outline-none font-aeonik text-xs sm:text-sm"
                                     />
                                     <button className="bg-white text-[#516C83] px-6 py-2.5 rounded-full font-aeonik text-xs sm:text-sm font-medium transition-all hover:bg-white/90 cursor-pointer">
-                                        Subscribe
+                                        {buttonText}
                                     </button>
                                 </div>
                             </div>

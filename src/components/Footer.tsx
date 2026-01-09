@@ -136,21 +136,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Image Section with Crosshairs */}
-        <div className="relative w-full mt-12">
-
-          <div className="relative w-full aspect-[3/1] md:aspect-[4/1] overflow-hidden">
-            <Image
-              src="/footer-img.webp"
-              alt="by Crawford"
-              fill
-              className="object-contain"
-            />
-             {/* Border for the box */}
-            <div className="absolute inset-0 pointer-events-none" />
-          </div>
-        </div>
-
       </div>
     </footer>
   );

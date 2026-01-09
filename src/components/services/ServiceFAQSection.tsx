@@ -46,7 +46,11 @@ const SERVICE_FAQS = [
     }
 ];
 
-export default function ServiceFAQSection() {
+interface ServiceFAQSectionProps {
+    items?: { question: string; answer: string }[];
+}
+
+export default function ServiceFAQSection({ items = SERVICE_FAQS }: ServiceFAQSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
@@ -72,8 +76,8 @@ export default function ServiceFAQSection() {
                 </div>
 
                 {/* FAQ List */}
-                <div className="max-w-4xl mx-auto">
-                    {SERVICE_FAQS.map((faq, index) => (
+                <div className="mx-4 lg:mx-20">
+                    {items.map((faq, index) => (
                         <FAQItem
                             key={index}
                             question={faq.question}

@@ -10,17 +10,50 @@ export interface GrowthFeature {
 }
 
 interface GrowthSectionProps {
-    badge: string;
-    title: React.ReactNode;
-    description: React.ReactNode;
-    features: GrowthFeature[];
+    badge?: string;
+    title?: React.ReactNode;
+    description?: React.ReactNode;
+    features?: GrowthFeature[];
 }
 
+const DEFAULT_FEATURES: GrowthFeature[] = [
+    {
+        title: "Squarespace, Mastered",
+        description: "We've built hundreds of Squarespace websites. We know how to push the platform without breaking it—and when to add custom code to elevate function.",
+        icon: "/services-section/offer-item-1.webp"
+    },
+    {
+        title: "Strategic Design",
+        description: "We don't design in a vacuum. Every layout decision is informed by your goals, your audience, and your brand voice.",
+        icon: "/services-section/offer-item-2.webp"
+    },
+    {
+        title: "Built To Convert",
+        description: "Strong visuals are important—but structure is what converts. We make sure your site does both.",
+        icon: "/services-section/offer-item-3.webp"
+    },
+    {
+        title: "Seamless Functionality",
+        description: "Whether it's an online store, booking system, portfolio, or blog—to ensure your website works as hard as you do.",
+        icon: "/services-section/offer-item-4.webp"
+    },
+    {
+        title: "Collaborative Process",
+        description: "We work with you directly throughout. No handoffs. No surprises.",
+        icon: "/services-section/offer-item-5.webp"
+    },
+    {
+        title: "You Own Your Site",
+        description: "No ongoing retainers, no confusing IP clauses. You'll walk away with a website you can confidently manage—or have us continue to manage it for you.",
+        icon: "/services-section/offer-item-6.webp"
+    }
+];
+
 export default function GrowthSection({
-    badge,
-    title,
-    description,
-    features
+    badge = "What we offer",
+    title = "Designed For Growth, Not Just Launch",
+    description = "Your website is your first impression. It's also your infrastructure. That's why our custom Squarespace web design projects are built with your future in mind. From scalable page architecture to CMS-integrated content systems, we design sites that can evolve with your business.",
+    features = DEFAULT_FEATURES
 }: GrowthSectionProps) {
     const textGradient = {
         backgroundImage: 'linear-gradient(94.13deg, rgb(232, 236, 240) 0.14%, rgb(80, 108, 131) 153.8%)',
