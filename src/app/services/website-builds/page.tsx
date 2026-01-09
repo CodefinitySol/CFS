@@ -4,6 +4,8 @@ import ClientMarquee from '@/components/ClientMarquee';
 import GrowthSection from '@/components/services/GrowthSection';
 import ServiceWhyChooseSection from '@/components/services/ServiceWhyChooseSection';
 import PricingSection from '@/components/PricingSection';
+import WhoAmISection from '@/components/services/WhoAmISection';
+import PlatformSelectionSection from '@/components/services/PlatformSelectionSection';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 
 export default function WebsiteBuildsPage() {
@@ -29,6 +31,8 @@ export default function WebsiteBuildsPage() {
             <GrowthSection />
             <ServiceWhyChooseSection />
             <PricingSection />
+            <WhoAmISection />
+            <PlatformSelectionSection />
             <ServiceFAQSection />
         </main>
     );
