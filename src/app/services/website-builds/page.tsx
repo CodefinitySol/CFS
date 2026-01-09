@@ -1,19 +1,12 @@
-import Header from '@/components/Header';
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
-import Footer from '@/components/Footer'; // Assuming we want footer here too, although layout likely handles it?
 import LatestWork from '@/components/LatestWork';
 import ClientMarquee from '@/components/ClientMarquee';
 import PricingSection from '@/components/PricingSection';
-// The layout.tsx handles Footer globally? Let's check layout.tsx content previously viewed.
-// In Step 1605 summary: "Integrated the Footer component globally by adding it to the Root Layout."
-// So I don't need to add <Footer /> here.
+import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 
 export default function WebsiteBuildsPage() {
     return (
-        <main className="bg-[#181A1D] min-h-screen flex-grow relative">
-            <div className="absolute top-0 w-full z-50">
-                <Header />
-            </div>
+        <main className="min-h-screen bg-white">
             <ServiceHeroSection
                 badgeText="Website design"
                 title={
@@ -32,6 +25,7 @@ export default function WebsiteBuildsPage() {
             <LatestWork />
             <ClientMarquee />
             <PricingSection />
+            <ServiceFAQSection />
         </main>
     );
 }

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import Header from '../Header';
 
 interface ServiceHeroSectionProps {
     badgeText: string;
@@ -19,19 +20,23 @@ export default function ServiceHeroSection({
     bgImageSrc = '/bg-gradient.webp'
 }: ServiceHeroSectionProps) {
     return (
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#181A1D]">
+        <section className="relative w-full min-h-screen overflow-hidden bg-[#181A1D] flex flex-col">
+            {/* Header */}
+            <Header />
+
             {/* Background Image */}
-            <div className="absolute inset-0 w-full h-full z-0">
+            <div className="absolute inset-0 z-0">
                 <Image
                     src={bgImageSrc}
-                    alt="Background"
+                    alt="Background Gradient"
                     fill
-                    className="object-cover opacity-100" // Assuming the image itself has the dark tones
                     priority
+                    className="object-cover"
+                    quality={100}
                 />
             </div>
 
-            <div className="w-full max-w-[1920px] mx-auto mt-20 px-4 sm:px-8 lg:px-12 relative z-10 pt-20 pb-20 lg:pt-32 lg:pb-32">
+            <div className="flex-1 w-full max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 flex flex-col justify-center py-20 lg:py-32">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
                     {/* Left Content */}
