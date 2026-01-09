@@ -7,9 +7,13 @@ import Header from '../Header';
 interface ServiceHeroSectionProps {
     badgeText: string;
     title: React.ReactNode;
-    description: string;
+    description: React.ReactNode;
     imageSrc: string;
     bgImageSrc?: string;
+    titleClassName?: string;
+    descriptionClassName?: string;
+    sectionBgColor?: string;
+    imageOpacity?: number;
 }
 
 export default function ServiceHeroSection({
@@ -17,23 +21,32 @@ export default function ServiceHeroSection({
     title,
     description,
     imageSrc,
-    bgImageSrc = '/bg-gradient.webp'
+    bgImageSrc = '/bg-gradient.webp',
+    titleClassName = 'text-4xl sm:text-5xl lg:text-6xl',
+    descriptionClassName = 'text-lg',
+    sectionBgColor = '#181A1D',
+    imageOpacity = 1
 }: ServiceHeroSectionProps) {
     return (
-        <section className="relative w-full min-h-screen overflow-hidden bg-[#181A1D] flex flex-col">
+        <section
+            className="relative w-full min-h-screen overflow-hidden flex flex-col"
+            style={{ backgroundColor: sectionBgColor }}
+        >
             {/* Header */}
             <Header />
 
-            {/* Background Image */}
+            {/* Background Image with Dark Mask */}
             <div className="absolute inset-0 z-0">
-                <Image
-                    src={bgImageSrc}
-                    alt="Background Gradient"
-                    fill
-                    priority
-                    className="object-cover"
-                    quality={100}
-                />
+                <div style={{ opacity: imageOpacity }} className="absolute inset-0">
+                    <Image
+                        src={bgImageSrc}
+                        alt="Background Gradient"
+                        fill
+                        priority
+                        className="object-cover"
+                        quality={100}
+                    />
+                </div>
             </div>
 
             <div className="flex-1 w-full max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 flex flex-col justify-center py-20 lg:py-32">
@@ -52,14 +65,14 @@ export default function ServiceHeroSection({
                         </div>
 
                         {/* Heading */}
-                        <h1 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight">
+                        <h1 className={`font-aeonik font-normal leading-[1.1] tracking-tight ${titleClassName}`}>
                             {title}
                         </h1>
 
                         {/* Description */}
-                        <p className="font-aeonik text-lg text-[#E8ECF0]/80 leading-relaxed max-w-xl">
+                        <div className={`font-aeonik text-[#E8ECF0]/80 leading-relaxed max-w-xl ${descriptionClassName}`}>
                             {description}
-                        </p>
+                        </div>
 
                         {/* Schedule Call Button */}
                         <Link href="/contact" className="inline-flex items-center gap-2 rounded-full px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg group"

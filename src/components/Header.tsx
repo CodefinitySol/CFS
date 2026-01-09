@@ -30,6 +30,7 @@ const NAV_ITEMS: NavItem[] = [
         title: 'SEO',
         desc: 'Get seen online.',
         iconPath: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+        href: '/services/seo',
       },
       {
         title: 'Hosting & Maintenance',
