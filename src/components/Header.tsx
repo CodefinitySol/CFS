@@ -44,6 +44,7 @@ const NAV_ITEMS: NavItem[] = [
         desc: 'Migrate your site to Squarespace.',
         iconPath:
           'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
+        href: '/services/website-migration',
       },
       {
         title: 'E-commerce',
@@ -208,7 +209,15 @@ export default function Header() {
                                 </svg>
                               </div>
                               <div>
-                                <div className="text-sm font-medium text-white">
+                                <div
+                                  className="text-sm font-medium"
+                                  style={{
+                                    backgroundImage: 'linear-gradient(94.13deg, rgb(232, 236, 240) 0.14%, rgb(80, 108, 131) 153.8%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                  }}
+                                >
                                   {subItem.title}
                                 </div>
                                 <div className="text-[11px] leading-relaxed text-white/40">
