@@ -1,5 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 const ROW_ONE = [
   'AshGrove',
   'ChangeLab',
@@ -23,7 +25,13 @@ export default function ClientMarquee() {
     <section className="relative w-full overflow-hidden bg-white pb-24 pt-10 sm:pb-32 sm:pt-16">
       <div className="mx-auto max-w-[1600px] px-6 text-center sm:px-8 lg:px-12">
         {/* Header Content */}
-        <div className="mb-16 flex flex-col items-center gap-6">
+        <motion.div
+          className="mb-16 flex flex-col items-center gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#506C83]">
             <span className="mr-1.5 h-2 w-2 rounded-full bg-[#506c83]" />
             Partnerships
@@ -31,11 +39,17 @@ export default function ClientMarquee() {
           <h2 className="font-aeonik text-3xl font-normal text-[#1e293b] sm:text-4xl md:text-5xl">
             Our Amazing Clients
           </h2>
-        </div>
+        </motion.div>
 
         {/* Marquees */}
-        <div className="flex flex-col gap-10 sm:gap-14">
-          
+        <motion.div
+          className="flex flex-col gap-10 sm:gap-14"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+
           {/* Row 1 - Slower (Right to Left) */}
           <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div
@@ -74,8 +88,7 @@ export default function ClientMarquee() {
             </div>
           </div>
 
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );

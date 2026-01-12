@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const SOCIAL_LINKS = [
   {
@@ -113,7 +114,13 @@ export default function MeetSam() {
       <div className="mx-auto max-w-[1600px]">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#475569]">
               <span className="mr-2 h-2 w-2 rounded-full bg-[#64748B]" />
               Who we are
@@ -167,10 +174,16 @@ export default function MeetSam() {
                 </Link>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Image Content */}
-          <div className="relative mx-auto w-full max-w-[600px] lg:mr-0 lg:max-w-none">
+          <motion.div
+            className="relative mx-auto w-full max-w-[600px] lg:mr-0 lg:max-w-none"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-gray-100">
               {/* Image Placeholder */}
               <Image
@@ -201,7 +214,7 @@ export default function MeetSam() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

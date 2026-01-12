@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function OurOfficesSection() {
     return (
@@ -8,7 +9,13 @@ export default function OurOfficesSection() {
             <div className="mx-auto max-w-[1600px]">
 
                 {/* Header */}
-                <div className="flex flex-col items-start gap-6 mb-12">
+                <motion.div
+                    className="flex flex-col items-start gap-6 mb-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                >
                     {/* Badge */}
                     <div className="inline-flex items-center rounded-full bg-[#CFD6DC] px-4 py-1.5">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#506C83] mr-2"></span>
@@ -19,10 +26,16 @@ export default function OurOfficesSection() {
                     <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-[#181A1D]">
                         Where We Make It Happen
                     </h2>
-                </div>
+                </motion.div>
 
                 {/* Card */}
-                <div className="group relative rounded-[12px] border border-gray-100 p-4 lg:p-6 transition-all duration-300 hover:bg-[#516C83] hover:border-[#516C83] hover:shadow-2xl">
+                <motion.div
+                    className="group relative rounded-[12px] border border-gray-100 p-4 lg:p-6 transition-all duration-300 hover:bg-[#516C83] hover:border-[#516C83] hover:shadow-2xl"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
                     <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
                         {/* Image */}
                         <div className="relative w-full lg:w-[400px] h-[200px] sm:h-[240px] lg:h-[260px] rounded-xl overflow-hidden flex-shrink-0">
@@ -158,7 +171,7 @@ export default function OurOfficesSection() {
                         </div>
                     </div>
 
-                </div>
+                </motion.div>
             </div>
         </section>
     );

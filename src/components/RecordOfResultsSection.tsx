@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const stats = [
     {
@@ -82,7 +83,13 @@ export default function RecordOfResultsSection() {
             {/* Top Part - Gray Background */}
             <div className="bg-[#E8ECF0] px-6 py-20 lg:px-8 xl:px-12 pb-32 lg:pb-48">
                 <div className="mx-auto max-w-[1600px]">
-                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
+                    <motion.div
+                        className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
 
                         {/* Left Content */}
                         <div className="max-w-3xl flex flex-col items-start text-left">
@@ -114,7 +121,7 @@ export default function RecordOfResultsSection() {
                             </svg>
                         </Link>
 
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
@@ -122,8 +129,15 @@ export default function RecordOfResultsSection() {
             <div className="bg-[#E8ECF0] lg:bg-gradient-to-b lg:from-[#E8ECF0] lg:from-50% lg:via-white lg:via-50% lg:to-white lg:to-100% px-6 pb-20 lg:px-8 xl:px-12">
                 <div className="mx-auto max-w-[1600px] -mt-12 lg:-mt-32">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        {stats.map((stat) => (
-                            <div key={stat.id} className="bg-white rounded-[24px] p-8 lg:p-10 shadow-sm border border-black/5 flex flex-col h-full">
+                        {stats.map((stat, index) => (
+                            <motion.div
+                                key={stat.id}
+                                className="bg-white rounded-[24px] p-8 lg:p-10 shadow-sm border border-black/5 flex flex-col h-full"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.15 }}
+                            >
 
                                 {/* Top Row: Title */}
                                 <h3 className="font-aeonik text-lg font-medium text-[#181A1D] mb-12">
@@ -151,7 +165,7 @@ export default function RecordOfResultsSection() {
                                     {stat.description}
                                 </p>
 
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { MdVerified } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 const TESTIMONIALS_ROW_1 = [
   {
@@ -76,9 +77,8 @@ function StarRating({ rating }: { rating: number }) {
       {[...Array(5)].map((_, i) => (
         <svg
           key={i}
-          className={`h-4 w-4 ${
-            i < rating ? 'text-[#506C83]' : 'text-gray-300'
-          }`}
+          className={`h-4 w-4 ${i < rating ? 'text-[#506C83]' : 'text-gray-300'
+            }`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -107,7 +107,7 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
       setOffset((prevOffset) => {
         const movement = (delta / 1000) * (cardWidth / speed);
         const newOffset = prevOffset + movement;
-        
+
         if (newOffset >= totalWidth) {
           return newOffset - totalWidth;
         }
@@ -186,9 +186,15 @@ export default function TestimonialsSection() {
     <section className="relative w-full overflow-hidden bg-[#181A1D] py-24 sm:py-32">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="mb-16 flex items-center justify-between">
+        <motion.div
+          className="mb-16 flex items-center justify-between"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div>
-            <span 
+            <span
               className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white/90"
               style={{
                 background: 'linear-gradient(90deg, rgba(232, 236, 240, .3) 0%, rgba(80, 108, 131, .3) 100%)',
@@ -197,7 +203,7 @@ export default function TestimonialsSection() {
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-white/60" />
               Testimonials
             </span>
-            <h2 
+            <h2
               className="mt-6 font-aeonik text-4xl font-normal sm:text-5xl lg:text-6xl"
               style={{
                 backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
@@ -212,23 +218,29 @@ export default function TestimonialsSection() {
           <button className="hidden rounded-full bg-[#506C83] px-6 py-3 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669] lg:block">
             View all
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scrolling Rows with Edge Fade */}
       <div className="relative flex flex-col gap-6 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         {/* Row 1 */}
         <InfiniteCarousel testimonials={TESTIMONIALS_ROW_1} speed={13} />
-        
+
         {/* Row 2 */}
         <InfiniteCarousel testimonials={TESTIMONIALS_ROW_2} speed={16} />
       </div>
 
       {/* Footer CTA Pill */}
-      <div className="mt-16 flex justify-center">
-        <div 
+      <motion.div
+        className="mt-16 flex justify-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div
           className="inline-flex items-center gap-6 rounded-full px-2 py-2 pl-4 bg-[#2A3640]"
-          
+
         >
           {/* Avatar Stack */}
           <div className="flex items-center">
@@ -250,13 +262,13 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Book a call Button */}
-          <button 
+          <button
             className="rounded-full bg-[#506C83] px-6 py-2.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669]"
           >
             Book a call
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

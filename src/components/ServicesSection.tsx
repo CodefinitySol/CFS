@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const SERVICES = [
   {
@@ -77,9 +78,15 @@ export default function ServicesSection() {
     <section className="bg-[#181A1D] py-18 sm:py-22">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="mb-20 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+        <motion.div
+          className="mb-20 flex flex-col justify-between gap-8 lg:flex-row lg:items-end"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-3xl">
-            <span 
+            <span
               className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white/80"
               style={{
                 background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(80, 108, 131, 0.3) 100%)'
@@ -88,7 +95,7 @@ export default function ServicesSection() {
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-white/60" />
               Our services
             </span>
-            <h2 
+            <h2
               className="mt-8 font-aeonik text-4xl font-normal leading-tight text-white lg:text-5xl lg:leading-[1.1]"
               style={{
                 backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
@@ -97,7 +104,7 @@ export default function ServicesSection() {
                 backgroundClip: 'text',
               }}
             >
-               Built Around Real Product Needs
+              Built Around Real Product Needs
             </h2>
             <p className="mt-6 font-aeonik text-lg text-white/60">
               We offer a focused set of services covering the full lifecycle of modern software products. From AI-driven systems to web and mobile applications, we build what is needed, cut what is not, and stay involved long after launch.
@@ -106,7 +113,7 @@ export default function ServicesSection() {
           <button className="rounded-full bg-[#506C83] px-8 py-4 font-aeonik text-base font-medium text-white transition-all hover:bg-[#405669]">
             Explore services
           </button>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-6">
@@ -141,10 +148,10 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
   // Tailored positioning based on the specific mockup for each card
   const getImagePlacement = () => {
     if (!hasImage) return "";
-    
+
     // Mobile-first classes
     if (service.title === 'SEO Optimization') return "w-[80%] h-[40%] right-[-5%] top-0 lg:w-[70%] lg:h-[35%] lg:right-[-2%] lg:top-0";
-    
+
     switch (service.title) {
       case 'AI Development and Automation':
         return "w-[85%] h-[50%] right-[-5%] bottom-0 lg:w-[55%] lg:h-[65%] lg:right-[-2%] lg:bottom-0";
@@ -164,10 +171,19 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
   const imagePlacement = getImagePlacement();
 
   return (
-    <div 
-      className={`group relative flex flex-col overflow-hidden rounded-3xl bg-[#181a1d] transition-all duration-500 hover:bg-[#1c1f22] border border-white/5 h-full ${className}`}
+    <motion.div
+      className={`group relative flex flex-col overflow-hidden rounded-3xl bg-[#181a1d] border border-white/5 h-full ${className}`}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      whileHover={{
+        scale: 1.02,
+        backgroundColor: '#22252a',
+        transition: { duration: 0.3 }
+      }}
     >
-      <div 
+      <div
         className={`relative z-10 flex flex-col p-8 sm:p-10 ${isWide ? 'lg:w-[60%]' : 'w-full'} 
         ${hasImage ? (isTopImage ? 'pt-64 sm:pt-80 lg:pt-10' : 'pb-64 sm:pb-80 lg:pb-10') : ''} 
         h-full ${hasImage ? 'min-h-[520px] sm:min-h-[580px]' : 'min-h-0'} lg:min-h-0`}
@@ -193,8 +209,8 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
           {service.description.split('\n\n').map((para, i) => (
             <p key={i}>
               {para.split(/(\b(?:churches|real estate agents|medical companies|law firms|Squarespace|Squarespace web designer UK|WordPress)\b)/).map((part, j) => (
-                <span 
-                  key={j} 
+                <span
+                  key={j}
                   className={part.match(/\b(?:churches|real estate agents|medical companies|law firms|Squarespace|Squarespace web designer UK|WordPress)\b/) ? "font-medium text-white/70" : ""}
                 >
                   {part}
@@ -206,7 +222,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
 
         {/* Link */}
         <div className="mt-auto">
-          <Link 
+          <Link
             href={service.link}
             className="inline-flex items-center text-sm font-medium text-white underline decoration-white/20 underline-offset-[10px] transition-all hover:decoration-white"
           >
@@ -217,7 +233,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
 
       {/* Decorative Image */}
       {service.image && (
-        <div 
+        <div
           className={`absolute pointer-events-none ${imagePlacement}`}
         >
           <div className="relative h-full w-full">
@@ -225,16 +241,15 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
               src={service.image}
               alt={`${service.title} visual`}
               fill
-              className={`object-contain ${
-                service.title === 'AI Development and Automation' ? 'object-right-bottom' : 
+              className={`object-contain ${service.title === 'AI Development and Automation' ? 'object-right-bottom' :
                 service.title === 'Web Application Development' ? 'object-right-top' :
-                service.title === 'Dedicated Teams and Augmentation' ? 'object-right-top' :
-                'object-right-bottom'
-              }`}
+                  service.title === 'Dedicated Teams and Augmentation' ? 'object-right-top' :
+                    'object-right-bottom'
+                }`}
             />
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

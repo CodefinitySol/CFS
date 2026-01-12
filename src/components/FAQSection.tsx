@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { HiPlus, HiMinus } from 'react-icons/hi2';
 import FAQItem from './FAQItem';
+import { motion } from 'framer-motion';
 
 const FAQS = [
   {
@@ -62,7 +63,13 @@ export default function FAQSection() {
           <div className="absolute bottom-0 left-0 w-8 h-8 flex items-center justify-center text-[#506C83] text-3xl -translate-x-1/2 translate-y-1/2">+</div>
           <div className="absolute bottom-0 right-0 w-8 h-8 flex items-center justify-center text-[#506C83] text-3xl translate-x-1/2 translate-y-1/2">+</div>
 
-          <div className="max-w-5xl mx-auto flex flex-col items-start relative z-10">
+          <motion.div
+            className="max-w-5xl mx-auto flex flex-col items-start relative z-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="w-full text-left">
               <span
                 className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#AEB9C4]"
@@ -108,7 +115,7 @@ export default function FAQSection() {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

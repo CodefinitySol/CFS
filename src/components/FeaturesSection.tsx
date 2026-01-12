@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { HiOutlineSquaresPlus, HiOutlineDevicePhoneMobile, HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { LuLayoutTemplate } from 'react-icons/lu';
+import { motion } from 'framer-motion';
 
 const FEATURES = [
   {
@@ -56,8 +57,14 @@ export default function FeaturesSection() {
     <section className="bg-white py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-20 flex flex-col items-center text-center">
-          <span 
+        <motion.div
+          className="mb-20 flex flex-col items-center text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <span
             className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#CFD6DC]"
           >
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
@@ -69,20 +76,24 @@ export default function FeaturesSection() {
           <p className="mt-6 font-aeonik text-lg text-[#506C83]/80 max-w-2xl">
             At by Crawford, we offer a range of Squarespace web design services to help you create a stunning website that effectively showcases your brand.
           </p>
-        </div>
+        </motion.div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURES.map((feature, index) => (
-            <div 
+            <motion.div
               key={index}
               className="group relative flex flex-col items-start p-10 rounded-[20px] border border-gray-100 bg-[#516C83] lg:bg-white transition-all duration-500 lg:hover:bg-[#516C83] min-h-[560px]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* Hover Image Area */}
-              <div 
+              <div
                 className={`absolute left-0 w-full opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 overflow-hidden ${feature.hoverStyles.height} ${feature.hoverStyles.top}`}
               >
-                <Image 
+                <Image
                   src={feature.hoverImage}
                   alt={feature.title}
                   fill
@@ -107,7 +118,7 @@ export default function FeaturesSection() {
                   {feature.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

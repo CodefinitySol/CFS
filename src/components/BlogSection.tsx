@@ -9,6 +9,7 @@ import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { motion } from 'framer-motion';
 
 const BLOG_POSTS = [
   {
@@ -55,9 +56,15 @@ export default function BlogSection() {
     <section className="bg-white py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
         {/* Header Section */}
-        <div className="mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+        <motion.div
+          className="mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-5xl">
-            <span 
+            <span
               className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#CFD6DC]"
             >
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
@@ -76,14 +83,14 @@ export default function BlogSection() {
 
           {/* Navigation Arrows */}
           <div className="flex gap-4">
-            <button 
+            <button
               onClick={() => swiper?.slidePrev()}
               className="flex h-12 w-16 items-center justify-center rounded-full bg-[#516C83]/20 text-[#506C83] cursor-pointer transition-all hover:bg-[#516C83] hover:text-white"
               aria-label="Previous slide"
             >
               <HiArrowLeft className="h-6 w-6" />
             </button>
-            <button 
+            <button
               onClick={() => swiper?.slideNext()}
               className="flex h-12 w-16 items-center justify-center rounded-full bg-[#516C83]/20 text-[#506C83] cursor-pointer transition-all hover:bg-[#516C83] hover:text-white"
               aria-label="Next slide"
@@ -91,10 +98,16 @@ export default function BlogSection() {
               <HiArrowRight className="h-6 w-6" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Blog Carousel */}
-        <div className="blog-swiper-container [&_.swiper-wrapper]:flex [&_.swiper-wrapper]:items-stretch">
+        <motion.div
+          className="blog-swiper-container [&_.swiper-wrapper]:flex [&_.swiper-wrapper]:items-stretch"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <Swiper
             onSwiper={setSwiper}
             modules={[Navigation]}
@@ -112,7 +125,7 @@ export default function BlogSection() {
                 <div className="group flex w-full flex-col rounded-[18px] bg-[#E8ECF0]/50 border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 h-full">
                   {/* Image Container */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden flex-shrink-0">
-                    <Image 
+                    <Image
                       src={post.image}
                       alt={post.title}
                       fill
@@ -140,7 +153,7 @@ export default function BlogSection() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

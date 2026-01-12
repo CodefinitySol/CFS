@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
 import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
@@ -42,7 +43,13 @@ export default function WhyChooseSection() {
     <section className="bg-[#E8ECF0] py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
         {/* Header with Navigation */}
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <motion.div
+          className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-3xl text-left">
             <span
               className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#BEC8D1]"
@@ -75,68 +82,75 @@ export default function WhyChooseSection() {
               <HiArrowRight className="h-6 w-6" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Swiper Content Card */}
-        <Swiper
-          onSwiper={(swiper) => {
-            (swiperRef as any).current = swiper;
-          }}
-          modules={[Navigation, Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          loop={true}
-          pagination={{
-            clickable: true,
-            el: '.custom-pagination',
-            bulletClass: 'custom-bullet',
-            bulletActiveClass: 'custom-bullet-active',
-          }}
-          className="rounded-[32px]"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {REASONS.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative overflow-hidden rounded-[32px] bg-[#17181B] p-6 sm:p-12 min-h-[600px] flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                {/* Image Side */}
-                <div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] rounded-2xl overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover object-center"
-                    priority={index === 0}
-                  />
+          <Swiper
+            onSwiper={(swiper) => {
+              (swiperRef as any).current = swiper;
+            }}
+            modules={[Navigation, Pagination]}
+            spaceBetween={50}
+            slidesPerView={1}
+            loop={true}
+            pagination={{
+              clickable: true,
+              el: '.custom-pagination',
+              bulletClass: 'custom-bullet',
+              bulletActiveClass: 'custom-bullet-active',
+            }}
+            className="rounded-[32px]"
+          >
+            {REASONS.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative overflow-hidden rounded-[32px] bg-[#17181B] p-6 sm:p-12 min-h-[600px] flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                  {/* Image Side */}
+                  <div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] rounded-2xl overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover object-center"
+                      priority={index === 0}
+                    />
 
-                  {/* Subtle Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
-                </div>
+                    {/* Subtle Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                  </div>
 
-                {/* Text Side */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                  <h3
-                    className="font-aeonik text-4xl lg:text-5xl font-normal leading-tight mb-8"
-                    style={{
-                      backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    {item.title}
-                  </h3>
+                  {/* Text Side */}
+                  <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                    <h3
+                      className="font-aeonik text-4xl lg:text-5xl font-normal leading-tight mb-8"
+                      style={{
+                        backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      {item.title}
+                    </h3>
 
-                  <div className="space-y-6">
-                    {item.description.split('\n\n').map((para, i) => (
-                      <p key={i} className="font-aeonik text-base lg:text-lg text-white leading-relaxed opacity-90">
-                        {para}
-                      </p>
-                    ))}
+                    <div className="space-y-6">
+                      {item.description.split('\n\n').map((para, i) => (
+                        <p key={i} className="font-aeonik text-base lg:text-lg text-white leading-relaxed opacity-90">
+                          {para}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
 
         {/* Custom Pagination Indicators */}
         <div className="custom-pagination mt-12 flex justify-center gap-3 [&_.custom-bullet]:h-2 [&_.custom-bullet]:w-2 [&_.custom-bullet]:bg-[#506C83]/30 [&_.custom-bullet]:rounded-full [&_.custom-bullet]:transition-all [&_.custom-bullet]:duration-300 [&_.custom-bullet]:duration-300 [&_.custom-bullet]:cursor-pointer [&_.custom-bullet-active]:w-12 [&_.custom-bullet-active]:bg-[#506C83]" />

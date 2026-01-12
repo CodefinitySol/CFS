@@ -3,8 +3,42 @@
 import Image from 'next/image';
 import Header from './Header';
 import ContactForm from './ContactForm';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.6,
+      },
+    },
+  };
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#080c14] pb-24 sm:pb-32 lg:pb-40">
@@ -26,9 +60,17 @@ export default function HeroSection() {
       <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-12 sm:px-8 md:py-16 lg:px-10 lg:py-20 xl:px-12">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-20 xl:gap-24">
           {/* Left Section - Hero Content */}
-          <div className="flex-1 space-y-5 lg:space-y-8">
+          <motion.div
+            className="flex-1 space-y-5 lg:space-y-8"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
             {/* Top Badge Group */}
-            <div className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.02] p-1 backdrop-blur-md">
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.02] p-1 backdrop-blur-md"
+            >
               <div
                 className="flex items-center gap-2 rounded-full px-4 py-1.5 transition-transform hover:scale-[1.02]"
                 style={{
@@ -44,10 +86,11 @@ export default function HeroSection() {
               <button className="px-5 font-aeonik text-xs font-medium text-white/60 transition-colors hover:text-white">
                 Get in touch now
               </button>
-            </div>
+            </motion.div>
 
             {/* Main Heading */}
-            <h1
+            <motion.h1
+              variants={itemVariants}
               className="font-aeonik text-2xl font-normal leading-[1.2] sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl bg-clip-text text-transparent"
               style={{
                 backgroundImage:
@@ -74,15 +117,21 @@ export default function HeroSection() {
                 />
               </span>
               Software<br /> Built to Scale, Not Just Ship
-            </h1>
+            </motion.h1>
 
             {/* Description */}
-            <p className="glass-text max-w-2xl font-aeonik text-xs leading-[1.6] text-white/90 sm:text-sm md:text-base">
+            <motion.p
+              variants={itemVariants}
+              className="glass-text max-w-2xl font-aeonik text-xs leading-[1.6] text-white/90 sm:text-sm md:text-base"
+            >
               We design and build reliable software products from web and mobile applications to complex systems that grow with your business. Our team works across modern stacks, AI-driven workflows, and cloud infrastructure to turn ideas into products that are stable, maintainable, and ready for real users. Clear communication. Thoughtful engineering. No shortcuts.
-            </p>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4"
+            >
               <button className="group flex items-center gap-2 rounded-full border border-white/90 bg-white px-7 py-3.5 font-aeonik text-base font-medium text-gray-900 transition-all hover:border-white hover:shadow-lg cursor-pointer">
                 Schedule a call
                 <svg
@@ -102,10 +151,13 @@ export default function HeroSection() {
               <button className="rounded-full bg-[#374151] px-7 py-3.5 font-aeonik text-base font-medium text-white transition-all hover:bg-[#4b5563] cursor-pointer">
                 See how we work
               </button>
-            </div>
+            </motion.div>
 
             {/* Awards Section */}
-            <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-4 sm:gap-6 md:gap-8"
+            >
               <div className="relative h-20 w-20 flex-shrink-0 sm:h-24 sm:w-24 md:h-32 md:w-32">
                 <Image
                   src="/marketplace.webp"
@@ -130,13 +182,18 @@ export default function HeroSection() {
                   className="object-contain"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Section - Contact Form */}
-          <div className="relative w-full lg:w-[520px] lg:flex-shrink-0">
+          <motion.div
+            className="relative w-full lg:w-[520px] lg:flex-shrink-0"
+            initial="hidden"
+            animate="visible"
+            variants={formVariants}
+          >
             <ContactForm />
-          </div>
+          </motion.div>
         </div>
       </div>
 

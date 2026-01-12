@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import { HiArrowUpRight } from 'react-icons/hi2';
+import { motion } from 'framer-motion';
 
 export interface PricingPlan {
   name: string;
@@ -75,7 +76,13 @@ export default function PricingSection({
     <section className="bg-white py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-20 flex flex-col items-center text-center">
+        <motion.div
+          className="mb-20 flex flex-col items-center text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <span
             className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83]"
             style={{
@@ -91,14 +98,14 @@ export default function PricingSection({
           <p className="mt-6 font-aeonik text-lg text-[#506C83]/80">
             {description}
           </p>
-        </div>
+        </motion.div>
 
         {/* Pricing Container */}
         <div className={`mx-auto bg-[#17181B] rounded-[24px] p-2 sm:p-2 lg:p-4 ${containerClassName && containerClassName.includes('max-w-') ? containerClassName.match(/max-w-[^\s]+/)?.[0] : 'max-w-full'}`}>
           <div className={`grid ${containerClassName ? containerClassName.replace(/max-w-[^\s]+/g, '').replace('mx-auto', '').trim() : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-0`}>
             {/* Plan Cards */}
             {plans.map((plan, index) => (
-              <PricingCard key={plan.name} plan={plan} isLast={index === plans.length - 1} />
+              <PricingCard key={plan.name} plan={plan} isLast={index === plans.length - 1} index={index} />
             ))}
           </div>
         </div>
@@ -107,7 +114,7 @@ export default function PricingSection({
   );
 }
 
-function PricingCard({ plan, isLast }: { plan: PricingPlan, isLast: boolean }) {
+function PricingCard({ plan, isLast, index }: { plan: PricingPlan, isLast: boolean, index: number }) {
   const gradientStyle = {
     backgroundImage: 'linear-gradient(94.74deg, #fff .26%, #506c83 118.16%)',
     WebkitBackgroundClip: 'text',
@@ -116,7 +123,7 @@ function PricingCard({ plan, isLast }: { plan: PricingPlan, isLast: boolean }) {
   };
 
   return (
-    <div
+    <motion.div
       className={`
         relative flex flex-col p-8 sm:p-12 lg:p-14 transition-all duration-300 h-full
         ${plan.isDark
@@ -124,6 +131,10 @@ function PricingCard({ plan, isLast }: { plan: PricingPlan, isLast: boolean }) {
           : 'bg-white rounded-[20px] text-[#181A1D] shadow-2xl shadow-black/40 lg:z-10'
         }
       `}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
     >
       {/* Badge */}
       <div className="relative mb-12 inline-flex items-center justify-center min-w-[120px] h-[44px] self-start">
@@ -206,7 +217,7 @@ function PricingCard({ plan, isLast }: { plan: PricingPlan, isLast: boolean }) {
         Schedule a call
         <HiArrowUpRight className="h-4 w-4" />
       </button>
-    </div>
+    </motion.div>
   );
 }
 

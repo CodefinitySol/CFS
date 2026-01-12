@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { HiArrowUpRight } from 'react-icons/hi2';
 import { FiCheck, FiChevronDown } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const SUBJECT_OPTIONS = [
   { label: 'New product development', value: 'new-product-development' },
@@ -74,7 +75,13 @@ export default function ContactSection() {
 
           <div className="relative z-10 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
             {/* Left Side - Content */}
-            <div className="flex flex-col">
+            <motion.div
+              className="flex flex-col"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <div>
                 <span
                   className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-white"
@@ -161,10 +168,17 @@ export default function ContactSection() {
                   <HiArrowUpRight className="h-4 w-4" />
                 </button>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Side - Form */}
-            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+            <motion.form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-8"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="flex flex-col gap-3">
                   <label className="ml-1 text-sm font-medium text-white/60">
@@ -205,8 +219,8 @@ export default function ContactSection() {
                     type="button"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className={`flex w-full items-center justify-between rounded-2xl border bg-white/5 px-6 py-4 text-left transition-all duration-200 focus:outline-none ${isDropdownOpen
-                        ? 'border-[#516C83] ring-1 ring-[#516C83]'
-                        : 'border-white/10 hover:border-white/20'
+                      ? 'border-[#516C83] ring-1 ring-[#516C83]'
+                      : 'border-white/10 hover:border-white/20'
                       }`}
                   >
                     <span
@@ -250,8 +264,8 @@ export default function ContactSection() {
                                 type="button"
                                 onClick={() => handleSubjectSelect(option.value)}
                                 className={`flex w-full items-center justify-between px-6 py-3.5 text-left font-aeonik text-base transition-all duration-200 ${isSelected
-                                    ? 'bg-white/5 font-medium text-white'
-                                    : 'text-white/60 hover:bg-white/5 hover:text-white'
+                                  ? 'bg-white/5 font-medium text-white'
+                                  : 'text-white/60 hover:bg-white/5 hover:text-white'
                                   }`}
                               >
                                 <span>{option.label}</span>
@@ -290,7 +304,7 @@ export default function ContactSection() {
               >
                 Submit
               </button>
-            </form>
+            </motion.form>
           </div>
         </div>
       </div>

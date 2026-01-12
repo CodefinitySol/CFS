@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
 import 'swiper/css';
 
 const PROJECTS = [
@@ -43,7 +44,13 @@ export default function LatestWork() {
     <section className="overflow-hidden bg-[linear-gradient(to_bottom,#EDF2F6_80%,#ffffff_80%)] py-18 sm:py-18">
       {/* Header */}
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
+        <motion.div
+          className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-5xl space-y-8">
             <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#475569]">
               <span className="mr-2 h-2 w-2 rounded-full bg-[#506c83]" />
@@ -65,11 +72,17 @@ export default function LatestWork() {
           >
             View all work
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       {/* Carousel Container */}
-      <div className="mt-16 sm:mt-20">
+      <motion.div
+        className="mt-16 sm:mt-20"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <Swiper
           spaceBetween={24}
           slidesPerView="auto"
@@ -145,7 +158,7 @@ export default function LatestWork() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const STEPS = [
   {
@@ -61,7 +62,13 @@ export default function ProcessSection() {
     <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="mb-16 max-w-2xl">
+        <motion.div
+          className="mb-16 max-w-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <span className="inline-flex items-center rounded-full bg-[#506C834D] bg-opacity-10 px-4 py-1.5 text-sm font-medium text-[#506C83]">
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506c83]" />
             Smooth and efficient process
@@ -69,14 +76,18 @@ export default function ProcessSection() {
           <h2 className="mt-6 font-aeonik text-4xl font-normal leading-tight text-[#1E293B] sm:text-5xl lg:text-6xl">
             How We Take a Product From Idea to Production
           </h2>
-        </div>
+        </motion.div>
 
         {/* Steps Grid */}
         <div className="grid gap-8 lg:grid-cols-3">
           {STEPS.map((step, index) => (
-            <div
+            <motion.div
               key={index}
               className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#506C83] hover:bg-[#506C83] hover:shadow-xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               {/* Background Number */}
               <div className="absolute left-[-18] top-0 font-aeonik text-[180px] font-bold leading-none text-[#506C83] opacity-[0.08] transition-colors group-hover:text-white group-hover:opacity-10">
@@ -110,7 +121,7 @@ export default function ProcessSection() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
