@@ -5,76 +5,76 @@ import Link from 'next/link';
 
 const SERVICES = [
   {
-    title: 'Custom Website Design',
+    title: 'AI Development and Automation',
     icon: '/services/Devices.webp',
-    description: 'Catering to all industries, from churches, real estate agents, medical companies, to law firms ensuring your website reflects your unique brand.\n\nSpecializing in custom website design and Squarespace custom website designing, I create bespoke sites that capture your brand and convert visitors into customers.',
+    description: 'We design and build AI-powered systems that solve real problems. This includes AI agents, LLM-based workflows, model training, and intelligent automation tailored to your product or internal operations.\n\n Our team works deeply with Python-based stacks and modern AI frameworks, handling everything from architecture and experimentation to production deployment and monitoring.',
     image: '/services/custom.webp',
     link: '#',
     wide: true,
   },
   {
-    title: 'No-Code, Hassle-Free Design',
+    title: 'Web Application Development',
     icon: '/services/HandGrabbing.webp',
-    description: 'Enjoy exceptional design without the need for complex code, saving you time and money on maintenance.\n\nProfessional no-code website design using Squarespace’s intuitive platform. Get stunning, hassle-free websites without technical complexity or ongoing maintenance headaches.',
+    description: 'We build robust web applications using modern stacks like MERN and Python. Many of our products are AI-native by design, while others focus on performance, reliability, and clean user experience.\n\n Whether it is a customer-facing platform, internal tool, or SaaS product, we build systems that are easy to maintain and ready to scale.',
     image: '/services/nocode.webp',
     link: '#',
     wide: true,
   },
   {
-    title: 'Coding Support',
+    title: 'Mobile Application Development',
     icon: '/services/Code.webp',
-    description: 'Need something unique? I offer custom coding services to push the boundaries of what’s possible on Squarespace.\n\nCustom code Squarespace expertise, and tailored code support service. I create unique website functionality through advanced coding that exceeds platform limitations.',
+    description: 'We develop mobile applications that integrate seamlessly with your backend systems and business logic. From MVPs to production-ready apps, we focus on stability, performance, and long-term usability rather than quick demos.',
     link: '#',
   },
   {
-    title: 'Online Course Platforms',
+    title: 'No-Code and Workflow Automation',
     icon: '/services/GraduationCap.webp',
-    description: 'Want to monetize your expertise? I can help you set up a course platform to share your knowledge and generate income.\n\nAs a leading Squarespace web designer UK, I specialize in Squarespace online course design and custom Squarespace course website development for educational entrepreneurs.',
+    description: 'For teams that need speed without unnecessary complexity, we offer no-code and low-code solutions using tools like n8n, CMS platforms, and modern automation stacks.\n\n This is ideal for internal tools, integrations, dashboards, and rapid launches where efficiency matters more than custom code everywhere.',
     link: '#',
   },
   {
-    title: 'Accessibility Audits',
+    title: 'DevOps and Infrastructure',
     icon: '/services/File.webp',
-    description: 'Make sure your site is accessible to everyone. I can conduct an accessibility audit to ensure compliance.\n\nProfessional website accessibility audits and compliance assessments. Ensure your Squarespace site meets WCAG standards, creating inclusive experiences for all users.',
+    description: 'We handle deployment, cloud setup, CI pipelines, monitoring, and scaling. Our goal is simple: your product should be stable, observable, and easy to operate as usage grows.\n\n We support both new infrastructure setups and improvements to existing systems.',
     link: '#',
   },
   {
-    title: 'Website Migration',
+    title: 'Dedicated Teams and Augmentation',
     icon: '/services/ArrowsClockwise.webp',
-    description: 'Switching platforms? I’ll ensure a smooth transition to Squarespace, making the process effortless for you.\n\nSpecialized website migration service for migrate WordPress to Squarespace projects. Professional migration of website content, design, and functionality without complications.',
+    description: 'We provide dedicated engineers and full teams who integrate directly into your workflow. This model works well for companies that need long-term ownership without the overhead of hiring internally.\n\n You get experienced developers, clear communication, and consistent delivery.',
     image: '/services/squarespace-home-page.webp',
     link: '#',
     wide: true,
   },
-  {
-    title: 'Website Management',
-    icon: '/services/GearSix.webp',
-    description: 'Even though Squarespace minimises maintenance, I’m here to help if you need support with updates or changes.\n\nProfessional website management services and Squarespace website maintenance. Comprehensive website management service, including updates, changes, and ongoing technical support.',
-    image: '/services/squarespace.webp',
-    link: '#',
-    wide: true,
-  },
-  {
-    title: 'E-Commerce Solutions',
-    icon: '/services/ShoppingCart.webp',
-    description: 'Ready to sell online? I’ll set up your Squarespace ecommerce store, so you can reach customers globally.\n\nExpert Squarespace ecommerce and ecommerce web design services. Trusted ecommerce website designers creating powerful ecommerce website design solutions for global reach.',
-    image: '/services/product.webp',
-    link: '#',
-    wide: true,
-  },
-  {
-    title: 'SEO Optimization',
-    icon: '/services/MagnifyingGlass.webp',
-    description: 'A beautiful website is useless if it’s not found. I lay the groundwork for your site to shine on Google with effective search engine optimization.\n\nSpecialized SEO optimization for Squarespace and website SEO optimization solutions. Comprehensive search engine optimization Squarespace strategies for maximum online visibility.',
-    image: '/services/seo.webp',
-    link: '#',
-    wide: false,
-  },
+  // {
+  //   title: 'Website Management',
+  //   icon: '/services/GearSix.webp',
+  //   description: 'Even though Squarespace minimises maintenance, I’m here to help if you need support with updates or changes.\n\nProfessional website management services and Squarespace website maintenance. Comprehensive website management service, including updates, changes, and ongoing technical support.',
+  //   image: '/services/squarespace.webp',
+  //   link: '#',
+  //   wide: true,
+  // },
+  // {
+  //   title: 'E-Commerce Solutions',
+  //   icon: '/services/ShoppingCart.webp',
+  //   description: 'Ready to sell online? I’ll set up your Squarespace ecommerce store, so you can reach customers globally.\n\nExpert Squarespace ecommerce and ecommerce web design services. Trusted ecommerce website designers creating powerful ecommerce website design solutions for global reach.',
+  //   image: '/services/product.webp',
+  //   link: '#',
+  //   wide: true,
+  // },
+  // {
+  //   title: 'SEO Optimization',
+  //   icon: '/services/MagnifyingGlass.webp',
+  //   description: 'A beautiful website is useless if it’s not found. I lay the groundwork for your site to shine on Google with effective search engine optimization.\n\nSpecialized SEO optimization for Squarespace and website SEO optimization solutions. Comprehensive search engine optimization Squarespace strategies for maximum online visibility.',
+  //   image: '/services/seo.webp',
+  //   link: '#',
+  //   wide: false,
+  // },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="bg-[#181A1D] py-24 sm:py-32">
+    <section className="bg-[#181A1D] py-18 sm:py-22">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-20 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
@@ -97,10 +97,10 @@ export default function ServicesSection() {
                 backgroundClip: 'text',
               }}
             >
-              Want To Save Time And Money By <br className="hidden md:block" /> Working With A Squarespace Expert?
+               Built Around Real Product Needs
             </h2>
             <p className="mt-6 font-aeonik text-lg text-white/60">
-              Our services can be purchased individually or bundled together for a comprehensive solution. This flexibility allows you to get exactly what you need, without paying for features you don't.
+              We offer a focused set of services covering the full lifecycle of modern software products. From AI-driven systems to web and mobile applications, we build what is needed, cut what is not, and stay involved long after launch.
             </p>
           </div>
           <button className="rounded-full bg-[#506C83] px-8 py-4 font-aeonik text-base font-medium text-white transition-all hover:bg-[#405669]">
@@ -120,12 +120,12 @@ export default function ServicesSection() {
           <ServiceCard service={SERVICES[4]} className="lg:col-span-2" />
 
           {/* Row 3: 2 large cards */}
-          <ServiceCard service={SERVICES[5]} className="lg:col-span-3" />
-          <ServiceCard service={SERVICES[6]} className="lg:col-span-3" />
+          <ServiceCard service={SERVICES[5]} className="lg:col-span-6" />
+          {/* <ServiceCard service={SERVICES[6]} className="lg:col-span-3" /> */}
 
           {/* Row 4: 2 cards (One wide, one normal) */}
-          <ServiceCard service={SERVICES[7]} className="lg:col-span-3" />
-          <ServiceCard service={SERVICES[8]} className="lg:col-span-3" />
+          {/* <ServiceCard service={SERVICES[7]} className="lg:col-span-3" /> */}
+          {/* <ServiceCard service={SERVICES[8]} className="lg:col-span-3" /> */}
         </div>
       </div>
     </section>
@@ -136,7 +136,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
   const isWide = service.wide;
 
   const hasImage = !!service.image;
-  const isTopImage = hasImage && ['No-Code, Hassle-Free Design', 'Website Migration', 'SEO Optimization'].includes(service.title);
+  const isTopImage = hasImage && ['Web Application Development, Hassle-Free Design', 'Dedicated Teams and Augmentation', 'SEO Optimization'].includes(service.title);
 
   // Tailored positioning based on the specific mockup for each card
   const getImagePlacement = () => {
@@ -146,11 +146,11 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
     if (service.title === 'SEO Optimization') return "w-[80%] h-[40%] right-[-5%] top-0 lg:w-[70%] lg:h-[35%] lg:right-[-2%] lg:top-0";
     
     switch (service.title) {
-      case 'Custom Website Design':
+      case 'AI Development and Automation':
         return "w-[85%] h-[50%] right-[-5%] bottom-0 lg:w-[55%] lg:h-[65%] lg:right-[-2%] lg:bottom-0";
-      case 'No-Code, Hassle-Free Design':
+      case 'Web Application Development':
         return "w-[90%] h-[55%] right-[-5%] top-0 lg:w-[55%] lg:h-[80%] lg:right-[-2%] lg:top-0";
-      case 'Website Migration':
+      case 'Dedicated Teams and Augmentation':
         return "w-[90%] h-[55%] right-[-5%] top-[-5%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:top-[-5%]";
       case 'Website Management':
         return "w-[85%] h-[50%] right-[-5%] bottom-[-2%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:bottom-[-2%]";
@@ -226,9 +226,9 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
               alt={`${service.title} visual`}
               fill
               className={`object-contain ${
-                service.title === 'Custom Website Design' ? 'object-right-bottom' : 
-                service.title === 'No-Code, Hassle-Free Design' ? 'object-right-top' :
-                service.title === 'Website Migration' ? 'object-right-top' :
+                service.title === 'AI Development and Automation' ? 'object-right-bottom' : 
+                service.title === 'Web Application Development' ? 'object-right-top' :
+                service.title === 'Dedicated Teams and Augmentation' ? 'object-right-top' :
                 'object-right-bottom'
               }`}
             />

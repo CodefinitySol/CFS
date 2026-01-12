@@ -33,8 +33,8 @@ const SOCIAL_LINKS = [
 ];
 
 const STATS = [
-  { label: 'Successful Websites', value: 700, suffix: '+' },
-  { label: 'Awards Won', value: 5, prefix: '0' },
+  { label: 'Products shipped and actively running', value: 52, suffix: '+' },
+  { label: 'Years of hands-on delivery experience', value: 3, prefix: '0' },
   { label: 'Client Satisfaction', value: 100, suffix: '%' },
 ];
 
@@ -83,7 +83,7 @@ function Counter({
 
       // Ease out quart
       const ease = 1 - Math.pow(1 - percentage, 4);
-      
+
       setCount(Math.floor(target * ease));
 
       if (progress < duration) {
@@ -116,33 +116,27 @@ export default function MeetSam() {
           <div className="space-y-8">
             <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#475569]">
               <span className="mr-2 h-2 w-2 rounded-full bg-[#64748B]" />
-              Who am I?
+              Who we are
             </span>
 
             <h2 className="font-aeonik text-3xl font-normal leading-[1.1] text-[#1E293B] sm:text-4xl md:text-5xl">
-              Meet Sam Crawford - Your Dedicated Squarespace Web Designer
+              Meet Codefinity Solutions
             </h2>
 
             <div className="space-y-6 font-aeonik text-sm leading-relaxed text-[#64748B] md:text-base">
               <p>
-                Looking to create a high-converting Squarespace website without the
-                hassle of constant maintenance? Collaborate with me, Sam Crawford,
-                your go-to{' '}
-                <a href="#" className="underline decoration-1 underline-offset-4">
-                  Squarespace website designer
-                </a>
-                . With a deep understanding of Squarespace&apos;s capabilities—from
-                intuitive drag-and-drop interfaces to advanced custom CSS—I
-                deliver top-tier designs tailored to your needs.
+                Codefinity Solutions is a product-focused software development team built around one idea: good software comes from clear thinking, strong execution, and people who care about the outcome.
               </p>
               <p>
-                As a recognized Squarespace Circle Member, Expert, Partner, and
-                Community Leader, I bring unparalleled skill and experience to
-                every project. With over 700 successful websites under my belt, I
-                don&apos;t just design—I create online experiences that resonate
-                and convert.
+                We work with founders, product teams, and growing businesses to design and build web and mobile applications that are reliable from day one and flexible enough to grow over time. Our work spans modern web stacks, cloud infrastructure, AI-driven systems, and practical automation. Always with an emphasis on maintainability, performance, and real-world use.
               </p>
               <p>
+                What sets us apart is how we work. We stay close to the problem, ask the right questions early, and make technical decisions with long-term impact in mind. No overengineering. No rushed shortcuts. Just thoughtful development backed by experience.
+              </p>
+              <p>
+                We started as a small team and grew quickly by delivering results and earning trust. Today, we continue to scale carefully, building strong partnerships and products that teams are proud to ship.
+              </p>
+              {/* <p>
                 Ready to unlock the full potential of your online presence?
                 Let&apos;s work together to craft a modern, impactful Squarespace
                 website for your brand.{' '}
@@ -152,7 +146,7 @@ export default function MeetSam() {
                 >
                   Contact me today!
                 </a>
-              </p>
+              </p> */}
             </div>
 
             {/* Social Icons */}
@@ -186,7 +180,7 @@ export default function MeetSam() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              
+
               {/* Stats Overlay */}
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 mb-4">
                 <div className="grid grid-cols-3 divide-x divide-white/20 rounded-2xl bg-white/10 p-5 text-white backdrop-blur-xl">

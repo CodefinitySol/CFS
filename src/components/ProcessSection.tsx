@@ -15,9 +15,9 @@ const STEPS = [
         />
       </svg>
     ),
-    title: 'Client Onboarding & Design',
+    title: 'Discovery and Planning',
     description:
-      "Book a discovery call to discuss your vision and see if we're a perfect match. Afterwards, you'll receive a detailed proposal outlining the scope of work, deliverables, timeline, and pricing.",
+      "We start by understanding what you are trying to build and why. This includes your goals, users, constraints, and existing systems. From there, we define scope, architecture direction, timelines, and risks early. You get clarity on what will be built, how it will be built, and what success looks like before any code is written.",
     image: '/onboarding.webp',
   },
   {
@@ -32,9 +32,9 @@ const STEPS = [
         />
       </svg>
     ),
-    title: 'Development And Feedback',
+    title: 'Build, Iterate, and Validate',
     description:
-      'Once we agree on the scope and you accept the proposal, the website build begins. Using markup.io, you can provide feedback easily, ensuring a seamless and collaborative process from start to finish.',
+      'Development happens in clear phases with regular check-ins. We ship in small, testable increments and keep feedback loops tight. Whether it is an AI workflow, a web platform, or a mobile app, we focus on clean implementation, performance, and maintainability. Changes are expected and handled without derailing the project.',
     image: '/development.webp',
   },
   {
@@ -49,9 +49,9 @@ const STEPS = [
         />
       </svg>
     ),
-    title: 'Handover Training',
+    title: 'Launch, Support, and Scale',
     description:
-      "Upon your approval of the finished website, you'll receive bespoke handover training via a recorded Loom link. Plus, enjoy 30 days of free email support to help you transition smoothly.",
+      "Once the product is ready, we handle deployment, handover, and documentation. We stay involved after launch to support fixes, improvements, and scaling needs. Many clients continue with us long term as their product grows, users increase, and requirements evolve.",
     image: '/handover.webp',
   },
 ];
@@ -64,10 +64,10 @@ export default function ProcessSection() {
         <div className="mb-16 max-w-2xl">
           <span className="inline-flex items-center rounded-full bg-[#506C834D] bg-opacity-10 px-4 py-1.5 text-sm font-medium text-[#506C83]">
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506c83]" />
-            Smooth & efficient process
+            Smooth and efficient process
           </span>
           <h2 className="mt-6 font-aeonik text-4xl font-normal leading-tight text-[#1E293B] sm:text-5xl lg:text-6xl">
-            An Example Squarespace Web Design Project
+            How We Take a Product From Idea to Production
           </h2>
         </div>
 

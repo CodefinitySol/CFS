@@ -24,49 +24,50 @@ interface PricingSectionProps {
 const DEFAULT_PLANS: PricingPlan[] = [
   {
     name: 'Essentials',
-    price: '$4,500',
-    description: 'Perfect for lean builds and fast turnarounds. Built directly in Squarespace—no code, no fuss. A sleek, functional design that reflects your brand’s ambitions.',
+    price: '$3,000 / month',
+    description: 'Best for early-stage products, MVPs, and focused development needs. You get experienced developers who can move fast while keeping the foundation clean and stable.',
     features: [
-      'Up to 4 pages',
-      'No-code build',
-      '1 round of revisions',
-      '2-week timeline cap',
-      'Direct-to-Squarespace design'
+      'Dedicated mid-level engineers',
+      'Web or backend development',
+      'Clear task ownership and delivery',
+      'Weekly progress updates',
+      'Standard working hours',
+      'Flexible month-to-month engagement'
     ],
     isDark: true
   },
   {
     name: 'Premium',
-    price: '$9,500',
-    description: 'For businesses that need more flexibility and finesse. A hybrid approach for extra polish and performance that helps your organisation scale quickly.',
+    price: '$6,000 / month',
+    description: 'Designed for growing products that need senior ownership, better planning, and tighter execution. Ideal for AI-heavy builds, integrations, and systems that require careful decisions.',
     features: [
-      'Up to 7 pages',
-      'Custom styling (CSS)',
-      '2 rounds of revisions',
-      '5-week timeline cap',
-      'Hybrid build'
+      'Senior engineers with 5+ years experience',
+      'AI development or complex backend work',
+      'Architecture input and technical planning',
+      'Faster turnaround and deeper involvement',
+      'Priority communication and reviews'
     ],
     isDark: true
   },
   {
     name: 'Enterprise',
-    price: "Let's Talk",
-    description: 'Our flagship offer for high-level organisations that demand excellence. A bespoke solution combining strategy, innovation, and cutting-edge design. Best for complex builds.',
+    price: "Custom pricing",
+    description: 'For companies building large systems or scaling existing products. This is our flagship model, offering full teams and long-term partnership.',
     features: [
-      'Unlimited pages',
-      'Unlimited code',
-      'Unlimited revisions',
-      'No timeline cap',
-      'Dedicated design phase'
+      'Dedicated team or multiple roles',
+      'AI, web, mobile, and DevOps combined',
+      'Technical leadership and delivery oversight',
+      'No fixed timeline caps',
+      'Long-term roadmap support'
     ],
     isDark: false
   }
 ];
 
 export default function PricingSection({
-  badge = "Pricing",
-  title = "Flexible Web Design Packages",
-  description = "Find the Perfect Plan for Your Business",
+  badge = "Augmentation for everyone",
+  title = " Flexible Engagement Models",
+  description = "Choose a setup that fits your product stage, team size, and level of complexity",
   plans = DEFAULT_PLANS,
   containerClassName = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
 }: PricingSectionProps) {
@@ -143,7 +144,7 @@ function PricingCard({ plan, isLast }: { plan: PricingPlan, isLast: boolean }) {
 
       {/* Pricing */}
       <div className="mb-10 flex items-baseline gap-3">
-        {plan.price !== "Let's Talk" ? (
+        {plan.price !== "Custom pricing" ? (
           <>
             <span className={`text-base font-normal ${plan.isDark ? 'text-white/40' : 'text-[#506C83]/60'}`}>From</span>
             <span

@@ -20,13 +20,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
-      <VideoSection />
-      <ClientMarquee />
+      {/* <VideoSection /> */}
+      {/* <ClientMarquee /> */}
       <Meet />
       <LatestWork />
       <ProcessSection />
       <TestimonialsSection />
-      <ProjectSection />
+      {/* <ProjectSection /> */}
       <ServicesSection />
       <PricingSection />
       <IntegrationsSection />
@@ -34,8 +34,8 @@ export default function Home() {
       <FeaturesSection />
       <ContactSection />
       <BlogSection />
-      <BlueprintAISection />
-      <FAQSection />
+      {/* <BlueprintAISection /> */}
+      {/* <FAQSection /> */}
     </main>
   );
 }

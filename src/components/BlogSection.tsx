@@ -56,18 +56,21 @@ export default function BlogSection() {
       <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <span 
               className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#CFD6DC]"
             >
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
               Blogs
             </span>
-            <h2 className="mt-8 font-aeonik text-5xl font-normal tracking-tight text-[#181A1D] sm:text-6xl max-w-2xl leading-tight">
-              From The Squarespace Website Design Blog
+            <h2 className="mt-8 font-aeonik text-5xl font-normal tracking-tight text-[#181A1D] sm:text-6xl leading-tight">
+              Insights From the Work We Do
             </h2>
             <p className="mt-8 font-aeonik text-lg text-[#506C83]/80 leading-relaxed">
-              Are you a DIYer, Squarespace web designer, or newbie to Squarespace looking to level up your site? Our Squarespace website design blog has you covered with tips and insights from a professional web designer covering the Squarespace platform, website templates, how to grow your business, navigating SEO services, getting a functional website and much more!
+              Our blog shares lessons from building and running real software products. We write about AI systems, web and mobile development, architecture decisions, automation, and the tradeoffs teams face as products grow.
+            </p>
+            <p className="mt-8 font-aeonik text-lg text-[#506C83]/80 leading-relaxed">
+              The goal is not to promote tools or trends, but to explain what works, what breaks, and how to think through technical decisions before they become expensive problems.
             </p>
           </div>
 

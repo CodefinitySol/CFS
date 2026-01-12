@@ -56,9 +56,6 @@ export default function HeroSection() {
                 backgroundClip: 'text',
               }}
             >
-              Sam Crawford: Your Award-
-              <br />
-              Winning{' '}
               <span className="relative inline-block px-4 py-2">
                 <span
                   className="relative z-10 bg-clip-text text-transparent"
@@ -69,25 +66,19 @@ export default function HeroSection() {
                     backgroundClip: 'text',
                   }}
                 >
-                  Squarespace
+                  Codefinity Solutions:
                 </span>
                 <span
                   className="absolute inset-0 z-0 bg-[url('/squareborder.png')] bg-[length:100%_100%] bg-center bg-no-repeat"
                   aria-hidden="true"
                 />
               </span>
-              <br />
-              Website Designer
+              Software<br /> Built to Scale, Not Just Ship
             </h1>
 
             {/* Description */}
             <p className="glass-text max-w-2xl font-aeonik text-xs leading-[1.6] text-white/90 sm:text-sm md:text-base">
-              Sam Crawford has helped launch over 700 Squarespace websites for
-              clients worldwide, from local startups to global brands. Every
-              site is crafted for speed, mobile performance, and search
-              visibility. As a Squarespace Expert, and Enterprise Partner,
-              Sam&apos;s known for clear, thoughtful design and the kind of
-              results that speak for themselves.
+              We design and build reliable software products from web and mobile applications to complex systems that grow with your business. Our team works across modern stacks, AI-driven workflows, and cloud infrastructure to turn ideas into products that are stable, maintainable, and ready for real users. Clear communication. Thoughtful engineering. No shortcuts.
             </p>
 
             {/* CTA Buttons */}
@@ -109,7 +100,7 @@ export default function HeroSection() {
                 </svg>
               </button>
               <button className="rounded-full bg-[#374151] px-7 py-3.5 font-aeonik text-base font-medium text-white transition-all hover:bg-[#4b5563] cursor-pointer">
-                Get in touch
+                See how we work
               </button>
             </div>
 

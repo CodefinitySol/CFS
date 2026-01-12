@@ -1,6 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { FiCheck, FiChevronDown } from 'react-icons/fi';
+
+const SUBJECT_OPTIONS = [
+  { label: 'New product development', value: 'new-product-development' },
+  { label: 'Web or mobile application', value: 'web-or-mobile-application' },
+  { label: 'AI or automation', value: 'ai-or-automation' },
+  { label: 'Dedicated team or augmentation', value: 'dedicated-team-or-augmentation' },
+  { label: 'Ongoing support', value: 'ongoing-support' },
+  { label: 'Something else', value: 'something-else' },
+];
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -9,14 +19,40 @@ export default function ContactForm() {
     subject: '',
     message: '',
   });
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   const handleInputChange = (
     e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      HTMLInputElement | HTMLTextAreaElement
     >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubjectSelect = (value: string) => {
+    setFormData((prev) => ({ ...prev, subject: value }));
+    setIsDropdownOpen(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -128,35 +164,62 @@ export default function ContactForm() {
           >
             Subject <span className="text-[#6b7280]">*</span>
           </label>
-          <div className="relative">
+          <div className="relative" ref={dropdownRef}>
+            <button
+              type="button"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className={`flex w-full items-center justify-between rounded-xl border border-gray-200 bg-[#f8f9fa] px-5 py-4 font-aeonik text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ${isDropdownOpen ? 'border-gray-300 bg-white ring-2 ring-gray-100' : 'hover:border-gray-300 hover:bg-[#f3f4f6]'
+                }`}
+            >
+              <span className={formData.subject ? 'text-gray-900' : 'text-gray-400'}>
+                {SUBJECT_OPTIONS.find(o => o.value === formData.subject)?.label || 'Select one'}
+              </span>
+              <FiChevronDown
+                className={`h-5 w-5 text-[#475569] transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {/* Hidden native select for form accessibility/validation if needed */}
             <select
-              id="subject"
               name="subject"
               value={formData.subject}
-              onChange={handleInputChange}
+              onChange={(e) => handleSubjectSelect(e.target.value)}
               required
-              className="w-full appearance-none rounded-xl border border-gray-200 bg-[#f8f9fa] px-5 py-4 pr-12 font-aeonik text-base text-gray-900 transition-all focus:border-gray-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gray-100"
+              className="sr-only"
+              aria-hidden="true"
             >
               <option value="">Select one</option>
-              <option value="website-design">Website Design</option>
-              <option value="consultation">Consultation</option>
-              <option value="other">Other</option>
+              {SUBJECT_OPTIONS.map(opt => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
             </select>
-            <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
-              <svg
-                className="h-5 w-5 text-[#475569]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
+
+            {/* Custom Dropdown Menu */}
+            {isDropdownOpen && (
+              <div className="absolute left-0 top-full z-[100] mt-2 w-full origin-top animate-dropdown-enter">
+                <div className="overflow-hidden rounded-xl border border-gray-200 bg-white/95 shadow-[0_10px_40px_rgba(0,0,0,0.1)] backdrop-blur-xl">
+                  <div className="py-1">
+                    {SUBJECT_OPTIONS.map((option) => {
+                      const isSelected = formData.subject === option.value;
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() => handleSubjectSelect(option.value)}
+                          className={`flex w-full items-center justify-between px-5 py-3.5 text-left font-aeonik text-base transition-all duration-200 ${isSelected
+                            ? 'bg-gray-50 text-gray-900 font-medium'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            }`}
+                        >
+                          <span>{option.label}</span>
+                          {isSelected && <FiCheck className="h-4 w-4 text-[#475569]" />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -173,7 +236,7 @@ export default function ContactForm() {
             name="message"
             value={formData.message}
             onChange={handleInputChange}
-            placeholder="How we can help you?"
+            placeholder="Tell us a little about your project, timeline, or goals."
             required
             rows={7}
             className="w-full resize-none rounded-xl border border-gray-200 bg-[#f8f9fa] px-5 py-4 font-aeonik text-base text-gray-900 placeholder-gray-400 transition-all focus:border-gray-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gray-100"
