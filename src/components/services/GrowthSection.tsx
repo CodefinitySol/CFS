@@ -75,7 +75,7 @@ export default function GrowthSection({
 
                 {/* Header Section */}
                 <motion.div
-                    className="max-w-4xl mb-12"
+                    className="mb-12"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

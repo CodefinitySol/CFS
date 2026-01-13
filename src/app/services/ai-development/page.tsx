@@ -1,12 +1,9 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
 import LatestWork from '@/components/LatestWork';
-import ClientMarquee from '@/components/ClientMarquee';
-import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import GrowthSection from '@/components/services/GrowthSection';
-import ServiceWhyChooseSection from '@/components/services/ServiceWhyChooseSection';
 import PricingSection from '@/components/PricingSection';
-import WhoAmISection from '@/components/services/WhoAmISection';
-import PlatformSelectionSection from '@/components/services/PlatformSelectionSection';
+import BlogSection from '@/components/BlogSection';
+import ContactSection from '@/components/ContactSection';
 
 const MAINTENANCE_FAQS = [
     {
@@ -163,7 +160,8 @@ export default function AiDevelopmentPage() {
                 title="Flexible Engagement Models"
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
-            <ServiceFAQSection items={MAINTENANCE_FAQS} />
+            <ContactSection />
+            <BlogSection />
         </main>
     );
 }

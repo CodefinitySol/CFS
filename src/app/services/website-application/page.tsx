@@ -2,25 +2,8 @@ import ServiceHeroSection from '@/components/services/ServiceHeroSection';
 import LatestWork from '@/components/LatestWork';
 import GrowthSection from '@/components/services/GrowthSection';
 import PricingSection from '@/components/PricingSection';
-import ServiceFAQSection from '@/components/services/ServiceFAQSection';
-
-const WHY_CHOOSE_ITEMS = [
-    {
-        title: "Certified Squarespace Expertise",
-        description: "As experienced Squarespace experts, we know the platform inside and out, allowing us to push its capabilities to deliver a truly unique website.",
-        icon: "/services-section/choose-item-1.webp"
-    },
-    {
-        title: "Client-Centered Approach",
-        description: "We prioritize your input at every step, ensuring your website feels authentically you.",
-        icon: "/services-section/choose-item-2.webp"
-    },
-    {
-        title: "Proven Results",
-        description: "With 700+ successful projects completed, We've helped businesses like yours achieve their online goals with style and ease.",
-        icon: "/services-section/choose-item-3.webp"
-    }
-];
+import BlogSection from '@/components/BlogSection';
+import ContactSection from '@/components/ContactSection';
 
 const GROWTH_FEATURES = [
     {
@@ -90,7 +73,8 @@ export default function WebsiteApplicationPage() {
                 title="Flexible Engagement Models"
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
-            <ServiceFAQSection />
+            <ContactSection />
+            <BlogSection />
         </main>
     );
 }

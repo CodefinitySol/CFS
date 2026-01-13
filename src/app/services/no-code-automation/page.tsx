@@ -1,12 +1,9 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
 import LatestWork from '@/components/LatestWork';
-import ClientMarquee from '@/components/ClientMarquee';
 import GrowthSection from '@/components/services/GrowthSection';
-import ServiceWhyChooseSection from '@/components/services/ServiceWhyChooseSection';
 import PricingSection from '@/components/PricingSection';
-import WhoAmISection from '@/components/services/WhoAmISection';
-import PlatformSelectionSection from '@/components/services/PlatformSelectionSection';
-import ServiceFAQSection from '@/components/services/ServiceFAQSection';
+import BlogSection from '@/components/BlogSection';
+import ContactSection from '@/components/ContactSection';
 
 const NO_CODE_FEATURES = [
     {
@@ -38,43 +35,6 @@ const NO_CODE_FEATURES = [
         title: "Priority automation support",
         description: "Responsive support for updates, fixes, and time-sensitive automation needs.",
         icon: "/services-section/offer-item-6.webp"
-    }
-];
-
-const WHY_CHOOSE_ITEMS = [
-    {
-        title: "Certified Squarespace Expertise",
-        description: "We know how other platforms work—and how to translate their structure into Squarespace seamlessly.",
-        icon: "/services-section/choose-item-1.webp"
-    },
-    {
-        title: "No Downtime",
-        description: "We build on a staging site, then launch only when everything is tested and ready.",
-        icon: "/services-section/choose-item-2.webp"
-    },
-    {
-        title: "Built to Last",
-        description: "Your new site won’t just work. It’ll work better, look cleaner, and be easier to manage from day one.",
-        icon: "/services-section/choose-item-3.webp"
-    }
-];
-
-const MIGRATION_FAQS = [
-    {
-        question: "Will my website go down during the migration?",
-        answer: "No. We build your new site in a staging environment. Your old site stays live until the moment we switch the DNS, ensuring zero downtime for your customers."
-    },
-    {
-        question: "Will I lose my Google rankings?",
-        answer: "Our migration process includes a detailed SEO mapping phase. By setting up proper 301 redirects and maintaining a clean site structure, we protect your existing SEO value."
-    },
-    {
-        question: "Can you migrate my blog posts and images?",
-        answer: "Yes, we migrate your blog history, images, and page content. We ensure that formatting remains clean and that all assets are properly hosted on your new platform."
-    },
-    {
-        question: "How long does a typical migration take?",
-        answer: "Most migrations take between 3 to 6 weeks, depending on the volume of content and the complexity of the custom features being recreated."
     }
 ];
 
@@ -113,7 +73,8 @@ export default function NoCodeAutomationPage() {
                 title="Flexible Engagement Models"
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
-            <ServiceFAQSection items={MIGRATION_FAQS} />
+            <ContactSection />
+            <BlogSection />
         </main>
     );
 }

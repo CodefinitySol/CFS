@@ -49,10 +49,10 @@ const NAV_ITEMS: NavItem[] = [
         href: '/services/no-code-automation',
       },
       {
-        title: 'E-commerce',
+        title: 'DevOps and infrastructure',
         desc: 'Squarespace online store builds.',
         iconPath: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
-        href: '/services/ecommerce',
+        href: '/services/devops',
       },
       {
         title: 'Acuity Scheduling',
