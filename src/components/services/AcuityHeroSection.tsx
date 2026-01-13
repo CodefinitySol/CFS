@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Header from '../Header';
-import ContactForm from '../ContactForm';
+import ContactForm from '../molecules/ContactForm';
 import Link from 'next/link';
 
 export default function AcuityHeroSection() {

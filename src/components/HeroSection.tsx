@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import Header from './Header';
-import ContactForm from './ContactForm';
+import ContactForm from './molecules/ContactForm';
 import { motion } from 'framer-motion';
+import { Badge, Heading, Paragraph, Button } from '@/components/atoms';
 
 export default function HeroSection() {
   const containerVariants = {
@@ -41,7 +42,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#080c14] pb-24 sm:pb-32 lg:pb-40">
+    <section className="relative min-h-screen overflow-hidden bg-[#080c14] pb-6 sm:pb-10 lg:pb-12">
       {/* Header */}
       <Header />
 
@@ -56,6 +57,7 @@ export default function HeroSection() {
           quality={100}
         />
       </div>
+
       {/* Content Wrapper */}
       <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-12 sm:px-8 md:py-16 lg:px-10 lg:py-20 xl:px-12">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-20 xl:gap-24">
@@ -71,90 +73,89 @@ export default function HeroSection() {
               variants={itemVariants}
               className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.02] p-1 backdrop-blur-md"
             >
-              <div
-                className="flex items-center gap-2 rounded-full px-4 py-1.5 transition-transform hover:scale-[1.02]"
-                style={{
-                  background:
-                    'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)',
-                }}
+              <Badge
+                variant="gradient"
+                size="sm"
+                icon={<span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#4ade80] shadow-[0_0_6px_rgba(74,222,128,0.8)]" />}
+                className="transition-transform hover:scale-[1.02]"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-[#4ade80] shadow-[0_0_6px_rgba(74,222,128,0.8)]" />
-                <span className="font-aeonik text-xs font-medium text-white">
-                  Available for work
-                </span>
-              </div>
+                Available for work
+              </Badge>
               <button className="px-5 font-aeonik text-xs font-medium text-white/60 transition-colors hover:text-white">
                 Get in touch now
               </button>
             </motion.div>
 
             {/* Main Heading */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-aeonik text-2xl font-normal leading-[1.2] sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-              }}
-            >
-              <span className="relative inline-block px-4 py-2">
-                <span
-                  className="relative z-10 bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Codefinity Solutions:
+            <motion.div variants={itemVariants}>
+              <Heading
+                level={1}
+                variant="gradient"
+                size="xl"
+                className="leading-[1.2]"
+              >
+                Software Built to Scale, <br /> Not{' '}
+                <span className="relative inline-block px-4 py-2">
+                  <span
+                    className="relative z-10 bg-clip-text text-transparent"
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
+                      WebkitBackgroundClip: 'text',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Just Ship
+                  </span>
+                  <span
+                    className="absolute inset-0 z-0 bg-[url('/squareborder.png')] bg-[length:100%_100%] bg-center bg-no-repeat"
+                    aria-hidden="true"
+                  />
                 </span>
-                <span
-                  className="absolute inset-0 z-0 bg-[url('/squareborder.png')] bg-[length:100%_100%] bg-center bg-no-repeat"
-                  aria-hidden="true"
-                />
-              </span>
-              Software<br /> Built to Scale, Not Just Ship
-            </motion.h1>
+              </Heading>
+            </motion.div>
 
             {/* Description */}
-            <motion.p
-              variants={itemVariants}
-              className="glass-text max-w-2xl font-aeonik text-xs leading-[1.6] text-white/90 sm:text-sm md:text-base"
-            >
-              We design and build reliable software products from web and mobile applications to complex systems that grow with your business. Our team works across modern stacks, AI-driven workflows, and cloud infrastructure to turn ideas into products that are stable, maintainable, and ready for real users. Clear communication. Thoughtful engineering. No shortcuts.
-            </motion.p>
+            <motion.div variants={itemVariants}>
+              <Paragraph size="md" variant="light" className="max-w-2xl">
+                We design and build reliable software products from web and mobile applications to complex systems that grow with your business. Our team works across modern stacks, AI-driven workflows, and cloud infrastructure to turn ideas into products that are stable, maintainable, and ready for real users. Clear communication. Thoughtful engineering. No shortcuts.
+              </Paragraph>
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
               className="flex flex-wrap gap-4"
             >
-              <button className="group flex items-center gap-2 rounded-full border border-white/90 bg-white px-7 py-3.5 font-aeonik text-base font-medium text-gray-900 transition-all hover:border-white hover:shadow-lg cursor-pointer">
+              <Button
+                variant="primary"
+                size="md"
+                icon={
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                }
+              >
                 Schedule a call
-                <svg
-                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </button>
-              <button className="rounded-full bg-[#374151] px-7 py-3.5 font-aeonik text-base font-medium text-white transition-all hover:bg-[#4b5563] cursor-pointer">
+              </Button>
+
+              <Button variant="secondary" size="md">
                 See how we work
-              </button>
+              </Button>
             </motion.div>
 
             {/* Awards Section */}
-            <motion.div
+            {/* <motion.div
               variants={itemVariants}
               className="flex items-center gap-4 sm:gap-6 md:gap-8"
             >
@@ -182,7 +183,7 @@ export default function HeroSection() {
                   className="object-contain"
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Right Section - Contact Form */}
@@ -196,8 +197,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* Floating CTA Button removed - moved to global layout */}
     </section>
   );
 }
