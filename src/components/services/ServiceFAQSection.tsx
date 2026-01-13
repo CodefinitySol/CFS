@@ -79,7 +79,7 @@ export default function ServiceFAQSection({ items = SERVICE_FAQS }: ServiceFAQSe
 
                     {/* Heading */}
                     <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal text-[#181A1D] tracking-tight">
-                        Ask Us Anything
+                        General Questions
                     </h2>
                 </div>
 

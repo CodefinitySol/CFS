@@ -1,89 +1,52 @@
-import AcuityHeroSection from '@/components/services/AcuityHeroSection';
+import AugmentationHeroSection from '@/components/services/AugmentationHeroSection';
 import LatestWork from '@/components/LatestWork';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import AcuitySetupSection from '@/components/services/AcuitySetupSection';
-import AcuityServiceFeatures from '@/components/services/AcuityServiceFeatures';
+import AugmentationSetupSection from '@/components/services/AugmentationSetupSection';
+import AugmentationServiceFeatures from '@/components/services/AugmentationServiceFeatures';
 import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
+import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 
-const ACUITY_FEATURES = [
+const AUGMENTATION_FAQS = [
     {
-        title: "Seamless Integration",
-        description: "We embed Acuity directly into your Squarespace site, ensuring a smooth transition from browsing to booking.",
-        icon: "/services-section/offer-item-1.webp"
+        question: "What are the usual rates of individuals?",
+        answer: "Rates depend on role, experience level, and engagement type. We typically offer monthly or hourly models that are more predictable than freelance hiring. During the scoping call, we align on budget and recommend profiles that fit both your technical needs and cost expectations."
     },
     {
-        title: "Brand Customization",
-        description: "We style your booking scheduler's colors, fonts, and layout to match your brand's unique identity perfectly.",
-        icon: "/services-section/offer-item-2.webp"
+        question: "What will be your role after hire?",
+        answer: "We remain actively involved after onboarding. Our role is to make sure the team stays productive, aligned, and supported. This includes performance check-ins, handling replacements if needed, and helping you scale or adjust the team as your product evolves."
     },
     {
-        title: "Automated Workflows",
-        description: "Set up automated confirmation emails, reminders, and intake forms to save hours of administrative work.",
-        icon: "/services-section/offer-item-3.webp"
+        question: "What is stopping me from hiring the developer directly?",
+        answer: "Nothing. You absolutely can. What we provide instead is continuity, accountability, and reduced risk. If a developer becomes unavailable, underperforms, or your needs change, we handle transitions without disrupting your delivery. You are not left managing hiring, contracts, or replacements alone."
     },
     {
-        title: "Payment Collection",
-        description: "Securely collect deposits or full payments at the time of booking with Stripe, PayPal, or Square integration.",
-        icon: "/services-section/offer-item-4.webp"
+        question: "Can we hire the whole team?",
+        answer: "Yes. You can augment with a single engineer or a full cross-functional team including frontend, backend, QA, and product support. Teams are built based on your roadmap and can scale up or down as needed."
     },
     {
-        title: "Calendar Syncing",
-        description: "Sync your Acuity calendar with Google, Outlook, or iCloud to ensure you're never double-booked again.",
-        icon: "/services-section/offer-item-5.webp"
+        question: "What about equipment and security audits?",
+        answer: "All engineers work on secured, company-managed environments with access controls in place. We follow standard security practices and can align with your internal compliance, tooling, and audit requirements where needed."
     },
     {
-        title: "Group classes & Workshops",
-        description: "Easily set up and manage group bookings, workshops, and multi-day events with custom capacity limits.",
-        icon: "/services-section/offer-item-6.webp"
-    }
+        question: "What about refunds?",
+        answer: "We keep things straightforward. If something is not working during the initial engagement period, we address it quickly. This can include role adjustments, replacements, or engagement changes. Specific terms are discussed clearly before onboarding so expectations are aligned from day one."
+    },
+    {
+        question: "How can I contact you?",
+        answer: "You can reach us directly through the contact form on this page or by scheduling a call. We keep communication simple and responsive throughout the engagement."
+    },
 ];
 
-const WHY_CHOOSE_ITEMS = [
-    {
-        title: "Booking Strategists",
-        description: "We don't just 'install' Acuity. We design the entire booking flow to maximize conversions and minimize friction.",
-        icon: "/services-section/choose-item-1.webp"
-    },
-    {
-        title: "Technical Excellence",
-        description: "From complex CSS styling to advanced API integrations, we handle the technical heavy lifting with precision.",
-        icon: "/services-section/choose-item-2.webp"
-    },
-    {
-        title: "Post-Launch Empowerment",
-        description: "We provide comprehensive training to ensure you and your team are confident managing your new system.",
-        icon: "/services-section/choose-item-3.webp"
-    }
-];
-
-const ACUITY_FAQS = [
-    {
-        question: "Do I need a separate Acuity Scheduling subscription?",
-        answer: "Yes, Acuity is a separate service owned by Squarespace. While some Squarespace plans include basic scheduling, we recommend a standalone Acuity subscription for full feature access."
-    },
-    {
-        question: "Can I manage multiple staff members or locations?",
-        answer: "Absolutely. Acuity is built for scale. We can set up complex schedules for multiple providers, rooms, or locations within a single interface."
-    },
-    {
-        question: "Is it possible to offer gift certificates and packages?",
-        answer: "Yes! High-tier Acuity plans allow you to sell gift certificates, subscription packages, and discount codes directly through your booking page."
-    },
-    {
-        question: "Can I integrate my existing intake forms?",
-        answer: "We recreate your intake forms directly within Acuity, allowing you to collect all necessary client information at the moment of booking."
-    }
-];
-
-export default function AcuitySchedulingPage() {
+export default function AugmentationPage() {
     return (
         <main className="min-h-screen bg-white text-[#1E293B]">
-            <AcuityHeroSection />
-            <AcuitySetupSection />
+            <AugmentationHeroSection />
+            <AugmentationSetupSection />
             <LatestWork />
             <TestimonialsSection />
-            <AcuityServiceFeatures />
+            <AugmentationServiceFeatures />
+            <ServiceFAQSection items={AUGMENTATION_FAQS} />
             <ContactSection />
             <BlogSection />
         </main>
