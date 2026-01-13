@@ -55,7 +55,7 @@ export default function GrowthSection({
     badge = "What we offer",
     title = "Designed For Growth, Not Just Launch",
     description = "Your website is your first impression. It's also your infrastructure. That's why our custom Squarespace web design projects are built with your future in mind. From scalable page architecture to CMS-integrated content systems, we design sites that can evolve with your business.",
-    techStack = ["JavaScript", "TypeScript"],
+    techStack,
     features = DEFAULT_FEATURES
 }: GrowthSectionProps) {
     const textGradient = {
@@ -102,8 +102,8 @@ export default function GrowthSection({
                     </div>
 
                     <div className="mt-4 font-aeonik text-base text-[#E8ECF0]/70 leading-relaxed">
-                        {techStack.map((tech, index) => (
-                            <span key={index} className="inline-flex items-center rounded-full px-4 py-1.5 mr-2"
+                        {techStack && techStack.map((tech, index) => (
+                            <span key={index} className="inline-flex items-center rounded-full px-4 py-1.5 mr-2 mt-2"
                                 style={badgeGradient}
                             >
                                 <span className="h-1.5 w-1.5 rounded-full bg-white/60 mr-2"></span>

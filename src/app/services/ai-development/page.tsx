@@ -41,33 +41,33 @@ const MAINTENANCE_FAQS = [
 
 const GROWTH_FEATURES = [
     {
-        title: "Content updates",
-        description: "Monthly or ad-hoc content updates (text, imagery, video, documents).",
+        title: "AI feature development",
+        description: "Design and implementation of AI-driven features tailored to your product’s use case.",
         icon: "/services-section/offer-item-1.webp"
     },
     {
-        title: "Design and layout",
-        description: "Layout refinements and design enhancements.",
+        title: "Agent workflows",
+        description: "Structured AI agents and multi-step workflows built to perform repeatable, controlled tasks.",
         icon: "/services-section/offer-item-2.webp"
     },
     {
-        title: "Blogs and portfolios",
-        description: "Blog and portfolio additions.",
+        title: "Product integration",
+        description: "Seamless integration of AI into existing systems, interfaces, and user flows.",
         icon: "/services-section/offer-item-3.webp"
     },
     {
-        title: "Troubleshooting",
-        description: "Technical troubleshooting and platform updates.",
+        title: "Model tuning and iteration",
+        description: "Refinement, testing, and improvement of AI behavior based on real usage and feedback.",
         icon: "/services-section/offer-item-4.webp"
     },
     {
-        title: "Plug-in maintenance",
-        description: "Plug-in and integration monitoring.",
+        title: "Monitoring and reliability",
+        description: "Ongoing checks to keep AI outputs consistent, predictable, and aligned with product goals.",
         icon: "/services-section/offer-item-5.webp"
     },
     {
-        title: "Priority support",
-        description: "Priority scheduling for time-sensitive updates.",
+        title: "Priority AI support",
+        description: "Responsive support for AI-related issues, updates, and time-sensitive changes.",
         icon: "/services-section/offer-item-6.webp"
     }
 ];
@@ -128,11 +128,15 @@ const PRICING_PLANS = [
     }
 ];
 
-export default function MaintenancePage() {
+const TECH_STACK = [
+    "Python", "LangChain", "LangGraph", "LLM APIs", "Vector databases", "REST APIs", "Cloud services"
+]
+
+export default function AiDevelopmentPage() {
     return (
         <main className="min-h-screen bg-white">
             <ServiceHeroSection
-                badgeText="Website management"
+                badgeText="AI development"
                 title={
                     <span
                         className="bg-clip-text text-transparent block"
@@ -140,37 +144,24 @@ export default function MaintenancePage() {
                             backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
                         }}
                     >
-                        Ongoing Squarespace<br />Website Management<br />Service
+                        AI Systems Built for Real Products
                     </span>
                 }
-                description="We offer discreet, professional Squarespace website maintenance services for founders, agencies, and teams who want their site to stay updated, relevant, and refined, with zero effort on their part. No guesswork. No DIY stress. Just a site that’s always running smoothly, exactly as it should."
+                description={"We build AI systems that are designed to run in production, not sit in demos. From intelligent agents to automation pipelines, we help teams apply AI where it genuinely improves products, workflows, and decision making.\n\n Our focus is simple. Make AI useful, understandable, and reliable over time. No black boxes. No unnecessary complexity."}
                 imageSrc="/services-section/website-maintaince-hero-img.webp"
             />
             <LatestWork />
-            <ClientMarquee />
             <GrowthSection
                 badge="What we offer"
-                title="You focus on your business. We’ll take care of your site."
-                description="Our Squarespace site management packages are tailored to how you work—whether that’s a few updates per month or regular design and content cycles."
+                title={"You focus on your product.\n We’ll take care of the AI."}
+                description="Our AI development services are designed to support real products at different stages. Whether you need a focused feature, workflow automation, or ongoing AI improvements, we adapt to how your team works and how your product evolves."
+                techStack={TECH_STACK}
                 features={GROWTH_FEATURES}
             />
-            <ServiceWhyChooseSection
-                badge="Why choose us"
-                title={<>Managing Websites with<br />Purpose And Passion</>}
-                items={WHY_CHOOSE_ITEMS}
-            />
             <PricingSection
-                badge="Pricing"
-                title="Flexible Web Design Packages"
-                description="Find the Perfect Plan for Your Business"
-                plans={PRICING_PLANS}
-                containerClassName="grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto"
-            />
-            <WhoAmISection />
-            <PlatformSelectionSection
-                title="Manage Less, Convert More"
-                description="Get the free whitepaper comparing Squarespace, WordPress, Webflow, and Wix - and find the easiest platform to manage."
-                imageSrc="/services-section/platform.webp"
+                badge="Augmentation for everyone"
+                title="Flexible Engagement Models"
+                description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ServiceFAQSection items={MAINTENANCE_FAQS} />
         </main>

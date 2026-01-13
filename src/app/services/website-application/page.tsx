@@ -55,53 +55,11 @@ const GROWTH_FEATURES = [
     }
 ];
 
-const WEB_PRICING_PLANS = [
-    {
-        name: 'Essentials',
-        price: '$4,500',
-        description: 'Perfect for lean builds and fast turnarounds. Built directly in Squarespace—no code, no fuss. A sleek, functional design that reflects your brand’s ambitions.',
-        features: [
-            'Up to 4 pages',
-            'No-code build',
-            '1 round of revisions',
-            '2-week timeline cap',
-            'Direct-to-Squarespace design'
-        ],
-        isDark: true
-    },
-    {
-        name: 'Premium',
-        price: '$9,500',
-        description: 'For businesses that need more flexibility and finesse. A hybrid approach for extra polish and performance that helps your organisation scale quickly.',
-        features: [
-            'Up to 7 pages',
-            'Custom styling (CSS)',
-            '2 rounds of revisions',
-            '5-week timeline cap',
-            'Hybrid build'
-        ],
-        isDark: true
-    },
-    {
-        name: 'Enterprise',
-        price: "Let's Talk",
-        description: 'Our flagship offer for high-level organisations that demand excellence. A bespoke solution combining strategy, innovation, and cutting-edge design. Best for complex builds.',
-        features: [
-            'Unlimited pages',
-            'Unlimited code',
-            'Unlimited revisions',
-            'No timeline cap',
-            'Dedicated design phase'
-        ],
-        isDark: false
-    }
-];
-
 const TECH_STACK = [
     "JavaScript", "TypeScript", "React", "Node.js", "Express", "MongoDB", "Python", "REST APIs"
 ]
 
-export default function WebsiteBuildsPage() {
+export default function WebsiteApplicationPage() {
     return (
         <main className="min-h-screen bg-white">
             <ServiceHeroSection
@@ -128,10 +86,9 @@ export default function WebsiteBuildsPage() {
                 features={GROWTH_FEATURES}
             />
             <PricingSection
-                badge="Pricing"
-                title="Flexible Web Design Packages"
-                description="Find the Perfect Plan for Your Business"
-                plans={WEB_PRICING_PLANS}
+                badge="Augmentation for everyone"
+                title="Flexible Engagement Models"
+                description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ServiceFAQSection />
         </main>

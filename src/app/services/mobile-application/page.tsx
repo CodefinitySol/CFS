@@ -1,42 +1,38 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
 import LatestWork from '@/components/LatestWork';
-import ClientMarquee from '@/components/ClientMarquee';
 import PricingSection from '@/components/PricingSection';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import GrowthSection from '@/components/services/GrowthSection';
-import ServiceWhyChooseSection from '@/components/services/ServiceWhyChooseSection';
-import WhoAmISection from '@/components/services/WhoAmISection';
-import PlatformSelectionSection from '@/components/services/PlatformSelectionSection';
 
-const SEO_FEATURES = [
+const MOBILE_APP_FEATURES = [
     {
-        title: "Site Audit & Indexability Review",
-        description: "We look at how your site is built, how it is crawled, and how it appears in search results. If something blocks visibility, we fix it. This gives Google a clear path to index your pages and gives AI systems a clean source of information to draw from.",
+        title: "Custom mobile application development",
+        description: "Design and development of mobile applications tailored to your product goals and user requirements.",
         icon: "/services-section/offer-item-2.webp"
     },
     {
-        title: "On-Page Optimization",
-        description: "Titles, descriptions, headings, internal linking, images, and readability are refined until the intent is clear. Search engines and AI models respond well to clean hierarchy. Your pages become easier to understand and easier to place in the right search results.",
+        title: "Cross-platform development",
+        description: "Mobile applications built to run consistently across platforms using a shared, maintainable codebase.",
         icon: "/services/HandGrabbing.webp"
     },
     {
-        title: "SEO Copywriting (If Needed)",
-        description: "If your content needs strengthening, we write what your audience is actually looking for. Short, clear answers help with traditional rankings and increase the chance of being referenced inside AI summaries and AI Overviews.",
+        title: "Backend and API integration",
+        description: "Seamless integration between mobile apps and backend systems, APIs, and services.",
         icon: "/services/ArrowsClockwise.webp"
     },
     {
-        title: "Local SEO Setup",
-        description: "We build your Google Business Profile correctly, check map data, and add local schema. This helps you appear in local searches and gives AI models accurate location information when answering questions.",
+        title: "Performance and stability optimization",
+        description: "Testing and optimization to keep applications fast, responsive, and reliable under real-world conditions.",
         icon: "/services/GearSix.webp"
     },
     {
-        title: "Content Strategy Support",
-        description: "We show you what to keep, what to refine, and what to remove. A focused site helps search engines understand your topics and helps AI systems interpret your expertise clearly.",
+        title: "Feature iteration and improvements",
+        description: "Ongoing refinement of features based on user feedback, analytics, and product growth.",
         icon: "/services/GraduationCap.webp"
     },
     {
-        title: "Ongoing Monitoring",
-        description: "We review your performance regularly and make quiet adjustments in the background. Your site grows steadily without extra work on your end.",
+        title: "OnPriority mobile support",
+        description: "Responsive support for updates, fixes, releases, and time-sensitive production issues.",
         icon: "/services/File.webp"
     }
 ];
@@ -56,44 +52,6 @@ const WHY_CHOOSE_SEO_ITEMS = [
         title: "Results That Build Over Time",
         description: "We do not promise instant wins. We build search credibility carefully and consistently so your site becomes a trusted source for both search engines and AI tools over time.",
         icon: "/services-section/choose-item-3.webp"
-    }
-];
-
-const SEO_PRICING_PLANS = [
-    {
-        name: 'SEO Kickstarter',
-        price: '$2,200',
-        description: 'Foundational SEO setup with expert guidance—perfect for businesses who want a long-term strategy and have capacity to handle in-house.',
-        features: [
-            'Up to 5 key pages reviewed',
-            'Google tools setup guidance (GA + GSC)',
-            'Full SEO & site health audit',
-            'Keyword research + mapping',
-            'Actionable SEO strategy & next steps',
-            'Final PDF report',
-            'Personalized video walkthrough',
-            'Need more than 5 pages? We\'ll quote you based on your site size.'
-        ],
-        isDark: true
-    },
-    {
-        name: 'SEO Concierge',
-        price: '$2,500',
-        priceSuffix: '/mo',
-        description: 'A done-for-you SEO solution for brands ready to scale. We handle strategy, implementation, optimization, and tracking—so you can focus on running the business. Best suited for 3–12 month growth goals.',
-        features: [
-            'Full hands-on implementation (on-page SEO, tech fixes, metadata, etc.)',
-            'Keyword & content strategy',
-            'Technical SEO & ongoing site improvements',
-            'LLM-focused optimization (for future-proofing rankings)',
-            'Backlink building strategy',
-            'Content briefs (1–2 per month)',
-            'Keyword tracking & rank monitoring',
-            'GA4 & Search Console reporting',
-            'Biweekly updates + monthly reporting dashboard',
-            'Dedicated SEO expert - Optional blog writing available at $75/article'
-        ],
-        isDark: false
     }
 ];
 
@@ -152,11 +110,15 @@ const SEO_FAQS = [
     }
 ];
 
-export default function SEOPage() {
+const TECH_STACK = [
+    "JavaScript", "TypeScript", "React Native", "API services", "Backend Integrations", "Cloud services"
+]
+
+export default function MobileApplicationPage() {
     return (
         <main className="min-h-screen bg-white">
             <ServiceHeroSection
-                badgeText="Search engine optimization"
+                badgeText="Mobile application development"
                 title={
                     <span
                         className="bg-clip-text text-transparent block"
@@ -164,18 +126,10 @@ export default function SEOPage() {
                             backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
                         }}
                     >
-                        SEO And AIO For Squarespace<br />Websites | by Crawford
+                        Mobile Apps Built for Real Users
                     </span>
                 }
-                description={
-                    <div className="space-y-6">
-                        <p className="font-medium text-white text-xl sm:text-2xl">Search clarity for Google and AI systems</p>
-                        <div className="space-y-4 text-[#E8ECF0]/80">
-                            <p>Most websites need support in two areas today. Traditional SEO that helps you show up on Google. AIO that helps you appear in AI Overviews and AI search results. We build both into your Squarespace site so search engines and AI models can read your content clearly and present it accurately.</p>
-                            <p>Our work focuses on structure, intent, and meaningful content that answers real questions. No jargon. No noise. Just clarity that works quietly in the background.</p>
-                        </div>
-                    </div>
-                }
+                description={"We build mobile applications that are stable, scalable, and ready for real-world usage. From early-stage apps to production systems with growing user bases, we focus on performance, reliability, and clean integration with your backend. \n\n Our approach prioritizes long-term usability over rushed releases, so your app continues to perform as it grows."}
                 imageSrc="/services-section/seo-hero-img.webp"
                 titleClassName="text-3xl sm:text-4xl lg:text-4xl"
                 descriptionClassName="text-base"
@@ -183,32 +137,19 @@ export default function SEOPage() {
                 imageOpacity={0.5}
             />
             <LatestWork />
-            <ClientMarquee />
             <GrowthSection
                 badge="What we offer"
-                title="SEO For Squarespace That Supports Both SEO And AIO Visibility"
+                title={"You focus on your users.\n We’ll build the mobile experience."}
                 description={
-                    <p>There is no mystery. We build SEO systems that work for search engines and AI models by focusing on clarity, structure, and aligned content. Less clutter. More purpose.</p>
+                    <p>Our mobile application development services support products at every stage. Whether you are launching a new app or improving an existing one, we build with clarity, ownership, and long-term stability in mind.</p>
                 }
-                features={SEO_FEATURES}
-            />
-            <ServiceWhyChooseSection
-                badge="Why choose us"
-                title={<>SEO And AIO Services<br />Designed To Grow With You</>}
-                items={WHY_CHOOSE_SEO_ITEMS}
+                techStack={TECH_STACK}
+                features={MOBILE_APP_FEATURES}
             />
             <PricingSection
-                badge="Pricing"
-                title="SEO For Squarespace Pricing"
-                description="Find the Perfect Plan for Your Business"
-                plans={SEO_PRICING_PLANS}
-                containerClassName="grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto"
-            />
-            <WhoAmISection />
-            <PlatformSelectionSection
-                title="The SEO Platform Showdown"
-                description="Find out which platform performs best for SEO in our free Squarespace vs. WordPress vs. Webflow vs. Wix whitepaper."
-                imageSrc="/services-section/platform.webp"
+                badge="Augmentation for everyone"
+                title="Flexible Engagement Models"
+                description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ServiceFAQSection items={SEO_FAQS} />
         </main>

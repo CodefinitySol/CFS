@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 type NavItem = {
   label: string;
@@ -20,31 +22,31 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Services',
     dropdownItems: [
       {
-        title: 'Website Builds',
+        title: 'Website Application Development',
         desc: 'Bespoke Squarespace websites.',
         iconPath:
           'M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 2v10h12V8H6z',
-        href: '/services/website-builds',
+        href: '/services/website-application',
       },
       {
-        title: 'SEO',
+        title: 'Mobile Application',
         desc: 'Get seen online.',
         iconPath: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
-        href: '/services/seo',
+        href: '/services/mobile-application',
       },
       {
-        title: 'Hosting & Maintenance',
+        title: 'AI development',
         desc: 'Monthly website care.',
         iconPath:
           'M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z',
-        href: '/services/maintenance',
+        href: '/services/ai-development',
       },
       {
-        title: 'Website Migration',
+        title: 'No-code and automation',
         desc: 'Migrate your site to Squarespace.',
         iconPath:
           'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
-        href: '/services/website-migration',
+        href: '/services/no-code-automation',
       },
       {
         title: 'E-commerce',
@@ -147,9 +149,20 @@ export default function Header({ isLight = false }: HeaderProps) {
     <header className="relative z-50 px-6 py-6 sm:px-10 sm:py-8 lg:px-12">
       <div className="mx-auto flex max-w-[1600px] items-center justify-between">
         {/* Logo */}
-        <div className={`font-aeonik text-xl font-medium tracking-tight z-50 transition-colors duration-300 ${isLight ? 'text-[#1E293B]' : 'text-white'}`}>
-          <span className="opacity-60">by</span> Crawford
-        </div>
+        <Link
+          href="/"
+          className="z-50 transition-all duration-300 hover:opacity-80 block"
+        >
+          <div className="relative w-40 h-12 sm:w-52 sm:h-16">
+            <Image
+              src="/logo.svg"
+              alt="Codefinity Solutions"
+              fill
+              className={`object-contain ${isLight ? '' : 'brightness-0 invert'}`}
+              priority
+            />
+          </div>
+        </Link>
 
         {/* Mobile Hamburger Button */}
         <button
@@ -280,9 +293,11 @@ export default function Header({ isLight = false }: HeaderProps) {
         >
           {/* Mobile Header */}
           <div className="flex items-center justify-between px-6 py-6 sm:px-10 sm:py-8">
-            <div className="font-aeonik text-xl font-medium tracking-tight text-[#1E293B]">
-              <span className="opacity-60">by</span> Crawford
-            </div>
+            <Link href="/" onClick={handleCloseMenu} className="block">
+              <div className="relative w-36 h-10">
+                <Image src="/logo.svg" alt="Codefinity Solutions" fill className="object-contain" />
+              </div>
+            </Link>
             <button
               onClick={handleCloseMenu}
               className="group flex h-12 w-12 items-center justify-center rounded-full bg-transparent text-[#1E293B]"
