@@ -110,27 +110,28 @@ function Counter({
 
 export default function MeetSam() {
   return (
-    <section className="bg-white px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
+    <section className="bg-white px-6 py-20 sm:px-8 lg:px-16 lg:py-22">
       <div className="mx-auto max-w-[1600px]">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-0 items-center">
           {/* Left Content */}
           <motion.div
-            className="space-y-8"
+            className="space-y-4"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#475569]">
-              <span className="mr-2 h-2 w-2 rounded-full bg-[#64748B]" />
-              Who we are
-            </span>
+            <div className="space-y-4">
+              <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#475569]">
+                <span className="mr-2 h-2 w-2 rounded-full bg-[#64748B]" />
+                Who we are
+              </span>
+              <h2 className="font-aeonik text-3xl font-normal leading-[1.1] text-[#1E293B] sm:text-4xl md:text-5xl">
+                Meet Codefinity Solutions
+              </h2>
+            </div>
 
-            <h2 className="font-aeonik text-3xl font-normal leading-[1.1] text-[#1E293B] sm:text-4xl md:text-5xl">
-              Meet Codefinity Solutions
-            </h2>
-
-            <div className="space-y-6 font-aeonik text-sm leading-relaxed text-[#64748B] md:text-base">
+            <div className="space-y-3 font-aeonik text-md leading-relaxed text-black">
               <p>
                 Codefinity Solutions is a product-focused software development team built around one idea: good software comes from clear thinking, strong execution, and people who care about the outcome.
               </p>
@@ -157,7 +158,7 @@ export default function MeetSam() {
             </div>
 
             {/* Social Icons */}
-            <div className="flex flex-wrap gap-3 pt-4">
+            <div className="flex flex-wrap gap-3 pt-6">
               {SOCIAL_LINKS.map((link) => (
                 <Link
                   key={link.icon}
@@ -178,39 +179,41 @@ export default function MeetSam() {
 
           {/* Right Image Content */}
           <motion.div
-            className="relative mx-auto w-full max-w-[600px] lg:mr-0 lg:max-w-none"
+            className="relative mx-auto w-full max-w-[500px] lg:mr-0 lg:max-w-[520px]"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-gray-100">
-              {/* Image Placeholder */}
-              <Image
-                src="/person.webp"
-                alt="Sam Crawford"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative rounded-[24px] p-2 bg-[#ECECEC] overflow-hidden">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-gray-100">
+                {/* Image Placeholder */}
+                <Image
+                  src="/person.webp"
+                  alt="Sam Crawford"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
 
-              {/* Stats Overlay */}
-              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 mb-4">
-                <div className="grid grid-cols-3 divide-x divide-white/20 rounded-2xl bg-white/10 p-5 text-white backdrop-blur-xl">
-                  {STATS.map((stat) => (
-                    <div key={stat.label} className="px-2 text-center sm:px-4">
-                      <div className="font-aeonik text-2xl font-bold sm:text-3xl md:text-4xl">
-                        <Counter
-                          target={stat.value}
-                          prefix={stat.prefix}
-                          suffix={stat.suffix}
-                        />
+                {/* Stats Overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-4 mb-0">
+                  <div className="grid grid-cols-3 divide-x divide-white/20 rounded-2xl bg-[#516C83]/40 p-5 text-white backdrop-blur-xl">
+                    {STATS.map((stat) => (
+                      <div key={stat.label} className="px-1 text-center sm:px-1">
+                        <div className="font-aeonik text-xl font-bold sm:text-2xl md:text-3xl">
+                          <Counter
+                            target={stat.value}
+                            prefix={stat.prefix}
+                            suffix={stat.suffix}
+                          />
+                        </div>
+                        <div className="mt-1 text-[10px] font-medium uppercase tracking-wide opacity-80 sm:text-[10px]">
+                          {stat.label}
+                        </div>
                       </div>
-                      <div className="mt-1 text-[10px] font-medium uppercase tracking-wide opacity-80 sm:text-xs">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

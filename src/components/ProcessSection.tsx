@@ -59,11 +59,11 @@ const STEPS = [
 
 export default function ProcessSection() {
   return (
-    <section className="bg-white py-24 sm:py-32">
+    <section className="bg-white py-24 sm:py-12">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
-          className="mb-16 max-w-2xl"
+          className="mb-12 max-w-2xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -73,7 +73,7 @@ export default function ProcessSection() {
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506c83]" />
             Smooth and efficient process
           </span>
-          <h2 className="mt-6 font-aeonik text-4xl font-normal leading-tight text-[#1E293B] sm:text-5xl lg:text-6xl">
+          <h2 className="mt-4 font-aeonik text-4xl font-normal text-[#1E293B] sm:text-5xl lg:text-6xl">
             How We Take a Product From Idea to Production
           </h2>
         </motion.div>
@@ -83,7 +83,7 @@ export default function ProcessSection() {
           {STEPS.map((step, index) => (
             <motion.div
               key={index}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#506C83] hover:bg-[#506C83] hover:shadow-xl"
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#506C83] hover:bg-[#506C83] hover:shadow-xl min-h-[640px]"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -95,31 +95,32 @@ export default function ProcessSection() {
               </div>
 
               {/* Content Container */}
-              <div className="relative z-10 flex flex-1 flex-col">
+              <div className="relative z-10 flex flex-1 flex-col pb-44 lg:pb-60">
                 {/* Icon */}
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[#1E293B] transition-colors group-hover:bg-white/10 group-hover:text-white">
                   {step.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="mb-4 font-aeonik text-2xl font-normal text-[#1E293B] transition-colors group-hover:text-white sm:text-3xl">
+                <h3 className="mb-4 font-aeonik text-2xl font-normal text-[#1E293B] transition-all duration-300 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-[linear-gradient(94.13deg,#e8ecf0_.14%,#506c83_153.8%)] sm:text-3xl">
                   {step.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mb-12 font-aeonik text-base leading-relaxed text-[#64748B] transition-colors group-hover:text-white/80">
+                <p className="mb-12 font-aeonik text-base text-black transition-colors group-hover:text-white">
                   {step.description}
                 </p>
 
-                {/* Image */}
-                <div className="relative mt-auto aspect-[4/3] w-full overflow-hidden rounded-xl">
-                  <Image
-                    src={step.image}
-                    alt={step.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              </div>
+
+              {/* Image Area */}
+              <div className="absolute -bottom-2 -right-2 h-72 w-[90%] overflow-hidden pointer-events-none">
+                <Image
+                  src={step.image}
+                  alt={step.title}
+                  fill
+                  className="object-contain object-right-bottom"
+                />
               </div>
             </motion.div>
           ))}

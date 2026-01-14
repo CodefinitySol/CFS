@@ -11,7 +11,7 @@ export default function VideoSection() {
 
   return (
     <section className="relative w-full bg-white px-6 pt-10 sm:px-8 lg:px-12 lg:pb-12">
-      <div className="relative z-20 mx-auto -mt-24 max-w-[1600px] sm:-mt-32 lg:-mt-40">
+      <div className="relative z-20 mx-auto -mt-24 max-w-[1600px] sm:-mt-32 lg:-mt-50">
         <motion.div
           className="group relative aspect-video w-full overflow-hidden rounded-3xl border border-white/10 bg-[#1e293b] shadow-2xl"
           initial={{ opacity: 0, y: 40 }}

@@ -73,11 +73,11 @@ export default function PricingSection({
   containerClassName = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
 }: PricingSectionProps) {
   return (
-    <section className="bg-white py-24 sm:py-32 overflow-hidden">
+    <section className="bg-white pb-4 sm:pb-4 pt-22 sm:pt-22 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="mb-20 flex flex-col items-center text-center"
+          className="mb-12 flex flex-col items-center text-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -159,7 +159,7 @@ function PricingCard({ plan, isLast, index }: { plan: PricingPlan, isLast: boole
           <>
             <span className={`text-base font-normal ${plan.isDark ? 'text-white/40' : 'text-[#506C83]/60'}`}>From</span>
             <span
-              className="font-aeonik text-5xl font-normal tracking-tight lg:text-5xl"
+              className="font-aeonik text-4xl font-normal tracking-tight lg:text-4xl"
               style={gradientStyle}
             >
               {plan.price}
@@ -172,7 +172,7 @@ function PricingCard({ plan, isLast, index }: { plan: PricingPlan, isLast: boole
           </>
         ) : (
           <span
-            className="font-aeonik text-5xl font-normal tracking-tight text-current lg:text-5xl"
+            className="font-aeonik text-4xl font-normal tracking-tight text-current lg:text-4xl"
           >
             {plan.price}
           </span>
@@ -180,20 +180,20 @@ function PricingCard({ plan, isLast, index }: { plan: PricingPlan, isLast: boole
       </div>
 
       {/* Description */}
-      <p className={`mb-12 font-aeonik text-base leading-relaxed ${plan.isDark ? 'text-white/60' : 'text-[#506C83]/80'}`}>
+      <p className={`mb-12 font-aeonik text-base leading-relaxed ${plan.isDark ? 'text-white' : 'text-[#506C83]'}`}>
         {plan.description}
       </p>
 
       {/* Features Heading */}
       <h4
-        className="mb-8 font-aeonik text-xl font-normal"
+        className="mb-6 font-aeonik text-2xl font-normal"
         style={plan.isDark ? gradientStyle : {}}
       >
         What&apos;s Included
       </h4>
 
       {/* Features List */}
-      <ul className="mb-12 space-y-4 flex-1">
+      <ul className="mb-12 space-y-3 flex-1">
         {plan.features.map((feature) => (
           <li key={feature} className="flex items-start gap-4">
             <IoCheckmarkCircle className={`mt-1 h-5 w-5 shrink-0 ${plan.isDark ? 'text-[#506C83]' : 'text-[#506C83]'}`} />

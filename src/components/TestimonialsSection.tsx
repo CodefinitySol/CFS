@@ -136,7 +136,7 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
         {displayItems.map((testimonial, i) => (
           <div
             key={`${testimonial.name}-${i}`}
-            className="group relative w-[500px] flex-shrink-0 overflow-hidden rounded-2xl border border-transparent bg-[#212325] p-8 transition-all duration-500 hover:border-[#506C83]/30"
+            className="group relative w-[500px] flex-shrink-0 overflow-hidden rounded-xl border border-transparent bg-[#212325] p-8 transition-all duration-500 hover:border-[#506C83]/30"
           >
             {/* Gradient overlay on hover */}
             <div
@@ -159,7 +159,7 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
                     />
                   </div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-aeonik text-lg font-medium text-white">
+                    <h3 className="font-aeonik text-lg font-medium text-white duration-100 group-hover:text-[#506C83]">
                       {testimonial.name}
                     </h3>
                     {/* Verified Icon */}
@@ -170,7 +170,7 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
               </div>
 
               {/* Testimonial Text */}
-              <p className="font-aeonik text-base leading-relaxed text-white/70">
+              <p className="font-aeonik text-base leading-relaxed text-[#9f9fa0]">
                 {testimonial.text}
               </p>
             </div>
@@ -183,11 +183,11 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#181A1D] py-24 sm:py-32">
+    <section className="relative w-full overflow-hidden bg-[#181A1D] pb-22 sm:pb-22 pt-24 sm:pt-26">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
-          className="mb-16 flex items-center justify-between"
+          className="mb-22 flex items-center justify-between"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -204,7 +204,7 @@ export default function TestimonialsSection() {
               Testimonials
             </span>
             <h2
-              className="mt-6 font-aeonik text-4xl font-normal sm:text-5xl lg:text-6xl"
+              className="mt-6 font-aeonik text-4xl font-normal sm:text-4xl lg:text-5xl"
               style={{
                 backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
                 WebkitBackgroundClip: 'text',
@@ -245,14 +245,14 @@ export default function TestimonialsSection() {
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <div
-          className="inline-flex items-center gap-6 rounded-full px-2 py-2 pl-4 bg-[#2A3640]"
+          className="inline-flex items-center gap-6 rounded-full px-1 py-1 pl-2 bg-[#2A3640]"
 
         >
           {/* Avatar Stack */}
           <div className="flex items-center">
-            <div className="flex -space-x-3">
+            <div className="flex -space-x-2">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-[#181A1D]">
+                <div key={i} className="relative h-6 w-6 overflow-hidden rounded-full border-2 border-[#181A1D]">
                   <Image
                     src={`/jim.jpeg`}
                     alt="User avatar"
@@ -262,14 +262,14 @@ export default function TestimonialsSection() {
                 </div>
               ))}
             </div>
-            <span className="ml-4 font-aeonik text-sm text-white/70">
+            <span className="ml-2 font-aeonik text-sm text-white/70">
               +200 top rated reviews
             </span>
           </div>
 
           {/* Book a call Button */}
           <button
-            className="rounded-full bg-[#506C83] px-6 py-2.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669]"
+            className="rounded-full bg-[#475058] px-3 py-1.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669]"
           >
             Book a call
           </button>

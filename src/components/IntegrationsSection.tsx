@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function IntegrationsSection() {
   return (
-    <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
+    <section className="relative bg-white pt-18 sm:pt-18 pb-0 sm:pb-0 overflow-hidden">
       {/* Dot Grid Background */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.4]"
@@ -30,10 +30,10 @@ export default function IntegrationsSection() {
             <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
             Integrations
           </span>
-          <h2 className="mt-8 font-aeonik text-4xl font-normal leading-tight text-[#181A1D] sm:text-5xl lg:text-7xl">
+          <h2 className="mt-8 font-aeonik text-4xl font-normal text-[#181A1D] sm:text-4xl lg:text-5xl">
             We Handle All Integrations
           </h2>
-          <p className="mt-4 font-aeonik text-base sm:text-lg text-[#506C83]/80 max-w-3xl">
+          <p className="mt-4 font-aeonik sm:text-md text-[#506C83] max-w-xl">
             From intricate challenges to seamless execution, We&apos;ll integrate all your marketing tools and automations with your website
           </p>
         </motion.div>

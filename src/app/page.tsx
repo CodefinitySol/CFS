@@ -9,11 +9,13 @@ import IntegrationsSection from '@/components/IntegrationsSection';
 import WhyChooseSection from '@/components/WhyChooseSection';
 import ContactSection from '@/components/ContactSection';
 import BlogSection from '@/components/BlogSection';
+import VideoSection from '@/components/VideoSection';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
+      <VideoSection />
       <Meet />
       <LatestWork />
       <ProcessSection />

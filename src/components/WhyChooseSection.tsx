@@ -40,7 +40,7 @@ export default function WhyChooseSection() {
   const swiperRef = useRef<SwiperType>(null);
 
   return (
-    <section className="bg-[#E8ECF0] py-24 sm:py-32 overflow-hidden">
+    <section className="bg-[#E8ECF0] py-18 sm:py-18 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
         {/* Header with Navigation */}
         <motion.div
@@ -57,10 +57,10 @@ export default function WhyChooseSection() {
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
               Why Codefinity Solutions
             </span>
-            <h2 className="mt-8 font-aeonik text-5xl font-normal tracking-tight text-[#181A1D] sm:text-6xl">
+            <h2 className="mt-6 font-aeonik text-4xl font-normal tracking-tight text-[#181A1D] sm:text-5xl">
               Why Teams Choose CFS
             </h2>
-            <p className="mt-8 font-aeonik text-lg text-[#506C83]/80 leading-relaxed max-w-2xl">
+            <p className="mt-6 font-aeonik text-md text-[#506C83] leading-relaxed max-w-xl">
               You are not just hiring developers. You are choosing how your product is built, maintained, and scaled. Here is what working with Codefinity Solutions actually looks like.
             </p>
           </div>
@@ -105,27 +105,43 @@ export default function WhyChooseSection() {
               bulletClass: 'custom-bullet',
               bulletActiveClass: 'custom-bullet-active',
             }}
-            className="rounded-[32px]"
+            className="rounded-[18px]"
           >
             {REASONS.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="relative overflow-hidden rounded-[32px] bg-[#17181B] p-6 sm:p-12 min-h-[600px] flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div className="relative overflow-hidden rounded-[18px] bg-[#17181B] min-h-[500px] lg:min-h-[640px] flex flex-col lg:flex-row items-stretch">
                   {/* Image Side */}
-                  <div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] rounded-2xl overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover object-center"
-                      priority={index === 0}
-                    />
+                  <div className="relative w-full lg:w-[48%] min-h-[400px] lg:min-h-full">
+                    {/* The Image Wrapper pinned to left and bottom */}
+                    <div className="absolute left-0 bottom-0 right-0 top-12 lg:top-16 rounded-tr-[32px] overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover object-center"
+                        priority={index === 0}
+                      />
 
-                    {/* Subtle Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                      {/* Glassmorphic Badges from the mockup */}
+                      <div className="absolute left-6 top-6 z-20 rounded-lg border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
+                        <div className="flex items-baseline gap-2">
+                          <span className="font-aeonik text-xl font-bold text-white">120+</span>
+                          <span className="font-aeonik text-[10px] text-white/70 uppercase tracking-wider">Clients Worldwide</span>
+                        </div>
+                      </div>
+
+                      <div className="absolute right-6 bottom-6 z-20 rounded-lg border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-md text-right">
+                        <div className="font-aeonik text-xl font-bold text-white">700+</div>
+                        <div className="font-aeonik text-[10px] uppercase tracking-wider text-white/70">Successful websites</div>
+                      </div>
+
+                      {/* Subtle Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                    </div>
                   </div>
 
                   {/* Text Side */}
-                  <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                  <div className="w-full lg:w-[52%] p-8 sm:p-12 lg:p-20 flex flex-col justify-center">
                     <h3
                       className="font-aeonik text-4xl lg:text-5xl font-normal leading-tight mb-8"
                       style={{

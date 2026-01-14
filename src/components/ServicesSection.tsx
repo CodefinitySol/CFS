@@ -79,7 +79,7 @@ export default function ServicesSection() {
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
-          className="mb-20 flex flex-col justify-between gap-8 lg:flex-row lg:items-end"
+          className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-end"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -106,7 +106,7 @@ export default function ServicesSection() {
             >
               Built Around Real Product Needs
             </h2>
-            <p className="mt-6 font-aeonik text-lg text-white/60">
+            <p className="mt-6 font-aeonik text-lg text-white">
               We offer a focused set of services covering the full lifecycle of modern software products. From AI-driven systems to web and mobile applications, we build what is needed, cut what is not, and stay involved long after launch.
             </p>
           </div>
@@ -116,18 +116,18 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-9">
           {/* Row 1: 2 large cards */}
-          <ServiceCard service={SERVICES[0]} className="lg:col-span-3" />
-          <ServiceCard service={SERVICES[1]} className="lg:col-span-3" />
+          <ServiceCard service={SERVICES[0]} className="lg:col-span-5" />
+          <ServiceCard service={SERVICES[1]} className="lg:col-span-4" />
 
           {/* Row 2: 3 cards */}
-          <ServiceCard service={SERVICES[2]} className="lg:col-span-2" />
-          <ServiceCard service={SERVICES[3]} className="lg:col-span-2" />
-          <ServiceCard service={SERVICES[4]} className="lg:col-span-2" />
+          <ServiceCard service={SERVICES[2]} className="lg:col-span-3" />
+          <ServiceCard service={SERVICES[3]} className="lg:col-span-3" />
+          <ServiceCard service={SERVICES[4]} className="lg:col-span-3" />
 
           {/* Row 3: 2 large cards */}
-          <ServiceCard service={SERVICES[5]} className="lg:col-span-6" />
+          <ServiceCard service={SERVICES[5]} className="lg:col-span-9" />
           {/* <ServiceCard service={SERVICES[6]} className="lg:col-span-3" /> */}
 
           {/* Row 4: 2 cards (One wide, one normal) */}
@@ -172,7 +172,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
 
   return (
     <motion.div
-      className={`group relative flex flex-col overflow-hidden rounded-3xl bg-[#181a1d] border border-white/5 h-full ${className}`}
+      className={`group relative flex flex-col overflow-hidden rounded-xl bg-[#181a1d] border border-white/5 h-full ${className}`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -200,12 +200,20 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
         </div>
 
         {/* Title */}
-        <h3 className="mb-6 font-aeonik text-2xl font-normal text-white sm:text-3xl">
+        <h3
+          className="mb-6 font-aeonik text-2xl font-normal text-white sm:text-3xl"
+          style={{
+            backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
           {service.title}
         </h3>
 
         {/* Description */}
-        <div className="mb-8 space-y-4 font-aeonik text-base leading-relaxed text-white/50">
+        <div className="mb-8 space-y-4 font-aeonik text-md text-white">
           {service.description.split('\n\n').map((para, i) => (
             <p key={i}>
               {para.split(/(\b(?:churches|real estate agents|medical companies|law firms|Squarespace|Squarespace web designer UK|WordPress)\b)/).map((part, j) => (

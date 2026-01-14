@@ -53,7 +53,7 @@ export default function BlogSection() {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
   return (
-    <section className="bg-white py-24 sm:py-32 overflow-hidden">
+    <section className="bg-white py-22 sm:py-22 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
         {/* Header Section */}
         <motion.div
@@ -70,13 +70,12 @@ export default function BlogSection() {
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
               Blogs
             </span>
-            <h2 className="mt-8 font-aeonik text-5xl font-normal tracking-tight text-[#181A1D] sm:text-6xl leading-tight">
+            <h2 className="mt-6 font-aeonik text-4xl font-normal tracking-tight text-[#181A1D] sm:text-5xl">
               Insights From the Work We Do
             </h2>
-            <p className="mt-8 font-aeonik text-lg text-[#506C83]/80 leading-relaxed">
+            <p className="mt-4 font-aeonik text-lg text-[#506C83] leading-relaxed">
               Our blog shares lessons from building and running real software products. We write about AI systems, web and mobile development, architecture decisions, automation, and the tradeoffs teams face as products grow.
-            </p>
-            <p className="mt-8 font-aeonik text-lg text-[#506C83]/80 leading-relaxed">
+              <br />
               The goal is not to promote tools or trends, but to explain what works, what breaks, and how to think through technical decisions before they become expensive problems.
             </p>
           </div>
@@ -122,31 +121,33 @@ export default function BlogSection() {
           >
             {BLOG_POSTS.map((post, index) => (
               <SwiperSlide key={index} className="!h-auto !flex">
-                <div className="group flex w-full flex-col rounded-[18px] bg-[#E8ECF0]/50 border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 h-full">
-                  {/* Image Container */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden flex-shrink-0">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex flex-col flex-1 p-8 h-full">
-                    <div className="mb-6">
-                      <span className="inline-flex items-center rounded-full bg-[#CFD6DC]/40 px-3 py-1.5 text-xs font-medium text-[#506C83]">
-                        {post.category}
-                      </span>
+                <div className="group w-full rounded-[22px] p-2 transition-all duration-300 hover:bg-[#ECECEC]">
+                  <div className="flex w-full flex-col rounded-[16px] bg-[#E8ECF0]/50 border border-gray-100/50 overflow-hidden transition-all duration-300 group-hover:bg-white group-hover:shadow-xl group-hover:shadow-gray-200/50 h-full">
+                    {/* Image Container */}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
-                    <h3 className="font-aeonik text-2xl font-normal text-[#181A1D] mb-4 group-hover:text-[#506C83] transition-colors leading-snug line-clamp-2">
-                      <Link href={post.link}>{post.title}</Link>
-                    </h3>
-                    <div className="mt-auto">
-                      <p className="font-aeonik text-base text-[#506C83]/70 leading-relaxed line-clamp-3">
-                        {post.description}
-                      </p>
+
+                    {/* Content */}
+                    <div className="flex flex-col flex-1 p-8 h-full">
+                      <div className="mb-6">
+                        <span className="inline-flex items-center rounded-full bg-[#CFD6DC]/40 px-3 py-1.5 text-xs font-medium text-[#506C83]">
+                          {post.category}
+                        </span>
+                      </div>
+                      <h3 className="font-aeonik text-2xl font-normal text-[#181A1D] mb-4 group-hover:text-[#506C83] transition-colors leading-snug line-clamp-2">
+                        <Link href={post.link}>{post.title}</Link>
+                      </h3>
+                      <div className="mt-auto">
+                        <p className="font-aeonik text-base text-[#506C83] leading-relaxed line-clamp-3">
+                          {post.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

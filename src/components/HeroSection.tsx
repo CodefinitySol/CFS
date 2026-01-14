@@ -42,7 +42,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#080c14] pb-6 sm:pb-10 lg:pb-12">
+    <section className="relative min-h-screen overflow-hidden bg-[#080c14] pb-16 sm:pb-10 lg:pb-34">
       {/* Header */}
       <Header />
 
@@ -59,11 +59,11 @@ export default function HeroSection() {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-12 sm:px-8 md:py-16 lg:px-10 lg:py-20 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-12 sm:px-8 md:py-16 lg:px-10 lg:py-10 xl:px-12">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-20 xl:gap-24">
           {/* Left Section - Hero Content */}
           <motion.div
-            className="flex-1 space-y-5 lg:space-y-8"
+            className="flex-1 space-y-5 lg:space-y-4"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -125,7 +125,7 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 mt-12"
             >
               <Button
                 variant="primary"
@@ -155,7 +155,7 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Awards Section */}
-            {/* <motion.div
+            <motion.div
               variants={itemVariants}
               className="flex items-center gap-4 sm:gap-6 md:gap-8"
             >
@@ -183,7 +183,7 @@ export default function HeroSection() {
                   className="object-contain"
                 />
               </div>
-            </motion.div> */}
+            </motion.div>
           </motion.div>
 
           {/* Right Section - Contact Form */}

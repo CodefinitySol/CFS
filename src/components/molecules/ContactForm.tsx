@@ -162,8 +162,8 @@ export default function ContactForm() {
         <Button
           type="submit"
           variant="secondary"
-          size="lg"
-          className="w-full !bg-[#475569] hover:!bg-[#334155] shadow-lg hover:shadow-xl"
+          size="md"
+          className="w-full !bg-[#516C83] hover:!bg-[#334155] shadow-lg hover:shadow-xl"
         >
           Submit enquiry
         </Button>

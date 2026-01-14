@@ -41,7 +41,7 @@ const PROJECTS = [
 
 export default function LatestWork() {
   return (
-    <section className="overflow-hidden bg-[linear-gradient(to_bottom,#EDF2F6_80%,#ffffff_80%)] py-18 sm:py-18">
+    <section className="overflow-hidden bg-[linear-gradient(to_bottom,#E8ECF0_80%,#ffffff_80%)] py-18 sm:py-20">
       {/* Header */}
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <motion.div
@@ -51,12 +51,12 @@ export default function LatestWork() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="max-w-5xl space-y-8">
+          <div className="max-w-5xl space-y-5">
             <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#475569]">
               <span className="mr-2 h-2 w-2 rounded-full bg-[#506c83]" />
               Recent work
             </span>
-            <h2 className="font-aeonik text-4xl font-normal leading-tight text-[#1E293B] sm:text-5xl md:text-6xl">
+            <h2 className="font-aeonik text-4xl font-normal leading-tight text-[#1E293B] sm:text-4xl md:text-5xl">
               Products Built for Real Use
             </h2>
             <p className="font-aeonik text-base text-[#64748B] md:text-lg">
@@ -77,14 +77,14 @@ export default function LatestWork() {
 
       {/* Carousel Container */}
       <motion.div
-        className="mt-16 sm:mt-20"
+        className="mt-16 sm:mt-16"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <Swiper
-          spaceBetween={24}
+          spaceBetween={38}
           slidesPerView="auto"
           grabCursor={true}
           loop={true}
@@ -97,36 +97,14 @@ export default function LatestWork() {
         >
           {PROJECTS.map((project, index) => (
             <SwiperSlide key={index} className="!w-auto">
-              <div className="group relative h-[500px] w-[340px] select-none overflow-hidden rounded-3xl border-[6px] border-[#eaf0f6] bg-white p-6 transition-all hover:shadow-xl sm:h-[600px] sm:w-[500px] sm:p-8">
-                <div className="flex h-full flex-col gap-6">
+              <div className="group relative h-[500px] w-[380px] select-none overflow-hidden rounded-3xl border-[6px] border-[#eaf0f6] bg-white px-10 pt-10 transition-all hover:shadow-xl sm:h-[650px] sm:w-[550px]">
+                <div className="flex h-full flex-col gap-2">
                   {/* Card Header: Tag & Arrow */}
-                  {/* <div className="flex items-center justify-between">
-                    <span className="inline-block rounded-full bg-[#E2E8F0] px-4 py-1.5 text-sm font-medium text-[#475569]">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-block rounded-full bg-[#E2E8F0] px-5 py-0.5 text-md font-medium text-[#475569]">
                       {project.tag}
                     </span>
-                    <button className="flex h-12 w-12 items-center justify-center rounded-full bg-[#516C83] text-white transition-transform group-hover:rotate-45 cursor-pointer">
-                      <svg
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                    </button>
-                  </div> */}
-
-                  {/* Title */}
-                  <div className='flex items-center justify-between'>
-                    <h3 className="font-aeonik text-3xl font-normal text-[#1E293B]">
-                      {project.title}
-                    </h3>
-                    <button className="flex h-12 w-12 items-center justify-center rounded-full bg-[#516C83] text-white transition-transform group-hover:rotate-45 cursor-pointer">
+                    <button className="flex h-12 w-14 items-center justify-center rounded-full bg-[#516C83] text-white hover:bg-[#8B9CAB] cursor-pointer">
                       <svg
                         className="h-5 w-5"
                         fill="none"
@@ -143,13 +121,20 @@ export default function LatestWork() {
                     </button>
                   </div>
 
+                  {/* Title */}
+                  <div className='flex items-center justify-between'>
+                    <h3 className="font-aeonik text-2xl font-normal text-[#1E293B]">
+                      {project.title}
+                    </h3>
+                  </div>
+
                   {/* Image Area */}
-                  <div className="relative flex-1 overflow-hidden rounded-xl bg-gray-100">
+                  <div className="relative flex-1 overflow-hidden rounded-t-lg bg-gray-100 mt-10">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105 cursor-pointer"
+                      className="object-fit transition-transform duration-700 group-hover:scale-105 cursor-pointer"
                       draggable={false}
                     />
                   </div>
