@@ -63,7 +63,7 @@ const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  { label: 'Portfolio', href: '#' },
+  { label: 'Portfolio', href: '/portfolio' },
   { label: 'Pricing', href: '#' },
   {
     label: 'Resources',
