@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function AcuitySetupSection() {
+export default function AugmentationSetupSection() {
     return (
-        <section className="bg-[#17181B] py-20 lg:py-28 overflow-hidden">
-            <div className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        <section className="bg-[#17181B] py-10 lg:py-16 overflow-hidden">
+            <div className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-12">
                 <motion.div
                     className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 xl:gap-32"
                     initial={{ opacity: 0, y: 40 }}
@@ -28,7 +28,7 @@ export default function AcuitySetupSection() {
                         </div>
 
                         {/* Heading */}
-                        <h2 className="font-aeonik text-3xl sm:text-3xl lg:text-3xl xl:text-4xl font-normal leading-[1.1] tracking-tight max-w-2xl"
+                        <h2 className="font-aeonik text-3xl sm:text-3xl lg:text-3xl xl:text-4xl font-normal max-w-2xl"
                             style={{
                                 backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
                                 WebkitBackgroundClip: 'text',
@@ -42,11 +42,11 @@ export default function AcuitySetupSection() {
                         </h2>
 
                         {/* Description */}
-                        <div className="space-y-6 max-w-xl">
+                        <div className="space-y-3 max-w-xl">
                             <p className="font-aeonik text-base font-medium text-white">
                                 Clean collaboration. Clear ownership. Fully aligned with your workflow.
                             </p>
-                            <div className="space-y-4 font-aeonik text-white/70 leading-relaxed text-sm sm:text-base">
+                            <div className="space-y-2 font-aeonik text-white leading-relaxed text-sm sm:text-base">
                                 <p>
                                     This service embeds experienced engineers directly into your product team, working inside your tools, processes, and delivery rhythm. No silos. No hand-offs. Just people who understand how real products are built and shipped.
                                 </p>
@@ -70,22 +70,22 @@ export default function AcuitySetupSection() {
                         </button>
 
                         {/* Awards */}
-                        {/* <div className="flex flex-nowrap items-center gap-4 sm:gap-8 mt-4 overflow-x-auto no-scrollbar">
-                            <div className="relative w-[80px] h-[80px] sm:w-[110px] sm:h-[110px] flex-shrink-0">
+                        <div className="flex flex-nowrap items-center gap-4 sm:gap-4 overflow-x-auto no-scrollbar">
+                            <div className="relative w-[80px] h-[80px] sm:w-[130px] sm:h-[130px] flex-shrink-0">
                                 <Image src="/marketplace.webp" alt="Marketplace Expert" fill className="object-contain" />
                             </div>
-                            <div className="relative w-[80px] h-[80px] sm:w-[110px] sm:h-[110px] flex-shrink-0">
+                            <div className="relative w-[80px] h-[80px] sm:w-[130px] sm:h-[130px] flex-shrink-0">
                                 <Image src="/community.webp" alt="Community Leader" fill className="object-contain" />
                             </div>
-                            <div className="relative w-[80px] h-[80px] sm:w-[110px] sm:h-[110px] flex-shrink-0">
+                            <div className="relative w-[80px] h-[80px] sm:w-[130px] sm:h-[130px] flex-shrink-0">
                                 <Image src="/member.webp" alt="Circle Member" fill className="object-contain" />
                             </div>
-                        </div> */}
+                        </div>
                     </div>
 
                     {/* Right Column: Image */}
-                    <div className="w-full lg:w-[50%] relative">
-                        <div className="relative aspect-square w-full rounded-[32px] overflow-hidden shadow-2xl">
+                    <div className="w-full lg:w-[60%] relative">
+                        <div className="relative aspect-square w-full rounded-[12px] overflow-hidden">
                             <Image
                                 src="/services-section/design-service-img.webp"
                                 alt="Acuity Design Service"

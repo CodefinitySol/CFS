@@ -97,7 +97,7 @@ export default function GrowthSection({
                     </h2>
 
                     {/* Description */}
-                    <div className="font-aeonik text-base text-[#E8ECF0]/70 leading-relaxed max-w-3xl">
+                    <div className="font-aeonik text-base text-[#E8ECF0] leading-relaxed max-w-xl">
                         {description}
                     </div>
 
@@ -118,7 +118,7 @@ export default function GrowthSection({
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
-                            className="bg-[#212327]/40 border border-white/5 rounded-[24px] p-10 flex flex-col items-start gap-12 transition-all duration-300 hover:bg-[#212327]/60 hover:border-white/10 group h-full"
+                            className="bg-[#212327]/40 border border-white/5 rounded-[12px] p-10 flex flex-col items-start gap-12 transition-all duration-300 hover:bg-[#212327]/60 hover:border-white/10 group h-full"
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -142,7 +142,7 @@ export default function GrowthSection({
                                 </h3>
 
                                 {/* Feature Description */}
-                                <p className="font-aeonik text-base text-[#E8ECF0]/50 leading-relaxed">
+                                <p className="font-aeonik text-base text-[#E8ECF0] leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>

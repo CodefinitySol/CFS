@@ -26,7 +26,7 @@ export default function ServiceHeroSection({
 }: ServiceHeroSectionProps) {
     return (
         <section
-            className="relative w-full min-h-screen overflow-hidden flex flex-col"
+            className="relative w-full overflow-hidden flex flex-col"
             style={{ backgroundColor: sectionBgColor }}
         >
             {/* Header */}
@@ -47,7 +47,7 @@ export default function ServiceHeroSection({
             </div>
 
             <motion.div
-                className="flex-1 w-full max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 flex flex-col justify-center py-20 lg:py-32"
+                className="flex-1 w-full max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-16 relative z-10 flex flex-col justify-center pt-10 pb-10 lg:pt-12 lg:pb-22"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -68,12 +68,12 @@ export default function ServiceHeroSection({
                         </div>
 
                         {/* Heading */}
-                        <h1 className="font-aeonik font-normal leading-[1.1] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
+                        <h1 className="font-aeonik font-normal leading-[1.1] tracking-tight text-4xl sm:text-5xl lg:text-5xl">
                             {title}
                         </h1>
 
                         {/* Description */}
-                        <div className="font-aeonik text-[#E8ECF0]/80 leading-relaxed max-w-xl whitespace-pre-line text-lg">
+                        <div className="font-aeonik text-[#FFFFFF] max-w-lg whitespace-pre-line text-md">
                             {description}
                         </div>
 
@@ -89,7 +89,7 @@ export default function ServiceHeroSection({
                     </div>
 
                     {/* Right Image */}
-                    <div className="w-full lg:w-[55%] relative">
+                    <div className="w-full lg:w-[75%] relative">
                         <div className="relative w-full aspect-[4/3] lg:aspect-[16/10]">
                             <Image
                                 src={imageSrc}

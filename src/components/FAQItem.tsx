@@ -30,7 +30,7 @@ export default function FAQItem({
     maxHeight = '500px'
 }: FAQItemProps) {
     return (
-        <div className={`border-b ${borderClassName} last:border-0 ${className}`}>
+        <div className={`border-b ${borderClassName} ${className}`}>
             <button
                 onClick={onClick}
                 className={`w-full flex items-center justify-between text-left group transition-all ${buttonClassName}`}

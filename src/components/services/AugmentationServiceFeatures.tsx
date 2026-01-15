@@ -109,9 +109,9 @@ const FEATURES: FeatureItem[] = [
 
 import { motion } from 'framer-motion';
 
-export default function AcuityServiceFeatures() {
+export default function AugmentationServiceFeatures() {
     return (
-        <section className="bg-white py-24 sm:py-32 overflow-hidden">
+        <section className="bg-white pt-24 sm:pt-32 pb-8 sm:pb-12 overflow-hidden">
             <motion.div
                 className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 40 }}
@@ -122,12 +122,12 @@ export default function AcuityServiceFeatures() {
 
                 {/* Header */}
                 <div className="flex flex-col items-center mb-16 text-center">
-                    <div className="inline-flex items-center rounded-full px-5 py-2 bg-[#D1D9E0] text-[#516C83] mb-8">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-3"></span>
+                    <div className="inline-flex items-center rounded-full px-3 py-2 bg-[#D1D9E0] text-[#516C83] mb-8">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
                         <span className="font-aeonik text-xs font-medium uppercase tracking-widest">Why choose us</span>
                     </div>
 
-                    <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight text-[#1E293B] max-w-4xl">
+                    <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-5xl xl:text-5xl font-normal text-[#1E293B] max-w-2xl">
                         What Makes Our Team Augmentation Different
                     </h2>
                 </div>
@@ -137,7 +137,7 @@ export default function AcuityServiceFeatures() {
                     {FEATURES.map((feature: FeatureItem, index: number) => (
                         <div
                             key={index}
-                            className="group relative p-10 rounded-[18px] bg-[#F1F4F6] transition-all duration-500 hover:bg-[#516C83] cursor-pointer flex flex-col items-start gap-8 border border-transparent shadow-sm hover:shadow-2xl"
+                            className="group relative p-8 rounded-[12px] bg-[#F1F4F6] transition-all duration-500 hover:bg-[#516C83] cursor-pointer flex flex-col items-start gap-8 border border-transparent shadow-sm hover:shadow-2xl"
                         >
                             {/* Header: Icon + Heading */}
                             <div className="flex items-center gap-4">
@@ -150,7 +150,7 @@ export default function AcuityServiceFeatures() {
                             </div>
 
                             {/* Description */}
-                            <p className="font-aeonik text-base text-[#1E293B]/60 leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+                            <p className="font-aeonik text-base text-[#1E293B] leading-relaxed group-hover:text-white/80 transition-colors duration-300">
                                 {feature.description}
                             </p>
                         </div>
