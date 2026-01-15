@@ -105,7 +105,7 @@ export default function RecordOfResultsSection() {
                             </h2>
 
                             {/* Description */}
-                            <p className="font-aeonik text-sm sm:text-base text-[#4B5563] leading-relaxed max-w-2xl">
+                            <p className="font-aeonik text-sm sm:text-base text-[#4B5563] max-w-xl">
                                 Our growth has come from doing the work properly and standing behind it. These numbers reflect real products shipped, long-term client relationships, and systems that continue to run in production.
                             </p>
                         </div>
@@ -132,7 +132,7 @@ export default function RecordOfResultsSection() {
                         {stats.map((stat, index) => (
                             <motion.div
                                 key={stat.id}
-                                className="bg-white rounded-[24px] p-8 lg:p-10 shadow-sm border border-black/5 flex flex-col h-full"
+                                className="bg-white rounded-[12px] p-4 lg:p-6 shadow-sm border border-black/5 flex flex-col h-full"
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -149,7 +149,7 @@ export default function RecordOfResultsSection() {
                                     {/* Thin Arrow Icon */}
                                     <div className="mb-2 text-[#506C83]">
                                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                                            <line x1="12" y1="100" x2="12" y2="5"></line>
                                             <polyline points="5 12 12 5 19 12"></polyline>
                                         </svg>
                                     </div>
@@ -161,7 +161,7 @@ export default function RecordOfResultsSection() {
                                 <div className="h-px w-full bg-gray-100 mb-6"></div>
 
                                 {/* Description */}
-                                <p className="font-aeonik text-sm sm:text-base text-[#4B5563] leading-relaxed">
+                                <p className="font-aeonik text-sm text-black">
                                     {stat.description}
                                 </p>
 

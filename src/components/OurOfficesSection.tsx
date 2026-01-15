@@ -23,14 +23,14 @@ export default function OurOfficesSection() {
                     </div>
 
                     {/* Heading */}
-                    <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-[#181A1D]">
+                    <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#181A1D]">
                         Where We Make It Happen
                     </h2>
                 </motion.div>
 
                 {/* Card */}
                 <motion.div
-                    className="group relative rounded-[12px] border border-gray-100 p-4 lg:p-6 transition-all duration-300 hover:bg-[#516C83] hover:border-[#516C83] hover:shadow-2xl"
+                    className="group relative rounded-[12px] border border-gray-100 p-3 lg:p-3 transition-all duration-300 hover:bg-[#516C83] hover:border-[#516C83] hover:shadow-2xl"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -38,7 +38,7 @@ export default function OurOfficesSection() {
                 >
                     <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
                         {/* Image */}
-                        <div className="relative w-full lg:w-[400px] h-[200px] sm:h-[240px] lg:h-[260px] rounded-xl overflow-hidden flex-shrink-0">
+                        <div className="relative w-full lg:w-[300px] h-[200px] sm:h-[240px] lg:h-[220px] rounded-lg overflow-hidden flex-shrink-0">
                             <Image
                                 src="/about-us/liverpool.webp"
                                 alt="Liverpool Office"
@@ -108,10 +108,10 @@ export default function OurOfficesSection() {
                             </div>
 
                             {/* Desktop Layout (>= lg) */}
-                            <div className="hidden lg:flex flex-row gap-8 w-full">
+                            <div className="hidden lg:flex flex-row gap-0 w-full">
                                 {/* Title Column - Left */}
                                 <div className="lg:w-[200px] flex-shrink-0">
-                                    <h3 className="font-aeonik text-3xl sm:text-4xl text-[#506C83] transition-all duration-300">
+                                    <h3 className="font-aeonik text-3xl sm:text-3xl text-[#506C83] transition-all duration-300">
                                         <span className="text-[#374151] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-[linear-gradient(94.74deg,#fff_.26%,#506c83_118.16%)]">
                                             Lahore
                                         </span>
@@ -123,14 +123,14 @@ export default function OurOfficesSection() {
 
                                     {/* Column 1: Address, Email, View Map */}
                                     <div className="flex flex-col justify-between gap-8 h-full">
-                                        <div className="flex flex-col gap-4">
+                                        <div className="flex flex-col gap-8">
                                             {/* Address */}
                                             <div className="flex items-start gap-4">
                                                 <svg className="w-6 h-6 text-[#9CA3AF] group-hover:text-white transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                                     <path d="M12 21C16 17 20 13 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13 8 17 12 21Z" />
                                                     <circle cx="12" cy="9" r="3" />
                                                 </svg>
-                                                <p className="font-aeonik text-base text-[#4B5563] group-hover:text-white transition-colors leading-relaxed max-w-[240px]">
+                                                <p className="font-aeonik text-base text-[#4B5563] group-hover:text-white transition-colors leading-relaxed">
                                                     Located in Johar Town
                                                     F76G+746, 330
                                                     Block R, Phase 2

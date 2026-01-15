@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutHeroSection() {
   return (
-    <section className="relative min-h-screen w-full bg-[#181A1D] py-20 overflow-hidden flex flex-col justify-center">
+    <section className="relative min-h-screen w-full bg-[#181A1D] py-10 overflow-hidden flex flex-col justify-center">
 
       {/* Container */}
       <motion.div
@@ -33,17 +33,17 @@ export default function AboutHeroSection() {
         <div className="col-span-2 lg:col-span-6 order-1 lg:order-none flex flex-col items-center text-center px-4 md:px-8">
 
           {/* Badge */}
-          <div className="mb-10 inline-flex items-center rounded-full border border-white/10 px-6 py-2"
+          <div className="mb-10 inline-flex items-center rounded-full border border-white/10 px-3 py-1"
             style={{
               background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)'
             }}
           >
-            <span className="h-2 w-2 rounded-full bg-white mr-3"></span>
-            <span className="font-aeonik text-sm font-medium text-white">About me</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-white mr-1"></span>
+            <span className="font-aeonik text-xs font-medium text-white">About me</span>
           </div>
 
           {/* Heading */}
-          <h1 className="font-aeonik text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-normal leading-[1.1] mb-10 tracking-tight text-white"
+          <h1 className="font-aeonik text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-10 tracking-tight text-white"
             style={{
               backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
               WebkitBackgroundClip: 'text',
@@ -76,8 +76,8 @@ export default function AboutHeroSection() {
           </h1>
 
           {/* Description */}
-          <div className="max-w-2xl mx-auto mb-12">
-            <p className="font-aeonik text-base sm:text-lg text-gray-300 leading-relaxed">
+          <div className="max-w-2xl mx-auto mb-6">
+            <p className="font-aeonik text-base sm:text-md text-white leading-relaxed">
               Codefinity Solutions is a product focused software development company built by engineers who care about how software holds up after launch.
               <br />
               <br />
@@ -89,14 +89,14 @@ export default function AboutHeroSection() {
           </div>
 
           {/* CTA Button */}
-          <button className="px-10 py-5 rounded-full text-white font-medium text-lg transition-all hover:scale-105 hover:shadow-lg mb-16"
-            style={{ backgroundColor: '#465D71' }}
+          <button className="px-10 py-4 rounded-full text-white text-sm transition-all hover:scale-105 hover:shadow-lg mb-12"
+            style={{ backgroundColor: '#516C83' }}
           >
             Get in touch
           </button>
 
           {/* Awards */}
-          {/* <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-6 items-center">
             <div className="relative w-24 h-24 md:w-32 md:h-32">
               <Image src="/marketplace.webp" alt="Squarespace Marketplace Expert" fill className="object-contain" />
             </div>
@@ -106,7 +106,7 @@ export default function AboutHeroSection() {
             <div className="relative w-24 h-24 md:w-32 md:h-32">
               <Image src="/member.webp" alt="Squarespace Circle Member" fill className="object-contain" />
             </div>
-          </div> */}
+          </div>
 
         </div>
 
