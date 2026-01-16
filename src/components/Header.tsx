@@ -64,7 +64,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Pricing', href: '#' },
+  { label: 'Pricing', href: '/pricing' },
   {
     label: 'Resources',
     dropdownItems: [
@@ -100,7 +100,7 @@ const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  { label: 'Contact', href: '#' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 interface HeaderProps {

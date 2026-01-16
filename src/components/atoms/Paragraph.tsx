@@ -29,7 +29,7 @@ export default function Paragraph({
 
     return (
         <p
-            className={`font-aeonik leading-relaxed ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
+            className={`font-aeonik ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
             {...props}
         >
             {children}

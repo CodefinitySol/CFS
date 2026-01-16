@@ -12,7 +12,7 @@ const SUBJECT_OPTIONS = [
   { label: 'Something else', value: 'something-else' },
 ];
 
-export default function ContactForm({ isAugmentation }: { isAugmentation?: boolean }) {
+export default function ContactForm({ isAugmentation, isContactPage }: { isAugmentation?: boolean; isContactPage?: boolean }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,11 +40,11 @@ export default function ContactForm({ isAugmentation }: { isAugmentation?: boole
   };
 
   return (
-    <div className={isAugmentation ? "rounded-[18px] bg-[#DDE3E7] p-2" : ""}>
-      <div className={`relative rounded-[16px] bg-white p-10 sm:p-12 ${isAugmentation ? '' : 'rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]'}`}>
+    <div className={(isAugmentation || isContactPage) ? "rounded-[18px] bg-[#DDE3E7] p-2" : ""}>
+      <div className={`relative rounded-[16px] bg-white p-10 sm:p-12 ${(isAugmentation || isContactPage) ? '' : 'rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]'}`}>
         {/* START A PROJECT Circle */}
-        <div className={`absolute z-20 ${isAugmentation ? 'h-20 w-20 -left-10 -top-10 sm:h-24 sm:w-24 sm:-left-12 sm:-top-12' : 'h-16 w-16 -left-6 -top-6 sm:h-20 sm:w-20 sm:-left-7 sm:-top-7'}`}>
-          <div className={`relative h-full w-full rounded-full border border-white/10 backdrop-blur-md ${isAugmentation ? 'bg-[#F2F4F6]/60' : 'bg-[#1e293b]/60 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'}`}>
+        <div className={`absolute z-20 ${(isAugmentation || isContactPage) ? 'h-20 w-20 -left-10 -top-10 sm:h-24 sm:w-24 sm:-left-12 sm:-top-12' : 'h-16 w-16 -left-6 -top-6 sm:h-20 sm:w-20 sm:-left-7 sm:-top-7'}`}>
+          <div className={`relative h-full w-full rounded-full border border-white/10 backdrop-blur-md ${(isAugmentation || isContactPage) ? 'bg-[#F2F4F6]/60' : 'bg-[#1e293b]/60 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'}`}>
             {/* Inner Glass Glow */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 via-transparent to-white/10" />
 
@@ -53,7 +53,7 @@ export default function ContactForm({ isAugmentation }: { isAugmentation?: boole
 
             {/* Center Plus */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className={`font-aeonik text-xl font-light ${isAugmentation ? 'text-[#536F85]' : 'text-white/90'}`}>
+              <span className={`font-aeonik text-xl font-light ${(isAugmentation || isContactPage) ? 'text-[#536F85]' : 'text-white/90'}`}>
                 +
               </span>
             </div>
@@ -70,12 +70,12 @@ export default function ContactForm({ isAugmentation }: { isAugmentation?: boole
                   fill="none"
                 />
                 <text
-                  fill={isAugmentation ? '#536F85' : 'white'}
+                  fill={(isAugmentation || isContactPage) ? '#536F85' : 'white'}
                   fontSize="7.5"
                   fontWeight="1000"
                   fontFamily="Aeonik, sans-serif"
                   className="uppercase tracking-[0.3em]"
-                  style={{ textShadow: isAugmentation ? '0 1px 2px rgba(0,0,0,0.2)' : 'none' }}
+                  style={{ textShadow: (isAugmentation || isContactPage) ? '0 1px 2px rgba(0,0,0,0.2)' : 'none' }}
                 >
                   <textPath
                     href="#circle-path-form"
