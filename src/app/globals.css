@@ -1,12 +1,50 @@
 @import 'tailwindcss';
 
-/* Aeonik Regular Font */
+/* Aeonik Fonts */
 @font-face {
   font-family: 'Aeonik';
-  src: url('/fonts/aeonik-regular.woff2') format('woff2'),
-    url('/fonts/aeonik-regular.woff') format('woff'),
-    url('/fonts/aeonik-regular.ttf') format('truetype');
+  src: url('/assets/aeonik-font/Aeonik-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/aeonik-font/Aeonik-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/aeonik-font/Aeonik-Regular.ttf') format('truetype');
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/aeonik-font/Aeonik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/aeonik-font/Aeonik-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/aeonik-font/Aeonik-Black.ttf') format('truetype');
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -14,8 +52,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-aeonik: 'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    sans-serif;
+  --font-aeonik:
+    'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 @theme inline {
@@ -51,8 +89,11 @@ body {
 
 /* Glass effect utility class */
 .glass-text {
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 255, 255, 0.2),
-    0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 rgba(255, 255, 255, 0.1);
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 0 0 rgba(255, 255, 255, 0.1);
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4))
     drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
   text-rendering: optimizeLegibility;
