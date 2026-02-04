@@ -129,7 +129,7 @@ export default function AboutHeroSection() {
       </div>
       {/* Floating Element Bottom Right */}
       <div className="absolute bottom-0 right-[20px] w-[280px] h-[200px] hidden xl:block rounded-lg overflow-hidden">
-        <Image src="/about-us/hero-about-4.webp" alt="Detail" fill className="object-cover" />
+        <Image src="/about-us/hero-about-2.png" alt="Detail" fill className="object-cover" />
       </div>
 
     </section>

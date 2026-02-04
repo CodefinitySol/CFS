@@ -64,46 +64,46 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Pricing', href: '/pricing' },
-  {
-    label: 'Resources',
-    dropdownItems: [
-      {
-        title: 'Read Our Blog',
-        desc: 'Squarespace website design insights.',
-        iconPath:
-          'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',
-        href: '/resources/blog',
-      },
-      {
-        title: 'Design on Demand',
-        desc: 'Our graphic design division.',
-        iconPath:
-          'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z',
-      },
-      {
-        title: 'FAQS',
-        desc: 'Your questions, answered.',
-        iconPath:
-          'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-        href: '/resources/faqs',
-      },
-      {
-        title: 'Squarespace Web Design Agency',
-        desc: 'Learn more about the company.',
-        iconPath:
-          'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
-        href: '/resources/agency',
-      },
-      {
-        title: 'Testimonials',
-        desc: 'A reputation of excellence.',
-        iconPath:
-          'M5 13l4 4L19 7',
-        href: '/resources/testimonials',
-      },
-    ],
-  },
+  // { label: 'Pricing', href: '/pricing' },
+  // {
+  //   label: 'Resources',
+  //   dropdownItems: [
+  //     {
+  //       title: 'Read Our Blog',
+  //       desc: 'Squarespace website design insights.',
+  //       iconPath:
+  //         'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',
+  //       href: '/resources/blog',
+  //     },
+  //     {
+  //       title: 'Design on Demand',
+  //       desc: 'Our graphic design division.',
+  //       iconPath:
+  //         'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z',
+  //     },
+  //     {
+  //       title: 'FAQS',
+  //       desc: 'Your questions, answered.',
+  //       iconPath:
+  //         'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+  //       href: '/resources/faqs',
+  //     },
+  //     {
+  //       title: 'Squarespace Web Design Agency',
+  //       desc: 'Learn more about the company.',
+  //       iconPath:
+  //         'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+  //       href: '/resources/agency',
+  //     },
+  //     {
+  //       title: 'Testimonials',
+  //       desc: 'A reputation of excellence.',
+  //       iconPath:
+  //         'M5 13l4 4L19 7',
+  //       href: '/resources/testimonials',
+  //     },
+  //   ],
+  // },
   { label: 'Contact', href: '/contact' },
 ];
 

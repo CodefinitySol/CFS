@@ -21,10 +21,10 @@ export default function NewsletterSection() {
                         style={{ background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)' }}
                     >
                         <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
-                        Free Whitepaper
+                        NEWSLETTER
                     </span>
                     <span className="text-white/80 text-[10px] sm:text-xs font-aeonik px-4 pr-6">
-                        Squarespace vs Wordpress, Wix and Shopify. Which is best?
+                        Product Engineering, AI & Scaling Insights
                     </span>
                 </motion.div>
 
@@ -42,7 +42,7 @@ export default function NewsletterSection() {
                         backgroundClip: 'text',
                     }}
                 >
-                    Get The Latest Squarespace Tips
+                    Get Product Engineering Insights
                 </motion.h2>
 
                 {/* Description */}
@@ -53,7 +53,7 @@ export default function NewsletterSection() {
                     transition={{ delay: 0.2 }}
                     className="font-aeonik text-base sm:text-md text-white max-w-2xl mb-14"
                 >
-                    Whether you&apos;re a seasoned Squarespace web designer, aiming to launch a long-term SEO strategy, considering a move from WordPress or whether you should use Squarespace, new to Squarespace, or simply curious, our free guide is packed with valuable insights just for you. Download it now and elevate your Squarespace game!
+                    Join our newsletter for practical insights on building and scaling real software products. We share lessons from production systems, AI-driven workflows, modern web stacks, and cloud infrastructure—focused on what actually works in the real world.
                 </motion.p>
 
                 {/* Form */}

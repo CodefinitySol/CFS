@@ -20,7 +20,7 @@ export default function AgencyPage() {
             <FounderSection />
             <AgencyProcessSection />
             <SupportSection />
-            <TestimonialsSection />
+            {/* <TestimonialsSection /> */}
             <ContactSection />
             <BlogSection />
             <Footer />

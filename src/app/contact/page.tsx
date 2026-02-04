@@ -9,7 +9,7 @@ export default function ContactPage() {
     return (
         <main className="min-h-screen bg-white">
             <ContactHeroSection />
-            <TestimonialsSection />
+            {/* <TestimonialsSection /> */}
             <ServiceFAQSection />
             <BlogSection />
         </main>

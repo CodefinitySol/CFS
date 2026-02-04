@@ -44,7 +44,7 @@ export default function AugmentationPage() {
             <AugmentationHeroSection />
             <AugmentationSetupSection />
             <LatestWork />
-            <TestimonialsSection />
+            {/* <TestimonialsSection /> */}
             <AugmentationServiceFeatures />
             <ServiceFAQSection items={AUGMENTATION_FAQS} />
             <ContactSection />

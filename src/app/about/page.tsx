@@ -19,7 +19,7 @@ export default function AboutPage() {
             <LatestWork />
             <OurOfficesSection />
             <ContactSection />
-            <BlogSection />
+            {/* <BlogSection /> */}
         </main>
     );
 }
