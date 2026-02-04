@@ -38,11 +38,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
-      <VideoSection />
+      {/* <VideoSection /> */}
       <Meet />
       <LatestWork />
       <ProcessSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <ServicesSection />
       <PricingSection />
       <IntegrationsSection />
@@ -52,7 +52,7 @@ export default function Home() {
         description='You are not just hiring developers. You are choosing how your product is built, maintained, and scaled. Here is what working with Codefinity Solutions actually looks like.'
         REASONS={REASONS} />
       <ContactSection />
-      <BlogSection />
+      {/* <BlogSection /> */}
     </main>
   );
 }

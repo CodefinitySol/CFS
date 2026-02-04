@@ -105,11 +105,11 @@ export default function TestimonialsPage() {
                     </div>
 
                     {/* Testimonials Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24 lg:mt-18">
+                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24 lg:mt-18">
                         {TESTIMONIALS.map((testimonial, index) => (
                             <TestimonialCard key={index} testimonial={testimonial} />
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

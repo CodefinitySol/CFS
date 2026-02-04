@@ -34,18 +34,7 @@ const RESOURCE_LINKS = [
 export default function Footer() {
   return (
     <footer className="relative bg-[#181A1D] pb-8 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/bg-footer.webp"
-          alt="Footer Background"
-          fill
-          className="object-cover opacity-100"
-          priority
-        />
-        {/* Subtle Overlay to ensure readability if needed */}
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
+
 
       <div className="relative z-10">
         <NewsletterSection />

@@ -94,7 +94,7 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
           >
             {REASONS && REASONS.map((item: REASONSTYPE, index: number) => (
               <SwiperSlide key={index}>
-                <div className={`relative overflow-hidden rounded-[12px] rounded-bl-none bg-[#17181B] flex flex-col lg:flex-row items-stretch ${isPricing ? 'pt-0 pr-8 sm:pr-10 lg:pr-14 pb-0 pl-0 gap-8 lg:gap-58' : 'pt-20 gap-10 lg:gap-20'}`}>
+                <div className={`relative p-5 overflow-hidden rounded-[12px] rounded-bl-none bg-[#17181B] flex flex-col lg:flex-row items-stretch ${isPricing ? 'pt-0 pr-8 sm:pr-10 lg:pr-14 pb-0 pl-0 gap-8 lg:gap-58' : 'pt-20 gap-10 lg:gap-20'}`}>
                   {/* Image Side */}
                   <div className="relative w-full lg:w-[46%] min-h-[400px] lg:min-h-[500px] overflow-hidden">
                     <Image

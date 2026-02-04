@@ -53,7 +53,7 @@ const STEPS = [
     title: 'Launch, Support, and Scale',
     description:
       "Once the product is ready, we handle deployment, handover, and documentation. We stay involved after launch to support fixes, improvements, and scaling needs. Many clients continue with us long term as their product grows, users increase, and requirements evolve.",
-    image: '/handover.webp',
+    image: '/onboarding.webp',
   },
 ];
 

@@ -42,21 +42,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#080c14] pb-16 sm:pb-10 lg:pb-34">
+    <section className="relative min-h-screen overflow-hidden bg-[#181A1D] pb-16 sm:pb-10 lg:pb-34">
       {/* Header */}
       <Header />
-
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/bg-gradient.webp"
-          alt="Background Gradient"
-          fill
-          priority
-          className="object-cover"
-          quality={100}
-        />
-      </div>
 
       {/* Content Wrapper */}
       <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-12 sm:px-8 md:py-16 lg:px-10 lg:py-10 xl:px-12">
