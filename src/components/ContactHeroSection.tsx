@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { IoMailOutline } from 'react-icons/io5';
+import { COMPANY_EMAIL_MAILTO } from '@/constants/contact';
 import Header from './Header';
 import ContactForm from './molecules/ContactForm';
 
@@ -23,7 +24,7 @@ const SOCIAL_LINKS = [
     },
     {
         icon: <IoMailOutline />,
-        href: 'mailto:contact@codefinitysol.com',
+        href: COMPANY_EMAIL_MAILTO,
         external: false,
         label: 'Email',
     },

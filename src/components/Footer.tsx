@@ -6,6 +6,7 @@ import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 import NewsletterSection from './NewsletterSection';
 import { CALENDLY_BOOKING_URL } from '@/constants/booking';
+import { COMPANY_EMAIL_MAILTO } from '@/constants/contact';
 
 const SOCIAL_LINKS = [
   {
@@ -22,7 +23,7 @@ const SOCIAL_LINKS = [
   },
   {
     icon: <HiMail className="h-5 w-5" aria-hidden />,
-    href: 'mailto:contact@codefinitysol.com',
+    href: COMPANY_EMAIL_MAILTO,
     external: false,
     label: 'Email',
   },

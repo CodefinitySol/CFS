@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { COMPANY_EMAIL_MAILTO } from '@/constants/contact';
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { IoMailOutline } from 'react-icons/io5';
+import { motion } from 'framer-motion';
 
 const ROLES = [
     "Squarespace Expert",
@@ -30,12 +32,10 @@ const SOCIAL_LINKS = [
     {
         icon: <IoMailOutline />,
         label: 'Email',
-        href: 'mailto:contact@codefinitysol.com',
+        href: COMPANY_EMAIL_MAILTO,
         external: false,
     },
 ] as const;
-
-import { motion } from 'framer-motion';
 
 export default function AcuityAuthorSection() {
     return (

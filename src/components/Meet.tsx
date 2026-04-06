@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { COMPANY_EMAIL_MAILTO } from '@/constants/contact';
 import { IoMailOutline } from 'react-icons/io5';
 
 const SOCIAL_LINKS = [
@@ -19,7 +20,7 @@ const SOCIAL_LINKS = [
     icon: <FaInstagram className="h-5 w-5" aria-hidden />,
   },
   {
-    href: 'mailto:contact@codefinitysol.com',
+    href: COMPANY_EMAIL_MAILTO,
     label: 'Email',
     external: false,
     icon: <IoMailOutline className="h-5 w-5" aria-hidden />,
