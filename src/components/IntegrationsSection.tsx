@@ -10,7 +10,7 @@ export default function IntegrationsSection() {
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.4]"
         style={{
-          backgroundImage: 'radial-gradient(#506C83 0.8px, transparent 0.8px)',
+          backgroundImage: 'radial-gradient(#2B2A2B 0.8px, transparent 0.8px)',
           backgroundSize: '32px 32px'
         }}
       />
@@ -25,15 +25,15 @@ export default function IntegrationsSection() {
           transition={{ duration: 0.8 }}
         >
           <span
-            className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#CFD6DC]"
+            className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#2B2A2B] bg-[#CFD6DC]"
           >
-            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
+            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]/40" />
             Integrations
           </span>
-          <h2 className="mt-8 font-aeonik text-4xl font-normal text-[#181A1D] sm:text-4xl lg:text-5xl">
+          <h2 className="mt-8 font-aeonik text-4xl font-normal text-[#191819] sm:text-4xl lg:text-5xl">
             We Handle All Integrations
           </h2>
-          <p className="mt-4 font-aeonik sm:text-md text-[#506C83] max-w-xl">
+          <p className="mt-4 font-aeonik sm:text-md text-[#2B2A2B] max-w-xl">
             From intricate challenges to seamless execution, We&apos;ll integrate all your marketing tools and automations with your website
           </p>
         </motion.div>

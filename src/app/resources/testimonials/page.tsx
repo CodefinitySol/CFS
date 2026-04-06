@@ -2,13 +2,19 @@
 
 import { useState } from 'react';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MdVerified } from 'react-icons/md';
-import { HiOutlineCalendar } from 'react-icons/hi2';
-const TESTIMONIALS = [
+
+type Testimonial = {
+    name: string;
+    image: string;
+    rating: number;
+    text: string;
+};
+
+const TESTIMONIALS: Testimonial[] = [
     {
         name: 'Jeff Smith',
         image: '/jim.jpeg',
@@ -65,13 +71,13 @@ const TESTIMONIALS = [
     },
 ];
 
-function StarRating({ rating, isHovered }: { rating: number; isHovered: boolean }) {
+function StarRating({ isHovered }: { rating: number; isHovered: boolean }) {
     return (
         <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
                 <svg
                     key={i}
-                    className={`h-4 w-4 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#506C83]'}`}
+                    className={`h-4 w-4 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#2B2A2B]'}`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                 >
@@ -93,21 +99,21 @@ export default function TestimonialsPage() {
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10">
                         <div className="max-w-3xl">
                             <span className="inline-flex items-center rounded-full px-4 py-1.5 mb-6 bg-[#BEC8D1] w-fit">
-                                <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
-                                <span className="font-aeonik text-xs text-[#516C83] uppercase">All Testimonials</span>
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                                <span className="font-aeonik text-xs text-[#2B2A2B] uppercase">All Testimonials</span>
                             </span>
-                            <h1 className="font-aeonik text-4xl lg:text-5xl font-normal text-[#181A1D]">
+                            <h1 className="font-aeonik text-4xl lg:text-5xl font-normal text-[#191819]">
                                 Over 200+ Reviews
                             </h1>
                         </div>
                     </div>
 
                     {/* Testimonials Grid */}
-                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24 lg:mt-18">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24 lg:mt-18">
                         {TESTIMONIALS.map((testimonial, index) => (
                             <TestimonialCard key={index} testimonial={testimonial} />
                         ))}
-                    </div> */}
+                    </div>
                 </div>
             </section>
 
@@ -116,7 +122,7 @@ export default function TestimonialsPage() {
     );
 }
 
-function TestimonialCard({ testimonial }: { testimonial: typeof TESTIMONIALS[0] }) {
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -127,7 +133,7 @@ function TestimonialCard({ testimonial }: { testimonial: typeof TESTIMONIALS[0] 
             transition={{ duration: 0.5 }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="group relative overflow-hidden rounded-[12px] bg-[#E8ECF0] p-8 transition-all duration-300 hover:bg-[#516C83] flex flex-col h-full"
+            className="group relative overflow-hidden rounded-[12px] bg-[#E8ECF0] p-8 transition-all duration-300 hover:bg-[#2B2A2B] flex flex-col h-full"
         >
             {/* Header */}
             <div className="flex items-center justify-between gap-4 mb-8">
@@ -141,17 +147,17 @@ function TestimonialCard({ testimonial }: { testimonial: typeof TESTIMONIALS[0] 
                         />
                     </div>
                     <div className="flex items-center gap-1.5">
-                        <h3 className={`font-aeonik text-lg font-normal transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#181A1D]'}`}>
+                        <h3 className={`font-aeonik text-lg font-normal transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#191819]'}`}>
                             {testimonial.name}
                         </h3>
-                        <MdVerified className={`h-4 w-4 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#506C83]'}`} />
+                        <MdVerified className={`h-4 w-4 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#2B2A2B]'}`} />
                     </div>
                 </div>
                 <StarRating rating={testimonial.rating} isHovered={isHovered} />
             </div>
 
             {/* Text */}
-            <p className={`font-aeonik text-[15px] leading-relaxed transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#516C83]'}`}>
+            <p className={`font-aeonik text-[15px] leading-relaxed transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#2B2A2B]'}`}>
                 {testimonial.text}
             </p>
         </motion.div>

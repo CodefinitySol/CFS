@@ -16,13 +16,13 @@ export default function IndustriesSection() {
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="inline-flex items-center rounded-full px-4 py-1.5 mb-8 bg-[#BEC8D1] w-fit">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
-                        <span className="font-aeonik text-xs font-medium text-[#516C83] tracking-wide">Industries</span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                        <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">Industries</span>
                     </span>
-                    <h2 className="font-aeonik text-5xl sm:text-5xl font-normal leading-[1.1] tracking-tight text-[#181A1D] mb-8">
+                    <h2 className="font-aeonik text-5xl sm:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819] mb-8">
                         Industries We Serve
                     </h2>
-                    <p className="font-aeonik text-md text-[#181A1D] max-w-2xl">
+                    <p className="font-aeonik text-md text-[#191819] max-w-2xl">
                         We partner with businesses across a diverse range of sectors, tailoring our Squarespace design
                         and SEO services to meet unique industry needs.
                     </p>
@@ -37,7 +37,7 @@ export default function IndustriesSection() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: index * 0.02 }}
-                            className="px-6 py-2 rounded-full border border-[#748A9C] text-[#516C83] font-aeonik text-base transition-all duration-300 hover:bg-[#E8ECF0] hover:text-[#181A1D] hover:border-[#BEC8D1] cursor-default bg-[#E8ECF0]"
+                            className="px-6 py-2 rounded-full border border-[#748A9C] text-[#2B2A2B] font-aeonik text-base transition-all duration-300 hover:bg-[#E8ECF0] hover:text-[#191819] hover:border-[#BEC8D1] cursor-default bg-[#E8ECF0]"
                         >
                             {industry}
                         </motion.div>

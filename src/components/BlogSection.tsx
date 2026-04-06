@@ -11,42 +11,45 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { motion } from 'framer-motion';
 
+/** Listing only — individual posts do not have detail routes yet. */
+const BLOG_LIST_PATH = '/resources/blog';
+
 const BLOG_POSTS = [
   {
     category: 'Anchor Links',
     title: 'How to Link Buttons to Sections in Squarespace (Anchor Link Guide)',
     description: 'Learn how to create anchor links on your Squarespace site.',
     image: '/blog-1.webp',
-    link: '#'
+    link: BLOG_LIST_PATH,
   },
   {
     category: 'Mobile',
     title: 'Design a Mobile-Friendly Menu on Squarespace',
     description: 'Delve into the often overlooked aspect of mobile optimization on Squarespace sites, focusing specifically on the mobile menu.',
     image: '/blog-2.webp',
-    link: '#'
+    link: BLOG_LIST_PATH,
   },
   {
     category: 'SEO',
     title: 'Using Beacon AI to Optimize Your Site SEO on Squarespace',
     description: 'Explore the newly launched Beacon AI by Squarespace, a tool designed to simplify and enhance SEO for your website.',
     image: '/blog-3.webp',
-    link: '#'
+    link: BLOG_LIST_PATH,
   },
   {
     category: 'Design',
     title: 'Top 10 Squarespace Design Trends for 2024',
     description: 'Stay ahead of the competition with these cutting-edge design trends tailored for the Squarespace platform.',
     image: '/blog-4.webp',
-    link: '#'
+    link: BLOG_LIST_PATH,
   },
   {
     category: 'Business',
     title: 'How to Grow Your Agency Using Squarespace',
     description: 'Practical tips and strategies for scaling your creative agency with Squarespace as your core platform.',
     image: '/blog-5.webp',
-    link: '#'
-  }
+    link: BLOG_LIST_PATH,
+  },
 ];
 
 export default function BlogSection() {
@@ -65,15 +68,15 @@ export default function BlogSection() {
         >
           <div className="max-w-5xl">
             <span
-              className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#CFD6DC]"
+              className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#2B2A2B] bg-[#CFD6DC]"
             >
-              <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
+              <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]/40" />
               Blogs
             </span>
-            <h2 className="mt-6 font-aeonik text-4xl font-normal tracking-tight text-[#181A1D] sm:text-5xl">
+            <h2 className="mt-6 font-aeonik text-4xl font-normal tracking-tight text-[#191819] sm:text-5xl">
               Insights From the Work We Do
             </h2>
-            <p className="mt-4 font-aeonik text-lg text-[#506C83] leading-relaxed">
+            <p className="mt-4 font-aeonik text-lg text-[#2B2A2B] leading-relaxed">
               Our blog shares lessons from building and running real software products. We write about AI systems, web and mobile development, architecture decisions, automation, and the tradeoffs teams face as products grow.
               <br />
               The goal is not to promote tools or trends, but to explain what works, what breaks, and how to think through technical decisions before they become expensive problems.
@@ -84,14 +87,14 @@ export default function BlogSection() {
           <div className="flex gap-4">
             <button
               onClick={() => swiper?.slidePrev()}
-              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#516C83]/20 text-[#506C83] cursor-pointer transition-all hover:bg-[#516C83] hover:text-white"
+              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#2B2A2B]/20 text-[#2B2A2B] cursor-pointer transition-all hover:bg-[#2B2A2B] hover:text-white"
               aria-label="Previous slide"
             >
               <HiArrowLeft className="h-6 w-6" />
             </button>
             <button
               onClick={() => swiper?.slideNext()}
-              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#516C83]/20 text-[#506C83] cursor-pointer transition-all hover:bg-[#516C83] hover:text-white"
+              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#2B2A2B]/20 text-[#2B2A2B] cursor-pointer transition-all hover:bg-[#2B2A2B] hover:text-white"
               aria-label="Next slide"
             >
               <HiArrowRight className="h-6 w-6" />
@@ -136,15 +139,15 @@ export default function BlogSection() {
                     {/* Content */}
                     <div className="flex flex-col flex-1 p-8 h-full">
                       <div className="mb-6">
-                        <span className="inline-flex items-center rounded-full bg-[#CFD6DC]/40 px-3 py-1.5 text-xs font-medium text-[#506C83]">
+                        <span className="inline-flex items-center rounded-full bg-[#CFD6DC]/40 px-3 py-1.5 text-xs font-medium text-[#2B2A2B]">
                           {post.category}
                         </span>
                       </div>
-                      <h3 className="font-aeonik text-2xl font-normal text-[#181A1D] mb-4 group-hover:text-[#506C83] transition-colors leading-snug line-clamp-2">
+                      <h3 className="font-aeonik text-2xl font-normal text-[#191819] mb-4 group-hover:text-[#2B2A2B] transition-colors leading-snug line-clamp-2">
                         <Link href={post.link}>{post.title}</Link>
                       </h3>
                       <div className="mt-auto">
-                        <p className="font-aeonik text-base text-[#506C83] leading-relaxed line-clamp-3">
+                        <p className="font-aeonik text-base text-[#2B2A2B] leading-relaxed line-clamp-3">
                           {post.description}
                         </p>
                       </div>

@@ -1,6 +1,5 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
 import GrowthSection from '@/components/services/GrowthSection';
-import PricingSection from '@/components/PricingSection';
 import ContactSection from '@/components/ContactSection';
 
 const DEVOPS_FEATURES = [
@@ -49,7 +48,7 @@ export default function DevOpsPage() {
                     <span
                         className="bg-clip-text text-transparent block"
                         style={{
-                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         }}
                     >
                         Infrastructure That Keeps Products Running
@@ -59,16 +58,12 @@ export default function DevOpsPage() {
                 imageSrc="/services-section/ecommer-hero-img.webp"
             />
             <GrowthSection
+                variant="light"
                 badge="What we offer"
                 title={"You focus on building features.\n We’ll keep the system running."}
                 description="Our DevOps and infrastructure services support products at every stage, from early deployment to large-scale systems. We help teams ship faster while keeping operations predictable and secure."
                 techStack={TECH_STACK}
                 features={DEVOPS_FEATURES}
-            />
-            <PricingSection
-                badge="Augmentation for everyone"
-                title="Flexible Engagement Models"
-                description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
         </main>

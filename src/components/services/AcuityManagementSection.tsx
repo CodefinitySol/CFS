@@ -2,6 +2,8 @@
 
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
@@ -23,7 +25,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, isOpen, onClick })
                 onClick={onClick}
                 className="w-full flex items-center justify-between text-left group transition-all duration-300 gap-4"
             >
-                <span className="font-aeonik text-base sm:text-xl font-normal transition-all duration-300 bg-[linear-gradient(94.13deg,#e8ecf0_.14%,#506c83_153.8%)] bg-clip-text text-transparent">
+                <span className="font-aeonik text-base sm:text-xl font-normal transition-all duration-300 bg-[linear-gradient(94.13deg,#e8ecf0_.14%,#2B2A2B_153.8%)] bg-clip-text text-transparent">
                     {title}
                 </span>
                 <div className={`flex-shrink-0 w-9 h-9 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-white border-white' : 'group-hover:border-white/30'}`}>
@@ -32,7 +34,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, isOpen, onClick })
             </button>
             <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[300px] opacity-100 mt-5 mb-3' : 'max-h-0 opacity-0'}`}>
                 <p className="font-aeonik text-sm sm:text-base text-white/40 leading-relaxed max-w-xl">
-                    The Acuity account is yours – fully transferred & ready to use. You'll never be locked into someone else's setup. This ensures complete independence and long-term control over your scheduling workflow.
+                    The Acuity account is yours – fully transferred & ready to use. You&apos;ll never be locked into someone else&apos;s setup. This ensures complete independence and long-term control over your scheduling workflow.
                 </p>
             </div>
         </div>
@@ -78,7 +80,6 @@ import { motion } from 'framer-motion';
 export default function AcuityManagementSection() {
     const swiperRef = useRef<SwiperType | null>(null);
     const [openIndex, setOpenIndex] = useState<number | null>(0);
-    const [activeCardIndex, setActiveCardIndex] = useState(0);
 
     const handleAccordionClick = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -98,24 +99,24 @@ export default function AcuityManagementSection() {
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 mb-20">
                     <div className="w-full lg:max-w-4xl">
                         {/* Badge */}
-                        <div className="inline-flex items-center rounded-full px-5 py-2 bg-[#D1D9E0] text-[#516C83] mb-8">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-3"></span>
+                        <div className="inline-flex items-center rounded-full px-5 py-2 bg-[#D1D9E0] text-[#2B2A2B] mb-8">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-3"></span>
                             <span className="font-aeonik text-[11px] font-medium uppercase tracking-[0.1em]">Why choose me as your Squarespace web designer?</span>
                         </div>
 
                         {/* Title */}
-                        <h2 className="font-aeonik text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-[1.1] text-[#1E293B] mb-10 tracking-tight">
+                        <h2 className="font-aeonik text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-[1.1] text-[#191819] mb-10 tracking-tight">
                             Manage Your Squarespace<br />
                             Appointments With Ease
                         </h2>
 
                         {/* Description paragraphs */}
                         <div className="flex flex-col gap-6 w-full lg:max-w-3xl">
-                            <p className="font-aeonik text-base text-[#1E293B]/60 leading-relaxed">
-                                Once your Acuity Scheduling setup is complete, you'll have full access to manage bookings – update hours – change services – all from a clean, no-code dashboard.
+                            <p className="font-aeonik text-base text-[#191819]/60 leading-relaxed">
+                                Once your Acuity Scheduling setup is complete, you&apos;ll have full access to manage bookings – update hours – change services – all from a clean, no-code dashboard.
                             </p>
-                            <p className="font-aeonik text-base text-[#1E293B]/60 leading-relaxed">
-                                Whether you're a solo practitioner or a growing team, it's easy to stay flexible & in control.
+                            <p className="font-aeonik text-base text-[#191819]/60 leading-relaxed">
+                                Whether you&apos;re a solo practitioner or a growing team, it&apos;s easy to stay flexible & in control.
                             </p>
                         </div>
                     </div>
@@ -124,13 +125,13 @@ export default function AcuityManagementSection() {
                     <div className="flex items-center gap-4 pt-4 lg:pt-0">
                         <button
                             onClick={() => swiperRef.current?.slidePrev()}
-                            className="w-16 h-12 rounded-full bg-[#516C83] flex items-center justify-center text-white hover:bg-[#435a6e] transition-all duration-300 group shadow-lg hover:shadow-xl"
+                            className="w-16 h-12 rounded-full bg-[#2B2A2B] flex items-center justify-center text-white hover:bg-[#435a6e] transition-all duration-300 group shadow-lg hover:shadow-xl"
                         >
                             <FiArrowLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" />
                         </button>
                         <button
                             onClick={() => swiperRef.current?.slideNext()}
-                            className="w-16 h-12 rounded-full bg-[#516C83] flex items-center justify-center text-white hover:bg-[#435a6e] transition-all duration-300 group shadow-lg hover:shadow-xl"
+                            className="w-16 h-12 rounded-full bg-[#2B2A2B] flex items-center justify-center text-white hover:bg-[#435a6e] transition-all duration-300 group shadow-lg hover:shadow-xl"
                         >
                             <FiArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
                         </button>
@@ -141,8 +142,7 @@ export default function AcuityManagementSection() {
                 <Swiper
                     modules={[Navigation]}
                     onSwiper={(swiper) => swiperRef.current = swiper}
-                    onSlideChange={(swiper) => {
-                        setActiveCardIndex(swiper.activeIndex);
+                    onSlideChange={() => {
                         setOpenIndex(0);
                     }}
                     className="overflow-visible"
@@ -150,7 +150,7 @@ export default function AcuityManagementSection() {
                 >
                     {MANAGEMENT_CARDS.map((card, cardIdx) => (
                         <SwiperSlide key={cardIdx}>
-                            <div className="bg-[#17181B] rounded-[18px] overflow-hidden p-8 sm:p-12 lg:p-16 xl:p-20 flex flex-col lg:flex-row gap-16 lg:gap-24">
+                            <div className="bg-[#191819] rounded-[18px] overflow-hidden p-8 sm:p-12 lg:p-16 xl:p-20 flex flex-col lg:flex-row gap-16 lg:gap-24">
 
                                 {/* Left side: Image and card Title */}
                                 <div className="w-full lg:w-[55%] flex flex-col gap-12">
@@ -192,7 +192,12 @@ export default function AcuityManagementSection() {
 
             {/* Floating 'Book a call' button */}
             <div className="fixed bottom-10 right-10 z-[100] group hidden md:block">
-                <button className="bg-[#17181B] text-white rounded-full px-10 py-5 flex items-center gap-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-105 hover:bg-[#2A2B2E] border border-white/10">
+                <Link
+                    href={CALENDLY_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 rounded-full border border-white/10 bg-[#191819] px-10 py-5 text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-105 hover:bg-[#2B2A2B]"
+                >
                     <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -202,7 +207,7 @@ export default function AcuityManagementSection() {
                         </svg>
                     </div>
                     <span className="font-aeonik text-lg font-medium tracking-tight">Book a free call</span>
-                </button>
+                </Link>
             </div>
         </section>
     );

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutHeroSection() {
   return (
-    <section className="relative min-h-screen w-full bg-[#181A1D] py-10 overflow-hidden flex flex-col justify-center">
+    <section className="relative min-h-screen w-full bg-[#191819] py-10 overflow-hidden flex flex-col justify-center">
 
       <motion.div
         className="w-full relative z-10 mx-auto max-w-4xl px-4 md:px-8"
@@ -17,7 +17,7 @@ export default function AboutHeroSection() {
 
           <div className="mb-10 inline-flex items-center rounded-full border border-white/10 px-3 py-1"
             style={{
-              background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)'
+              background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(91,83,91,.3) 100%)'
             }}
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white mr-1"></span>
@@ -26,7 +26,7 @@ export default function AboutHeroSection() {
 
           <h1 className="font-aeonik text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-10 tracking-tight text-white"
             style={{
-              backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+              backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -35,7 +35,7 @@ export default function AboutHeroSection() {
               <span
                 className="relative z-10"
                 style={{
-                  backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                  backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -60,7 +60,7 @@ export default function AboutHeroSection() {
           </div>
 
           <button className="px-10 py-4 rounded-full text-white text-sm transition-all hover:scale-105 hover:shadow-lg mb-8"
-            style={{ backgroundColor: '#516C83' }}
+            style={{ backgroundColor: '#2B2A2B' }}
           >
             Get in touch
           </button>

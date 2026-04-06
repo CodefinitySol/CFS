@@ -60,10 +60,10 @@ export default function FAQPage() {
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10">
                         <div className="max-w-3xl">
                             <span className="inline-flex items-center rounded-full px-4 py-1.5 mb-8 bg-[#BEC8D1] w-fit">
-                                <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
-                                <span className="font-aeonik text-xs font-medium text-[#516C83] tracking-wide uppercase">Faqs</span>
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                                <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide uppercase">Faqs</span>
                             </span>
-                            <h1 className="font-aeonik text-5xl lg:text-6xl font-normal leading-[1.05] tracking-tight text-[#181A1D]">
+                            <h1 className="font-aeonik text-5xl lg:text-6xl font-normal leading-[1.05] tracking-tight text-[#191819]">
                                 Ask Us Anything
                             </h1>
                         </div>
@@ -83,10 +83,10 @@ export default function FAQPage() {
                                     isOpen={openIndex === index}
                                     onClick={() => setOpenIndex(index === openIndex ? null : index)}
                                     buttonClassName="py-8"
-                                    questionClassName="text-xl sm:text-xl lg:text-2xl font-aeonik font-normal text-[#181A1D] transition-colors pr-20"
-                                    answerClassName="text-lg text-[#181A1D]/60 w-full"
+                                    questionClassName="text-xl sm:text-xl lg:text-2xl font-aeonik font-normal text-[#191819] transition-colors pr-20"
+                                    answerClassName="text-lg text-[#191819]/60 w-full"
                                     borderClassName="border-[#E8ECF0]"
-                                    iconContainerClassName={`w-14 h-11 bg-[#516C83] text-white flex-shrink-0 cursor-pointer`}
+                                    iconContainerClassName={`w-14 h-11 bg-[#2B2A2B] text-white flex-shrink-0 cursor-pointer`}
                                 />
                             ))}
                         </div>

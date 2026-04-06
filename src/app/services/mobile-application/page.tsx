@@ -1,5 +1,4 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
-import PricingSection from '@/components/PricingSection';
 import GrowthSection from '@/components/services/GrowthSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -49,7 +48,7 @@ export default function MobileApplicationPage() {
                     <span
                         className="bg-clip-text text-transparent block"
                         style={{
-                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         }}
                     >
                         Mobile Apps Built for Real Users
@@ -57,10 +56,9 @@ export default function MobileApplicationPage() {
                 }
                 description={"We build mobile applications that are stable, scalable, and ready for real-world usage. From early-stage apps to production systems with growing user bases, we focus on performance, reliability, and clean integration with your backend. \n\n Our approach prioritizes long-term usability over rushed releases, so your app continues to perform as it grows."}
                 imageSrc="/services-section/seo-hero-img.webp"
-                sectionBgColor="#516C83"
-                imageOpacity={0.5}
             />
             <GrowthSection
+                variant="light"
                 badge="What we offer"
                 title={"You focus on your users.\n We’ll build the mobile experience."}
                 description={
@@ -68,11 +66,6 @@ export default function MobileApplicationPage() {
                 }
                 techStack={TECH_STACK}
                 features={MOBILE_APP_FEATURES}
-            />
-            <PricingSection
-                badge="Augmentation for everyone"
-                title="Flexible Engagement Models"
-                description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
         </main>

@@ -9,7 +9,7 @@ const FEATURES = [
   {
     title: 'Custom Design',
     description: "Need a website that perfectly aligns with your unique brand? I'll create a tailored template featuring your logo, fonts, colours, and layout. By working closely with you, I bring your vision to life, incorporating extras like the Lightbox feature for a truly custom experience.",
-    icon: <LuLayoutTemplate className="h-8 w-8 text-[#181A1D] group-hover:text-white transition-colors" />,
+    icon: <LuLayoutTemplate className="h-8 w-8 text-[#191819] group-hover:text-white transition-colors" />,
     hoverImage: '/item-1-hover.webp',
     hoverStyles: {
       height: 'h-[120px]',
@@ -20,7 +20,7 @@ const FEATURES = [
   {
     title: 'Enhanced Features',
     description: "Want to take advantage of Squarespace's powerful features but need help setting them up? As one of only two official Squarespace partners in the UK, I can enable and configure features such as e-commerce, blogs, email campaigns, and analytics. I also integrate third-party tools and extensions to enhance your site's functionality.",
-    icon: <HiOutlineSquaresPlus className="h-8 w-8 text-[#181A1D] group-hover:text-white transition-colors" />,
+    icon: <HiOutlineSquaresPlus className="h-8 w-8 text-[#191819] group-hover:text-white transition-colors" />,
     hoverImage: '/item-2-hover.webp',
     hoverStyles: {
       height: 'h-[140px]',
@@ -31,7 +31,7 @@ const FEATURES = [
   {
     title: 'Mobile Optimization',
     description: "With more users accessing websites via mobile devices, optimizing for mobile is crucial. I ensure your site is fully responsive and looks beautiful on any device. As an award-winning lead Squarespace web designer at by Crawford, my goal is to deliver custom mobile versions of your site for an exceptional user experience.",
-    icon: <HiOutlineDevicePhoneMobile className="h-8 w-8 text-[#181A1D] group-hover:text-white transition-colors" />,
+    icon: <HiOutlineDevicePhoneMobile className="h-8 w-8 text-[#191819] group-hover:text-white transition-colors" />,
     hoverImage: '/item-3-hover.webp',
     hoverStyles: {
       height: 'h-[160px]',
@@ -42,7 +42,7 @@ const FEATURES = [
   {
     title: 'Effective Squarespace SEO',
     description: "A great design means nothing if it can't be found. I employ proven Squarespace SEO strategies to boost your site's visibility in search rankings. From optimizing target keywords in page titles to using high-quality images and custom CSS, I help you climb higher in search results.",
-    icon: <HiOutlineMagnifyingGlass className="h-8 w-8 text-[#181A1D] group-hover:text-white transition-colors" />,
+    icon: <HiOutlineMagnifyingGlass className="h-8 w-8 text-[#191819] group-hover:text-white transition-colors" />,
     hoverImage: '/item-4-hover.webp',
     hoverStyles: {
       height: 'h-[130px]',
@@ -65,15 +65,15 @@ export default function FeaturesSection() {
           transition={{ duration: 0.8 }}
         >
           <span
-            className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#CFD6DC]"
+            className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#2B2A2B] bg-[#CFD6DC]"
           >
-            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
+            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]/40" />
             Features
           </span>
-          <h2 className="mt-8 font-aeonik text-4xl font-normal tracking-tight text-[#181A1D] sm:text-5xl lg:text-7xl">
+          <h2 className="mt-8 font-aeonik text-4xl font-normal tracking-tight text-[#191819] sm:text-5xl lg:text-7xl">
             Squarespace Design Services You Can Trust
           </h2>
-          <p className="mt-6 font-aeonik text-lg text-[#506C83]/80 max-w-2xl">
+          <p className="mt-6 font-aeonik text-lg text-[#2B2A2B]/80 max-w-2xl">
             At by Crawford, we offer a range of Squarespace web design services to help you create a stunning website that effectively showcases your brand.
           </p>
         </motion.div>
@@ -83,7 +83,7 @@ export default function FeaturesSection() {
           {FEATURES.map((feature, index) => (
             <motion.div
               key={index}
-              className="group relative flex flex-col items-start p-10 rounded-[20px] border border-gray-100 bg-[#516C83] lg:bg-white transition-all duration-500 lg:hover:bg-[#516C83] min-h-[560px]"
+              className="group relative flex flex-col items-start p-10 rounded-[20px] border border-gray-100 bg-[#2B2A2B] lg:bg-white transition-all duration-500 lg:hover:bg-[#2B2A2B] min-h-[560px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -99,22 +99,22 @@ export default function FeaturesSection() {
                   fill
                   className={`opacity-90 transition-transform duration-700 ${feature.hoverStyles.imageClass}`}
                 />
-                <div className="absolute inset-0 bg-[#516C83]/5" />
+                <div className="absolute inset-0 bg-[#2B2A2B]/5" />
               </div>
 
               {/* Icon */}
               <div className="relative z-20 mb-10 transition-all duration-300 opacity-0 lg:opacity-100 lg:group-hover:opacity-0 lg:group-hover:pointer-events-none">
-                <div className="text-[#181A1D] transition-colors duration-500">
+                <div className="text-[#191819] transition-colors duration-500">
                   {feature.icon}
                 </div>
               </div>
 
               {/* Content */}
               <div className="relative z-10 mt-auto">
-                <h3 className="font-aeonik text-2xl font-normal text-white lg:text-[#181A1D] lg:group-hover:text-white transition-colors mb-6">
+                <h3 className="font-aeonik text-2xl font-normal text-white lg:text-[#191819] lg:group-hover:text-white transition-colors mb-6">
                   {feature.title}
                 </h3>
-                <p className="font-aeonik text-base text-white/80 lg:text-[#181A1D]/60 lg:group-hover:text-white/80 transition-colors leading-relaxed">
+                <p className="font-aeonik text-base text-white/80 lg:text-[#191819]/60 lg:group-hover:text-white/80 transition-colors leading-relaxed">
                   {feature.description}
                 </p>
               </div>

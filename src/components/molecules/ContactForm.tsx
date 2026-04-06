@@ -44,7 +44,7 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
       <div className={`relative rounded-[16px] bg-white p-10 sm:p-12 ${(isAugmentation || isContactPage) ? '' : 'rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]'}`}>
         {/* START A PROJECT Circle */}
         <div className={`absolute z-20 ${(isAugmentation || isContactPage) ? 'h-20 w-20 -left-10 -top-10 sm:h-24 sm:w-24 sm:-left-12 sm:-top-12' : 'h-16 w-16 -left-6 -top-6 sm:h-20 sm:w-20 sm:-left-7 sm:-top-7'}`}>
-          <div className={`relative h-full w-full rounded-full border border-white/10 backdrop-blur-md ${(isAugmentation || isContactPage) ? 'bg-[#F2F4F6]/60' : 'bg-[#1e293b]/60 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'}`}>
+          <div className={`relative h-full w-full rounded-full border border-white/10 backdrop-blur-md ${(isAugmentation || isContactPage) ? 'bg-[#F2F4F6]/60' : 'bg-[#191819]/60 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'}`}>
             {/* Inner Glass Glow */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 via-transparent to-white/10" />
 
@@ -164,7 +164,7 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             type="submit"
             variant="secondary"
             size="md"
-            className="w-full !bg-[#516C83] hover:!bg-[#334155] shadow-lg hover:shadow-xl"
+            className="w-full !bg-[#2B2A2B] hover:!bg-[#2E2B2E] shadow-lg hover:shadow-xl"
           >
             Submit enquiry
           </Button>

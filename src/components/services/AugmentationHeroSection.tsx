@@ -31,12 +31,12 @@ export default function AcuityHeroSection() {
                                 boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
                             }}
                         >
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#506C83] mr-2"></span>
-                            <span className="font-aeonik text-xs font-medium text-[#506C83] uppercase">Available for work</span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B] uppercase">Available for work</span>
                         </div>
 
                         {/* Heading */}
-                        <h1 className="font-aeonik text-4xl sm:text-4xl lg:text-4xl xl:text-5xl font-normal leading-[1.1] tracking-tight text-[#1E293B]">
+                        <h1 className="font-aeonik text-4xl sm:text-4xl lg:text-4xl xl:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819]">
                             Dedicated Development Teams by
                             <span className="relative inline-block px-4 py-2 ml-2">
                                 <span
@@ -53,10 +53,10 @@ export default function AcuityHeroSection() {
 
                         {/* Description Section */}
                         <div className="space-y-3 max-w-xl">
-                            <p className="font-aeonik text-md font-medium text-[#1E293B]">
+                            <p className="font-aeonik text-md font-medium text-[#191819]">
                                 Scale faster. Ship consistently. Stay in control.
                             </p>
-                            <div className="space-y-2 font-aeonik text-[#1E293B] leading-relaxed text-base sm:text-md">
+                            <div className="space-y-2 font-aeonik text-[#191819] leading-relaxed text-base sm:text-md">
                                 <p>
                                     Hiring shouldn’t slow your product down. Our team augmentation model gives you access to experienced developers who plug directly into your workflow and work as an extension of your internal team.
                                 </p>
@@ -66,7 +66,7 @@ export default function AcuityHeroSection() {
                                 <p>
                                     No handoffs. No friction. Just focused execution.
                                 </p>
-                                <p className="font-medium text-md text-[#1E293B]">
+                                <p className="font-medium text-md text-[#191819]">
                                     Your roadmap. Our people. One team.
                                 </p>
                             </div>
@@ -74,7 +74,7 @@ export default function AcuityHeroSection() {
 
                         {/* CTA Button */}
                         <Link href="/contact" className="inline-flex items-center gap-2 rounded-full px-6 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                            style={{ backgroundColor: '#5D7285' }}
+                            style={{ backgroundColor: '#5A565A' }}
                         >
                             <span className="font-aeonik text-sm font-medium text-white">Request a quote</span>
                             <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">

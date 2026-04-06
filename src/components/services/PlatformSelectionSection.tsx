@@ -20,7 +20,7 @@ export default function PlatformSelectionSection({
     buttonText = "Subscribe"
 }: PlatformSelectionSectionProps) {
     const textGradient = {
-        backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 0.14%, #506c83 153.8%)',
+        backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 0.14%, #2B2A2B 153.8%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
@@ -35,7 +35,7 @@ export default function PlatformSelectionSection({
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                <div className="bg-[#516C83] rounded-[18px] overflow-hidden p-4 sm:p-4 lg:p-6 xl:p-8">
+                <div className="bg-[#2B2A2B] rounded-[18px] overflow-hidden p-4 sm:p-4 lg:p-6 xl:p-8">
                     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
                         {/* Left: Image */}
@@ -70,7 +70,7 @@ export default function PlatformSelectionSection({
                                         placeholder="Email Address"
                                         className="flex-1 bg-transparent px-5 py-1.5 text-white placeholder-white/40 focus:outline-none font-aeonik text-xs sm:text-sm"
                                     />
-                                    <button className="bg-white text-[#516C83] px-6 py-2.5 rounded-full font-aeonik text-xs sm:text-sm font-medium transition-all hover:bg-white/90 cursor-pointer">
+                                    <button className="bg-white text-[#2B2A2B] px-6 py-2.5 rounded-full font-aeonik text-xs sm:text-sm font-medium transition-all hover:bg-white/90 cursor-pointer">
                                         {buttonText}
                                     </button>
                                 </div>

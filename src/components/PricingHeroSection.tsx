@@ -7,7 +7,7 @@ import { Badge, Heading, Paragraph, Button } from './atoms';
 
 export default function PricingHeroSection() {
     return (
-        <section className="relative w-full bg-[#181A1D] overflow-hidden flex flex-col">
+        <section className="relative w-full bg-[#191819] overflow-hidden flex flex-col">
             {/* Header */}
             <Header isLight={false} />
 
@@ -45,7 +45,7 @@ export default function PricingHeroSection() {
                                     className="relative z-10 bg-clip-text text-transparent"
                                     style={{
                                         backgroundImage:
-                                            'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
+                                            'linear-gradient(94.13deg, #e8ecf0 .14%, #2B2A2B 153.8%)',
                                         WebkitBackgroundClip: 'text',
                                         backgroundClip: 'text',
                                     }}
@@ -61,14 +61,14 @@ export default function PricingHeroSection() {
 
                         {/* Description */}
                         <Paragraph size="md" className="text-white max-w-xl">
-                            Squarespace is the go-to platform for small businesses and creatives who want a professional web presence without the complexity. We offer transparent, no-code website builds with quick turnarounds and sleek, functional design. Below you'll find our pricing packages and what's included in each plan.
+                            Squarespace is the go-to platform for small businesses and creatives who want a professional web presence without the complexity. We offer transparent, no-code website builds with quick turnarounds and sleek, functional design. Below you&apos;ll find our pricing packages and what&apos;s included in each plan.
                         </Paragraph>
 
                         {/* CTA Button */}
                         <Button
                             variant="secondary"
                             size="md"
-                            className="!bg-[#516C83] backdrop-blur-md border border-white/10 hover:!bg-[#516C83]/50 transition-all font-aeonik mt-2"
+                            className="!bg-[#2B2A2B] backdrop-blur-md border border-white/10 hover:!bg-[#2B2A2B]/50 transition-all font-aeonik mt-2"
                             icon={<svg className="ml-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" width="10" height="10" viewBox="0 0 12 12" fill="none">
                                 <path d="M1 11L11 1M11 1H1M11 1V11" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>}

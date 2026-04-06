@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 type NavItem = {
   label: string;
@@ -63,7 +64,7 @@ const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Work', href: '/portfolio' },
   // { label: 'Pricing', href: '/pricing' },
   // {
   //   label: 'Resources',
@@ -150,37 +151,40 @@ export default function Header({ isLight = false }: HeaderProps) {
   };
 
   return (
-    <header className="relative z-50 px-6 py-6 sm:px-10 sm:py-8 lg:px-12">
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between">
-        {/* Logo */}
+    <header className="relative z-50 overflow-visible px-6 py-6 sm:px-10 sm:py-8 lg:px-12">
+      <div className="mx-auto grid w-full max-w-[1600px] grid-cols-2 items-center lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+        {/* Logo — left column; mirrors CTA inset on the right */}
         <Link
           href="/"
-          className="z-50 transition-all duration-300 hover:opacity-80 block"
+          className="z-50 col-start-1 row-start-1 flex items-center justify-self-start self-center overflow-visible transition-all duration-300 hover:opacity-80"
         >
-          <div className="relative w-40 h-12 sm:w-52 sm:h-16">
+          {/* Layout box stays h-12 / sm:h-16 so header height unchanged; scale draws larger */}
+          <div className="relative h-12 w-40 shrink-0 origin-left scale-[1.2] sm:h-16 sm:w-52 sm:scale-[1.14]">
             <Image
               src="/logo.svg"
               alt="Codefinity Solutions"
               fill
-              className={`object-contain ${isLight ? '' : 'brightness-0 invert'}`}
+              className={`object-contain object-left ${isLight ? '' : 'brightness-0 invert'}`}
               priority
             />
           </div>
         </Link>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile menu toggle */}
         <button
+          type="button"
           onClick={() => setIsMobileMenuOpen(true)}
-          className="group flex h-12 w-12 flex-col items-end justify-center gap-1.5 rounded-full bg-transparent p-2 lg:hidden"
+          className="group col-start-2 row-start-1 flex h-12 w-12 flex-col items-end justify-center justify-self-end self-center gap-1.5 rounded-full bg-transparent p-2 lg:hidden"
+          aria-label="Open menu"
         >
-          <span className={`h-0.5 w-6 transition-transform group-hover:w-8 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
-          <span className={`h-0.5 w-8 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
-          <span className={`h-0.5 w-4 transition-transform group-hover:w-8 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
+          <span className={`h-0.5 w-6 transition-transform group-hover:w-8 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
+          <span className={`h-0.5 w-8 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
+          <span className={`h-0.5 w-4 transition-transform group-hover:w-8 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
         </button>
 
-        {/* Desktop Navigation Pill */}
+        {/* Desktop nav — center column */}
         <nav
-          className="hidden rounded-[100px] px-1 py-2 backdrop-blur-[4px] transition-all duration-300 ease-out lg:block"
+          className="col-start-2 row-start-1 hidden justify-self-center self-center rounded-[100px] px-1 py-2 backdrop-blur-[4px] transition-all duration-300 ease-out lg:block"
           style={{
             background: isLight
               ? '#F1F4F6'
@@ -188,13 +192,13 @@ export default function Header({ isLight = false }: HeaderProps) {
             border: isLight ? '1px solid rgba(0,0,0,0.05)' : 'none'
           }}
         >
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center justify-center gap-1">
             {NAV_ITEMS.map((item) => (
-              <li key={item.label} className="group relative">
+              <li key={item.label} className="group relative flex items-center">
                 {item.dropdownItems ? (
                   <>
-                    <button className={`flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium transition-colors ${isLight ? 'text-[#1E293B] hover:bg-black/[0.03]' : 'text-white hover:bg-white/[0.05]'}`}>
-                      <span className={`h-1.5 w-0 rounded-full opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
+                    <button className={`flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium transition-colors ${isLight ? 'text-[#191819] hover:bg-black/[0.03]' : 'text-white hover:bg-white/[0.05]'}`}>
+                      <span className={`h-1.5 w-0 rounded-full opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
                       <span className="flex items-center gap-1.5">
                         {item.label}
                         <svg
@@ -219,8 +223,8 @@ export default function Header({ isLight = false }: HeaderProps) {
                           {item.dropdownItems.map((subItem) => (
                             <a
                               key={subItem.title}
-                              href={subItem.href || '#'}
-                              className="flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-[#516C83]"
+                              href={subItem.href ?? '/'}
+                              className="flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-[#2B2A2B]"
                             >
                               <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-white/10 text-white">
                                 <svg
@@ -237,7 +241,7 @@ export default function Header({ isLight = false }: HeaderProps) {
                                 <div
                                   className="text-sm font-medium"
                                   style={{
-                                    backgroundImage: 'linear-gradient(94.13deg, rgb(232, 236, 240) 0.14%, rgb(80, 108, 131) 153.8%)',
+                                    backgroundImage: 'linear-gradient(94.13deg, rgb(232, 236, 240) 0.14%, rgb(91, 83, 91) 153.8%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
                                     backgroundClip: 'text',
@@ -259,11 +263,11 @@ export default function Header({ isLight = false }: HeaderProps) {
                   <a
                     href={item.href}
                     className={`group flex items-center rounded-full px-5 py-2.5 font-aeonik text-sm font-medium transition-colors ${isLight
-                      ? 'text-[#1E293B] hover:bg-black/[0.03]'
+                      ? 'text-[#191819] hover:bg-black/[0.03]'
                       : 'text-white hover:bg-white/[0.05]'
                       }`}
                   >
-                    <span className={`h-1.5 w-0 rounded-full opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100 ${isLight ? 'bg-[#1E293B]' : 'bg-white'}`} />
+                    <span className={`h-1.5 w-0 rounded-full opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:w-1.5 group-hover:opacity-100 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
                     {item.label}
                   </a>
                 )}
@@ -272,14 +276,20 @@ export default function Header({ isLight = false }: HeaderProps) {
           </ul>
         </nav>
 
-        {/* Desktop CTA Button */}
-        <button className="hidden rounded-full bg-[#506c83] px-6 py-4 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669] hover:shadow-lg lg:flex lg:items-center lg:gap-2 cursor-pointer">
-          Schedule a call
+        {/* Desktop CTA — right column, symmetric to logo */}
+        <Link
+          href={CALENDLY_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="col-start-3 row-start-1 hidden shrink-0 cursor-pointer items-center justify-center gap-1.5 justify-self-end self-center rounded-full bg-[#2B2A2B] px-6 py-4 font-aeonik text-sm font-medium leading-none text-white transition-all hover:bg-[#3A383A] hover:shadow-lg lg:flex"
+        >
+          <span className="whitespace-nowrap">Schedule a call</span>
           <svg
-            className="h-4 w-4"
+            className="h-3.5 w-3.5 shrink-0"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            aria-hidden
           >
             <path
               strokeLinecap="round"
@@ -288,7 +298,7 @@ export default function Header({ isLight = false }: HeaderProps) {
               d="M5 19L19 5M19 5H9M19 5V15"
             />
           </svg>
-        </button>
+        </Link>
 
         {/* Mobile Menu Overlay */}
         <div
@@ -304,7 +314,7 @@ export default function Header({ isLight = false }: HeaderProps) {
             </Link>
             <button
               onClick={handleCloseMenu}
-              className="group flex h-12 w-12 items-center justify-center rounded-full bg-transparent text-[#1E293B]"
+              className="group flex h-12 w-12 items-center justify-center rounded-full bg-transparent text-[#191819]"
             >
               <svg
                 className="h-8 w-8 transition-transform duration-300 group-hover:rotate-90"
@@ -339,11 +349,11 @@ export default function Header({ isLight = false }: HeaderProps) {
                       {item.dropdownItems ? (
                         <button
                           onClick={() => openSubmenu(item.label)}
-                          className="flex items-center gap-2 font-aeonik text-3xl font-medium text-[#1E293B] transition-colors hover:text-[#506C83]"
+                          className="flex items-center gap-2 font-aeonik text-3xl font-medium text-[#191819] transition-colors hover:text-[#2B2A2B]"
                         >
                           {item.label}
                           <svg
-                            className="h-5 w-5 text-[#94A3B8]"
+                            className="h-5 w-5 text-[#9A929A]"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -359,13 +369,35 @@ export default function Header({ isLight = false }: HeaderProps) {
                       ) : (
                         <a
                           href={item.href}
-                          className="font-aeonik text-3xl font-medium text-[#1E293B] transition-colors hover:text-[#506C83]"
+                          className="font-aeonik text-3xl font-medium text-[#191819] transition-colors hover:text-[#2B2A2B]"
                         >
                           {item.label}
                         </a>
                       )}
                     </div>
                   ))}
+                  <Link
+                    href={CALENDLY_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleCloseMenu}
+                    className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#2B2A2B] px-8 py-4 font-aeonik text-base font-medium text-white transition-all hover:bg-[#3A383A]"
+                  >
+                    Schedule a call
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 19L19 5M19 5H9M19 5V15"
+                      />
+                    </svg>
+                  </Link>
                 </nav>
               </div>
 
@@ -374,7 +406,7 @@ export default function Header({ isLight = false }: HeaderProps) {
                 <div className="my-auto flex w-full flex-col items-center">
                   <button
                     onClick={closeSubmenu}
-                    className="mb-8 flex items-center gap-2 font-aeonik text-lg text-[#94A3B8] transition-colors hover:text-[#1E293B]"
+                    className="mb-8 flex items-center gap-2 font-aeonik text-lg text-[#9A929A] transition-colors hover:text-[#191819]"
                   >
                     <svg
                       className="h-5 w-5"
@@ -397,8 +429,8 @@ export default function Header({ isLight = false }: HeaderProps) {
                     )?.dropdownItems?.map((subItem) => (
                       <a
                         key={subItem.title}
-                        href={subItem.href || '#'}
-                        className="font-aeonik text-2xl font-medium text-[#1E293B] transition-colors hover:text-[#506C83]"
+                        href={subItem.href ?? '/'}
+                        className="font-aeonik text-2xl font-medium text-[#191819] transition-colors hover:text-[#2B2A2B]"
                       >
                         {subItem.title}
                       </a>

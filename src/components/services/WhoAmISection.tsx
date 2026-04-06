@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { HiArrowUpRight, HiCheck } from 'react-icons/hi2';
 import { motion } from 'framer-motion';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 function AnimatedNumber({ value }: { value: string }) {
     const [count, setCount] = useState(0);
@@ -79,25 +80,25 @@ export default function WhoAmISection() {
                     >
                         {/* Badge */}
                         <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-6 bg-[#BEC8D1]">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
-                            <span className="font-aeonik text-xs font-medium text-[#516C83] tracking-wide">Who am I?</span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">Who am I?</span>
                         </div>
 
                         {/* Heading */}
-                        <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#181A1D] mb-6">
+                        <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819] mb-6">
                             Design Solutions That Bring Your Vision To Life
                         </h2>
 
                         {/* Description */}
-                        <p className="font-aeonik text-sm sm:text-base text-[#181A1D]/80 leading-relaxed mb-8">
+                        <p className="font-aeonik text-sm sm:text-base text-[#191819]/80 leading-relaxed mb-8">
                             Expert custom Squarespace web design services that bring your unique vision to life with a custom Squarespace website tailored to your brand&apos;s identity. Whether you&apos;re a small business, creative professional, or entrepreneur, I craft responsive, aesthetically pleasing, and functional designs that captivate your audience and achieve your goals.
                         </p>
 
                         {/* Features List */}
                         <ul className="space-y-2 mb-10">
                             {FEATURES.map((feature, index) => (
-                                <li key={index} className="flex items-center gap-3 text-[#181A1D]/80">
-                                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#516C83] flex items-center justify-center">
+                                <li key={index} className="flex items-center gap-3 text-[#191819]/80">
+                                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#2B2A2B] flex items-center justify-center">
                                         <HiCheck className="text-white w-3 h-3" />
                                     </div>
                                     <span className="font-aeonik text-sm sm:text-base">{feature}</span>
@@ -106,12 +107,16 @@ export default function WhoAmISection() {
                         </ul>
 
                         {/* CTA Button */}
-                        <button className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 font-aeonik text-sm font-medium text-white transition-all hover:opacity-90 hover:shadow-lg cursor-pointer"
-                            style={{ backgroundColor: '#516C83', color: 'white' }}
+                        <a
+                            href={CALENDLY_BOOKING_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex cursor-pointer items-center gap-2 rounded-full px-8 py-3.5 font-aeonik text-sm font-medium text-white transition-all hover:opacity-90 hover:shadow-lg"
+                            style={{ backgroundColor: '#2B2A2B', color: 'white' }}
                         >
                             Schedule a call
                             <HiArrowUpRight className="h-4 w-4" />
-                        </button>
+                        </a>
                     </motion.div>
 
                     {/* Right Image with Stats Overlay */}

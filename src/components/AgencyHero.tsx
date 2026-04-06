@@ -3,10 +3,9 @@
 import Image from 'next/image';
 import Header from './Header';
 import { motion } from 'framer-motion';
-import { Badge, Heading, Paragraph, Button } from '@/components/atoms';
-import { HiOutlineCalendar } from 'react-icons/hi';
-import { BiSupport } from 'react-icons/bi';
-import { PiMedalLight } from 'react-icons/pi';
+import Link from 'next/link';
+import { Badge, Heading, Paragraph } from '@/components/atoms';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 export default function AgencyHero() {
     const containerVariants = {
@@ -111,21 +110,21 @@ export default function AgencyHero() {
                             variants={itemVariants}
                             className="flex flex-wrap gap-4 pt-4"
                         >
-                            <Button
-                                variant="primary"
-                                size="md"
-                                className="rounded-full px-10"
+                            <Link
+                                href={CALENDLY_BOOKING_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/90 bg-white px-10 py-3 font-aeonik text-base font-medium text-gray-900 transition-all hover:border-white hover:shadow-lg"
                             >
                                 Schedule a call
-                            </Button>
+                            </Link>
 
-                            <Button
-                                variant="secondary"
-                                size="md"
-                                className="rounded-full px-10 border-white/10 bg-[#1e242c] hover:bg-[#252d37]"
+                            <Link
+                                href="/portfolio"
+                                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-[#1e242c] px-10 py-3 font-aeonik text-base font-medium text-white transition-all hover:bg-[#252d37]"
                             >
                                 View Portfolio
-                            </Button>
+                            </Link>
                         </motion.div>
 
                         {/* Awards Section */}

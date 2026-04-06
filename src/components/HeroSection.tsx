@@ -1,10 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from './Header';
 import ContactForm from './molecules/ContactForm';
 import { motion } from 'framer-motion';
-import { Badge, Heading, Paragraph, Button } from '@/components/atoms';
+import { Badge, Heading, Paragraph } from '@/components/atoms';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 export default function HeroSection() {
   const containerVariants = {
@@ -42,13 +44,13 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#181A1D] pb-16 sm:pb-10 lg:pb-34">
+    <section className="relative min-h-screen overflow-hidden bg-[#191819] pb-16 sm:pb-10 lg:pb-34">
       {/* Header */}
       <Header />
 
       {/* Content Wrapper */}
       <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-12 sm:px-8 md:py-16 lg:px-10 lg:py-10 xl:px-12">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-20 xl:gap-24">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20 xl:gap-24">
           {/* Left Section - Hero Content */}
           <motion.div
             className="flex-1 space-y-5 lg:space-y-4"
@@ -69,9 +71,12 @@ export default function HeroSection() {
               >
                 Available for work
               </Badge>
-              <button className="px-5 font-aeonik text-xs font-medium text-white/60 transition-colors hover:text-white">
+              <Link
+                href="/contact"
+                className="px-5 font-aeonik text-xs font-medium text-white/60 transition-colors hover:text-white"
+              >
                 Get in touch now
-              </button>
+              </Link>
             </motion.div>
 
             {/* Main Heading */}
@@ -88,7 +93,7 @@ export default function HeroSection() {
                     className="relative z-10 bg-clip-text text-transparent"
                     style={{
                       backgroundImage:
-                        'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
+                        'linear-gradient(94.13deg, #e8ecf0 .14%, #2B2A2B 153.8%)',
                       WebkitBackgroundClip: 'text',
                       backgroundClip: 'text',
                     }}
@@ -110,36 +115,48 @@ export default function HeroSection() {
               </Paragraph>
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* CTA and social proof */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 mt-12"
+              className="mt-12 flex flex-wrap items-center gap-4"
             >
-              <Button
-                variant="primary"
-                size="md"
-                icon={
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                }
+              <Link
+                href={CALENDLY_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/90 bg-white px-5 py-3 font-aeonik text-base font-medium text-gray-900 transition-all hover:border-white hover:shadow-lg"
               >
-                Schedule a call
-              </Button>
+                <span>Schedule a call</span>
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
 
-              <Button variant="secondary" size="md">
-                See how we work
-              </Button>
+              <div className="flex items-center gap-4">
+                <div className="flex -space-x-3">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-[#191819]">
+                      <Image src={`/about-us/review-${i}.webp`} alt="Client" fill className="object-cover" />
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <p className="font-aeonik text-sm font-bold text-white">132+ people</p>
+                  <p className="font-aeonik text-xs leading-snug text-white/70">
+                    Satisfied working with Codefinity Solutions
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
             {/* Awards Section */}

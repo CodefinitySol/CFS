@@ -64,7 +64,7 @@ const Select = ({
     return (
         <div className={`w-full ${className}`} ref={dropdownRef}>
             {label && (
-                <label className="mb-3 block font-aeonik text-base font-normal text-[#475569]">
+                <label className="mb-3 block font-aeonik text-base font-normal text-[#4D494D]">
                     {label}
                 </label>
             )}
@@ -84,7 +84,7 @@ const Select = ({
                         {selectedOption?.label || placeholder}
                     </span>
                     <FiChevronDown
-                        className={`h-5 w-5 text-[#475569] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                        className={`h-5 w-5 text-[#4D494D] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                     />
                 </button>
 
@@ -122,7 +122,7 @@ const Select = ({
                                                 }`}
                                         >
                                             <span>{option.label}</span>
-                                            {isSelected && <FiCheck className="h-4 w-4 text-[#475569]" />}
+                                            {isSelected && <FiCheck className="h-4 w-4 text-[#4D494D]" />}
                                         </button>
                                     );
                                 })}

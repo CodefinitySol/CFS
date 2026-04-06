@@ -16,6 +16,8 @@ interface GrowthSectionProps {
     description?: React.ReactNode;
     techStack?: string[];
     features?: GrowthFeature[];
+    /** `light`: white section + light cards (service pages after dark hero). `dark`: default. */
+    variant?: 'dark' | 'light';
 }
 
 const DEFAULT_FEATURES: GrowthFeature[] = [
@@ -56,21 +58,38 @@ export default function GrowthSection({
     title = "Designed For Growth, Not Just Launch",
     description = "Your website is your first impression. It's also your infrastructure. That's why our custom Squarespace web design projects are built with your future in mind. From scalable page architecture to CMS-integrated content systems, we design sites that can evolve with your business.",
     techStack,
-    features = DEFAULT_FEATURES
+    features = DEFAULT_FEATURES,
+    variant = 'dark',
 }: GrowthSectionProps) {
-    const textGradient = {
-        backgroundImage: 'linear-gradient(94.13deg, rgb(232, 236, 240) 0.14%, rgb(80, 108, 131) 153.8%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
-    };
+    const isLight = variant === 'light';
 
-    const badgeGradient = {
-        background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(80, 108, 131, 0.3) 100%)',
-    };
+    const textGradient = isLight
+        ? {
+              backgroundImage: 'linear-gradient(94.13deg, #191819 0.14%, #2B2A2B 153.8%)',
+              WebkitBackgroundClip: 'text' as const,
+              WebkitTextFillColor: 'transparent' as const,
+              backgroundClip: 'text' as const,
+          }
+        : {
+              backgroundImage: 'linear-gradient(94.13deg, rgb(232, 236, 240) 0.14%, rgb(91, 83, 91) 153.8%)',
+              WebkitBackgroundClip: 'text' as const,
+              WebkitTextFillColor: 'transparent' as const,
+              backgroundClip: 'text' as const,
+          };
+
+    const badgeGradient = isLight
+        ? {
+              background:
+                  'linear-gradient(90deg, rgba(232, 236, 240, 0.55) 0%, rgba(43, 42, 43, 0.12) 100%)',
+          }
+        : {
+              background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(91, 83, 91, 0.3) 100%)',
+          };
 
     return (
-        <section className="bg-[#181A1D] py-16 sm:py-24 overflow-hidden">
+        <section
+            className={`overflow-hidden py-16 sm:py-24 ${isLight ? 'bg-white' : 'bg-[#191819]'}`}
+        >
             <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-16">
 
                 {/* Header Section */}
@@ -82,11 +101,15 @@ export default function GrowthSection({
                     transition={{ duration: 0.8 }}
                 >
                     {/* Badge */}
-                    <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-8"
-                        style={badgeGradient}
-                    >
-                        <span className="h-1.5 w-1.5 rounded-full bg-white/60 mr-2"></span>
-                        <span className="font-aeonik text-xs font-medium text-white tracking-wide">{badge}</span>
+                    <div className="mb-8 inline-flex items-center rounded-full px-4 py-1.5" style={badgeGradient}>
+                        <span
+                            className={`mr-2 h-1.5 w-1.5 rounded-full ${isLight ? 'bg-[#2B2A2B]/50' : 'bg-white/60'}`}
+                        />
+                        <span
+                            className={`font-aeonik text-xs font-medium tracking-wide ${isLight ? 'text-[#191819]' : 'text-white'}`}
+                        >
+                            {badge}
+                        </span>
                     </div>
 
                     {/* Main Heading */}
@@ -97,19 +120,36 @@ export default function GrowthSection({
                     </h2>
 
                     {/* Description */}
-                    <div className="font-aeonik text-base text-[#E8ECF0] leading-relaxed max-w-xl">
+                    <div
+                        className={`max-w-xl font-aeonik text-base leading-relaxed ${isLight ? 'text-[#4D494D]' : 'text-[#E8ECF0]'}`}
+                    >
                         {description}
                     </div>
 
-                    <div className="mt-4 font-aeonik text-base text-[#E8ECF0]/70 leading-relaxed">
-                        {techStack && techStack.map((tech, index) => (
-                            <span key={index} className="inline-flex items-center rounded-full px-4 py-1.5 mr-2 mt-2"
-                                style={badgeGradient}
-                            >
-                                <span className="h-1.5 w-1.5 rounded-full bg-white/60 mr-2"></span>
-                                <span className="font-aeonik text-xs font-medium text-white tracking-wide">{tech}</span>
-                            </span>
-                        ))}
+                    <div
+                        className={`mt-4 font-aeonik text-base leading-relaxed ${isLight ? 'text-[#191819]/55' : 'text-[#E8ECF0]/70'}`}
+                    >
+                        {techStack &&
+                            techStack.map((tech, index) => (
+                                <span
+                                    key={index}
+                                    className={`mt-2 mr-2 inline-flex items-center rounded-full border px-4 py-1.5 ${
+                                        isLight
+                                            ? 'border-[#E7E2E7] bg-[#F8F9FA] text-[#191819]'
+                                            : ''
+                                    }`}
+                                    style={isLight ? undefined : badgeGradient}
+                                >
+                                    <span
+                                        className={`mr-2 h-1.5 w-1.5 rounded-full ${isLight ? 'bg-[#2B2A2B]/40' : 'bg-white/60'}`}
+                                    />
+                                    <span
+                                        className={`font-aeonik text-xs font-medium tracking-wide ${isLight ? 'text-[#191819]' : 'text-white'}`}
+                                    >
+                                        {tech}
+                                    </span>
+                                </span>
+                            ))}
                     </div>
                 </motion.div>
 
@@ -118,7 +158,11 @@ export default function GrowthSection({
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
-                            className="bg-[#212327]/40 border border-white/5 rounded-[12px] p-10 flex flex-col items-start gap-12 transition-all duration-300 hover:bg-[#212327]/60 hover:border-white/10 group h-full"
+                            className={`flex h-full flex-col items-start gap-12 rounded-[12px] border p-10 transition-all duration-300 ${
+                                isLight
+                                    ? 'border-[#E7E2E7] bg-[#F8F9FA] hover:border-[#191819]/20 hover:bg-white'
+                                    : 'group border-white/5 bg-[#212327]/40 hover:border-white/10 hover:bg-[#212327]/60'
+                            }`}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -142,7 +186,9 @@ export default function GrowthSection({
                                 </h3>
 
                                 {/* Feature Description */}
-                                <p className="font-aeonik text-base text-[#E8ECF0] leading-relaxed">
+                                <p
+                                    className={`font-aeonik text-base leading-relaxed ${isLight ? 'text-[#4D494D]' : 'text-[#E8ECF0]'}`}
+                                >
                                     {feature.description}
                                 </p>
                             </div>

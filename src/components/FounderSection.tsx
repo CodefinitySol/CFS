@@ -22,19 +22,19 @@ export default function FounderSection() {
                     {/* Content Header */}
                     <div className="flex flex-col items-center">
                         {/* Badge */}
-                        <div className="inline-flex items-center rounded-full px-3 py-1.5 bg-[#A2B0BC] text-[#516C83] mb-4">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#5D7285] mr-2"></span>
+                        <div className="inline-flex items-center rounded-full px-3 py-1.5 bg-[#A2B0BC] text-[#2B2A2B] mb-4">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#5A565A] mr-2"></span>
                             <span className="font-aeonik text-xs uppercase">Process</span>
                         </div>
 
                         {/* Heading */}
-                        <h2 className="font-aeonik text-3xl lg:text-5xl font-normal leading-tight text-[#1E293B] mb-4">
+                        <h2 className="font-aeonik text-3xl lg:text-5xl font-normal leading-tight text-[#191819] mb-4">
                             Our Web Design Process in Action
                         </h2>
 
                         {/* Descriptions */}
                         <div className="space-y-6 max-w-4xl mx-auto">
-                            <p className="font-aeonik text-md sm:text-md text-[#1E293B]">
+                            <p className="font-aeonik text-md sm:text-md text-[#191819]">
                                 Dive into our design process, explore our featured projects, and learn what sets us apart.
                             </p>
                         </div>

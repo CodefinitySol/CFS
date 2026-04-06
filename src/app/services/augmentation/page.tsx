@@ -37,7 +37,7 @@ const AUGMENTATION_FAQS = [
 
 export default function AugmentationPage() {
     return (
-        <main className="min-h-screen bg-white text-[#1E293B]">
+        <main className="min-h-screen bg-white text-[#191819]">
             <AugmentationHeroSection />
             <AugmentationSetupSection />
             <AugmentationServiceFeatures />

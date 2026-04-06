@@ -9,22 +9,22 @@ const BENEFITS = [
     {
         title: "All-In-One Platform",
         description: "Hosting, templates, and tools included in one seamless package.",
-        icon: <HiOutlineDuplicate className="w-6 h-6 text-[#506C83]" />
+        icon: <HiOutlineDuplicate className="w-6 h-6 text-[#2B2A2B]" />
     },
     {
         title: "Secure & Reliable",
         description: "Built-in SSL certificates and enterprise-grade security.",
-        icon: <HiShieldCheck className="w-6 h-6 text-[#506C83]" />
+        icon: <HiShieldCheck className="w-6 h-6 text-[#2B2A2B]" />
     },
     {
         title: "SEO-Ready",
         description: "Clean code structure and built-in SEO tools to get found online.",
-        icon: <HiOutlineChartBar className="w-6 h-6 text-[#506C83]" />
+        icon: <HiOutlineChartBar className="w-6 h-6 text-[#2B2A2B]" />
     },
     {
         title: "Easy To Manage",
         description: "Intuitive interface that lets you update content without code.",
-        icon: <HiOutlinePencilAlt className="w-6 h-6 text-[#506C83]" />
+        icon: <HiOutlinePencilAlt className="w-6 h-6 text-[#2B2A2B]" />
     }
 ];
 
@@ -41,17 +41,17 @@ export default function WhyChooseSquarespace() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="inline-flex items-center rounded-full px-4 py-1.5 bg-[#BEC8D1] text-[#506C83] mb-8">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#506C83] mr-2"></span>
+                        <div className="inline-flex items-center rounded-full px-4 py-1.5 bg-[#BEC8D1] text-[#2B2A2B] mb-8">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
                             <span className="font-aeonik text-xs font-medium tracking-wide">Squarespace benefits</span>
                         </div>
 
-                        <h2 className="font-aeonik text-5xl sm:text-5xl font-normal text-[#1E293B] mb-4">
+                        <h2 className="font-aeonik text-5xl sm:text-5xl font-normal text-[#191819] mb-4">
                             Why Choose <br /> Squarespace?
                         </h2>
 
-                        <Paragraph size="md" className="text-[#1E293B] max-w-lg">
-                            As professional Squarespace designers, we leverage the platform's strengths to create websites that suit small to mid-size businesses and creators perfectly. Our expertise ensures your site looks polished and performs exceptionally.
+                        <Paragraph size="md" className="text-[#191819] max-w-lg">
+                            As professional Squarespace designers, we leverage the platform&apos;s strengths to create websites that suit small to mid-size businesses and creators perfectly. Our expertise ensures your site looks polished and performs exceptionally.
                         </Paragraph>
                     </motion.div>
 
@@ -70,10 +70,10 @@ export default function WhyChooseSquarespace() {
                                     {benefit.icon}
                                 </div>
                                 <div>
-                                    <h3 className="font-aeonik text-2xl font-normal text-[#1E293B] mb-3">
+                                    <h3 className="font-aeonik text-2xl font-normal text-[#191819] mb-3">
                                         {benefit.title}
                                     </h3>
-                                    <Paragraph size="md" className="text-[#1E293B]/70 leading-relaxed font-aeonik">
+                                    <Paragraph size="md" className="text-[#191819]/70 leading-relaxed font-aeonik">
                                         {benefit.description}
                                     </Paragraph>
                                 </div>

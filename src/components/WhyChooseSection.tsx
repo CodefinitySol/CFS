@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from 'framer-motion';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
 import 'swiper/css';
@@ -38,15 +38,15 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
         >
           <div className="max-w-3xl text-left">
             <span
-              className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#BEC8D1]"
+              className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#2B2A2B] bg-[#BEC8D1]"
             >
-              <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
+              <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]/40" />
               {badgeText}
             </span>
-            <h2 className={`mt-6 font-aeonik font-normal tracking-tight text-[#181A1D] ${isPricing ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl'}`}>
+            <h2 className={`mt-6 font-aeonik font-normal tracking-tight text-[#191819] ${isPricing ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl'}`}>
               {title}
             </h2>
-            <p className="mt-6 font-aeonik text-md text-[#506C83] leading-relaxed max-w-xl">
+            <p className="mt-6 font-aeonik text-md text-[#2B2A2B] leading-relaxed max-w-xl">
               {description}
             </p>
           </div>
@@ -55,14 +55,14 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
           <div className="flex w-full items-center justify-between md:w-auto md:justify-end md:gap-4">
             <button
               onClick={() => swiperRef.current?.slidePrev()}
-              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#506C83] text-white transition-all hover:bg-[#405669] cursor-pointer"
+              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#2B2A2B] text-white transition-all hover:bg-[#3A383A] cursor-pointer"
               aria-label="Previous slide"
             >
               <HiArrowLeft className="h-6 w-6" />
             </button>
             <button
               onClick={() => swiperRef.current?.slideNext()}
-              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#506C83] text-white transition-all hover:bg-[#405669] cursor-pointer"
+              className="flex h-12 w-16 items-center justify-center rounded-full bg-[#2B2A2B] text-white transition-all hover:bg-[#3A383A] cursor-pointer"
               aria-label="Next slide"
             >
               <HiArrowRight className="h-6 w-6" />
@@ -79,7 +79,7 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
         >
           <Swiper
             onSwiper={(swiper) => {
-              (swiperRef as any).current = swiper;
+              swiperRef.current = swiper;
             }}
             modules={[Navigation, Pagination]}
             spaceBetween={50}
@@ -94,7 +94,7 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
           >
             {REASONS && REASONS.map((item: REASONSTYPE, index: number) => (
               <SwiperSlide key={index}>
-                <div className={`relative p-5 overflow-hidden rounded-[12px] rounded-bl-none bg-[#17181B] flex flex-col lg:flex-row items-stretch ${isPricing ? 'pt-0 pr-8 sm:pr-10 lg:pr-14 pb-0 pl-0 gap-8 lg:gap-58' : 'pt-20 gap-10 lg:gap-20'}`}>
+                <div className={`relative p-5 overflow-hidden rounded-[12px] rounded-bl-none bg-[#191819] flex flex-col lg:flex-row items-stretch ${isPricing ? 'pt-0 pr-8 sm:pr-10 lg:pr-14 pb-0 pl-0 gap-8 lg:gap-58' : 'pt-20 gap-10 lg:gap-20'}`}>
                   {/* Image Side */}
                   <div className="relative w-full lg:w-[46%] min-h-[400px] lg:min-h-[500px] overflow-hidden">
                     <Image
@@ -111,7 +111,7 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
                     <h3
                       className={`font-aeonik font-normal leading-tight mb-6 ${isPricing ? 'text-4xl lg:text-3xl' : 'text-5xl lg:text-[52px]'}`}
                       style={{
-                        backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                        backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         backgroundClip: 'text',
@@ -135,7 +135,7 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
         </motion.div>
 
         {/* Custom Pagination Indicators */}
-        <div className="custom-pagination mt-12 flex justify-center gap-3 [&_.custom-bullet]:h-2 [&_.custom-bullet]:w-2 [&_.custom-bullet]:bg-[#506C83]/30 [&_.custom-bullet]:rounded-full [&_.custom-bullet]:transition-all [&_.custom-bullet]:duration-300 [&_.custom-bullet]:duration-300 [&_.custom-bullet]:cursor-pointer [&_.custom-bullet-active]:w-12 [&_.custom-bullet-active]:bg-[#506C83]" />
+        <div className="custom-pagination mt-12 flex justify-center gap-3 [&_.custom-bullet]:h-2 [&_.custom-bullet]:w-2 [&_.custom-bullet]:bg-[#2B2A2B]/30 [&_.custom-bullet]:rounded-full [&_.custom-bullet]:transition-all [&_.custom-bullet]:duration-300 [&_.custom-bullet]:duration-300 [&_.custom-bullet]:cursor-pointer [&_.custom-bullet-active]:w-12 [&_.custom-bullet-active]:bg-[#2B2A2B]" />
       </div>
     </section>
   );

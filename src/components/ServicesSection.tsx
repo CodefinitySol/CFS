@@ -10,7 +10,7 @@ const SERVICES = [
     icon: '/services/Devices.webp',
     description: 'We design and build AI-powered systems that solve real problems. This includes AI agents, LLM-based workflows, model training, and intelligent automation tailored to your product or internal operations.\n\n Our team works deeply with Python-based stacks and modern AI frameworks, handling everything from architecture and experimentation to production deployment and monitoring.',
     image: '/services/custom.webp',
-    link: '#',
+    link: '/services/ai-development',
     wide: true,
   },
   {
@@ -18,33 +18,33 @@ const SERVICES = [
     icon: '/services/HandGrabbing.webp',
     description: 'We build robust web applications using modern stacks like MERN and Python. Many of our products are AI-native by design, while others focus on performance, reliability, and clean user experience.\n\n Whether it is a customer-facing platform, internal tool, or SaaS product, we build systems that are easy to maintain and ready to scale.',
     image: '/services/nocode.webp',
-    link: '#',
+    link: '/services/website-application',
     wide: true,
   },
   {
     title: 'Mobile Application Development',
     icon: '/services/Code.webp',
     description: 'We develop mobile applications that integrate seamlessly with your backend systems and business logic. From MVPs to production-ready apps, we focus on stability, performance, and long-term usability rather than quick demos.',
-    link: '#',
+    link: '/services/mobile-application',
   },
   {
     title: 'No-Code and Workflow Automation',
     icon: '/services/GraduationCap.webp',
     description: 'For teams that need speed without unnecessary complexity, we offer no-code and low-code solutions using tools like n8n, CMS platforms, and modern automation stacks.\n\n This is ideal for internal tools, integrations, dashboards, and rapid launches where efficiency matters more than custom code everywhere.',
-    link: '#',
+    link: '/services/no-code-automation',
   },
   {
     title: 'DevOps and Infrastructure',
     icon: '/services/File.webp',
     description: 'We handle deployment, cloud setup, CI pipelines, monitoring, and scaling. Our goal is simple: your product should be stable, observable, and easy to operate as usage grows.\n\n We support both new infrastructure setups and improvements to existing systems.',
-    link: '#',
+    link: '/services/devops',
   },
   {
     title: 'Dedicated Teams and Augmentation',
     icon: '/services/ArrowsClockwise.webp',
     description: 'We provide dedicated engineers and full teams who integrate directly into your workflow. This model works well for companies that need long-term ownership without the overhead of hiring internally.\n\n You get experienced developers, clear communication, and consistent delivery.',
     image: '/services/squarespace-home-page.webp',
-    link: '#',
+    link: '/services/augmentation',
     wide: true,
   },
   // {
@@ -75,7 +75,7 @@ const SERVICES = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-[#181A1D] py-18 sm:py-22">
+    <section id="services" className="bg-[#191819] py-18 sm:py-22">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
@@ -89,7 +89,7 @@ export default function ServicesSection() {
             <span
               className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white/80"
               style={{
-                background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(80, 108, 131, 0.3) 100%)'
+                background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(91, 83, 91, 0.3) 100%)'
               }}
             >
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-white/60" />
@@ -98,7 +98,7 @@ export default function ServicesSection() {
             <h2
               className="mt-8 font-aeonik text-4xl font-normal leading-tight text-white lg:text-5xl lg:leading-[1.1]"
               style={{
-                backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
+                backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #2B2A2B 153.8%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -110,7 +110,7 @@ export default function ServicesSection() {
               We offer a focused set of services covering the full lifecycle of modern software products. From AI-driven systems to web and mobile applications, we build what is needed, cut what is not, and stay involved long after launch.
             </p>
           </div>
-          <button className="rounded-full bg-[#506C83] px-8 py-4 font-aeonik text-base font-medium text-white transition-all hover:bg-[#405669]">
+          <button className="rounded-full bg-[#2B2A2B] px-8 py-4 font-aeonik text-base font-medium text-white transition-all hover:bg-[#3A383A]">
             Explore services
           </button>
         </motion.div>
@@ -172,17 +172,16 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
 
   return (
     <motion.div
-      className={`group relative flex flex-col overflow-hidden rounded-xl bg-[#181a1d] border border-white/5 h-full ${className}`}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/5 bg-[#191819] transition-[border-color] duration-300 hover:border-white/25 ${className}`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      whileHover={{
-        scale: 1.02,
-        backgroundColor: '#22252a',
-        transition: { duration: 0.3 }
-      }}
     >
+      <div
+        className="pointer-events-none absolute inset-0 z-[3] rounded-xl bg-gradient-to-br from-[#2B2A2B]/[0.18] via-[#2B2A2B]/[0.06] to-transparent opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
+        aria-hidden
+      />
       <div
         className={`relative z-10 flex flex-col p-8 sm:p-10 ${isWide ? 'lg:w-[60%]' : 'w-full'} 
         ${hasImage ? (isTopImage ? 'pt-64 sm:pt-80 lg:pt-10' : 'pb-64 sm:pb-80 lg:pb-10') : ''} 
@@ -203,7 +202,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
         <h3
           className="mb-6 font-aeonik text-2xl font-normal text-white sm:text-3xl"
           style={{
-            backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
+            backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #2B2A2B 153.8%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -232,7 +231,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
         <div className="mt-auto">
           <Link
             href={service.link}
-            className="inline-flex items-center text-sm font-medium text-white underline decoration-white/20 underline-offset-[10px] transition-all hover:decoration-white"
+            className="inline-flex items-center text-sm font-medium text-white underline decoration-white/20 underline-offset-[10px] transition-colors hover:decoration-white/40"
           >
             Learn more
           </Link>
@@ -242,7 +241,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
       {/* Decorative Image */}
       {service.image && (
         <div
-          className={`absolute pointer-events-none ${imagePlacement}`}
+          className={`pointer-events-none absolute z-[2] ${imagePlacement}`}
         >
           <div className="relative h-full w-full">
             <Image

@@ -69,11 +69,11 @@ export default function ProcessSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-flex items-center rounded-full bg-[#506C834D] bg-opacity-10 px-4 py-1.5 text-sm font-medium text-[#506C83]">
-            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506c83]" />
+          <span className="inline-flex items-center rounded-full bg-[#2B2A2B4D] bg-opacity-10 px-4 py-1.5 text-sm font-medium text-[#2B2A2B]">
+            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]" />
             Smooth and efficient process
           </span>
-          <h2 className="mt-4 font-aeonik text-4xl font-normal text-[#1E293B] sm:text-5xl lg:text-6xl">
+          <h2 className="mt-4 font-aeonik text-4xl font-normal text-[#191819] sm:text-5xl lg:text-6xl">
             How We Take a Product From Idea to Production
           </h2>
         </motion.div>
@@ -83,26 +83,26 @@ export default function ProcessSection() {
           {STEPS.map((step, index) => (
             <motion.div
               key={index}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#506C83] hover:bg-[#506C83] hover:shadow-xl min-h-[640px]"
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-xl min-h-[640px]"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               {/* Background Number */}
-              <div className="absolute left-[-18] top-0 font-aeonik text-[180px] font-bold leading-none text-[#506C83] opacity-[0.08] transition-colors group-hover:text-white group-hover:opacity-10">
+              <div className="absolute left-[-18] top-0 font-aeonik text-[180px] font-bold leading-none text-[#2B2A2B] opacity-[0.08] transition-colors group-hover:text-white group-hover:opacity-10">
                 {step.number}
               </div>
 
               {/* Content Container */}
               <div className="relative z-10 flex flex-1 flex-col pb-44 lg:pb-60">
                 {/* Icon */}
-                <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[#1E293B] transition-colors group-hover:bg-white/10 group-hover:text-white">
+                <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[#191819] transition-colors group-hover:bg-white/10 group-hover:text-white">
                   {step.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="mb-4 font-aeonik text-2xl font-normal text-[#1E293B] transition-all duration-300 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-[linear-gradient(94.13deg,#e8ecf0_.14%,#506c83_153.8%)] sm:text-3xl">
+                <h3 className="mb-4 font-aeonik text-2xl font-normal text-[#191819] transition-all duration-300 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-[linear-gradient(94.13deg,#e8ecf0_.14%,#2B2A2B_153.8%)] sm:text-3xl">
                   {step.title}
                 </h3>
 

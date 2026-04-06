@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiArrowLeft, HiArrowRight, HiOutlineCalendar } from 'react-icons/hi2';
+import { motion } from 'framer-motion';
+import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2';
 
 const HERO_BLOGS = [
     {
@@ -31,7 +31,7 @@ const DURATION = 6000;
 export default function BlogHero() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [progress, setProgress] = useState(0);
-    const startTimeRef = useRef<number>(Date.now());
+    const startTimeRef = useRef(0);
     const timerRef = useRef<number | null>(null);
 
     const nextSlide = () => {
@@ -47,6 +47,7 @@ export default function BlogHero() {
     };
 
     useEffect(() => {
+        startTimeRef.current = Date.now();
         const updateProgress = () => {
             const elapsed = Date.now() - startTimeRef.current;
             const newProgress = Math.min((elapsed / DURATION) * 100, 100);
@@ -73,10 +74,10 @@ export default function BlogHero() {
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
                     <div className="max-w-3xl">
                         <span className="inline-flex items-center rounded-full px-4 py-1.5 mb-6 bg-[#BEC8D1] w-fit">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
-                            <span className="font-aeonik text-xs font-medium text-[#516C83] tracking-wide">Resources</span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">Resources</span>
                         </span>
-                        <h1 className="font-aeonik text-4xl sm:text-6xl font-normal text-[#181A1D]">
+                        <h1 className="font-aeonik text-4xl sm:text-6xl font-normal text-[#191819]">
                             Trending Blogs & News
                         </h1>
                     </div>
@@ -86,7 +87,7 @@ export default function BlogHero() {
                 </div>
 
                 {/* Hero Card Container */}
-                <div className="relative aspect-[16/11] lg:aspect-[21/10] w-full bg-[#181A1D] rounded-[32px] overflow-hidden group border-[12px] border-[#EBEBEB]">
+                <div className="relative aspect-[16/11] lg:aspect-[21/10] w-full bg-[#191819] rounded-[32px] overflow-hidden group border-[12px] border-[#EBEBEB]">
                     {/* Background Images with Crossfade */}
                     <div className="absolute inset-0">
                         {HERO_BLOGS.map((blog, index) => (
@@ -125,7 +126,7 @@ export default function BlogHero() {
                             <h2
                                 className="font-aeonik text-3xl lg:text-4xl font-normal mb-2 max-w-md text-transparent bg-clip-text"
                                 style={{
-                                    backgroundImage: 'linear-gradient(94.74deg, #fff .26%, #506c83 118.16%)',
+                                    backgroundImage: 'linear-gradient(94.74deg, #fff .26%, #2B2A2B 118.16%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
                                 }}

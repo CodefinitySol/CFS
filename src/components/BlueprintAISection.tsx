@@ -53,7 +53,7 @@ export default function BlueprintAISection() {
               <span
                 className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-white"
                 style={{
-                  background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)'
+                  background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(91,83,91,.3) 100%)'
                 }}
               >
                 <div className="mr-2 h-1.5 w-1.5 rounded-full bg-white/40" />
@@ -63,7 +63,7 @@ export default function BlueprintAISection() {
               <h2 className="mt-8 font-aeonik text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight max-w-2xl">
                 <span
                   style={{
-                    backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                    backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -76,7 +76,7 @@ export default function BlueprintAISection() {
                   <span
                     className="relative z-10"
                     style={{
-                      backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                      backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
@@ -102,7 +102,7 @@ export default function BlueprintAISection() {
               <p
                 className="mt-6 font-aeonik text-base lg:text-lg"
                 style={{
-                  backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                  backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -130,7 +130,7 @@ export default function BlueprintAISection() {
                       <span
                         className="font-aeonik text-base lg:text-lg font-normal transition-opacity"
                         style={{
-                          backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                          backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                           WebkitBackgroundClip: 'text',
                           WebkitTextFillColor: 'transparent',
                           backgroundClip: 'text',
@@ -163,7 +163,7 @@ export default function BlueprintAISection() {
 
             <div className="mt-12">
               <button
-                className="flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95 bg-[#516C83]"
+                className="flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95 bg-[#2B2A2B]"
               >
                 Get started
                 <HiArrowUpRight className="h-4 w-4" />

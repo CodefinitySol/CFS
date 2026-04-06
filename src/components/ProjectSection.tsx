@@ -3,13 +3,14 @@
 import Image from 'next/image';
 import ContactForm from './molecules/ContactForm';
 import { motion } from 'framer-motion';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 export default function ProjectSection() {
   return (
     <section
       className="relative w-full overflow-hidden py-12 sm:bg-white sm:py-16 md:py-20"
       style={{
-        background: 'linear-gradient(180deg, rgba(80, 108, 131, 0.3) 0%, rgba(80, 108, 131, 0.12) 100%)'
+        background: 'linear-gradient(180deg, rgba(91, 83, 91, 0.3) 0%, rgba(91, 83, 91, 0.12) 100%)'
       }}
     >
       {/* Container to restore white background on desktop, while section carries gradient for mobile */}
@@ -28,27 +29,27 @@ export default function ProjectSection() {
       <div
         className="absolute inset-6 z-1 hidden sm:inset-8 sm:block md:inset-12"
         style={{
-          background: 'linear-gradient(180deg, rgba(80, 108, 131, .3) 0%, rgba(80, 108, 131, .12) 100%)'
+          background: 'linear-gradient(180deg, rgba(91, 83, 91, .3) 0%, rgba(91, 83, 91, .12) 100%)'
         }}
       />
 
       {/* Decorative Crosses at corners of the colored container - Desktop only */}
-      <div className="absolute left-6 top-6 z-20 hidden -translate-x-1/2 -translate-y-1/2 text-[#506C83] sm:left-8 sm:top-8 sm:block md:left-12 md:top-12">
+      <div className="absolute left-6 top-6 z-20 hidden -translate-x-1/2 -translate-y-1/2 text-[#2B2A2B] sm:left-8 sm:top-8 sm:block md:left-12 md:top-12">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 4V20M4 12H20" />
         </svg>
       </div>
-      <div className="absolute right-6 top-6 z-20 hidden translate-x-1/2 -translate-y-1/2 text-[#506C83] sm:right-8 sm:top-8 sm:block md:right-12 md:top-12">
+      <div className="absolute right-6 top-6 z-20 hidden translate-x-1/2 -translate-y-1/2 text-[#2B2A2B] sm:right-8 sm:top-8 sm:block md:right-12 md:top-12">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 4V20M4 12H20" />
         </svg>
       </div>
-      <div className="absolute left-6 bottom-6 z-20 hidden -translate-x-1/2 translate-y-1/2 text-[#506C83] sm:left-8 sm:bottom-8 sm:block md:left-12 md:bottom-12">
+      <div className="absolute left-6 bottom-6 z-20 hidden -translate-x-1/2 translate-y-1/2 text-[#2B2A2B] sm:left-8 sm:bottom-8 sm:block md:left-12 md:bottom-12">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 4V20M4 12H20" />
         </svg>
       </div>
-      <div className="absolute right-6 bottom-6 z-20 hidden translate-x-1/2 translate-y-1/2 text-[#506C83] sm:right-8 sm:bottom-8 sm:block md:right-12 md:bottom-12">
+      <div className="absolute right-6 bottom-6 z-20 hidden translate-x-1/2 translate-y-1/2 text-[#2B2A2B] sm:right-8 sm:bottom-8 sm:block md:right-12 md:bottom-12">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 4V20M4 12H20" />
         </svg>
@@ -67,14 +68,14 @@ export default function ProjectSection() {
             <span
               className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-[#597589] bg-[#AEBAC5]"
             >
-              <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#516C83]" />
+              <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]" />
               Your dream site
             </span>
 
             <h2
               className="mt-4 font-aeonik text-2xl font-normal leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-5xl"
               style={{
-                backgroundImage: 'linear-gradient(94.13deg, #1e293b .14%, #506883 153.8%)',
+                backgroundImage: 'linear-gradient(94.13deg, #191819 .14%, #506883 153.8%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -90,8 +91,11 @@ export default function ProjectSection() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-8">
-              <button
-                className="group flex items-center gap-2 rounded-full bg-[#506C83] px-7 py-3.5 font-aeonik text-base font-medium text-white transition-all hover:bg-[#405669] hover:shadow-xl"
+              <a
+                href={CALENDLY_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 rounded-full bg-[#2B2A2B] px-7 py-3.5 font-aeonik text-base font-medium text-white transition-all hover:bg-[#3A383A] hover:shadow-xl"
               >
                 Schedule a call
                 <svg
@@ -107,7 +111,7 @@ export default function ProjectSection() {
                     d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
-              </button>
+              </a>
 
               <div className="flex items-center">
                 <div className="flex -space-x-3">
@@ -123,8 +127,8 @@ export default function ProjectSection() {
                   ))}
                 </div>
                 <div className="ml-4">
-                  <div className="font-aeonik text-sm font-medium text-slate-900">700+ people</div>
-                  <div className="font-aeonik text-xs text-slate-500">loved working with Sam</div>
+                  <div className="font-aeonik text-sm font-medium text-slate-900">132+ people</div>
+                  <div className="font-aeonik text-xs text-slate-500">Satisfied working with Codefinity Solutions</div>
                 </div>
               </div>
             </div>

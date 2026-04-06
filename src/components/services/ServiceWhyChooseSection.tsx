@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { HiArrowUpRight } from 'react-icons/hi2';
 import { motion } from 'framer-motion';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 export interface ChooseItem {
     title: string;
@@ -55,21 +56,26 @@ export default function ServiceWhyChooseSection({
                     <div className="max-w-3xl">
                         {/* Badge */}
                         <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-8 bg-[#CFD6DC]">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
-                            <span className="font-aeonik text-xs font-medium text-[#516C83] tracking-wide">{badge}</span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">{badge}</span>
                         </div>
 
                         {/* Main Heading */}
-                        <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-[#181A1D]">
+                        <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-[#191819]">
                             {title}
                         </h2>
                     </div>
 
                     {/* CTA Button */}
-                    <button className="inline-flex items-center gap-2 rounded-full bg-[#516C83] px-8 py-4 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669] hover:shadow-lg self-start lg:self-auto cursor-pointer">
+                    <a
+                        href={CALENDLY_BOOKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex cursor-pointer items-center gap-2 self-start rounded-full bg-[#2B2A2B] px-8 py-4 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A] hover:shadow-lg lg:self-auto"
+                    >
                         Schedule a call
                         <HiArrowUpRight className="h-4 w-4" />
-                    </button>
+                    </a>
                 </motion.div>
 
                 {/* Features Grid */}
@@ -93,10 +99,10 @@ export default function ServiceWhyChooseSection({
                             />
 
                             {/* Content */}
-                            <h3 className="font-aeonik text-2xl sm:text-3xl font-normal text-[#181A1D] mb-6 mt-6 tracking-tight">
+                            <h3 className="font-aeonik text-2xl sm:text-3xl font-normal text-[#191819] mb-6 mt-6 tracking-tight">
                                 {item.title}
                             </h3>
-                            <p className="font-aeonik text-base text-[#181A1D]/60 leading-relaxed max-w-sm">
+                            <p className="font-aeonik text-base text-[#191819]/60 leading-relaxed max-w-sm">
                                 {item.description}
                             </p>
                         </motion.div>

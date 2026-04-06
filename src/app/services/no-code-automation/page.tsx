@@ -1,6 +1,5 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
 import GrowthSection from '@/components/services/GrowthSection';
-import PricingSection from '@/components/PricingSection';
 import ContactSection from '@/components/ContactSection';
 
 const NO_CODE_FEATURES = [
@@ -49,7 +48,7 @@ export default function NoCodeAutomationPage() {
                     <span
                         className="bg-clip-text text-transparent block"
                         style={{
-                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         }}
                     >
                         Fast, Flexible Systems Without Heavy Engineering
@@ -59,16 +58,12 @@ export default function NoCodeAutomationPage() {
                 imageSrc="/services-section/website-migration.webp"
             />
             <GrowthSection
+                variant="light"
                 badge="What we offer"
                 title={"You focus on the business.\n We’ll handle the workflows."}
                 description="Our no-code and automation services are ideal for internal tools, integrations, and rapid product validation. We apply the same discipline as custom development, without unnecessary complexity."
                 techStack={TECH_STACK}
                 features={NO_CODE_FEATURES}
-            />
-            <PricingSection
-                badge="Augmentation for everyone"
-                title="Flexible Engagement Models"
-                description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
         </main>

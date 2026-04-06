@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiOutlineSearch, HiOutlineClock } from 'react-icons/hi';
 import { IoChevronDownOutline } from 'react-icons/io5';
@@ -76,7 +77,7 @@ export default function BlogGrid() {
             <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="font-aeonik text-4xl lg:text-5xl text-[#181A1D] font-normal leading-tight mb-12">
+                    <h2 className="font-aeonik text-4xl lg:text-5xl text-[#191819] font-normal leading-tight mb-12">
                         From The Squarespace<br />Website Design Blog
                     </h2>
 
@@ -88,7 +89,7 @@ export default function BlogGrid() {
                             <input
                                 type="text"
                                 placeholder="Search for anything"
-                                className="w-full bg-white border border-[#E8ECF0] rounded-full py-4 pl-14 pr-6 font-aeonik text-sm text-black placeholder:text-black/40 focus:outline-none focus:border-[#516C83] transition-colors"
+                                className="w-full bg-white border border-[#E8ECF0] rounded-full py-4 pl-14 pr-6 font-aeonik text-sm text-black placeholder:text-black/40 focus:outline-none focus:border-[#2B2A2B] transition-colors"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
@@ -98,7 +99,7 @@ export default function BlogGrid() {
                         <div className="relative w-full sm:w-64">
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="w-full bg-white border border-[#E8ECF0] rounded-full py-4 px-8 font-aeonik text-sm text-black flex items-center justify-between transition-colors hover:border-[#516C83]"
+                                className="w-full bg-white border border-[#E8ECF0] rounded-full py-4 px-8 font-aeonik text-sm text-black flex items-center justify-between transition-colors hover:border-[#2B2A2B]"
                             >
                                 <span>Category : {selectedCategory}</span>
                                 <IoChevronDownOutline className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
@@ -128,7 +129,7 @@ export default function BlogGrid() {
                                                     }}
                                                     className={`w-full text-left px-4 py-2.5 rounded-xl font-aeonik text-sm transition-all duration-200 flex items-center gap-2
                                                         ${selectedCategory === cat
-                                                            ? 'bg-[#516C83] text-white'
+                                                            ? 'bg-[#2B2A2B] text-white'
                                                             : 'text-white/80 hover:bg-white/10 hover:text-white'
                                                         }`}
                                                 >
@@ -161,7 +162,10 @@ export default function BlogGrid() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group cursor-pointer"
                         >
-                            <div className="relative overflow-hidden rounded-[12px] bg-[#E8ECF0] transition-colors duration-300 group-hover:bg-[#516C83] flex flex-col h-full">
+                            <Link
+                                href="/resources/blog"
+                                className="relative flex h-full flex-col overflow-hidden rounded-[12px] bg-[#E8ECF0] transition-colors duration-300 group-hover:bg-[#2B2A2B]"
+                            >
                                 {/* Image */}
                                 <div className="relative aspect-[4/3] overflow-hidden">
                                     <Image
@@ -175,16 +179,16 @@ export default function BlogGrid() {
                                 {/* Content */}
                                 <div className="p-8 flex flex-col flex-1">
                                     <div className="flex items-center gap-3 mb-6">
-                                        <span className="bg-[rgba(80,108,131,.1)] backdrop-blur-md border border-black/5 px-2 py-1 rounded-full text-sm font-aeonik text-[#516C83] transition-all duration-300 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10">
+                                        <span className="bg-[rgba(91,83,91,.1)] backdrop-blur-md border border-black/5 px-2 py-1 rounded-full text-sm font-aeonik text-[#2B2A2B] transition-all duration-300 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10">
                                             {post.category}
                                         </span>
-                                        <div className="bg-white px-2 py-1 rounded-full flex items-center gap-1.5 text-[#516c83]">
+                                        <div className="bg-white px-2 py-1 rounded-full flex items-center gap-1.5 text-[#2B2A2B]">
                                             <HiOutlineClock className="w-4 h-4" />
                                             <span className="text-sm font-aeonik">{post.readTime}</span>
                                         </div>
                                     </div>
 
-                                    <h3 className="font-aeonik text-2xl font-normal leading-tight mb-4 transition-all duration-300 text-[#181A1D] group-hover:bg-[linear-gradient(94.74deg,#fff_.26%,#506c83_118.16%)] group-hover:bg-clip-text group-hover:text-transparent">
+                                    <h3 className="font-aeonik text-2xl font-normal leading-tight mb-4 transition-all duration-300 text-[#191819] group-hover:bg-[linear-gradient(94.74deg,#fff_.26%,#2B2A2B_118.16%)] group-hover:bg-clip-text group-hover:text-transparent">
                                         {post.title}
                                     </h3>
 
@@ -192,7 +196,7 @@ export default function BlogGrid() {
                                         {post.description}
                                     </p>
                                 </div>
-                            </div>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>

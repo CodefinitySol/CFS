@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 import { useEffect, useRef, useState } from 'react';
 import { MdVerified } from 'react-icons/md';
 import { motion } from 'framer-motion';
@@ -77,7 +79,7 @@ function StarRating({ rating }: { rating: number }) {
       {[...Array(5)].map((_, i) => (
         <svg
           key={i}
-          className={`h-4 w-4 ${i < rating ? 'text-[#506C83]' : 'text-gray-300'
+          className={`h-4 w-4 ${i < rating ? 'text-[#2B2A2B]' : 'text-gray-300'
             }`}
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -120,7 +122,7 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
     animationFrameId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, [speed, totalWidth]);
+  }, [speed, totalWidth, cardWidth]);
 
   const displayItems = [...testimonials, ...testimonials, ...testimonials];
 
@@ -136,13 +138,13 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
         {displayItems.map((testimonial, i) => (
           <div
             key={`${testimonial.name}-${i}`}
-            className="group relative w-[500px] flex-shrink-0 overflow-hidden rounded-xl border border-transparent bg-[#212325] p-8 transition-all duration-500 hover:border-[#506C83]/30"
+            className="group relative w-[500px] flex-shrink-0 overflow-hidden rounded-xl border border-transparent bg-[#212325] p-8 transition-all duration-500 hover:border-[#2B2A2B]/30"
           >
             {/* Gradient overlay on hover */}
             <div
               className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               style={{
-                background: 'linear-gradient(90.45deg, rgba(80, 108, 131, .4) -156%, rgba(80, 108, 131, .2) 96.13%, rgba(80, 108, 131, .4) 102.47%)',
+                background: 'linear-gradient(90.45deg, rgba(91, 83, 91, .4) -156%, rgba(91, 83, 91, .2) 96.13%, rgba(91, 83, 91, .4) 102.47%)',
               }}
             />
 
@@ -159,11 +161,11 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
                     />
                   </div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-aeonik text-lg font-medium text-white duration-100 group-hover:text-[#506C83]">
+                    <h3 className="font-aeonik text-lg font-medium text-white duration-100 group-hover:text-[#2B2A2B]">
                       {testimonial.name}
                     </h3>
                     {/* Verified Icon */}
-                    <MdVerified className="h-5 w-5 text-[#506C83]" />
+                    <MdVerified className="h-5 w-5 text-[#2B2A2B]" />
                   </div>
                 </div>
                 <StarRating rating={testimonial.rating} />
@@ -183,7 +185,7 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#181A1D] pb-22 sm:pb-22 pt-24 sm:pt-26">
+    <section className="relative w-full overflow-hidden bg-[#191819] pb-22 sm:pb-22 pt-24 sm:pt-26">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
@@ -197,7 +199,7 @@ export default function TestimonialsSection() {
             <span
               className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white/90"
               style={{
-                background: 'linear-gradient(90deg, rgba(232, 236, 240, .3) 0%, rgba(80, 108, 131, .3) 100%)',
+                background: 'linear-gradient(90deg, rgba(232, 236, 240, .3) 0%, rgba(91, 83, 91, .3) 100%)',
               }}
             >
               <span className="mr-2 h-1.5 w-1.5 rounded-full bg-white/60" />
@@ -206,7 +208,7 @@ export default function TestimonialsSection() {
             <h2
               className="mt-6 font-aeonik text-4xl font-normal sm:text-4xl lg:text-5xl"
               style={{
-                backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #506c83 153.8%)',
+                backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #2B2A2B 153.8%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -215,7 +217,7 @@ export default function TestimonialsSection() {
               Over 200+ Reviews
             </h2>
           </div>
-          <button className="hidden rounded-full bg-[#506C83] px-6 py-3 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669] lg:block">
+          <button className="hidden rounded-full bg-[#2B2A2B] px-6 py-3 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A] lg:block">
             View all
           </button>
         </motion.div>
@@ -252,7 +254,7 @@ export default function TestimonialsSection() {
           <div className="flex items-center">
             <div className="flex -space-x-2">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="relative h-6 w-6 overflow-hidden rounded-full border-2 border-[#181A1D]">
+                <div key={i} className="relative h-6 w-6 overflow-hidden rounded-full border-2 border-[#191819]">
                   <Image
                     src={`/jim.jpeg`}
                     alt="User avatar"
@@ -268,11 +270,14 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Book a call Button */}
-          <button
-            className="rounded-full bg-[#475058] px-3 py-1.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#405669]"
+          <Link
+            href={CALENDLY_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-[#2B2A2B] px-3 py-1.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A]"
           >
             Book a call
-          </button>
+          </Link>
         </div>
       </motion.div>
     </section>

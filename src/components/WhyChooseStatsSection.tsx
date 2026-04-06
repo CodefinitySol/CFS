@@ -25,14 +25,14 @@ export default function WhyChooseStatsSection() {
                 {/* Header */}
                 <div className="flex flex-col mb-16">
                     <span className="inline-flex items-center rounded-full px-4 py-1.5 mb-8 bg-[#BEC8D1] w-fit">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#516C83] mr-2"></span>
-                        <span className="font-aeonik text-xs font-medium text-[#516C83] tracking-wide">Why choose us</span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                        <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">Why choose us</span>
                     </span>
-                    <h2 className="font-aeonik text-5xl sm:text-5xl font-normal leading-[1.1] tracking-tight text-[#181A1D] mb-8">
+                    <h2 className="font-aeonik text-5xl sm:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819] mb-8">
                         Why Choose by Crawford
                     </h2>
                     <p className="font-aeonik text-md text-black max-w-2xl">
-                        We've helped businesses across the UK launch sleek, scalable Squarespace sites that reflect
+                        We&apos;ve helped businesses across the UK launch sleek, scalable Squarespace sites that reflect
                         their brand and drive results. Our focus on brand-aligned visuals, user experience, and fast
                         turnarounds means you get a website that works from day one.
                     </p>
@@ -54,7 +54,7 @@ export default function WhyChooseStatsSection() {
                             </div>
                             <div className="flex items-end justify-between mt-8">
                                 <HiArrowUp className="h-10 w-10 text-black" />
-                                <span className="font-aeonik text-5xl font-normal text-transparent bg-clip-text bg-[linear-gradient(94.74deg,#181a1d_.26%,#506c83_118.16%)]">
+                                <span className="font-aeonik text-5xl font-normal text-transparent bg-clip-text bg-[linear-gradient(94.74deg,#191819_.26%,#2B2A2B_118.16%)]">
                                     {stat.value}
                                 </span>
                             </div>

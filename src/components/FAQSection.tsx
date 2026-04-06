@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { HiPlus, HiMinus } from 'react-icons/hi2';
 import FAQItem from './FAQItem';
 import { motion } from 'framer-motion';
 
@@ -58,10 +57,10 @@ export default function FAQSection() {
           className="relative bg-[#D0D6DC] rounded-[6px] p-8 sm:p-16 lg:px-24 lg:py-24"
         >
           {/* Corner Crosshairs */}
-          <div className="absolute top-0 left-0 w-8 h-8 flex items-center justify-center text-[#506C83] text-3xl -translate-x-1/2 -translate-y-1/2">+</div>
-          <div className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center text-[#506C83] text-3xl translate-x-1/2 -translate-y-1/2">+</div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 flex items-center justify-center text-[#506C83] text-3xl -translate-x-1/2 translate-y-1/2">+</div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 flex items-center justify-center text-[#506C83] text-3xl translate-x-1/2 translate-y-1/2">+</div>
+          <div className="absolute top-0 left-0 w-8 h-8 flex items-center justify-center text-[#2B2A2B] text-3xl -translate-x-1/2 -translate-y-1/2">+</div>
+          <div className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center text-[#2B2A2B] text-3xl translate-x-1/2 -translate-y-1/2">+</div>
+          <div className="absolute bottom-0 left-0 w-8 h-8 flex items-center justify-center text-[#2B2A2B] text-3xl -translate-x-1/2 translate-y-1/2">+</div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 flex items-center justify-center text-[#2B2A2B] text-3xl translate-x-1/2 translate-y-1/2">+</div>
 
           <motion.div
             className="max-w-5xl mx-auto flex flex-col items-start relative z-10"
@@ -72,13 +71,13 @@ export default function FAQSection() {
           >
             <div className="w-full text-left">
               <span
-                className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#506C83] bg-[#AEB9C4]"
+                className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-[#2B2A2B] bg-[#AEB9C4]"
               >
-                <div className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]/40" />
+                <div className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]/40" />
                 FAQS
               </span>
 
-              <h2 className="mt-2 font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal text-[#181A1D] leading-tight mb-6 text-left">
+              <h2 className="mt-2 font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal text-[#191819] leading-tight mb-6 text-left">
                 Frequently Asked By People
               </h2>
             </div>
@@ -107,11 +106,11 @@ export default function FAQSection() {
                   isOpen={openIndex === index}
                   onClick={() => setOpenIndex(index === openIndex ? null : index)}
                   buttonClassName="py-4"
-                  questionClassName="text-base sm:text-lg lg:text-xl font-normal text-[#181A1D]/80"
-                  answerClassName="text-sm sm:text-base text-[#181A1D]/60"
+                  questionClassName="text-base sm:text-lg lg:text-xl font-normal text-[#191819]/80"
+                  answerClassName="text-sm sm:text-base text-[#191819]/60"
                   borderClassName="border-[#BDC6CE]"
                   maxHeight="1200px"
-                  iconContainerClassName={`h-12 w-12 bg-[#516C83] text-white ${openIndex === index ? '' : 'bg-[#516C83]/80'}`}
+                  iconContainerClassName={`h-12 w-12 bg-[#2B2A2B] text-white ${openIndex === index ? '' : 'bg-[#2B2A2B]/80'}`}
                 />
               ))}
             </div>

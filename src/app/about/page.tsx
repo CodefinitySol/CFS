@@ -8,7 +8,7 @@ import ContactSection from '@/components/ContactSection';
 
 export default function AboutPage() {
     return (
-        <main className="flex-grow bg-[#181A1D]">
+        <main className="flex-grow bg-[#191819]">
             <Header />
             <AboutHeroSection />
             <CoreValuesSection />

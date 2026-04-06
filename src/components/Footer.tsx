@@ -2,52 +2,59 @@
 
 import Link from 'next/link';
 import { HiArrowUpRight } from 'react-icons/hi2';
-import { FaBehance, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
-import { HiGlobeAlt, HiMail } from 'react-icons/hi';
+import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { HiMail } from 'react-icons/hi';
 import NewsletterSection from './NewsletterSection';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 const SOCIAL_LINKS = [
-  { icon: <FaBehance className="h-5 w-5" />, href: '#' },
-  { icon: <HiGlobeAlt className="h-5 w-5" />, href: '#' },
-  { icon: <FaLinkedinIn className="h-5 w-5" />, href: '#' },
-  { icon: <FaYoutube className="h-5 w-5" />, href: '#' },
-  { icon: <HiMail className="h-5 w-5" />, href: '#' },
-];
+  {
+    icon: <FaLinkedinIn className="h-5 w-5" aria-hidden />,
+    href: 'https://www.linkedin.com/company/codefinity-solutions/',
+    external: true,
+    label: 'LinkedIn',
+  },
+  {
+    icon: <FaInstagram className="h-5 w-5" aria-hidden />,
+    href: 'https://www.instagram.com/codefinitysol/',
+    external: true,
+    label: 'Instagram',
+  },
+  {
+    icon: <HiMail className="h-5 w-5" aria-hidden />,
+    href: 'mailto:contact@codefinitysol.com',
+    external: false,
+    label: 'Email',
+  },
+] as const;
 
 const EXPLORE_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '#' },
-  { label: 'Services', href: '#' },
-  { label: 'Work', href: '#' },
-  { label: 'Contact', href: '#' },
-  { label: 'Book a call', href: '#' },
-];
-
-const RESOURCE_LINKS = [
-  { label: 'Blog', href: '#' },
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms & Conditions', href: '#' },
-  { label: 'Sitemap', href: '#' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Work', href: '/portfolio' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Book a call', href: CALENDLY_BOOKING_URL },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#181A1D] pb-8 overflow-hidden">
+    <footer className="relative overflow-x-hidden bg-[#191819] pb-8">
 
 
       <div className="relative z-10">
         <NewsletterSection />
-        <div className="mx-auto max-w-[1500px] px-4 sm:px-4 lg:px-8">
+        <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
 
-          {/* Top Section: CTA & Links */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-24">
+          {/* Top Section: CTA & Explore */}
+          <div className="mb-20 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-8 xl:gap-10">
 
             {/* Left: CTA */}
-            <div className="flex flex-col items-start pt-4">
+            <div className="flex max-w-2xl flex-col items-start pt-4 lg:max-w-xl xl:max-w-2xl">
               <h2
-                className="font-aeonik text-3xl sm:text-3xl lg:text-5xl font-normal leading-tight mb-8"
+                className="mb-6 font-aeonik text-3xl font-normal leading-tight sm:text-3xl lg:text-5xl"
                 style={{
-                  backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                  backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -63,69 +70,53 @@ export default function Footer() {
                   We work best with teams that value clarity, ownership, and long-term thinking. If that sounds like you, let&apos;s talk through your goals and see if there is a fit.
                 </p>
               </div>
-              <button
-                className="group flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium text-white border border-white/10 bg-[#516C83] cursor-pointer transition-all hover:brightness-110 active:scale-95"
+              <Link
+                href={CALENDLY_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#2B2A2B] px-8 py-4 text-base font-medium text-white transition-all hover:brightness-110 active:scale-95"
               >
                 Schedule a call
                 <HiArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </button>
+              </Link>
             </div>
 
-            {/* Right: Navigation Links */}
-            <div className="grid grid-cols-2 gap-2 pt-4">
-              {/* Explore Column */}
-              <div className="flex flex-col space-y-4">
-                <h3
-                  className="font-aeonik text-xl lg:text-2xl font-normal"
-                  style={{
-                    backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Explore
-                </h3>
-                <ul className="space-y-4">
-                  {EXPLORE_LINKS.map((link, index) => (
-                    <li key={index}>
+            {/* Explore */}
+            <div className="w-full shrink-0 pt-4 sm:max-w-md lg:w-auto lg:min-w-[200px] lg:max-w-xs">
+              <h3
+                className="font-aeonik text-xl font-normal lg:text-2xl"
+                style={{
+                  backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Explore
+              </h3>
+              <ul className="mt-4 space-y-3 sm:space-y-4">
+                {EXPLORE_LINKS.map((link, index) => (
+                  <li key={index}>
+                    {link.href.startsWith('http') ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-aeonik text-base text-white transition-colors hover:text-white/80"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
                       <Link
                         href={link.href}
-                        className="font-aeonik text-base text-white"
+                        className="font-aeonik text-base text-white transition-colors hover:text-white/80"
                       >
                         {link.label}
                       </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Resources Column */}
-              <div className="flex flex-col space-y-4">
-                <h3
-                  className="font-aeonik text-xl lg:text-2xl font-normal"
-                  style={{
-                    backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Resources
-                </h3>
-                <ul className="space-y-4">
-                  {RESOURCE_LINKS.map((link, index) => (
-                    <li key={index}>
-                      <Link
-                        href={link.href}
-                        className="font-aeonik text-base text-white"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
@@ -140,7 +131,11 @@ export default function Footer() {
                 <a
                   key={index}
                   href={social.href}
+                  {...(social.external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                   className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition-all hover:bg-white/10 hover:text-white hover:scale-110"
+                  aria-label={social.label}
                 >
                   {social.icon}
                 </a>

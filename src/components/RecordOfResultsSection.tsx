@@ -25,6 +25,7 @@ const stats = [
 ];
 
 import Link from 'next/link';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 function AnimatedValue({ value }: { value: string }) {
     const [count, setCount] = useState(0);
@@ -71,7 +72,7 @@ function AnimatedValue({ value }: { value: string }) {
     }, [numericValue]);
 
     return (
-        <span ref={elementRef} className="font-aeonik text-5xl sm:text-6xl text-[#181A1D] tracking-tight">
+        <span ref={elementRef} className="font-aeonik text-5xl sm:text-6xl text-[#191819] tracking-tight">
             {count}{suffix}
         </span>
     );
@@ -95,24 +96,28 @@ export default function RecordOfResultsSection() {
                         <div className="max-w-3xl flex flex-col items-start text-left">
                             {/* Badge */}
                             <div className="mb-8 inline-flex items-center rounded-full bg-[#BEC8D1] px-4 py-1.5">
-                                <span className="h-1.5 w-1.5 rounded-full bg-[#506C83] mr-2"></span>
-                                <span className="font-aeonik text-xs font-medium text-[#506C83]">Our track record</span>
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                                <span className="font-aeonik text-xs font-medium text-[#2B2A2B]">Our track record</span>
                             </div>
 
                             {/* Heading */}
-                            <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#181A1D] mb-8">
+                            <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819] mb-8">
                                 A Record Of Results
                             </h2>
 
                             {/* Description */}
-                            <p className="font-aeonik text-sm sm:text-base text-[#4B5563] max-w-xl">
+                            <p className="font-aeonik text-sm sm:text-base text-[#4B474B] max-w-xl">
                                 Our growth has come from doing the work properly and standing behind it. These numbers reflect real products shipped, long-term client relationships, and systems that continue to run in production.
                             </p>
                         </div>
 
                         {/* Right Content - Button */}
-                        <Link href="/contact" className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-white transition-all hover:scale-105 hover:shadow-lg lg:mb-2"
-                            style={{ backgroundColor: '#516C83' }}
+                        <Link
+                            href={CALENDLY_BOOKING_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-white transition-all hover:scale-105 hover:shadow-lg lg:mb-2"
+                            style={{ backgroundColor: '#2B2A2B' }}
                         >
                             <span className="font-aeonik text-base font-medium">Schedule a call</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -140,14 +145,14 @@ export default function RecordOfResultsSection() {
                             >
 
                                 {/* Top Row: Title */}
-                                <h3 className="font-aeonik text-lg font-medium text-[#181A1D] mb-12">
+                                <h3 className="font-aeonik text-lg font-medium text-[#191819] mb-12">
                                     {stat.title}
                                 </h3>
 
                                 {/* Middle Row: Arrow + Value */}
                                 <div className="flex justify-between items-end mb-8 mt-auto">
                                     {/* Thin Arrow Icon */}
-                                    <div className="mb-2 text-[#506C83]">
+                                    <div className="mb-2 text-[#2B2A2B]">
                                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
                                             <line x1="12" y1="100" x2="12" y2="5"></line>
                                             <polyline points="5 12 12 5 19 12"></polyline>

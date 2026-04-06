@@ -1,6 +1,5 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
 import GrowthSection from '@/components/services/GrowthSection';
-import PricingSection from '@/components/PricingSection';
 import ContactSection from '@/components/ContactSection';
 
 const GROWTH_FEATURES = [
@@ -49,7 +48,7 @@ export default function WebsiteApplicationPage() {
                     <span
                         className="bg-clip-text text-transparent block"
                         style={{
-                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         }}
                     >
                         Web Applications Built for Scale and Stability
@@ -59,16 +58,12 @@ export default function WebsiteApplicationPage() {
                 imageSrc="/services-section/hero-img.webp"
             />
             <GrowthSection
+                variant="light"
                 badge="What we offer"
                 title={"You focus on the product. \n We’ll handle the web application."}
                 description="Our web application development services adapt to your product stage and technical needs. Whether you are building from scratch or improving an existing system, we work in a way that supports steady progress and clear ownership."
                 techStack={TECH_STACK}
                 features={GROWTH_FEATURES}
-            />
-            <PricingSection
-                badge="Augmentation for everyone"
-                title="Flexible Engagement Models"
-                description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
         </main>

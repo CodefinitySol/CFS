@@ -32,11 +32,11 @@ export default function ClientMarquee() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-flex items-center rounded-full bg-[#506C834D] px-4 py-1.5 text-sm font-medium text-[#506C83]">
-            <span className="mr-1.5 h-2 w-2 rounded-full bg-[#506c83]" />
+          <span className="inline-flex items-center rounded-full bg-[#2B2A2B4D] px-4 py-1.5 text-sm font-medium text-[#2B2A2B]">
+            <span className="mr-1.5 h-2 w-2 rounded-full bg-[#2B2A2B]" />
             Partnerships
           </span>
-          <h2 className="font-aeonik text-3xl font-normal text-[#1e293b] sm:text-4xl md:text-5xl">
+          <h2 className="font-aeonik text-3xl font-normal text-[#191819] sm:text-4xl md:text-5xl">
             Our Amazing Clients
           </h2>
         </motion.div>

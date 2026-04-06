@@ -33,11 +33,11 @@ export default function AdditionalCostsSection() {
             <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="inline-flex items-center rounded-full px-4 py-1 text-xs font-medium text-[#506C83] bg-[#E8ECF0]">
-                        <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#506C83]" />
+                    <span className="inline-flex items-center rounded-full px-4 py-1 text-xs font-medium text-[#2B2A2B] bg-[#E8ECF0]">
+                        <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]" />
                         Costs & considerations
                     </span>
-                    <h2 className="mt-8 font-aeonik text-4xl font-normal tracking-tight text-[#181A1D] sm:text-5xl lg:text-5xl max-w-4xl leading-[1.1]">
+                    <h2 className="mt-8 font-aeonik text-4xl font-normal tracking-tight text-[#191819] sm:text-5xl lg:text-5xl max-w-4xl leading-[1.1]">
                         Additional Costs &<br />Considerations
                     </h2>
                 </div>
@@ -51,19 +51,19 @@ export default function AdditionalCostsSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative flex flex-col p-8 rounded-[12px] bg-[#E8ECF0] transition-all duration-300 hover:bg-[#516C83] cursor-default h-full"
+                            className="group relative flex flex-col p-8 rounded-[12px] bg-[#E8ECF0] transition-all duration-300 hover:bg-[#2B2A2B] cursor-default h-full"
                         >
                             <div className="flex flex-col gap-6">
                                 {/* Icon & Title Row */}
                                 <div className="flex items-start gap-3">
-                                    <item.icon className="h-7 w-7 text-[#181A1D] transition-colors duration-300 group-hover:text-white shrink-0 mt-1" />
-                                    <h3 className="font-aeonik text-2xl font-normal leading-tight text-[#181A1D] transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-[linear-gradient(94.74deg,#fff_.26%,#506c83_118.16%)]">
+                                    <item.icon className="h-7 w-7 text-[#191819] transition-colors duration-300 group-hover:text-white shrink-0 mt-1" />
+                                    <h3 className="font-aeonik text-2xl font-normal leading-tight text-[#191819] transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-[linear-gradient(94.74deg,#fff_.26%,#2B2A2B_118.16%)]">
                                         {item.title}
                                     </h3>
                                 </div>
 
                                 {/* Description */}
-                                <p className="font-aeonik text-base text-[#506C83] leading-relaxed transition-colors duration-300 group-hover:text-white/90">
+                                <p className="font-aeonik text-base text-[#2B2A2B] leading-relaxed transition-colors duration-300 group-hover:text-white/90">
                                     {item.description}
                                 </p>
                             </div>

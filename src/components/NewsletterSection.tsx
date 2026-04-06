@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 export default function NewsletterSection() {
     return (
-        <section className="relative w-full pt-24 pb-0 overflow-hidden">
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 flex flex-col items-center text-center">
+        <section className="relative w-full overflow-x-hidden pt-24 pb-6">
+            <div className="relative z-10 mx-auto flex max-w-[1600px] flex-col items-center px-4 text-center sm:px-6 lg:px-12">
 
                 {/* Badge */}
                 <motion.div
@@ -17,7 +17,7 @@ export default function NewsletterSection() {
                 >
                     <span
                         className="text-white text-[10px] sm:text-xs font-aeonik uppercase px-4 py-1.5 rounded-full flex items-center gap-2"
-                        style={{ background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)' }}
+                        style={{ background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(91,83,91,.3) 100%)' }}
                     >
                         <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
                         NEWSLETTER
@@ -33,9 +33,9 @@ export default function NewsletterSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="font-aeonik text-4xl lg:text-5xl font-normal mb-8"
+                    className="mb-8 inline-block pb-1 font-aeonik text-4xl font-normal leading-[1.18] lg:text-5xl lg:leading-[1.15]"
                     style={{
-                        backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                        backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         backgroundClip: 'text',
@@ -81,7 +81,7 @@ export default function NewsletterSection() {
                     />
                     <button
                         type="submit"
-                        className="self-center lg:self-auto bg-[#516C83] text-white rounded-full px-12 py-3.5 font-medium hover:brightness-110 active:scale-[0.98] transition-all font-aeonik cursor-pointer whitespace-nowrap"
+                        className="self-center lg:self-auto bg-[#2B2A2B] text-white rounded-full px-12 py-3.5 font-medium hover:brightness-110 active:scale-[0.98] transition-all font-aeonik cursor-pointer whitespace-nowrap"
                     >
                         Subscribe
                     </button>

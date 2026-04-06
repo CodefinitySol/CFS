@@ -68,13 +68,13 @@ export default function AgencyProcessSection() {
                 {/* Header Section */}
                 <div className="flex flex-col justify-center items-center gap-4 mb-10">
                     {/* Badge */}
-                    <div className="inline-flex items-center rounded-full px-5 py-2 bg-[#AEBAC4] text-[#1E293B]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#1E293B] mr-3"></span>
+                    <div className="inline-flex items-center rounded-full px-5 py-2 bg-[#AEBAC4] text-[#191819]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#191819] mr-3"></span>
                         <span className="font-aeonik text-xs font-medium uppercase">Process</span>
                     </div>
 
                     {/* Heading */}
-                    <h2 className="font-aeonik text-4xl lg:text-5xl font-normal text-[#1E293B] tracking-tight">
+                    <h2 className="font-aeonik text-4xl lg:text-5xl font-normal text-[#191819] tracking-tight">
                         Our Simple and Streamlined Process
                     </h2>
                 </div>
@@ -97,20 +97,20 @@ export default function AgencyProcessSection() {
                                     <div className="flex items-center justify-between w-full lg:pr-12">
                                         {/* Step Number Badge */}
                                         <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center">
-                                            <span className="font-aeonik text-2xl font-normal text-[#1E293B]">{step.number}</span>
+                                            <span className="font-aeonik text-2xl font-normal text-[#191819]">{step.number}</span>
                                         </div>
 
                                         {/* Navigation buttons on the far right */}
                                         <div className="flex items-center gap-2">
                                             <button
                                                 onClick={() => swiperRef.current?.slidePrev()}
-                                                className="w-16 h-12 rounded-full bg-[#F9F9FA] flex items-center justify-center text-[#1E293B] hover:bg-white transition-all duration-300 shadow-sm cursor-pointer"
+                                                className="w-16 h-12 rounded-full bg-[#F9F9FA] flex items-center justify-center text-[#191819] hover:bg-white transition-all duration-300 shadow-sm cursor-pointer"
                                             >
                                                 <FiArrowLeft className="w-5 h-5" />
                                             </button>
                                             <button
                                                 onClick={() => swiperRef.current?.slideNext()}
-                                                className="w-16 h-12 rounded-full bg-[#F9F9FA] flex items-center justify-center text-[#1E293B] hover:bg-white transition-all duration-300 shadow-sm cursor-pointer"
+                                                className="w-16 h-12 rounded-full bg-[#F9F9FA] flex items-center justify-center text-[#191819] hover:bg-white transition-all duration-300 shadow-sm cursor-pointer"
                                             >
                                                 <FiArrowRight className="w-5 h-5" />
                                             </button>
@@ -121,18 +121,18 @@ export default function AgencyProcessSection() {
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                                         {/* Left Side: Text Content */}
                                         <div className="w-full flex flex-col items-start pt-4">
-                                            <h3 className="font-aeonik text-4xl sm:text-4xl text-[#1E293B] font-normal mb-6 tracking-tight">
+                                            <h3 className="font-aeonik text-4xl sm:text-4xl text-[#191819] font-normal mb-6 tracking-tight">
                                                 {step.title}
                                             </h3>
 
-                                            <div className="h-[1px] bg-[#1E293B]/5 w-full mb-6" />
+                                            <div className="h-[1px] bg-[#191819]/5 w-full mb-6" />
 
                                             {/* List Items */}
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-2 w-full">
                                                 {step.items.map((item, itemIdx) => (
                                                     <div key={itemIdx} className="flex items-start gap-2">
                                                         <div className="flex-shrink-0">
-                                                            <IoCheckmarkCircle className="w-5 h-5 text-[#516C83]" />
+                                                            <IoCheckmarkCircle className="w-5 h-5 text-[#2B2A2B]" />
                                                         </div>
                                                         <span className="font-aeonik text-base text-black leading-snug">
                                                             {item}

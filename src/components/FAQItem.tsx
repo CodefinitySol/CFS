@@ -22,10 +22,10 @@ export default function FAQItem({
     isOpen,
     onClick,
     className = '',
-    questionClassName = 'text-lg sm:text-xl font-normal text-[#181A1D]',
-    answerClassName = 'text-base sm:text-lg text-[#181A1D]/70',
+    questionClassName = 'text-lg sm:text-xl font-normal text-[#191819]',
+    answerClassName = 'text-base sm:text-lg text-[#191819]/70',
     buttonClassName = 'py-8',
-    iconContainerClassName = 'bg-[#506C83] text-white h-12 w-12',
+    iconContainerClassName = 'bg-[#2B2A2B] text-white h-12 w-12',
     borderClassName = 'border-gray-200',
     maxHeight = '500px'
 }: FAQItemProps) {
@@ -35,7 +35,7 @@ export default function FAQItem({
                 onClick={onClick}
                 className={`w-full flex items-center justify-between text-left group transition-all ${buttonClassName}`}
             >
-                <span className={`font-aeonik transition-colors pr-8 ${questionClassName} group-hover:text-[#506C83]`}>
+                <span className={`font-aeonik transition-colors pr-8 ${questionClassName} group-hover:text-[#2B2A2B]`}>
                     {question}
                 </span>
                 <div

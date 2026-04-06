@@ -16,7 +16,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         return (
             <div className="w-full">
                 {label && (
-                    <label className="mb-3 block font-aeonik text-base font-normal text-[#475569]">
+                    <label className="mb-3 block font-aeonik text-base font-normal text-[#4D494D]">
                         {label}
                     </label>
                 )}

@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 export default function StartProjectSection() {
     return (
@@ -14,7 +15,7 @@ export default function StartProjectSection() {
 
                 {/* Main Card */}
                 {/* Main Card */}
-                <div className="rounded-[24px] bg-[#17181B] border-[12px] border-[#F3F4F6] p-10 sm:p-16 lg:p-24 xl:p-32">
+                <div className="rounded-[24px] bg-[#191819] border-[12px] border-[#F3F4F6] p-10 sm:p-16 lg:p-24 xl:p-32">
                     <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 xl:gap-48">
 
                         {/* Left Column: Content */}
@@ -22,7 +23,7 @@ export default function StartProjectSection() {
                             {/* Badge */}
                             <div className="inline-flex items-center rounded-full px-4 py-1.5"
                                 style={{
-                                    background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)'
+                                    background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(91,83,91,.3) 100%)'
                                 }}
                             >
                                 <span className="h-1.5 w-1.5 rounded-full bg-white mr-2"></span>
@@ -32,7 +33,7 @@ export default function StartProjectSection() {
                             {/* Heading */}
                             <h2 className="font-aeonik text-4xl sm:text-4xl lg:text-5xl font-normal tracking-tight"
                                 style={{
-                                    backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                                    backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
                                     backgroundClip: 'text',
@@ -48,14 +49,18 @@ export default function StartProjectSection() {
                             </p>
 
                             {/* Schedule Call Button */}
-                            <button className="inline-flex items-center gap-2 rounded-full px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                style={{ backgroundColor: '#516C83' }}
+                            <a
+                                href={CALENDLY_BOOKING_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-full px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                                style={{ backgroundColor: '#2B2A2B' }}
                             >
                                 <span className="font-aeonik text-sm font-medium text-white">Schedule a call</span>
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 11L11 1M11 1H1M11 1V11" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
-                            </button>
+                            </a>
                         </div>
 
                         {/* Right Column: Form */}
@@ -66,25 +71,25 @@ export default function StartProjectSection() {
                                     {/* Name */}
                                     <div className="flex flex-col gap-2 w-full">
                                         <label htmlFor="name" className="font-aeonik text-sm font-medium text-[#E8ECF0]">
-                                            Name <span className="text-[#516C83]">*</span>
+                                            Name <span className="text-[#2B2A2B]">*</span>
                                         </label>
                                         <input
                                             type="text"
                                             id="name"
                                             placeholder="Enter full name"
-                                            className="w-full rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#516C83] transition-colors"
+                                            className="w-full rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#2B2A2B] transition-colors"
                                         />
                                     </div>
                                     {/* Email */}
                                     <div className="flex flex-col gap-2 w-full">
                                         <label htmlFor="email" className="font-aeonik text-sm font-medium text-[#E8ECF0]">
-                                            Email <span className="text-[#516C83]">*</span>
+                                            Email <span className="text-[#2B2A2B]">*</span>
                                         </label>
                                         <input
                                             type="email"
                                             id="email"
                                             placeholder="Enter email"
-                                            className="w-full rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#516C83] transition-colors"
+                                            className="w-full rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#2B2A2B] transition-colors"
                                         />
                                     </div>
                                 </div>
@@ -92,12 +97,12 @@ export default function StartProjectSection() {
                                 {/* Subject */}
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="subject" className="font-aeonik text-sm font-medium text-[#E8ECF0]">
-                                        Subject <span className="text-[#516C83]">*</span>
+                                        Subject <span className="text-[#2B2A2B]">*</span>
                                     </label>
                                     <div className="relative">
                                         <select
                                             id="subject"
-                                            className="w-full appearance-none rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#516C83] transition-colors"
+                                            className="w-full appearance-none rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#2B2A2B] transition-colors"
                                             defaultValue=""
                                         >
                                             <option value="" disabled>Select one</option>
@@ -116,19 +121,19 @@ export default function StartProjectSection() {
                                 {/* Message */}
                                 <div className="flex flex-col gap-2">
                                     <label htmlFor="message" className="font-aeonik text-sm font-medium text-[#E8ECF0]">
-                                        Message <span className="text-[#516C83]">*</span>
+                                        Message <span className="text-[#2B2A2B]">*</span>
                                     </label>
                                     <textarea
                                         id="message"
                                         rows={4}
                                         placeholder="How we can help you?"
-                                        className="w-full rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#516C83] transition-colors resize-none"
+                                        className="w-full rounded-xl bg-[#232529] border border-gray-800 px-4 py-3 text-sm text-[#E8ECF0] placeholder-gray-500 focus:outline-none focus:border-[#2B2A2B] transition-colors resize-none"
                                     ></textarea>
                                 </div>
 
                                 {/* Submit Button */}
                                 <button type="submit" className="w-full rounded-full py-4 mt-2 transition-all duration-300 hover:brightness-110 hover:shadow-lg"
-                                    style={{ backgroundColor: '#516C83' }}
+                                    style={{ backgroundColor: '#2B2A2B' }}
                                 >
                                     <span className="font-aeonik text-sm font-medium text-white">Submit</span>
                                 </button>

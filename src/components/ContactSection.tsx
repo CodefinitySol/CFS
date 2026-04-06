@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { HiArrowUpRight } from 'react-icons/hi2';
 import { FiCheck, FiChevronDown } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 const SUBJECT_OPTIONS = [
   { label: 'New product development', value: 'new-product-development' },
@@ -64,7 +65,7 @@ export default function ContactSection() {
     <section className="bg-white py-12 lg:px-4 sm:py-12 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
         <div className="rounded-[22px] bg-[#ECECEC] p-2">
-          <div className="relative overflow-hidden rounded-[16px] bg-[#17181B] p-8 sm:p-12 lg:p-20">
+          <div className="relative overflow-hidden rounded-[16px] bg-[#191819] p-8 sm:p-12 lg:p-20">
             {/* Dot Background Pattern */}
             <div
               className="absolute inset-0 z-0 pointer-events-none opacity-50"
@@ -88,7 +89,7 @@ export default function ContactSection() {
                     className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-white"
                     style={{
                       background:
-                        'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)',
+                        'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(91,83,91,.3) 100%)',
                     }}
                   >
                     <span className="mr-2 h-1.5 w-1.5 rounded-full bg-white/40" />
@@ -98,7 +99,7 @@ export default function ContactSection() {
                     className="mt-8 font-aeonik text-4xl font-normal lg:text-5xl"
                     style={{
                       backgroundImage:
-                        'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                        'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
@@ -161,13 +162,16 @@ export default function ContactSection() {
                 </div>
 
                 <div className="mt-16">
-                  <button
-                    className="flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95"
-                    style={{ backgroundColor: '#516C83' }}
+                  <a
+                    href={CALENDLY_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95"
+                    style={{ backgroundColor: '#2B2A2B' }}
                   >
                     Schedule a call
                     <HiArrowUpRight className="h-4 w-4" />
-                  </button>
+                  </a>
                 </div>
               </motion.div>
 
@@ -192,7 +196,7 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       placeholder="Enter full name"
                       required
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#516C83] focus:outline-none"
+                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
@@ -206,7 +210,7 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       placeholder="Enter email"
                       required
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#516C83] focus:outline-none"
+                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -220,7 +224,7 @@ export default function ContactSection() {
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                       className={`flex w-full items-center justify-between rounded-2xl border bg-white/5 px-6 py-4 text-left transition-all duration-200 focus:outline-none ${isDropdownOpen
-                        ? 'border-[#516C83] ring-1 ring-[#516C83]'
+                        ? 'border-[#2B2A2B] ring-1 ring-[#2B2A2B]'
                         : 'border-white/10 hover:border-white/20'
                         }`}
                     >
@@ -271,7 +275,7 @@ export default function ContactSection() {
                                 >
                                   <span>{option.label}</span>
                                   {isSelected && (
-                                    <FiCheck className="h-4 w-4 text-[#516C83]" />
+                                    <FiCheck className="h-4 w-4 text-[#2B2A2B]" />
                                   )}
                                 </button>
                               );
@@ -294,14 +298,14 @@ export default function ContactSection() {
                     rows={6}
                     placeholder="Tell us about your project, goals, or timeline."
                     required
-                    className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#516C83] focus:outline-none"
+                    className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   className="w-full cursor-pointer rounded-full py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95"
-                  style={{ backgroundColor: '#516C83' }}
+                  style={{ backgroundColor: '#2B2A2B' }}
                 >
                   Submit
                 </button>

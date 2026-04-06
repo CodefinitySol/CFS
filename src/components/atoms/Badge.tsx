@@ -18,9 +18,9 @@ export default function Badge({
     const baseStyles = 'inline-flex items-center rounded-full font-aeonik font-medium';
 
     const variantStyles = {
-        default: 'bg-[#506C834D] text-[#506C83]',
+        default: 'bg-[#2B2A2B4D] text-[#2B2A2B]',
         gradient: 'text-white',
-        light: 'bg-[#CFD6DC] text-[#506C83]',
+        light: 'bg-[#CFD6DC] text-[#2B2A2B]',
         dark: 'bg-[#AEBAC5] text-[#597589]',
     };
 
@@ -31,7 +31,7 @@ export default function Badge({
     };
 
     const gradientStyle = variant === 'gradient'
-        ? { background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(80, 108, 131, 0.3) 100%)' }
+        ? { background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(91, 83, 91, 0.3) 100%)' }
         : {};
 
     return (

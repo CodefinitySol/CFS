@@ -2,10 +2,11 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { CALENDLY_BOOKING_URL } from '@/constants/booking';
 
 export default function AugmentationSetupSection() {
     return (
-        <section className="bg-[#17181B] py-10 lg:py-16 overflow-hidden">
+        <section className="bg-[#191819] py-10 lg:py-16 overflow-hidden">
             <div className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-12">
                 <motion.div
                     className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 xl:gap-32"
@@ -20,7 +21,7 @@ export default function AugmentationSetupSection() {
                         {/* Badge */}
                         <div className="inline-flex items-center rounded-full px-4 py-1.5 border border-white/5"
                             style={{
-                                background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)'
+                                background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(91,83,91,.3) 100%)'
                             }}
                         >
                             <span className="h-1.5 w-1.5 rounded-full bg-white mr-2"></span>
@@ -30,7 +31,7 @@ export default function AugmentationSetupSection() {
                         {/* Heading */}
                         <h2 className="font-aeonik text-3xl sm:text-3xl lg:text-3xl xl:text-4xl font-normal max-w-2xl"
                             style={{
-                                backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                                backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
                                 backgroundClip: 'text',
@@ -60,14 +61,18 @@ export default function AugmentationSetupSection() {
                         </div>
 
                         {/* CTA Button */}
-                        <button className="inline-flex items-center gap-3 rounded-full px-8 py-4 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl group mt-2"
-                            style={{ backgroundColor: '#5D7285' }}
+                        <a
+                            href={CALENDLY_BOOKING_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group mt-2 inline-flex items-center gap-3 rounded-full px-8 py-4 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
+                            style={{ backgroundColor: '#5A565A' }}
                         >
-                            <span className="font-aeonik text-base font-medium text-white whitespace-nowrap">Schedule a call</span>
+                            <span className="whitespace-nowrap font-aeonik text-base font-medium text-white">Schedule a call</span>
                             <svg className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 11L11 1M11 1H1M11 1V11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                        </button>
+                        </a>
 
                         {/* Awards */}
                         <div className="flex flex-nowrap items-center gap-4 sm:gap-4 overflow-x-auto no-scrollbar">

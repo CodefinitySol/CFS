@@ -33,7 +33,7 @@ export default function ClientReviewsSection() {
     const nextRef = useRef(null);
 
     return (
-        <section className="bg-[#181A1D] py-10 lg:py-20 px-6 lg:px-8 xl:px-12 overflow-hidden">
+        <section className="bg-[#191819] py-10 lg:py-20 px-6 lg:px-8 xl:px-12 overflow-hidden">
             <div className="mx-auto max-w-[1600px]">
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 mb-16 lg:mb-24">
@@ -41,7 +41,7 @@ export default function ClientReviewsSection() {
                         {/* Badge */}
                         <div className="inline-flex items-center rounded-full px-4 py-1.5"
                             style={{
-                                background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(80,108,131,.3) 100%)'
+                                background: 'linear-gradient(90deg,rgba(232,236,240,.3) 0%,rgba(91,83,91,.3) 100%)'
                             }}
                         >
                             <span className="h-1.5 w-1.5 rounded-full bg-white mr-2"></span>
@@ -51,7 +51,7 @@ export default function ClientReviewsSection() {
                         {/* Heading */}
                         <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight"
                             style={{
-                                backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#506c83 153.8%)',
+                                backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
                                 backgroundClip: 'text',
@@ -63,7 +63,7 @@ export default function ClientReviewsSection() {
 
                     {/* Button */}
                     <button className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-white transition-all hover:scale-105 hover:shadow-lg"
-                        style={{ backgroundColor: '#516C83' }}
+                        style={{ backgroundColor: '#2B2A2B' }}
                     >
                         <span className="font-aeonik text-base font-medium">View all reviews</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -80,15 +80,12 @@ export default function ClientReviewsSection() {
                         spaceBetween={32}
                         slidesPerView={1}
                         loop={true}
-                        navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
-                        }}
                         onBeforeInit={(swiper) => {
-                            // @ts-ignore
-                            swiper.params.navigation.prevEl = prevRef.current;
-                            // @ts-ignore
-                            swiper.params.navigation.nextEl = nextRef.current;
+                            const nav = swiper.params.navigation;
+                            if (nav && typeof nav === 'object') {
+                                nav.prevEl = prevRef.current;
+                                nav.nextEl = nextRef.current;
+                            }
                         }}
                         breakpoints={{
                             1024: {

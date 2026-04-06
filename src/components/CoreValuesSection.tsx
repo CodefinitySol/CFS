@@ -78,11 +78,11 @@ export default function CoreValuesSection() {
                     {/* Left Side: Title */}
                     <div className="flex flex-col items-start gap-8">
                         <div className="inline-flex items-center rounded-full bg-[#CFD6DC] px-4 py-1.5">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#506C83] mr-2"></span>
-                            <span className="font-aeonik text-xs font-medium text-[#506C83]">Our Values</span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
+                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B]">Our Values</span>
                         </div>
 
-                        <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#181A1D] xl:max-w-sm">
+                        <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819] xl:max-w-sm">
                             What Guides Our Work
                         </h2>
                     </div>
@@ -95,14 +95,14 @@ export default function CoreValuesSection() {
                             const newLocal = <div className="flex items-center gap-6">
                                 {/* Icon Box */}
                                 <div className={`flex h-8 w-8 sm:h-11 sm:w-11 items-center justify-center rounded-xl border transition-colors duration-300 bg-[#F9F9FA]
-                        ${isOpen ? 'border-[#506C83] bg-[#F5F8FA] text-[#506C83]' : 'border-gray-200 text-gray-500 group-hover:border-gray-300'}`}
+                        ${isOpen ? 'border-[#2B2A2B] bg-[#F5F8FA] text-[#2B2A2B]' : 'border-gray-200 text-gray-500 group-hover:border-gray-300'}`}
                                 >
                                     {item.icon}
                                 </div>
 
                                 {/* Title */}
                                 <span className={`font-aeonik text-lg sm:text-xl lg:text-2xl transition-colors duration-300
-                        ${isOpen ? 'text-[#181A1D] font-medium' : 'text-[#4B5563] group-hover:text-[#181A1D]'}`}
+                        ${isOpen ? 'text-[#191819] font-medium' : 'text-[#4B474B] group-hover:text-[#191819]'}`}
                                 >
                                     {item.title}
                                 </span>
@@ -120,7 +120,7 @@ export default function CoreValuesSection() {
 
                                         {/* Expand/Collapse Button */}
                                         <div className={`flex h-10 w-10 sm:h-12 sm:w-16 items-center justify-center rounded-full border transition-all duration-300
-                       ${isOpen ? 'border-[#506C83] text-[#506C83] rotate-180' : 'border-gray-300 text-gray-400 group-hover:border-gray-400'}`}
+                       ${isOpen ? 'border-[#2B2A2B] text-[#2B2A2B] rotate-180' : 'border-gray-300 text-gray-400 group-hover:border-gray-400'}`}
                                         >
                                             {isOpen ? (
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

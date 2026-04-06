@@ -70,15 +70,15 @@ export default function ServiceFAQSection({ items = SERVICE_FAQS }: ServiceFAQSe
                     {/* Badge */}
                     <div className="inline-flex items-center rounded-full px-4 py-1.5 backdrop-blur-sm mb-8"
                         style={{
-                            background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.4) 0%, rgba(80, 108, 131, 0.2) 100%)'
+                            background: 'linear-gradient(90deg, rgba(232, 236, 240, 0.4) 0%, rgba(91, 83, 91, 0.2) 100%)'
                         }}
                     >
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#506C83]/60 mr-2"></span>
-                        <span className="font-aeonik text-xs font-medium text-[#506C83] tracking-wide">FAQS</span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B]/60 mr-2"></span>
+                        <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">FAQS</span>
                     </div>
 
                     {/* Heading */}
-                    <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal text-[#181A1D] tracking-tight">
+                    <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal text-[#191819] tracking-tight">
                         General Questions
                     </h2>
                 </div>

@@ -23,7 +23,7 @@ export default function Paragraph({
 
     const variantStyles = {
         default: 'text-gray-900',
-        muted: 'text-[#64748B]',
+        muted: 'text-[#6D656D]',
         light: 'text-white/90',
     };
 
