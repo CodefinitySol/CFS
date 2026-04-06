@@ -1,8 +1,6 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
-import LatestWork from '@/components/LatestWork';
 import GrowthSection from '@/components/services/GrowthSection';
 import PricingSection from '@/components/PricingSection';
-import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 
 const GROWTH_FEATURES = [
@@ -60,7 +58,6 @@ export default function WebsiteApplicationPage() {
                 description={"We build web applications that are designed to grow with your product and your users. From early MVPs to mature platforms, our focus is on clean architecture, performance, and long-term maintainability. \n\n Our work balances speed with structure, so teams can ship confidently without creating problems later."}
                 imageSrc="/services-section/hero-img.webp"
             />
-            <LatestWork />
             <GrowthSection
                 badge="What we offer"
                 title={"You focus on the product. \n We’ll handle the web application."}
@@ -74,7 +71,6 @@ export default function WebsiteApplicationPage() {
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function NewsletterSection() {
@@ -62,7 +61,7 @@ export default function NewsletterSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="w-full max-w-[1000px] flex flex-col lg:flex-row items-stretch lg:items-center justify-center gap-4 mb-20"
+                    className="w-full max-w-[1000px] flex flex-col lg:flex-row items-stretch lg:items-center justify-center gap-4 mb-12"
                     onSubmit={(e) => e.preventDefault()}
                 >
                     <input
@@ -87,23 +86,6 @@ export default function NewsletterSection() {
                         Subscribe
                     </button>
                 </motion.form>
-
-                {/* Bottom Image Showcase */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                    className="w-full relative px-4"
-                >
-                    <Image
-                        src="/newsletter-img.webp"
-                        alt="Newsletter Showcase"
-                        width={1400}
-                        height={600}
-                        className="w-full h-auto object-contain"
-                    />
-                </motion.div>
             </div>
         </section>
     );

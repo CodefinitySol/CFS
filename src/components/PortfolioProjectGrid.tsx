@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Badge, Heading, Paragraph, Button } from './atoms';
+import { Badge, Heading, Paragraph } from './atoms';
 
 const PORTFOLIO_PROJECTS = [
     {
@@ -45,64 +45,78 @@ const PORTFOLIO_PROJECTS = [
 
 export default function PortfolioProjectGrid() {
     return (
-        <section className="bg-white py-8 lg:py-16">
-            <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-12 space-y-8 lg:space-y-12">
-                {PORTFOLIO_PROJECTS.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        className="relative rounded-[18px] sm:rounded-[12px] p-1.5 sm:p-2 bg-[#ECECEC] overflow-hidden group"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: index * 0.1 }}
-                    >
-                        <div className="bg-white rounded-[18px] sm:rounded-[12px] overflow-hidden flex flex-col gap-6 lg:flex-row items-stretch min-h-[480px]">
-                            {/* Image Section */}
-                            <div className="lg:flex-[3] relative min-h-[300px] lg:min-h-0">
-                                <div className="absolute inset-4 rounded-[10px] overflow-hidden">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        className="object-fit"
-                                    />
-                                </div>
-                            </div>
+        <section className="bg-[#F8FAFC] pb-16 pt-6 sm:pt-10 lg:pb-24 lg:pt-14">
+            <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+                <header className="mb-12 max-w-2xl lg:mb-16">
+                    <p className="font-aeonik text-xs font-medium uppercase tracking-[0.2em] text-[#64748B]">
+                        Work
+                    </p>
+                    <h1 className="font-aeonik mt-3 text-3xl font-normal leading-tight tracking-tight text-[#1E293B] sm:text-4xl">
+                        Our work
+                    </h1>
+                    <p className="font-aeonik mt-4 text-base leading-relaxed text-[#64748B]">
+                        A catalog of projects we have shipped—web apps, mobile products, and AI-driven systems—each built for teams that need software they can run, maintain, and grow with confidence.
+                    </p>
+                </header>
 
-                            {/* Content Section */}
-                            <div className="lg:flex-[5] flex flex-col items-start justify-center gap-6 lg:mr-4">
-                                <Badge variant='default' size='sm' className="bg-[#EDF2F6] text-[#64748B] border-none">
-                                    {project.tag}
-                                </Badge>
-
-                                <Heading level={2} size='md' className="text-[#1E293B]">
-                                    {project.title}
-                                </Heading>
-
-                                <div className="space-y-3">
-                                    {project.description.split('\n\n').map((paragraph, i) => (
-                                        <Paragraph key={i} size='md' className="text-[#64748B] leading-relaxed">
-                                            {paragraph}
-                                        </Paragraph>
-                                    ))}
-                                </div>
-
-                                <div className="mt-6">
-                                    <Button
-                                        variant='cta'
-                                        size='md'
-                                        className="!bg-[#506c83] hover:!bg-[#405669]"
-                                        icon={<svg className="ml-2 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 11L11 1M11 1H1M11 1V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>}
+                <div className="flex flex-col gap-10 sm:gap-12 lg:gap-14">
+                    {PORTFOLIO_PROJECTS.map((project, index) => (
+                        <motion.article
+                            key={index}
+                            className="overflow-hidden rounded-2xl border border-[#E2E8F0]/90 bg-white shadow-[0_1px_0_rgba(15,23,42,0.04),0_12px_40px_-20px_rgba(15,23,42,0.12)]"
+                            initial={{ opacity: 0, y: 28 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-60px' }}
+                            transition={{ duration: 0.55, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                        >
+                            <div
+                                className={`flex flex-col lg:min-h-0 lg:flex-row lg:items-stretch ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                            >
+                                <div
+                                    className={`flex min-h-0 flex-col border-b border-[#F1F5F9] p-5 sm:p-6 lg:w-[48%] lg:self-stretch lg:border-b-0 lg:border-[#F1F5F9] ${index % 2 === 0 ? 'lg:border-r' : 'lg:border-l'}`}
+                                >
+                                    <div
+                                        className="relative mx-auto aspect-[4/3] min-h-[240px] w-full max-w-md overflow-hidden rounded-xl bg-[#F1F5F9] ring-1 ring-[#E2E8F0]/80 sm:max-w-lg lg:mx-0 lg:max-w-none lg:aspect-auto lg:min-h-96 lg:flex-1 lg:self-stretch"
                                     >
-                                        Read More
-                                    </Button>
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            sizes="(max-width: 1024px) 90vw, 480px"
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col justify-start gap-4 p-6 sm:p-8 lg:w-[52%] lg:min-h-0 lg:px-10 lg:py-10 xl:px-12">
+                                    <Badge
+                                        variant="default"
+                                        size="sm"
+                                        className="w-fit border-0 bg-[#EDF2F6] text-[#64748B]"
+                                    >
+                                        {project.tag}
+                                    </Badge>
+
+                                    <Heading level={2} size="sm" className="text-[#1E293B]">
+                                        {project.title}
+                                    </Heading>
+
+                                    <div className="space-y-3 border-t border-[#F1F5F9] pt-4">
+                                        {project.description.split('\n\n').map((paragraph, i) => (
+                                            <Paragraph
+                                                key={i}
+                                                size="md"
+                                                className="text-[#64748B] leading-relaxed"
+                                            >
+                                                {paragraph}
+                                            </Paragraph>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.article>
+                    ))}
+                </div>
             </div>
         </section>
     );

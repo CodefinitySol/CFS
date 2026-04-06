@@ -8,8 +8,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MdVerified } from 'react-icons/md';
 import { HiOutlineCalendar } from 'react-icons/hi2';
-import BlogSection from '@/components/BlogSection';
-
 const TESTIMONIALS = [
     {
         name: 'Jeff Smith',
@@ -114,7 +112,6 @@ export default function TestimonialsPage() {
             </section>
 
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

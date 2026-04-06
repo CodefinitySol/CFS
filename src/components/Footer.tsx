@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { HiArrowUpRight } from 'react-icons/hi2';
 import { FaBehance, FaLinkedinIn, FaYoutube } from 'react-icons/fa';

@@ -97,14 +97,17 @@ export default function LatestWork() {
         >
           {PROJECTS.map((project, index) => (
             <SwiperSlide key={index} className="!w-auto">
-              <div className="group relative h-[500px] w-[380px] select-none overflow-hidden rounded-3xl border-[6px] border-[#eaf0f6] bg-white px-10 pt-10 transition-all hover:shadow-xl sm:h-[650px] sm:w-[550px]">
-                <div className="flex h-full flex-col gap-2">
-                  {/* Card Header: Tag & Arrow */}
-                  <div className="flex items-center justify-between">
-                    <span className="inline-block rounded-full bg-[#E2E8F0] px-5 py-0.5 text-md font-medium text-[#475569]">
+              <div className="group relative w-[min(88vw,360px)] select-none overflow-hidden rounded-3xl border-[6px] border-[#eaf0f6] bg-white px-7 pt-8 pb-7 shadow-sm transition-all hover:shadow-xl sm:w-[420px] sm:px-9 sm:pt-9 sm:pb-8">
+                <div className="flex flex-col gap-3 sm:gap-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="inline-block shrink-0 rounded-full bg-[#E2E8F0] px-4 py-0.5 text-sm font-medium text-[#475569] sm:px-5 sm:text-base">
                       {project.tag}
                     </span>
-                    <button className="flex h-12 w-14 items-center justify-center rounded-full bg-[#516C83] text-white hover:bg-[#8B9CAB] cursor-pointer">
+                    <button
+                      type="button"
+                      className="flex h-11 w-12 shrink-0 items-center justify-center rounded-full bg-[#516C83] text-white transition-colors hover:bg-[#8B9CAB] cursor-pointer sm:h-12 sm:w-14"
+                      aria-label={`Open ${project.title}`}
+                    >
                       <svg
                         className="h-5 w-5"
                         fill="none"
@@ -121,20 +124,17 @@ export default function LatestWork() {
                     </button>
                   </div>
 
-                  {/* Title */}
-                  <div className='flex items-center justify-between'>
-                    <h3 className="font-aeonik text-2xl font-normal text-[#1E293B]">
-                      {project.title}
-                    </h3>
-                  </div>
+                  <h3 className="font-aeonik text-xl font-normal text-[#1E293B] sm:text-2xl">
+                    {project.title}
+                  </h3>
 
-                  {/* Image Area */}
-                  <div className="relative flex-1 overflow-hidden rounded-t-lg bg-gray-100 mt-10">
+                  <div className="relative mt-2 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#F1F5F9] ring-1 ring-[#E2E8F0]/80 sm:mt-3">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-fit transition-transform duration-700 group-hover:scale-105 cursor-pointer"
+                      sizes="(max-width: 640px) 88vw, 420px"
+                      className="object-contain object-center transition-transform duration-700 group-hover:scale-[1.02]"
                       draggable={false}
                     />
                   </div>

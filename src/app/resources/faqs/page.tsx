@@ -4,8 +4,6 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import ContactSection from '@/components/ContactSection';
 import FAQItem from '@/components/FAQItem';
-import BlogSection from '@/components/BlogSection';
-
 const FAQS = [
     {
         question: "What makes Squarespace different from other website building platforms?",
@@ -97,7 +95,6 @@ export default function FAQPage() {
             </section>
 
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

@@ -1,8 +1,6 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
-import LatestWork from '@/components/LatestWork';
 import GrowthSection from '@/components/services/GrowthSection';
 import PricingSection from '@/components/PricingSection';
-import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 
 const NO_CODE_FEATURES = [
@@ -60,7 +58,6 @@ export default function NoCodeAutomationPage() {
                 description={"Not every product or workflow needs custom code. We help teams move faster by building reliable systems using no-code and low-code tools where they make sense.\n\n Our focus is on speed, clarity, and control. The result is automation that works, scales, and stays easy to manage."}
                 imageSrc="/services-section/website-migration.webp"
             />
-            <LatestWork />
             <GrowthSection
                 badge="What we offer"
                 title={"You focus on the business.\n We’ll handle the workflows."}
@@ -74,7 +71,6 @@ export default function NoCodeAutomationPage() {
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

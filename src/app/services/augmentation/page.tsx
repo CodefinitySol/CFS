@@ -1,9 +1,6 @@
 import AugmentationHeroSection from '@/components/services/AugmentationHeroSection';
-import LatestWork from '@/components/LatestWork';
-import TestimonialsSection from '@/components/TestimonialsSection';
 import AugmentationSetupSection from '@/components/services/AugmentationSetupSection';
 import AugmentationServiceFeatures from '@/components/services/AugmentationServiceFeatures';
-import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 
@@ -43,12 +40,9 @@ export default function AugmentationPage() {
         <main className="min-h-screen bg-white text-[#1E293B]">
             <AugmentationHeroSection />
             <AugmentationSetupSection />
-            <LatestWork />
-            {/* <TestimonialsSection /> */}
             <AugmentationServiceFeatures />
             <ServiceFAQSection items={AUGMENTATION_FAQS} />
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

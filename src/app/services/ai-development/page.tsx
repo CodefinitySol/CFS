@@ -1,8 +1,6 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
-import LatestWork from '@/components/LatestWork';
 import GrowthSection from '@/components/services/GrowthSection';
 import PricingSection from '@/components/PricingSection';
-import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 
 const MAINTENANCE_FAQS = [
@@ -147,7 +145,6 @@ export default function AiDevelopmentPage() {
                 description={"We build AI systems that are designed to run in production, not sit in demos. From intelligent agents to automation pipelines, we help teams apply AI where it genuinely improves products, workflows, and decision making.\n\n Our focus is simple. Make AI useful, understandable, and reliable over time. No black boxes. No unnecessary complexity."}
                 imageSrc="/services-section/website-maintaince-hero-img.webp"
             />
-            <LatestWork />
             <GrowthSection
                 badge="What we offer"
                 title={"You focus on your product.\n We’ll take care of the AI."}
@@ -161,7 +158,6 @@ export default function AiDevelopmentPage() {
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

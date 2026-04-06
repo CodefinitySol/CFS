@@ -1,8 +1,6 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
-import LatestWork from '@/components/LatestWork';
 import PricingSection from '@/components/PricingSection';
 import GrowthSection from '@/components/services/GrowthSection';
-import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 
 const MOBILE_APP_FEATURES = [
@@ -62,7 +60,6 @@ export default function MobileApplicationPage() {
                 sectionBgColor="#516C83"
                 imageOpacity={0.5}
             />
-            <LatestWork />
             <GrowthSection
                 badge="What we offer"
                 title={"You focus on your users.\n We’ll build the mobile experience."}
@@ -78,7 +75,6 @@ export default function MobileApplicationPage() {
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

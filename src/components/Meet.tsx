@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -34,10 +33,25 @@ const SOCIAL_LINKS = [
 ];
 
 const STATS = [
-  { label: 'Products shipped and actively running', value: 52, suffix: '+' },
-  { label: 'Years of hands-on delivery experience', value: 3, prefix: '0' },
-  { label: 'Client Satisfaction', value: 100, suffix: '%' },
-];
+  {
+    label: 'Products shipped',
+    value: 52,
+    suffix: '+',
+    prefix: '',
+  },
+  {
+    label: 'Years of delivery experience',
+    value: 3,
+    prefix: '0',
+    suffix: '',
+  },
+  {
+    label: 'Client satisfaction',
+    value: 100,
+    prefix: '',
+    suffix: '%',
+  },
+] as const;
 
 function Counter({
   target,
@@ -61,13 +75,11 @@ function Counter({
           setHasAnimated(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.35 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
+    const node = elementRef.current;
+    if (node) observer.observe(node);
     return () => observer.disconnect();
   }, [hasAnimated]);
 
@@ -81,8 +93,6 @@ function Counter({
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / duration, 1);
-
-      // Ease out quart
       const ease = 1 - Math.pow(1 - percentage, 4);
 
       setCount(Math.floor(target * ease));
@@ -95,12 +105,11 @@ function Counter({
     };
 
     animationFrameId = requestAnimationFrame(animate);
-
     return () => cancelAnimationFrame(animationFrameId);
   }, [hasAnimated, target, duration]);
 
   return (
-    <span ref={elementRef}>
+    <span ref={elementRef} className="tabular-nums tracking-tight">
       {prefix}
       {count}
       {suffix}
@@ -112,7 +121,7 @@ export default function MeetSam() {
   return (
     <section className="bg-white px-6 py-20 sm:px-8 lg:px-16 lg:py-22">
       <div className="mx-auto max-w-[1600px]">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-0 items-center">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0">
           {/* Left Content */}
           <motion.div
             className="space-y-4"
@@ -144,20 +153,8 @@ export default function MeetSam() {
               <p>
                 We started as a small team and grew quickly by delivering results and earning trust. Today, we continue to scale carefully, building strong partnerships and products that teams are proud to ship.
               </p>
-              {/* <p>
-                Ready to unlock the full potential of your online presence?
-                Let&apos;s work together to craft a modern, impactful Squarespace
-                website for your brand.{' '}
-                <a
-                  href="#"
-                  className="font-medium text-[#1E293B] underline decoration-1 underline-offset-4"
-                >
-                  Contact me today!
-                </a>
-              </p> */}
             </div>
 
-            {/* Social Icons */}
             <div className="flex flex-wrap gap-3 pt-6">
               {SOCIAL_LINKS.map((link) => (
                 <Link
@@ -177,45 +174,50 @@ export default function MeetSam() {
             </div>
           </motion.div>
 
-          {/* Right Image Content */}
+          {/* Right: stats stack (replaces photo) */}
           <motion.div
             className="relative mx-auto w-full max-w-[500px] lg:mr-0 lg:max-w-[520px]"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
           >
-            <div className="relative rounded-[24px] p-2 bg-[#ECECEC] overflow-hidden">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-gray-100">
-                {/* Image Placeholder */}
-                <Image
-                  src="/person.webp"
-                  alt="Sam Crawford"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-
-                {/* Stats Overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-4 mb-0">
-                  <div className="grid grid-cols-3 divide-x divide-white/20 rounded-2xl bg-[#516C83]/40 p-5 text-white backdrop-blur-xl">
-                    {STATS.map((stat) => (
-                      <div key={stat.label} className="px-1 text-center sm:px-1">
-                        <div className="font-aeonik text-xl font-bold sm:text-2xl md:text-3xl">
-                          <Counter
-                            target={stat.value}
-                            prefix={stat.prefix}
-                            suffix={stat.suffix}
-                          />
-                        </div>
-                        <div className="mt-1 text-[10px] font-medium uppercase tracking-wide opacity-80 sm:text-[10px]">
-                          {stat.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <div className="flex aspect-[4/5] w-full flex-col gap-3 sm:gap-4">
+                {STATS.map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, x: 24 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.55,
+                      delay: 0.12 * index,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="group relative flex min-h-0 flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-[#E2E8F0]/90 bg-white/90 px-5 py-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9)] backdrop-blur-sm transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-[#526c83] hover:bg-[#526c83] hover:shadow-[0_12px_40px_-16px_rgba(82,108,131,0.45)] sm:px-7 sm:py-6"
+                  >
+                    <div
+                      className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                      style={{
+                        background:
+                          'radial-gradient(100% 100% at 20% 0%, rgba(255,255,255,0.14), transparent 55%)',
+                      }}
+                    />
+                    <div className="absolute bottom-0 left-0 top-0 z-0 w-1 rounded-full bg-[#516C83] transition-[width,background-color] duration-300 ease-out group-hover:w-1.5 group-hover:bg-white/45" />
+                    <div className="relative z-10">
+                      <p className="font-aeonik text-[clamp(2.5rem,8vw,3.75rem)] font-medium leading-none text-[#1E293B] transition-[color,transform] duration-300 ease-out group-hover:text-white group-hover:translate-x-0.5">
+                        <Counter
+                          target={stat.value}
+                          prefix={stat.prefix}
+                          suffix={stat.suffix}
+                        />
+                      </p>
+                      <p className="mt-3 max-w-[20ch] font-aeonik text-[11px] font-medium uppercase leading-snug tracking-[0.18em] text-[#64748B] transition-[color] duration-300 ease-out group-hover:text-white/95 sm:text-xs sm:tracking-[0.22em]">
+                        {stat.label}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
             </div>
           </motion.div>
         </div>

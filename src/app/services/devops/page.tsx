@@ -1,8 +1,6 @@
 import ServiceHeroSection from '@/components/services/ServiceHeroSection';
-import LatestWork from '@/components/LatestWork';
 import GrowthSection from '@/components/services/GrowthSection';
 import PricingSection from '@/components/PricingSection';
-import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 
 const DEVOPS_FEATURES = [
@@ -60,7 +58,6 @@ export default function DevOpsPage() {
                 description={"Good infrastructure stays out of the way until it is needed. We design and manage systems that keep applications stable, observable, and ready to scale as usage grows.\n\n Our focus is on reliability, clarity, and control, so teams can operate confidently without constant firefighting."}
                 imageSrc="/services-section/ecommer-hero-img.webp"
             />
-            <LatestWork />
             <GrowthSection
                 badge="What we offer"
                 title={"You focus on building features.\n We’ll keep the system running."}
@@ -74,7 +71,6 @@ export default function DevOpsPage() {
                 description="Choose a setup that fits your product stage, team size, and level of complexity"
             />
             <ContactSection />
-            <BlogSection />
         </main>
     );
 }

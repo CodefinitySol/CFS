@@ -132,12 +132,9 @@ export default function BlogHero() {
                             >
                                 {HERO_BLOGS[currentIndex].title}
                             </h2>
-                            <p className="font-aeonik text-lg text-white/70 max-w-xl mb-4 leading-relaxed">
+                            <p className="font-aeonik text-lg text-white/70 max-w-xl leading-relaxed">
                                 {HERO_BLOGS[currentIndex].description}
                             </p>
-                            <button className="px-7 py-4 rounded-full border border-white/20 bg-[#506c83] hover:bg-white text-white hover:text-black font-aeonik text-base backdrop-blur-md transition-all duration-300">
-                                Read more
-                            </button>
                         </motion.div>
                     </div>
 
