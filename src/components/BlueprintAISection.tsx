@@ -14,7 +14,7 @@ const POINTS = [
   },
   {
     title: 'Pre-vetted content',
-    description: 'Get AI-generated content tailored to your industry and goals—no writing needed, just ready-to-publish, high-converting copy.',
+    description: 'Get AI-generated content tailored to your industry and goals. No writing needed: ready-to-publish, high-converting copy.',
     icon: LuFileText,
   },
   {

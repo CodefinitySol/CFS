@@ -23,7 +23,7 @@ interface GrowthSectionProps {
 const DEFAULT_FEATURES: GrowthFeature[] = [
     {
         title: "Squarespace, Mastered",
-        description: "We've built hundreds of Squarespace websites. We know how to push the platform without breaking it—and when to add custom code to elevate function.",
+        description: "We've built hundreds of Squarespace websites. We know how to push the platform without breaking it, and when to add custom code to elevate function.",
         icon: "/services-section/offer-item-1.webp"
     },
     {
@@ -33,12 +33,12 @@ const DEFAULT_FEATURES: GrowthFeature[] = [
     },
     {
         title: "Built To Convert",
-        description: "Strong visuals are important—but structure is what converts. We make sure your site does both.",
+        description: "Strong visuals are important, but structure is what converts. We make sure your site does both.",
         icon: "/services-section/offer-item-3.webp"
     },
     {
         title: "Seamless Functionality",
-        description: "Whether it's an online store, booking system, portfolio, or blog—to ensure your website works as hard as you do.",
+        description: "Whether it's an online store, booking system, portfolio, or blog, we make sure your website works as hard as you do.",
         icon: "/services-section/offer-item-4.webp"
     },
     {
@@ -48,7 +48,7 @@ const DEFAULT_FEATURES: GrowthFeature[] = [
     },
     {
         title: "You Own Your Site",
-        description: "No ongoing retainers, no confusing IP clauses. You'll walk away with a website you can confidently manage—or have us continue to manage it for you.",
+        description: "No ongoing retainers, no confusing IP clauses. You'll walk away with a website you can confidently manage, or have us continue to manage it for you.",
         icon: "/services-section/offer-item-6.webp"
     }
 ];

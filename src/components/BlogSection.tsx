@@ -11,7 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { motion } from 'framer-motion';
 
-/** Listing only — individual posts do not have detail routes yet. */
+/** Listing only; individual posts do not have detail routes yet. */
 const BLOG_LIST_PATH = '/resources/blog';
 
 const BLOG_POSTS = [

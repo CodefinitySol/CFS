@@ -153,7 +153,7 @@ export default function Header({ isLight = false }: HeaderProps) {
   return (
     <header className="relative z-50 overflow-visible px-6 py-6 sm:px-10 sm:py-8 lg:px-12">
       <div className="mx-auto grid w-full max-w-[1600px] grid-cols-2 items-center lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
-        {/* Logo — left column; mirrors CTA inset on the right */}
+        {/* Logo: left column; mirrors CTA inset on the right */}
         <Link
           href="/"
           className="z-50 col-start-1 row-start-1 flex items-center justify-self-start self-center overflow-visible transition-all duration-300 hover:opacity-80"
@@ -182,7 +182,7 @@ export default function Header({ isLight = false }: HeaderProps) {
           <span className={`h-0.5 w-4 transition-transform group-hover:w-8 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
         </button>
 
-        {/* Desktop nav — center column */}
+        {/* Desktop nav: center column */}
         <nav
           className="col-start-2 row-start-1 hidden justify-self-center self-center rounded-[100px] px-1 py-2 backdrop-blur-[4px] transition-all duration-300 ease-out lg:block"
           style={{
@@ -276,7 +276,7 @@ export default function Header({ isLight = false }: HeaderProps) {
           </ul>
         </nav>
 
-        {/* Desktop CTA — right column, symmetric to logo */}
+        {/* Desktop CTA: right column, symmetric to logo */}
         <Link
           href={CALENDLY_BOOKING_URL}
           target="_blank"

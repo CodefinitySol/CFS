@@ -50,7 +50,7 @@ export default function PortfolioProjectGrid() {
                         Our work
                     </h1>
                     <p className="font-aeonik mt-4 text-base leading-relaxed text-[#6D656D]">
-                        A catalog of projects we have shipped—web apps, mobile products, and AI-driven systems—each built for teams that need software they can run, maintain, and grow with confidence.
+                        A catalog of projects we have shipped (web apps, mobile products, and AI-driven systems), each built for teams that need software they can run, maintain, and grow with confidence.
                     </p>
                 </header>
 

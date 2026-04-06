@@ -52,7 +52,7 @@ export default function NewsletterSection() {
                     transition={{ delay: 0.2 }}
                     className="font-aeonik text-base sm:text-md text-white max-w-2xl mb-14"
                 >
-                    Join our newsletter for practical insights on building and scaling real software products. We share lessons from production systems, AI-driven workflows, modern web stacks, and cloud infrastructure—focused on what actually works in the real world.
+                    Join our newsletter for practical insights on building and scaling real software products. We share lessons from production systems, AI-driven workflows, modern web stacks, and cloud infrastructure, focused on what actually works in the real world.
                 </motion.p>
 
                 {/* Form */}

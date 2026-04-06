@@ -47,7 +47,7 @@ export default function Footer() {
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
 
           {/* Top Section: CTA & Explore */}
-          <div className="mb-20 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-8 xl:gap-10">
+          <div className="mb-20 flex w-full flex-col gap-10 lg:flex-row lg:items-start lg:justify-center lg:gap-14 xl:gap-20">
 
             {/* Left: CTA */}
             <div className="flex max-w-2xl flex-col items-start pt-4 lg:max-w-xl xl:max-w-2xl">
@@ -82,7 +82,7 @@ export default function Footer() {
             </div>
 
             {/* Explore */}
-            <div className="w-full shrink-0 pt-4 sm:max-w-md lg:w-auto lg:min-w-[200px] lg:max-w-xs">
+            <div className="w-full shrink-0 pt-4 lg:w-48 lg:min-w-[12rem]">
               <h3
                 className="font-aeonik text-xl font-normal lg:text-2xl"
                 style={{

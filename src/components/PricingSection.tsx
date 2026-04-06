@@ -205,7 +205,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
         ))}
       </ul>
 
-      {/* CTA — book via Calendly */}
+      {/* CTA: book via Calendly */}
       <a
         href={CALENDLY_BOOKING_URL}
         target="_blank"

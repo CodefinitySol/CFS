@@ -94,7 +94,7 @@ export default function LatestWork() {
             <SwiperSlide key={index} className="!w-auto">
               <Link
                 href="/portfolio"
-                aria-label={`${project.title} — view on Work`}
+                aria-label={`${project.title}, view on Work`}
                 className="group relative block w-[min(88vw,360px)] select-none overflow-hidden rounded-3xl border-[6px] border-[#eaf0f6] bg-white px-7 pt-8 pb-7 shadow-sm transition-all hover:shadow-xl sm:w-[420px] sm:px-9 sm:pt-9 sm:pb-8"
               >
                 <div className="flex flex-col gap-3 sm:gap-4">
