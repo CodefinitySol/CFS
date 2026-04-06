@@ -1,95 +1,70 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 
-const ROW_ONE = [
-  'AshGrove',
-  'ChangeLab',
-  'DAME KELLY HOLMES TRUST',
-  'CP',
-  'Escuela de Artes',
-  'Acuity Scheduling',
-];
+/** Mixed order: portfolio case studies (see LatestWork / PortfolioProjectGrid) + partner names + Brello */
+const CLIENTS = [
+    'Zappy',
+    'AshGrove',
+    'Flow',
+    'ChangeLab',
+    'Brello',
+    'Dame Kelly Holmes Trust',
+    'Waltz',
+    'CP',
+    'Schole AI',
+    'Escuela de Artes',
+    'ZeroFill',
+    'Acuity Scheduling',
+    'SME Matters',
+    'SCO Space',
+    'LOOMIA',
+    'Lineslip',
+    'The Communications Network',
+    'Reformer Pilates',
+] as const;
 
-const ROW_TWO = [
-  'sme matters',
-  'SCO Space',
-  'LOOMIA',
-  'lineslip',
-  'THE COMMUNICATIONS NETWORK',
-  'ReformerPilates',
-];
+const SCROLL_STYLE = { '--animation-duration': '100s' } as CSSProperties;
 
 export default function ClientMarquee() {
-  return (
-    <section className="relative w-full overflow-hidden bg-white pb-24 pt-10 sm:pb-32 sm:pt-16">
-      <div className="mx-auto max-w-[1600px] px-6 text-center sm:px-8 lg:px-12">
-        {/* Header Content */}
-        <motion.div
-          className="mb-16 flex flex-col items-center gap-6"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+    const loop = [...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS];
+
+    return (
+        <section
+            className="relative w-full overflow-hidden border-t border-[#E8ECF0] bg-white py-8 sm:py-10"
+            aria-label="Our clients"
         >
-          <span className="inline-flex items-center rounded-full bg-[#2B2A2B4D] px-4 py-1.5 text-sm font-medium text-[#2B2A2B]">
-            <span className="mr-1.5 h-2 w-2 rounded-full bg-[#2B2A2B]" />
-            Partnerships
-          </span>
-          <h2 className="font-aeonik text-3xl font-normal text-[#191819] sm:text-4xl md:text-5xl">
-            Our Amazing Clients
-          </h2>
-        </motion.div>
-
-        {/* Marquees */}
-        <motion.div
-          className="flex flex-col gap-10 sm:gap-14"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-
-          {/* Row 1 - Slower (Right to Left) */}
-          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div
-              className="animate-scroll flex w-fit items-center gap-16 sm:gap-24"
-              style={{ '--animation-duration': '45s' } as React.CSSProperties}
-            >
-              {[...ROW_ONE, ...ROW_ONE, ...ROW_ONE, ...ROW_ONE].map((client, i) => (
-                <div
-                  key={`${client}-${i}`}
-                  className="shrink-0 opacity-40 transition-opacity duration-300 hover:opacity-100"
+            <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+                <motion.h2
+                    className="mb-8 text-center font-aeonik text-xl font-normal text-[#191819] sm:mb-10 sm:text-2xl lg:text-3xl"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                 >
-                  <span className="font-aeonik text-2xl font-bold text-slate-700 sm:text-3xl">
-                    {client}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+                    Our clients
+                </motion.h2>
 
-          {/* Row 2 - Faster (Left to Right) */}
-          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div
-              className="animate-scroll-reverse flex w-fit items-center gap-16 sm:gap-24"
-              style={{ '--animation-duration': '25s' } as React.CSSProperties}
-            >
-              {[...ROW_TWO, ...ROW_TWO, ...ROW_TWO, ...ROW_TWO].map((client, i) => (
-                <div
-                  key={`${client}-${i}`}
-                  className="shrink-0 opacity-40 transition-opacity duration-300 hover:opacity-100"
-                >
-                  <span className="font-aeonik text-2xl font-bold text-slate-700 sm:text-3xl">
-                    {client}
-                  </span>
+                <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                    <div
+                        className="animate-scroll flex w-max items-center gap-x-10 sm:gap-x-12 lg:gap-x-14"
+                        style={SCROLL_STYLE}
+                    >
+                        {loop.map((name, i) => (
+                            <div key={`${name}-${i}`} className="flex shrink-0 items-center gap-x-10 sm:gap-x-12 lg:gap-x-14">
+                                <span className="whitespace-nowrap font-aeonik text-base font-medium tracking-tight text-[#4B474B] transition-colors duration-300 hover:text-[#191819] sm:text-lg lg:text-xl">
+                                    {name}
+                                </span>
+                                <span
+                                    className="hidden h-1 w-1 shrink-0 rounded-full bg-[#2B2A2B]/25 sm:block"
+                                    aria-hidden
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-              ))}
             </div>
-          </div>
-
-        </motion.div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 }

@@ -7,71 +7,75 @@ import { useEffect, useRef, useState } from 'react';
 import { MdVerified } from 'react-icons/md';
 import { motion } from 'framer-motion';
 
-const TESTIMONIALS_ROW_1 = [
+type Testimonial = {
+  name: string;
+  rating: number;
+  text: string;
+};
+
+const TESTIMONIALS_ROW_1: Testimonial[] = [
   {
-    name: 'Jeff Smith',
-    image: '/jim.jpeg',
+    name: 'Michelle Choruri',
     rating: 5,
-    text: "Sam's attention to detail put him above the rest. I was traveling and the business was in the process of being acquired while we were building and it never slowed him or his team down!",
+    text: 'Codefinity is a team of Avengers.',
   },
   {
-    name: 'Jack Schiavone',
-    image: '/jim.jpeg',
+    name: 'Tyler',
     rating: 5,
-    text: "Sam and the team gave me everything I was looking for with the website build. Alongside their attention to detail was the speed of their support. I couldn't recommend by Crawford more, especially for anyone who wants a website that converts leads into customers. Thanks!",
+    text: 'I appreciate the high-quality work. I needed a quick delivery without overcomplicating things, and the CFS team provided exactly that.',
   },
   {
-    name: 'Nathan Bethell',
-    image: '/jim.jpeg',
+    name: 'Joshua Dennis',
     rating: 5,
-    text: 'Sam is a top person to work with! No ego, no B/S, just high quality professionalism and delivery of sites and content that work. If you\'re in the market for a Squarespace site then you can\'t go wrong!',
+    text: 'Teams like Codefinity come around once in a while. They do not shy away from calls, they make sure requirements are met, and the work gets delivered.',
   },
   {
-    name: 'Elliot Napier',
-    image: '/jim.jpeg',
+    name: 'Johnny Slionski',
     rating: 5,
-    text: 'Exceptional communication throughout the process, very prompt updates to the site made it very easy to iterate & determine the final design, content & style. Really happy with the finished product, would highly recommend to anyone looking to get an excellent website to help their brand / product stand out.',
+    text: 'They cleaned up the mess created by the previous team. Nothing but respect for these guys.',
   },
   {
-    name: 'Daniel Gordon',
-    image: '/jim.jpeg',
+    name: 'GEO',
     rating: 5,
-    text: 'Sam is professional, friendly, personable and easy to work with. He took time to try and understand my requirements and was always relaxed and accommodating when I wanted to make revisions or changes. His design ideas are clean and work well. I recommend him without hesitation.',
+    text: 'We hired 14 people through them, and not a single resource was a bad fit. Waltz happened because of them.',
   },
 ];
 
-const TESTIMONIALS_ROW_2 = [
+const TESTIMONIALS_ROW_2: Testimonial[] = [
   {
-    name: 'Maria Wilson',
-    image: '/jim.jpeg',
+    name: 'Claire Thompson',
     rating: 5,
-    text: 'Sam was an incredible resource for us when building a Squarespace membership site. His attention to detail, vast knowledge, and quick responses made the whole experience so easy. I highly recommend by Crawford and would be happy to work with him again should another project come up.',
+    text: 'We brought Codefinity in to shape an AI workflow that was still fuzzy in our heads. They helped us define the use case, cut the noise, and ship something practical that our team now uses every week.',
   },
   {
-    name: 'Gaurav Ahluwalia',
-    image: '/jim.jpeg',
+    name: 'Marcus Lee',
     rating: 5,
-    text: 'by Crawford are great to work with - extremely quick to work with and improvements to our website are always made to a high standard. Highly recommend Sam\'s services!',
+    text: 'Our MERN stack product needed senior people who could move fast without breaking the foundation. Codefinity came in, organized the backend properly, cleaned up the frontend, and made the whole app feel stable again.',
   },
   {
-    name: 'Jim McVey',
-    image: '/jim.jpeg',
+    name: 'Nina',
     rating: 5,
-    text: 'by Crawford is extremely professional and personable. We\'ve worked with Sam on multiple projects and highly recommend his services!',
+    text: 'The mobile app work felt very collaborative from day one. They were thoughtful about edge cases, performance, and handoff details, and the final product felt polished instead of rushed.',
   },
   {
-    name: 'Sarah Johnson',
-    image: '/jim.jpeg',
+    name: 'David Romero',
     rating: 5,
-    text: 'Working with Sam was a fantastic experience. His expertise in Squarespace is unmatched, and the final result exceeded all expectations. Highly recommended!',
+    text: 'What stood out for me was the consulting mindset. They did not just say yes to every request. They pushed back when needed, explained trade-offs clearly, and helped us make better product decisions.',
   },
   {
-    name: 'Michael Chen',
-    image: '/jim.jpeg',
+    name: 'Hannah Cole',
     rating: 5,
-    text: 'Outstanding work! Sam delivered exactly what we needed, on time and within budget. The website looks amazing and performs flawlessly.',
+    text: 'We asked Codefinity to help us evaluate an AI feature before committing a larger budget. They gave us honest guidance, built a lean proof of concept, and saved us from spending months in the wrong direction.',
   },
 ];
+
+function getInitials(name: string) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 1) {
+    return parts[0].slice(0, 2).toUpperCase();
+  }
+  return `${parts[0][0] ?? ''}${parts[parts.length - 1][0] ?? ''}`.toUpperCase();
+}
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -79,8 +83,7 @@ function StarRating({ rating }: { rating: number }) {
       {[...Array(5)].map((_, i) => (
         <svg
           key={i}
-          className={`h-4 w-4 ${i < rating ? 'text-[#2B2A2B]' : 'text-gray-300'
-            }`}
+          className={`h-4 w-4 ${i < rating ? 'text-[#E8ECF0]' : 'text-white/20'}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -91,7 +94,7 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof TESTIMONIALS_ROW_1, speed?: number }) {
+function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: Testimonial[]; speed?: number }) {
   const [offset, setOffset] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardWidth = 500 + 24;
@@ -138,41 +141,31 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
         {displayItems.map((testimonial, i) => (
           <div
             key={`${testimonial.name}-${i}`}
-            className="group relative w-[500px] flex-shrink-0 overflow-hidden rounded-xl border border-transparent bg-[#212325] p-8 transition-all duration-500 hover:border-[#2B2A2B]/30"
+            className="group relative w-[500px] flex-shrink-0 overflow-hidden rounded-xl border border-white/5 bg-[#191819] p-8 transition-[border-color] duration-300 hover:border-white/25"
           >
-            {/* Gradient overlay on hover */}
             <div
-              className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              style={{
-                background: 'linear-gradient(90.45deg, rgba(91, 83, 91, .4) -156%, rgba(91, 83, 91, .2) 96.13%, rgba(91, 83, 91, .4) 102.47%)',
-              }}
+              className="pointer-events-none absolute inset-0 z-[2] rounded-xl bg-gradient-to-br from-[#2B2A2B]/[0.18] via-[#2B2A2B]/[0.06] to-transparent opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
+              aria-hidden
             />
-
             <div className="relative z-10 flex h-full flex-col">
-              {/* Header */}
               <div className="mb-6 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="relative h-14 w-14 overflow-hidden rounded-full bg-gray-600">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 ring-1 ring-white/5">
+                    <span className="font-aeonik text-sm font-medium uppercase tracking-[0.12em] text-white/85">
+                      {getInitials(testimonial.name)}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-aeonik text-lg font-medium text-white duration-100 group-hover:text-[#2B2A2B]">
+                    <h3 className="font-aeonik text-lg font-medium text-white transition-colors group-hover:text-white/90">
                       {testimonial.name}
                     </h3>
-                    {/* Verified Icon */}
-                    <MdVerified className="h-5 w-5 text-[#2B2A2B]" />
+                    <MdVerified className="h-5 w-5 shrink-0 text-white/50" aria-hidden />
                   </div>
                 </div>
                 <StarRating rating={testimonial.rating} />
               </div>
 
-              {/* Testimonial Text */}
-              <p className="font-aeonik text-base leading-relaxed text-[#9f9fa0]">
+              <p className="font-aeonik text-base leading-relaxed text-white/75">
                 {testimonial.text}
               </p>
             </div>
@@ -185,96 +178,81 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: typeof T
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#191819] pb-22 sm:pb-22 pt-24 sm:pt-26">
+    <section className="relative w-full overflow-hidden border-t border-white/5 bg-[#191819] py-18 sm:py-22">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-        {/* Header */}
         <motion.div
-          className="mb-22 flex items-center justify-between"
+          className="mb-10 max-w-3xl sm:mb-12 lg:mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div>
-            <span
-              className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white/90"
-              style={{
-                background: 'linear-gradient(90deg, rgba(232, 236, 240, .3) 0%, rgba(91, 83, 91, .3) 100%)',
-              }}
-            >
-              <span className="mr-2 h-1.5 w-1.5 rounded-full bg-white/60" />
-              Testimonials
-            </span>
-            <h2
-              className="mt-6 font-aeonik text-4xl font-normal sm:text-4xl lg:text-5xl"
-              style={{
-                backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #2B2A2B 153.8%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Over 200+ Reviews
-            </h2>
-          </div>
-          <button className="hidden rounded-full bg-[#2B2A2B] px-6 py-3 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A] lg:block">
-            View all
-          </button>
+          <span
+            className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white/80"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(232, 236, 240, 0.3) 0%, rgba(91, 83, 91, 0.3) 100%)',
+            }}
+          >
+            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-white/60" />
+            Testimonials
+          </span>
+          <h2
+            className="mt-8 font-aeonik text-4xl font-normal leading-tight lg:text-5xl lg:leading-[1.1]"
+            style={{
+              backgroundImage: 'linear-gradient(94.13deg, #e8ecf0 .14%, #2B2A2B 153.8%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Over 200+ reviews
+          </h2>
+          <p className="mt-6 font-aeonik text-lg text-white">
+            Honest feedback from teams who trusted Codefinity Solutions with AI work, product builds, mobile applications, and technical consulting.
+          </p>
         </motion.div>
       </div>
 
-      {/* Scrolling Rows with Edge Fade */}
       <motion.div
-        className="relative flex flex-col gap-6 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+        className="relative flex flex-col gap-6 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.1 }}
       >
-        {/* Row 1 */}
         <InfiniteCarousel testimonials={TESTIMONIALS_ROW_1} speed={13} />
-
-        {/* Row 2 */}
         <InfiniteCarousel testimonials={TESTIMONIALS_ROW_2} speed={16} />
       </motion.div>
 
-      {/* Footer CTA Pill */}
       <motion.div
-        className="mt-16 flex justify-center"
+        className="mt-14 flex justify-center px-6 sm:mt-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div
-          className="inline-flex items-center gap-6 rounded-full px-1 py-1 pl-2 bg-[#2A3640]"
-
-        >
-          {/* Avatar Stack */}
-          <div className="flex items-center">
-            <div className="flex -space-x-2">
+        <div className="inline-flex flex-wrap items-center justify-center gap-4 rounded-full border border-white/10 bg-[#191819] py-2 pl-3 pr-2 sm:gap-6 sm:pl-4">
+          <div className="flex items-center gap-4">
+            <div className="flex -space-x-3">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="relative h-6 w-6 overflow-hidden rounded-full border-2 border-[#191819]">
-                  <Image
-                    src={`/jim.jpeg`}
-                    alt="User avatar"
-                    fill
-                    className="object-cover"
-                  />
+                <div key={i} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-[#191819]">
+                  <Image src={`/about-us/review-${i}.webp`} alt="Client" fill className="object-cover" />
                 </div>
               ))}
             </div>
-            <span className="ml-2 font-aeonik text-sm text-white/70">
-              +200 top rated reviews
-            </span>
+            <div>
+              <p className="font-aeonik text-sm font-bold text-white">132+ people</p>
+              <p className="font-aeonik text-xs leading-snug text-white/70">
+                Satisfied working with Codefinity Solutions
+              </p>
+            </div>
           </div>
-
-          {/* Book a call Button */}
           <Link
             href={CALENDLY_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-[#2B2A2B] px-3 py-1.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A]"
+            className="rounded-full bg-[#2B2A2B] px-5 py-2.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A]"
           >
             Book a call
           </Link>

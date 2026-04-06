@@ -1,182 +1,186 @@
 'use client';
 
-import Image from 'next/image';
+import Link from 'next/link';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import {
+    OFFICE_MAP_VIEWBOX,
+    useOfficeWorldMap,
+    WorldMapOfficesSvg,
+} from '@/components/WorldMapOffices';
+
+type Office = {
+    id: 'pakistan' | 'usa';
+    label: string;
+    country: string;
+    address: string[];
+    phone?: string;
+    lngLat: [number, number];
+    align: 'left' | 'right';
+};
+
+const OFFICES: Office[] = [
+    {
+        id: 'usa',
+        label: 'Houston',
+        country: 'United States',
+        address: ['13038 Mills Creek Meadow', 'Houston, TX'],
+        phone: '+1 346 419 9952',
+        lngLat: [-95.3698, 29.7604],
+        align: 'left',
+    },
+    {
+        id: 'pakistan',
+        label: 'Lahore',
+        country: 'Pakistan',
+        address: ['F76G+746, 330 Block R,', 'Phase 2 Johar Town, Lahore'],
+        lngLat: [74.3587, 31.5204],
+        align: 'right',
+    },
+];
+
+function MapPin({
+    office,
+    pinLeftPct,
+    pinTopPct,
+    isActive,
+    onActivate,
+    onDeactivate,
+}: {
+    office: Office;
+    pinLeftPct: number;
+    pinTopPct: number;
+    isActive: boolean;
+    onActivate: () => void;
+    onDeactivate: () => void;
+}) {
+    const cardPositionClass =
+        office.align === 'left'
+            ? 'left-1/2 ml-5 -translate-y-1/2'
+            : 'right-1/2 mr-5 -translate-y-1/2';
+
+    return (
+        <div
+            className="absolute z-20"
+            style={{
+                left: `${pinLeftPct}%`,
+                top: `${pinTopPct}%`,
+                transform: 'translate(-50%, -50%)',
+            }}
+        >
+            <button
+                type="button"
+                onMouseEnter={onActivate}
+                onFocus={onActivate}
+                onClick={onActivate}
+                onBlur={onDeactivate}
+                aria-label={`${office.label}, ${office.country}`}
+                className="group relative"
+            >
+                <span className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2B2A2B]/10 blur-md transition duration-300 group-hover:scale-110" />
+                <span className="relative flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-[#2B2A2B] shadow-[0_12px_28px_rgba(25,24,25,0.18)]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                </span>
+                <span className="absolute left-1/2 top-[18px] h-4 w-[2px] -translate-x-1/2 rounded-full bg-[#2B2A2B]" />
+                <span className="absolute left-1/2 top-[29px] h-2.5 w-2.5 -translate-x-1/2 rotate-45 rounded-[2px] bg-[#2B2A2B]" />
+            </button>
+
+            <div
+                className={`pointer-events-none absolute top-1/2 hidden min-w-[260px] ${cardPositionClass} rounded-[20px] border border-[#E7E2E7] bg-white p-5 text-left shadow-[0_18px_60px_rgba(25,24,25,0.12)] lg:block ${
+                    isActive ? 'opacity-100' : 'opacity-0'
+                } transition duration-200`}
+            >
+                <p className="font-aeonik text-[11px] uppercase tracking-[0.24em] text-[#6E6A6E]">
+                    {office.country}
+                </p>
+                <h3 className="mt-2 font-aeonik text-2xl text-[#191819]">{office.label}</h3>
+                <div className="mt-4 space-y-1 font-aeonik text-sm leading-relaxed text-[#4B474B]">
+                    {office.address.map((line) => (
+                        <p key={line}>{line}</p>
+                    ))}
+                </div>
+                {office.phone ? (
+                    <p className="mt-4 font-aeonik text-sm text-[#191819]">{office.phone}</p>
+                ) : null}
+            </div>
+        </div>
+    );
+}
 
 export default function OurOfficesSection() {
-    return (
-        <section className="bg-white py-10 lg:py-18 px-6 lg:px-8 xl:px-12">
-            <div className="mx-auto max-w-[1600px]">
+    const [activeOffice, setActiveOffice] = useState<Office['id'] | null>(null);
+    const { landPaths, project } = useOfficeWorldMap();
 
-                {/* Header */}
+    const pinPositions = useMemo(() => {
+        return OFFICES.map((office) => {
+            const [x, y] = project(office.lngLat);
+            return {
+                id: office.id,
+                leftPct: (x / OFFICE_MAP_VIEWBOX.width) * 100,
+                topPct: (y / OFFICE_MAP_VIEWBOX.height) * 100,
+            };
+        });
+    }, [project]);
+
+    return (
+        <section className="bg-white px-6 py-12 lg:px-8 lg:py-18 xl:px-12">
+            <div className="mx-auto max-w-[1500px]">
                 <motion.div
-                    className="flex flex-col items-start gap-6 mb-12"
+                    className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    {/* Badge */}
-                    <div className="inline-flex items-center rounded-full bg-[#CFD6DC] px-4 py-1.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
-                        <span className="font-aeonik text-xs font-medium text-[#2B2A2B]">Our office</span>
-                    </div>
-
-                    {/* Heading */}
-                    <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819]">
-                        Where We Make It Happen
-                    </h2>
-                </motion.div>
-
-                {/* Card */}
-                <motion.div
-                    className="group relative rounded-[12px] border border-gray-100 p-3 lg:p-3 transition-all duration-300 hover:bg-[#2B2A2B] hover:border-[#2B2A2B] hover:shadow-2xl"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-                        {/* Image */}
-                        <div className="relative w-full lg:w-[300px] h-[200px] sm:h-[240px] lg:h-[220px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                                src="/about-us/liverpool.webp"
-                                alt="Liverpool Office"
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
+                    <div className="max-w-xl">
+                        <div className="inline-flex items-center rounded-full bg-[#CFD6DC] px-4 py-1.5">
+                            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-[#2B2A2B]" />
+                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B]">Our presence</span>
                         </div>
 
-                        {/* Content */}
-                        <div className="flex flex-grow py-2 pr-4 lg:pr-0">
+                        <h2 className="mt-6 font-aeonik text-4xl font-normal leading-[1.05] tracking-tight text-[#191819] sm:text-5xl lg:text-6xl">
+                            Built across continents, managed as one team.
+                        </h2>
+                        <p className="mt-5 max-w-lg font-aeonik text-base leading-relaxed text-[#4B474B] sm:text-lg">
+                            We work across Pakistan and the United States, giving clients reliable coverage, fast communication, and hands-on support wherever the project is based.
+                        </p>
 
-                            {/* Mobile Layout (< lg) */}
-                            <div className="flex flex-col gap-8 lg:hidden w-full">
-                                {/* Title */}
-                                <h3 className="font-aeonik text-3xl text-[#2B2A2B] transition-all duration-300">
-                                    <span className="text-[#3A383A] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-[linear-gradient(94.74deg,#fff_.26%,#2B2A2B_118.16%)]">
-                                        Lahore
-                                    </span>
-                                </h3>
-
-                                {/* Details List (Order: Address -> Phone -> Email) */}
-                                <div className="flex flex-col gap-6">
-                                    {/* Address */}
-                                    <div className="flex items-start gap-4">
-                                        <svg className="w-6 h-6 text-[#9CA3AF] group-hover:text-white transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <path d="M12 21C16 17 20 13 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13 8 17 12 21Z" />
-                                            <circle cx="12" cy="9" r="3" />
-                                        </svg>
-                                        <p className="font-aeonik text-base text-[#4B474B] group-hover:text-white transition-colors leading-relaxed max-w-[240px]">
-                                            Located in Johar Town
-                                            F76G+746, 330
-                                            Block R, Phase 2
-                                            Johar Town, Lahore
-                                        </p>
-                                    </div>
-
-                                    {/* Phone */}
-                                    <div className="flex items-center gap-4">
-                                        <svg className="w-5 h-5 text-[#9CA3AF] group-hover:text-white transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <path d="M22 16.92V19.92C22.0011 20.1986 21.9441 20.4742 21.8325 20.7294C21.7209 20.9846 21.5573 21.2137 21.3521 21.402C21.1468 21.5902 20.9046 21.7336 20.6407 21.8228C20.3769 21.912 20.0974 21.9452 19.82 21.92C16.7428 21.5857 13.787 20.5342 11.19 18.84C8.77382 17.2481 6.72533 15.1996 5.13333 12.7833C3.43915 10.1863 2.38766 7.23053 2.05333 4.15332C2.02816 3.87593 2.06139 3.59648 2.15059 3.33267C2.23979 3.06886 2.38321 2.82662 2.57143 2.62137C2.75966 2.41613 2.98877 2.25253 3.24396 2.14093C3.49914 2.02933 3.77477 1.97235 4.05333 1.97332H7.05333C7.53767 1.96884 8.00693 2.14442 8.37517 2.46889C8.74341 2.79335 8.98877 3.24727 9.06666 3.74999C9.21235 4.85461 9.48281 5.93677 9.87333 6.97999C10.0296 7.39396 10.0634 7.84478 9.97089 8.27961C9.87841 8.71444 9.66344 9.11545 9.35166 9.43499L8.08166 10.705C9.50529 13.2073 11.581 15.283 14.0833 16.7067L15.3533 15.4367C15.6729 15.1249 16.0739 14.9099 16.5087 14.8174C16.9435 14.7249 17.3944 14.7587 17.8083 14.915C18.8515 15.3055 19.9337 15.576 21.0383 15.7217C21.5456 15.8003 22.0029 16.0504 22.3278 16.4239C22.6527 16.7974 22.8257 17.2718 22.8067 17.7617V17.76V16.92Z" />
-                                        </svg>
-                                        <span className="font-aeonik text-base text-[#4B474B] group-hover:text-white transition-colors">
-                                            Available on request
-                                        </span>
-                                    </div>
-
-                                    {/* Email */}
-                                    <div className="flex items-center gap-4">
-                                        <svg className="w-5 h-5 text-[#9CA3AF] group-hover:text-white transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <path d="M3 8L10.8906 13.2604C11.5624 13.7083 12.4376 13.7083 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" />
-                                        </svg>
-                                        <span className="font-aeonik text-base text-[#4B474B] group-hover:text-white transition-colors">
-                                            hello@codefinitysolutions.com
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Mobile Buttons */}
-                                <div className="flex flex-row gap-4 w-full mt-4">
-                                    <button className="flex-1 rounded-full border border-gray-200 py-3 px-6 font-aeonik text-sm font-medium text-[#191819] transition-colors group-hover:border-white group-hover:bg-white group-hover:text-black">
-                                        View Map
-                                    </button>
-                                    <button className="flex-1 rounded-full border border-gray-200 py-3 px-6 font-aeonik text-sm font-medium text-[#191819] transition-colors group-hover:border-white group-hover:bg-white group-hover:text-black">
-                                        Get in touch
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Desktop Layout (>= lg) */}
-                            <div className="hidden lg:flex flex-row gap-0 w-full">
-                                {/* Title Column - Left */}
-                                <div className="lg:w-[200px] flex-shrink-0">
-                                    <h3 className="font-aeonik text-3xl sm:text-3xl text-[#2B2A2B] transition-all duration-300">
-                                        <span className="text-[#3A383A] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-[linear-gradient(94.74deg,#fff_.26%,#2B2A2B_118.16%)]">
-                                            Lahore
-                                        </span>
-                                    </h3>
-                                </div>
-
-                                {/* Details & Buttons Columns - Right */}
-                                <div className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                                    {/* Column 1: Address, Email, View Map */}
-                                    <div className="flex flex-col justify-between gap-8 h-full">
-                                        <div className="flex flex-col gap-8">
-                                            {/* Address */}
-                                            <div className="flex items-start gap-4">
-                                                <svg className="w-6 h-6 text-[#9CA3AF] group-hover:text-white transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                                    <path d="M12 21C16 17 20 13 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13 8 17 12 21Z" />
-                                                    <circle cx="12" cy="9" r="3" />
-                                                </svg>
-                                                <p className="font-aeonik text-base text-[#4B474B] group-hover:text-white transition-colors leading-relaxed">
-                                                    Located in Johar Town
-                                                    F76G+746, 330
-                                                    Block R, Phase 2
-                                                    Johar Town, Lahore
-                                                </p>
-                                            </div>
-
-                                            {/* Email */}
-                                            <div className="flex items-center gap-4">
-                                                <svg className="w-5 h-5 text-[#9CA3AF] group-hover:text-white transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                                    <path d="M3 8L10.8906 13.2604C11.5624 13.7083 12.4376 13.7083 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" />
-                                                </svg>
-                                                <span className="font-aeonik text-base text-[#4B474B] group-hover:text-white transition-colors">
-                                                    hello@codefinitysolutions.com
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        <button className="w-full rounded-full border border-gray-200 py-3 px-6 font-aeonik text-sm font-medium text-[#191819] transition-colors group-hover:border-white group-hover:bg-white group-hover:text-black mt-auto">
-                                            View Map
-                                        </button>
-                                    </div>
-
-                                    {/* Column 2: Phone, Get in touch */}
-                                    <div className="flex flex-col justify-between gap-8 h-full">
-                                        <div className="flex flex-col gap-4">
-                                            {/* Phone */}
-                                            <div className="flex items-center gap-4">
-                                                <svg className="w-5 h-5 text-[#9CA3AF] group-hover:text-white transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                                    <path d="M22 16.92V19.92C22.0011 20.1986 21.9441 20.4742 21.8325 20.7294C21.7209 20.9846 21.5573 21.2137 21.3521 21.402C21.1468 21.5902 20.9046 21.7336 20.6407 21.8228C20.3769 21.912 20.0974 21.9452 19.82 21.92C16.7428 21.5857 13.787 20.5342 11.19 18.84C8.77382 17.2481 6.72533 15.1996 5.13333 12.7833C3.43915 10.1863 2.38766 7.23053 2.05333 4.15332C2.02816 3.87593 2.06139 3.59648 2.15059 3.33267C2.23979 3.06886 2.38321 2.82662 2.57143 2.62137C2.75966 2.41613 2.98877 2.25253 3.24396 2.14093C3.49914 2.02933 3.77477 1.97235 4.05333 1.97332H7.05333C7.53767 1.96884 8.00693 2.14442 8.37517 2.46889C8.74341 2.79335 8.98877 3.24727 9.06666 3.74999C9.21235 4.85461 9.48281 5.93677 9.87333 6.97999C10.0296 7.39396 10.0634 7.84478 9.97089 8.27961C9.87841 8.71444 9.66344 9.11545 9.35166 9.43499L8.08166 10.705C9.50529 13.2073 11.581 15.283 14.0833 16.7067L15.3533 15.4367C15.6729 15.1249 16.0739 14.9099 16.5087 14.8174C16.9435 14.7249 17.3944 14.7587 17.8083 14.915C18.8515 15.3055 19.9337 15.576 21.0383 15.7217C21.5456 15.8003 22.0029 16.0504 22.3278 16.4239C22.6527 16.7974 22.8257 17.2718 22.8067 17.7617V17.76V16.92Z" />
-                                                </svg>
-                                                <span className="font-aeonik text-base text-[#4B474B] group-hover:text-white transition-colors">
-                                                    Available on request
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        <button className="w-full rounded-full border border-gray-200 py-3 px-6 font-aeonik text-sm font-medium text-[#191819] transition-colors group-hover:border-white group-hover:bg-white group-hover:text-black mt-auto">
-                                            Get in touch
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="mt-8 flex flex-wrap gap-3">
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center rounded-full bg-[#2B2A2B] px-6 py-3 font-aeonik text-sm font-medium text-white transition hover:bg-[#3A383A]"
+                            >
+                                Get in touch
+                            </Link>
+                            <span className="inline-flex items-center rounded-full border border-[#E7E2E7] px-5 py-3 font-aeonik text-sm text-[#4B474B]">
+                                Hover the pins to view office details
+                            </span>
                         </div>
                     </div>
 
+                    <div className="relative" onMouseLeave={() => setActiveOffice(null)}>
+                        <div className="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[480px]">
+                            <WorldMapOfficesSvg landPaths={landPaths} className="absolute inset-0 h-full w-full" />
+
+                            <div className="absolute inset-0">
+                                {OFFICES.map((office) => {
+                                    const pos = pinPositions.find((p) => p.id === office.id);
+                                    if (!pos) return null;
+                                    return (
+                                        <MapPin
+                                            key={office.id}
+                                            office={office}
+                                            pinLeftPct={pos.leftPct}
+                                            pinTopPct={pos.topPct}
+                                            isActive={activeOffice === office.id}
+                                            onActivate={() => setActiveOffice(office.id)}
+                                            onDeactivate={() => setActiveOffice(null)}
+                                        />
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </section>
