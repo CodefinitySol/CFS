@@ -55,7 +55,7 @@ export default function ServiceHeroSection({
             )}
 
             <motion.div
-                className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-6 pb-16 pt-10 sm:px-8 lg:px-10 lg:pb-22 lg:pt-12 xl:px-12"
+                className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-4 sm:px-6 pb-16 pt-10 lg:px-10 lg:pb-22 lg:pt-12 xl:px-12"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

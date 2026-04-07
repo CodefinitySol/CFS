@@ -67,7 +67,7 @@ const FEATURES = [
 export default function WhoAmISection() {
     return (
         <section className="bg-[#E8ECF0] py-16 sm:py-24 overflow-hidden">
-            <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-16">
+            <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 xl:px-16">
                 <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-24">
 
                     {/* Left Content */}

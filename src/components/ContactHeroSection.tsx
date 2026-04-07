@@ -35,7 +35,7 @@ export default function ContactHeroSection() {
             {/* Header */}
             <Header isLight={true} />
 
-            <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-6 py-20 sm:px-10 sm:py-16 lg:px-12 lg:py-12">
+            <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-4 sm:px-6 py-20 sm:py-16 lg:px-12 lg:py-12">
                 <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20 xl:gap-24">
 
                     {/* Left Content */}

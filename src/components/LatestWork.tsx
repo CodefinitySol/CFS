@@ -43,7 +43,7 @@ export default function LatestWork() {
   return (
     <section className="overflow-hidden bg-[linear-gradient(to_bottom,#E8ECF0_80%,#ffffff_80%)] py-18 sm:py-20">
       {/* Header */}
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
         <motion.div
           className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between"
           initial={{ opacity: 0, y: 40 }}

@@ -7,7 +7,7 @@ export default function AboutHeroSection() {
     <section className="relative min-h-screen w-full bg-[#191819] py-10 overflow-hidden flex flex-col justify-center">
 
       <motion.div
-        className="w-full relative z-10 mx-auto max-w-4xl px-4 md:px-8"
+        className="relative z-10 mx-auto w-full max-w-4xl px-4 sm:px-6 md:px-8"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

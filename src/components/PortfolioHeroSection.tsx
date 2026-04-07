@@ -13,7 +13,7 @@ export default function PortfolioHeroSection() {
         <section className="relative w-full bg-white pb-12 lg:pb-24">
             <Header isLight={true} />
 
-            <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-12 mt-3 sm:mt-4">
+            <div className="mx-auto mt-3 max-w-[1700px] px-4 sm:mt-4 sm:px-6 lg:px-12">
                 {/* The Container Card with thick border */}
                 <motion.div
                     className="relative rounded-[22px] sm:rounded-[22px] lg:rounded-[22px] p-2 sm:p-2 bg-[#ECECEC] overflow-hidden"

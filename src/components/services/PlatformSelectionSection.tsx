@@ -29,7 +29,7 @@ export default function PlatformSelectionSection({
     return (
         <section className="bg-white py-12 sm:py-16">
             <motion.div
-                className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-16"
+                className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 xl:px-16"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -38,7 +38,7 @@ export default function BlueprintAISection() {
         background: 'linear-gradient(180deg, #2F3A44 0%, #232E38 55%, #1A242D 100%)'
       }}
     >
-      <div className="mx-auto max-w-[1500px] px-8 sm:px-16 lg:px-24">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_1.3fr] gap-16 lg:gap-32 items-center">
 
           {/* Left Side - Content */}

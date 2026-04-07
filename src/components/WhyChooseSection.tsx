@@ -27,7 +27,9 @@ export default function WhyChooseSection({ badgeText, title, description, REASON
       {/* Background Split */}
       <div className="absolute top-0 left-0 right-0 h-[55%] bg-[#E8ECF0]" />
 
-      <div className={`relative z-10 mx-auto max-w-[1500px] ${isPricing ? 'px-6 lg:px-12' : 'px-6 lg:px-8'}`}>
+      <div
+        className={`relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 ${isPricing ? 'lg:px-12' : 'lg:px-8'}`}
+      >
         {/* Header with Navigation */}
         <motion.div
           className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8"

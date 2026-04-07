@@ -209,7 +209,7 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: Testimon
 export default function TestimonialsSection() {
   return (
     <section className="relative w-full overflow-hidden border-t border-white/5 bg-[#191819] py-18 sm:py-22">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
         <motion.div
           className="mb-10 max-w-3xl sm:mb-12 lg:mb-14"
           initial={{ opacity: 0, y: 20 }}

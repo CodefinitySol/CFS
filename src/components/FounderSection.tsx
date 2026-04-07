@@ -13,7 +13,7 @@ export default function FounderSection() {
             {/* Top Background part (Header Area) */}
             <div className="bg-[#CFD7DE] pt-20 pb-10 sm:pt-24 sm:pb-12 lg:pt-26 lg:pb-16">
                 <motion.div
-                    className="max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center"
+                    className="mx-auto flex max-w-[1400px] flex-col items-center text-center px-4 sm:px-6 lg:px-12"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -51,7 +51,7 @@ export default function FounderSection() {
                 </div>
 
                 <motion.div
-                    className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12"
+                    className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-12"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}

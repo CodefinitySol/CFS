@@ -10,7 +10,7 @@ import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen min-w-0 max-w-full overflow-x-hidden bg-white">
       <HeroSection />
       <ClientMarquee />
       <Meet />

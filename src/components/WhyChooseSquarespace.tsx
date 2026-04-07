@@ -31,7 +31,7 @@ const BENEFITS = [
 export default function WhyChooseSquarespace() {
     return (
         <section className="bg-[#E8ECF0] py-24 sm:py-22">
-            <div className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16">
+            <div className="mx-auto max-w-[1700px] px-4 sm:px-6 lg:px-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
                     {/* Left Content */}

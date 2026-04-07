@@ -62,8 +62,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="bg-white py-12 lg:px-4 sm:py-12 overflow-hidden">
-      <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
+    <section className="overflow-hidden bg-white py-12 sm:py-12">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         <div className="rounded-[22px] bg-[#ECECEC] p-2">
           <div className="relative overflow-hidden rounded-[16px] bg-[#191819] p-8 sm:p-12 lg:p-20">
             {/* Dot Background Pattern */}

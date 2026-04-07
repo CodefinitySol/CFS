@@ -22,7 +22,7 @@ export default function PricingHeroSection() {
                 />
             </div>
 
-            <div className="flex-1 w-full max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-12 relative z-10 flex flex-col justify-center pt-10 lg:pt-10 pb-12 lg:pb-20">
+            <div className="relative z-10 mx-auto flex w-full max-w-[1700px] flex-1 flex-col justify-center px-4 sm:px-6 pb-12 pt-10 lg:px-12 lg:pb-20 lg:pt-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
                     {/* Left Content */}

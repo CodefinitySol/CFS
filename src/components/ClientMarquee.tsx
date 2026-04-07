@@ -35,7 +35,7 @@ export default function ClientMarquee() {
             className="relative w-full overflow-hidden border-t border-[#E8ECF0] bg-white py-8 sm:py-10"
             aria-label="Our clients"
         >
-            <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+            <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
                 <motion.h2
                     className="mb-8 text-center font-aeonik text-xl font-normal text-[#191819] sm:mb-10 sm:text-2xl lg:text-3xl"
                     initial={{ opacity: 0, y: 12 }}

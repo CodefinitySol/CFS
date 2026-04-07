@@ -90,7 +90,7 @@ export default function GrowthSection({
         <section
             className={`overflow-hidden py-16 sm:py-24 ${isLight ? 'bg-white' : 'bg-[#191819]'}`}
         >
-            <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-16">
+            <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12 xl:px-16">
 
                 {/* Header Section */}
                 <motion.div

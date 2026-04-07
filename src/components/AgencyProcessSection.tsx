@@ -58,7 +58,7 @@ export default function AgencyProcessSection() {
     return (
         <section className="bg-[#D1D7DD] py-12 overflow-hidden mt-10">
             <motion.div
-                className="max-w-[1700px] mx-auto px-6 lg:px-12"
+                className="mx-auto max-w-[1700px] px-4 sm:px-6 lg:px-12"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

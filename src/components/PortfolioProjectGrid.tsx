@@ -41,7 +41,7 @@ const PORTFOLIO_PROJECTS = [
 export default function PortfolioProjectGrid() {
     return (
         <section className="bg-[#F8FAFC] pb-16 pt-6 sm:pt-10 lg:pb-24 lg:pt-14">
-            <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
                 <header className="mb-12 max-w-2xl lg:mb-16">
                     <p className="font-aeonik text-xs font-medium uppercase tracking-[0.2em] text-[#6D656D]">
                         Work

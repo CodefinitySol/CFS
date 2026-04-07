@@ -74,7 +74,7 @@ export default function BlogGrid() {
 
     return (
         <section className="bg-white py-12 px-8">
-            <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
+            <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="font-aeonik text-4xl lg:text-5xl text-[#191819] font-normal leading-tight mb-12">

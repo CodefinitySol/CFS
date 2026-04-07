@@ -95,7 +95,7 @@ export default function TestimonialsPage() {
 
             {/* Hero Section */}
             <section className="bg-white lg:px-6 pt-6 pb-16 relative">
-                <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
+                <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-12">
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10">
                         <div className="max-w-3xl">
                             <span className="inline-flex items-center rounded-full px-4 py-1.5 mb-6 bg-[#BEC8D1] w-fit">

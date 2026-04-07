@@ -52,7 +52,7 @@ export default function FAQSection() {
 
   return (
     <section className="bg-white py-18 sm:py-18">
-      <div className="mx-auto max-w-[1500px] px-8 sm:px-16 lg:px-24">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-24">
         <div
           className="relative bg-[#D0D6DC] rounded-[6px] p-8 sm:p-16 lg:px-24 lg:py-24"
         >

@@ -59,8 +59,8 @@ const STEPS = [
 
 export default function ProcessSection() {
   return (
-    <section className="bg-white py-24 sm:py-12">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+    <section className="overflow-x-clip bg-white py-24 sm:py-12">
+      <div className="mx-auto min-w-0 max-w-[1600px] px-4 sm:px-6 lg:px-12">
         {/* Header */}
         <motion.div
           className="mb-12 max-w-2xl"
@@ -79,13 +79,13 @@ export default function ProcessSection() {
         </motion.div>
 
         {/* Tablet (md–lg): 50/50 + full-width row; Desktop (lg+): three equal columns */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid min-w-0 grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {STEPS.map((step, index) => {
             const isWide = index === 2;
             return (
               <motion.div
                 key={index}
-                className={`group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-xl ${
+                className={`group relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-xl ${
                   isWide
                     ? 'md:col-span-2 md:min-h-[400px] md:flex-row md:items-start md:gap-10 md:p-10 lg:col-span-1 lg:min-h-[640px] lg:flex-col lg:gap-0 lg:p-8 min-h-[380px]'
                     : 'min-h-[640px]'
@@ -97,9 +97,9 @@ export default function ProcessSection() {
               >
                 {/* Background Number */}
                 <div
-                  className={`absolute left-[-18] top-0 font-aeonik font-bold leading-none text-[#2B2A2B] opacity-[0.08] transition-colors group-hover:text-white group-hover:opacity-10 ${
+                  className={`absolute -left-[18px] top-0 font-aeonik font-bold leading-none text-[#2B2A2B] opacity-[0.08] transition-colors group-hover:text-white group-hover:opacity-10 ${
                     isWide
-                      ? 'text-[140px] md:left-4 md:top-2 md:text-[160px] lg:left-[-18] lg:top-0 lg:text-[180px]'
+                      ? 'text-[140px] md:left-4 md:top-2 md:text-[160px] lg:-left-[18px] lg:top-0 lg:text-[180px]'
                       : 'text-[180px]'
                   }`}
                 >
@@ -142,8 +142,8 @@ export default function ProcessSection() {
                 <div
                   className={
                     isWide
-                      ? 'relative mt-6 h-52 w-full shrink-0 overflow-hidden md:mt-0 md:h-[260px] md:w-[42%] md:max-w-md md:flex-none lg:pointer-events-none lg:absolute lg:-bottom-2 lg:-right-2 lg:mt-0 lg:h-72 lg:w-[90%] lg:max-w-none'
-                      : 'absolute -bottom-2 -right-2 h-72 w-[90%] overflow-hidden pointer-events-none'
+                      ? 'relative mt-6 h-52 w-full shrink-0 overflow-hidden md:mt-0 md:h-[260px] md:w-[42%] md:max-w-md md:flex-none lg:pointer-events-none lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:h-72 lg:w-[90%] lg:max-w-none'
+                      : 'absolute bottom-0 right-0 h-72 w-[90%] overflow-hidden pointer-events-none'
                   }
                 >
                   <Image

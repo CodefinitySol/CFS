@@ -49,7 +49,7 @@ export default function HeroSection() {
       <Header />
 
       {/* Content Wrapper */}
-      <div className="relative z-10 mx-auto max-w-[1600px] px-6 py-12 sm:px-8 md:py-16 lg:px-10 lg:py-10 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-4 sm:px-6 py-12 md:py-16 lg:px-10 lg:py-10 xl:px-12">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20 xl:gap-24">
           {/* Left Section - Hero Content */}
           <motion.div

@@ -114,7 +114,7 @@ function Counter({
 
 export default function MeetSam() {
   return (
-    <section className="bg-white px-6 py-20 sm:px-8 lg:px-16 lg:py-22">
+    <section className="bg-white px-4 sm:px-6 py-20 lg:px-16 lg:py-22">
       <div className="mx-auto max-w-[1600px]">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0">
           {/* Left Content */}

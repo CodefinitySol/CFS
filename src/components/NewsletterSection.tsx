@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export default function NewsletterSection() {
     return (
         <section className="relative w-full overflow-x-hidden pt-24 pb-6">
-            <div className="relative z-10 mx-auto flex max-w-[1600px] flex-col items-center px-4 text-center sm:px-6 lg:px-12">
+            <div className="relative z-10 mx-auto flex max-w-[1600px] flex-col items-center text-center px-4 sm:px-6 lg:px-12">
 
                 {/* Badge */}
                 <motion.div

@@ -21,7 +21,7 @@ const STATS = [
 export default function WhyChooseStatsSection() {
     return (
         <section className="bg-[#E8ECF0] py-24 sm:py-28 overflow-hidden lg:px-8">
-            <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
+            <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="flex flex-col mb-16">
                     <span className="inline-flex items-center rounded-full px-4 py-1.5 mb-8 bg-[#BEC8D1] w-fit">

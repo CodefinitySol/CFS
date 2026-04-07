@@ -81,7 +81,7 @@ export default function AugmentationServiceFeatures() {
     return (
         <section className="bg-white pt-24 sm:pt-32 pb-8 sm:pb-12 overflow-hidden">
             <motion.div
-                className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex flex-col items-center"
+                className="mx-auto flex max-w-[1700px] flex-col items-center px-4 sm:px-6 lg:px-16 xl:px-20"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

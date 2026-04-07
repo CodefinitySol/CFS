@@ -88,7 +88,7 @@ export default function AcuityManagementSection() {
     return (
         <section className="bg-white py-24 sm:py-32 overflow-hidden">
             <motion.div
-                className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20"
+                className="mx-auto max-w-[1700px] px-4 sm:px-6 lg:px-16 xl:px-20"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -29,7 +29,7 @@ export default function SupportSection() {
             {/* Background Grid */}
             <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#191819 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+            <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-12">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
                     <motion.div

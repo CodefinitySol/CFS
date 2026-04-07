@@ -58,7 +58,7 @@ const SERVICES = [
 export default function ServicesSection() {
   return (
     <section id="services" className="bg-[#191819] py-18 sm:py-22">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
         {/* Header */}
         <motion.div
           className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-end"

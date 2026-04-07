@@ -55,7 +55,7 @@ export default function ProjectSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-8 py-16 sm:px-12 sm:py-20 lg:px-32 lg:py-24 xl:px-44">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-4 sm:px-6 py-16 sm:py-20 lg:px-32 lg:py-24 xl:px-44">
         <div className="flex flex-col gap-22 lg:flex-row lg:items-start">
           {/* Left Content */}
           <motion.div

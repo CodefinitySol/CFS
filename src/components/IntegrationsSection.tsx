@@ -15,7 +15,7 @@ export default function IntegrationsSection() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1500px] px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           className="mb-4 flex flex-col items-center text-center"

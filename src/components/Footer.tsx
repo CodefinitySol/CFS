@@ -82,8 +82,8 @@ export default function Footer() {
               </Link>
             </div>
 
-            {/* Explore */}
-            <div className="w-full shrink-0 pt-4 md:w-48 md:min-w-[12rem] lg:w-48 lg:min-w-[12rem]">
+            {/* Explore — hidden on small screens; shown from tablet up */}
+            <div className="hidden w-full shrink-0 pt-4 md:block md:w-48 md:min-w-[12rem] lg:w-48 lg:min-w-[12rem]">
               <h3
                 className="font-aeonik text-xl font-normal lg:text-2xl"
                 style={{

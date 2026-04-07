@@ -145,15 +145,15 @@ export default function Header({ isLight = false }: HeaderProps) {
   };
 
   return (
-    <header className="relative z-50 overflow-visible px-6 py-6 sm:px-10 sm:py-8 lg:px-12">
-      <div className="mx-auto grid w-full max-w-[1600px] grid-cols-2 items-center lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
-        {/* Logo: left column; mirrors CTA inset on the right */}
+    <header className="relative z-50 overflow-visible px-4 sm:px-6 lg:px-12 py-6 sm:py-8">
+      <div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+        {/* Logo: full width row on mobile; left column on lg+ */}
         <Link
           href="/"
           className="z-50 col-start-1 row-start-1 flex items-center justify-self-start self-center overflow-visible transition-all duration-300 hover:opacity-80"
         >
-          {/* Layout box stays h-12 / sm:h-16 so header height unchanged; scale draws larger */}
-          <div className="relative h-12 w-40 shrink-0 origin-left scale-[1.2] sm:h-16 sm:w-52 sm:scale-[1.14]">
+          {/* Centered scale on mobile avoids asymmetric overflow; sm+ matches prior art direction */}
+          <div className="relative h-12 w-40 shrink-0 origin-center scale-100 sm:h-16 sm:w-52 sm:origin-left sm:scale-[1.14] lg:scale-[1.2]">
             <Image
               src="/codefinity-logo-white.png"
               alt="Codefinity Solutions"
@@ -163,18 +163,6 @@ export default function Header({ isLight = false }: HeaderProps) {
             />
           </div>
         </Link>
-
-        {/* Mobile menu toggle */}
-        <button
-          type="button"
-          onClick={() => setIsMobileMenuOpen(true)}
-          className="group col-start-2 row-start-1 flex h-12 w-12 flex-col items-end justify-center justify-self-end self-center gap-1.5 rounded-full bg-transparent p-2 lg:hidden"
-          aria-label="Open menu"
-        >
-          <span className={`h-0.5 w-6 transition-transform group-hover:w-8 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
-          <span className={`h-0.5 w-8 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
-          <span className={`h-0.5 w-4 transition-transform group-hover:w-8 ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
-        </button>
 
         {/* Desktop nav: center column */}
         <nav
@@ -293,14 +281,37 @@ export default function Header({ isLight = false }: HeaderProps) {
             />
           </svg>
         </Link>
+      </div>
 
-        {/* Mobile Menu Overlay */}
-        <div
-          className={`fixed inset-0 z-[60] flex flex-col bg-white transition-transform duration-500 ease-in-out lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      {/* Mobile: fixed menu control (top-right), same visual language as FloatingCTA; hidden on lg+ */}
+      {!isMobileMenuOpen && (
+        <div className="fixed right-6 top-6 z-[90] lg:hidden">
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(true)}
+            className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border shadow-2xl transition-transform hover:scale-105 ${
+              isLight
+                ? 'border-black/10 bg-white text-[#191819] shadow-[0_1px_0_rgba(25,24,25,0.05),0_10px_30px_-18px_rgba(25,24,25,0.22)] hover:bg-[#f8f9fa]'
+                : 'border-white/10 bg-[#191819] text-white hover:bg-[#2B2A2B]'
             }`}
-        >
+            aria-label="Open menu"
+          >
+            <span className="flex w-5 flex-col items-end justify-center gap-1.5">
+              <span className={`h-0.5 w-4 rounded-full ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
+              <span className={`h-0.5 w-5 rounded-full ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
+              <span className={`h-0.5 w-3 rounded-full ${isLight ? 'bg-[#191819]' : 'bg-white'}`} />
+            </span>
+          </button>
+        </div>
+      )}
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-[100] flex flex-col bg-white transition-transform duration-500 ease-in-out lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+      >
           {/* Mobile Header */}
-          <div className="flex items-center justify-between px-6 py-6 sm:px-10 sm:py-8">
+          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-6 sm:py-8">
             <Link href="/" onClick={handleCloseMenu} className="block">
               <div className="relative h-10 w-36">
                 <Image
@@ -338,7 +349,7 @@ export default function Header({ isLight = false }: HeaderProps) {
                 }`}
             >
               {/* Main Menu Pane (Left Half) */}
-              <div className="flex w-1/2 flex-col items-center overflow-y-auto px-6 pb-20">
+              <div className="flex w-1/2 flex-col items-center overflow-y-auto px-4 sm:px-6 pb-20 lg:px-12">
                 <nav className="my-auto flex flex-col items-center gap-6 text-center">
                   {NAV_ITEMS.map((item) => (
                     <div
@@ -401,7 +412,7 @@ export default function Header({ isLight = false }: HeaderProps) {
               </div>
 
               {/* Submenu Pane (Right Half) */}
-              <div className="flex w-1/2 flex-col items-center overflow-y-auto px-6 pb-20">
+              <div className="flex w-1/2 flex-col items-center overflow-y-auto px-4 sm:px-6 pb-20 lg:px-12">
                 <div className="my-auto flex w-full flex-col items-center">
                   <button
                     onClick={closeSubmenu}
@@ -440,7 +451,6 @@ export default function Header({ isLight = false }: HeaderProps) {
             </div>
           </div>
         </div>
-      </div>
     </header>
   );
 }

@@ -10,7 +10,7 @@ export default function AcuityProjectSection() {
         <section className="relative w-full overflow-hidden bg-white py-12 lg:py-24">
             {/* Background Container with Cross markers at corners */}
             <motion.div
-                className="relative mx-auto max-w-[1700px] px-6 sm:px-10 lg:px-16 xl:px-20"
+                className="relative mx-auto max-w-[1700px] px-4 sm:px-6 lg:px-16 xl:px-20"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

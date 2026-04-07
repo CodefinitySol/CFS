@@ -69,7 +69,7 @@ export default function BlogHero() {
 
     return (
         <section className="bg-white px-8 pt-12 sm:pt-6 pb-24 relative">
-            <div className="mx-auto max-w-[1500px] px-6 lg:px-8">
+            <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
                 {/* Top Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
                     <div className="max-w-3xl">
