@@ -18,7 +18,7 @@ const STEPS = [
     ),
     title: 'Discovery and Planning',
     description:
-      "We start by understanding what you are trying to build and why. This includes your goals, users, constraints, and existing systems. From there, we define scope, architecture direction, timelines, and risks early. You get clarity on what will be built, how it will be built, and what success looks like before any code is written.",
+      'We start by understanding the problem, not just the feature list. This includes business goals, users, constraints, and existing systems. We define scope, architecture direction, timelines, and risks upfront so there is clarity before any build starts.',
     image: '/onboarding.webp',
   },
   {
@@ -35,7 +35,7 @@ const STEPS = [
     ),
     title: 'Build, Iterate, and Validate',
     description:
-      'Development happens in clear phases with regular check-ins. We ship in small, testable increments and keep feedback loops tight. Whether it is an AI workflow, a web platform, or a mobile app, we focus on clean implementation, performance, and maintainability. Changes are expected and handled without derailing the project.',
+      'We build in structured phases with fast iterations and tight feedback loops. Every release is testable and production-focused. Whether it is AI systems or full platforms, we focus on clean implementation, performance, and long-term maintainability.',
     image: '/development.webp',
   },
   {
@@ -52,7 +52,7 @@ const STEPS = [
     ),
     title: 'Launch, Support, and Scale',
     description:
-      "Once the product is ready, we handle deployment, handover, and documentation. We stay involved after launch to support fixes, improvements, and scaling needs. Many clients continue with us long term as their product grows, users increase, and requirements evolve.",
+      'We handle deployment, handover, and documentation, then stay involved as the product grows. This includes fixes, improvements, and scaling the system as usage increases and requirements evolve.',
     image: '/onboarding.webp',
   },
 ];
@@ -74,7 +74,7 @@ export default function ProcessSection() {
             Smooth and efficient process
           </span>
           <h2 className="mt-4 font-aeonik text-4xl font-normal text-[#191819] sm:text-5xl lg:text-6xl">
-            How We Take a Product From Idea to Production
+            How we take a product from idea to production
           </h2>
         </motion.div>
 

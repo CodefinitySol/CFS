@@ -27,49 +27,49 @@ const DEFAULT_PLANS: PricingPlan[] = [
   {
     name: 'Essentials',
     price: '$3,000 / month',
-    description: 'Best for early-stage products, MVPs, and focused development needs. You get experienced developers who can move fast while keeping the foundation clean and stable.',
+    description: 'Best for early-stage builds and focused development needs where speed matters but the foundation still needs to be done right',
     features: [
-      'Dedicated mid-level engineers',
-      'Web or backend development',
-      'Clear task ownership and delivery',
+      'Dedicated engineers',
+      'Product-focused development',
+      'Clear ownership and delivery',
       'Weekly progress updates',
-      'Standard working hours',
-      'Flexible month-to-month engagement'
+      'Direct communication',
+      'Flexible monthly engagement'
     ],
     isDark: true
   },
   {
     name: 'Premium',
     price: '$6,000 / month',
-    description: 'Designed for growing products that need senior ownership, better planning, and tighter execution. Ideal for AI-heavy builds, integrations, and systems that require careful decisions.',
+    description: 'For growing products that need stronger ownership, better planning, and engineers who can handle complexity without constant oversight',
     features: [
-      'Senior engineers with 5+ years experience',
-      'AI development or complex backend work',
-      'Architecture input and technical planning',
-      'Faster turnaround and deeper involvement',
-      'Priority communication and reviews'
+      'Senior engineers with real product experience',
+      'AI systems and backend-heavy work',
+      'Architecture input and technical direction',
+      'Faster execution with deeper involvement',
+      'Priority communication'
     ],
     isDark: true
   },
   {
     name: 'Enterprise',
     price: "Custom pricing",
-    description: 'For companies building large systems or scaling existing products. This is our flagship model, offering full teams and long-term partnership.',
+    description: 'For companies building large systems or scaling existing products with long-term roadmap ownership',
     features: [
-      'Dedicated team or multiple roles',
-      'AI, web, mobile, and DevOps combined',
-      'Technical leadership and delivery oversight',
-      'No fixed timeline caps',
-      'Long-term roadmap support'
+      'Dedicated team across roles',
+      'Product, AI, web, and infrastructure combined',
+      'Technical leadership and delivery ownership',
+      'No fixed timeline constraints',
+      'Long-term product and scaling support'
     ],
     isDark: false
   }
 ];
 
 export default function PricingSection({
-  badge = "Augmentation for everyone",
-  title = " Flexible Engagement Models",
-  description = "Choose a setup that fits your product stage, team size, and level of complexity",
+  badge = "Augmentation for teams that need real execution",
+  title = "Flexible engagement models based on how you build",
+  description = "Choose a setup based on your product stage, complexity, and how involved you need us to be",
   plans = DEFAULT_PLANS,
   containerClassName = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
 }: PricingSectionProps) {
@@ -102,9 +102,8 @@ export default function PricingSection({
         </motion.div>
 
         {/* Pricing Container */}
-        <div className={`mx-auto bg-[#191819] rounded-[24px] p-2 sm:p-2 lg:p-4 ${containerClassName && containerClassName.includes('max-w-') ? containerClassName.match(/max-w-[^\s]+/)?.[0] : 'max-w-full'}`}>
-          <div className={`grid ${containerClassName ? containerClassName.replace(/max-w-[^\s]+/g, '').replace('mx-auto', '').trim() : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-0`}>
-            {/* Plan Cards */}
+        <div className={`${containerClassName && containerClassName.includes('max-w-') ? containerClassName.match(/max-w-[^\s]+/)?.[0] : 'max-w-full'} mx-auto`}>
+          <div className={`grid ${containerClassName ? containerClassName.replace(/max-w-[^\s]+/g, '').replace('mx-auto', '').trim() : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-4 sm:gap-5 lg:gap-6`}>
             {plans.map((plan, index) => (
               <PricingCard key={plan.name} plan={plan} index={index} />
             ))}
@@ -116,21 +115,11 @@ export default function PricingSection({
 }
 
 function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
-  const gradientStyle = {
-    backgroundImage: 'linear-gradient(94.74deg, #fff .26%, #2B2A2B 118.16%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-  };
 
   return (
     <motion.div
       className={`
-        relative flex flex-col p-8 sm:p-12 lg:p-14 transition-all duration-300 h-full
-        ${plan.isDark
-          ? 'text-white bg-[#191819]'
-          : 'bg-white rounded-[20px] text-[#191819] shadow-2xl shadow-black/40 lg:z-10'
-        }
+        group relative flex h-full flex-col rounded-[20px] bg-white p-8 text-[#191819] shadow-[0_1px_0_rgba(25,24,25,0.05),0_10px_30px_-18px_rgba(25,24,25,0.22)] transition-all duration-300 hover:bg-[#191819] sm:p-12 lg:p-14
       `}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -145,11 +134,11 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
             src="/square.png"
             alt=""
             fill
-            className={`w-full h-full object-stretch ${!plan.isDark ? 'brightness-[1.1] saturate-[0.5] opacity-20' : 'opacity-40'}`}
+            className="h-full w-full object-stretch opacity-20 transition-opacity duration-300 group-hover:opacity-35"
           />
         </div>
 
-        <div className={`relative z-10 px-6 font-aeonik text-sm font-medium tracking-wide ${plan.isDark ? 'text-white/90' : 'text-[#2B2A2B]'}`}>
+        <div className="relative z-10 px-6 font-aeonik text-sm font-medium tracking-wide text-[#2B2A2B] transition-colors duration-300 group-hover:text-white/90">
           {plan.name}
         </div>
       </div>
@@ -158,22 +147,21 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
       <div className="mb-10 flex items-baseline gap-3">
         {plan.price !== "Custom pricing" ? (
           <>
-            <span className={`text-base font-normal ${plan.isDark ? 'text-white/40' : 'text-[#2B2A2B]/60'}`}>From</span>
+            <span className="text-base font-normal text-[#2B2A2B]/60 transition-colors duration-300 group-hover:text-white/50">From</span>
             <span
-              className="font-aeonik text-4xl font-normal tracking-tight lg:text-4xl"
-              style={gradientStyle}
+              className="font-aeonik text-4xl font-normal tracking-tight text-[#191819] transition-colors duration-300 group-hover:text-white lg:text-4xl"
             >
               {plan.price}
             </span>
             {plan.priceSuffix && (
-              <span className={`text-lg font-normal ${plan.isDark ? 'text-white/40' : 'text-[#2B2A2B]/60'}`}>
+              <span className="text-lg font-normal text-[#2B2A2B]/60 transition-colors duration-300 group-hover:text-white/50">
                 {plan.priceSuffix}
               </span>
             )}
           </>
         ) : (
           <span
-            className="font-aeonik text-4xl font-normal tracking-tight text-current lg:text-4xl"
+            className="font-aeonik text-4xl font-normal tracking-tight text-[#191819] transition-colors duration-300 group-hover:text-white lg:text-4xl"
           >
             {plan.price}
           </span>
@@ -181,24 +169,21 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
       </div>
 
       {/* Description */}
-      <p className={`mb-12 font-aeonik text-base leading-relaxed ${plan.isDark ? 'text-white' : 'text-[#2B2A2B]'}`}>
+      <p className="mb-12 font-aeonik text-base leading-relaxed text-[#2B2A2B] transition-colors duration-300 group-hover:text-white">
         {plan.description}
       </p>
 
       {/* Features Heading */}
-      <h4
-        className="mb-6 font-aeonik text-2xl font-normal"
-        style={plan.isDark ? gradientStyle : {}}
-      >
-        What&apos;s Included
+      <h4 className="mb-6 font-aeonik text-2xl font-normal text-[#191819] transition-colors duration-300 group-hover:text-white">
+        What&apos;s included
       </h4>
 
       {/* Features List */}
       <ul className="mb-12 space-y-3 flex-1">
         {plan.features.map((feature) => (
           <li key={feature} className="flex items-start gap-4">
-            <IoCheckmarkCircle className={`mt-1 h-5 w-5 shrink-0 ${plan.isDark ? 'text-[#2B2A2B]' : 'text-[#2B2A2B]'}`} />
-            <span className={`font-aeonik text-base leading-snug ${plan.isDark ? 'text-white/80' : 'text-[#191819]/80'}`}>
+            <IoCheckmarkCircle className="mt-1 h-5 w-5 shrink-0 text-[#2B2A2B] transition-colors duration-300 group-hover:text-white" />
+            <span className="font-aeonik text-base leading-snug text-[#191819]/80 transition-colors duration-300 group-hover:text-white/85">
               {feature}
             </span>
           </li>
@@ -212,13 +197,10 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
         rel="noopener noreferrer"
         className={`
           flex w-full cursor-pointer items-center justify-center gap-2 rounded-full py-5 font-aeonik text-base font-medium transition-all duration-300
-          ${plan.isDark
-            ? 'border border-white/10 bg-[#2B2A2B] text-white hover:bg-[#607C93]'
-            : 'bg-[#191819] text-white shadow-xl shadow-black/10 hover:bg-[#2A2D32]'
-          }
+          border border-[#E7E2E7] bg-[#2B2A2B] text-white hover:bg-[#3A383A]
         `}
       >
-        Schedule a call
+        Discuss your project
         <HiArrowUpRight className="h-4 w-4" />
       </a>
     </motion.div>

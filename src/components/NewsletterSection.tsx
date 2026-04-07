@@ -23,7 +23,7 @@ export default function NewsletterSection() {
                         NEWSLETTER
                     </span>
                     <span className="text-white/80 text-[10px] sm:text-xs font-aeonik px-4 pr-6">
-                        Product Engineering, AI & Scaling Insights
+                        Product engineering insights that actually matter
                     </span>
                 </motion.div>
 
@@ -41,7 +41,7 @@ export default function NewsletterSection() {
                         backgroundClip: 'text',
                     }}
                 >
-                    Get Product Engineering Insights
+                    Product engineering insights that actually matter
                 </motion.h2>
 
                 {/* Description */}
@@ -52,7 +52,7 @@ export default function NewsletterSection() {
                     transition={{ delay: 0.2 }}
                     className="font-aeonik text-base sm:text-md text-white max-w-2xl mb-14"
                 >
-                    Join our newsletter for practical insights on building and scaling real software products. We share lessons from production systems, AI-driven workflows, modern web stacks, and cloud infrastructure, focused on what actually works in the real world.
+                    Practical breakdowns on building and scaling real software products. No theory, no fluff. Just what works in production across AI systems, SaaS platforms, and modern infrastructure.
                 </motion.p>
 
                 {/* Form */}
@@ -83,7 +83,7 @@ export default function NewsletterSection() {
                         type="submit"
                         className="self-center lg:self-auto bg-[#2B2A2B] text-white rounded-full px-12 py-3.5 font-medium hover:brightness-110 active:scale-[0.98] transition-all font-aeonik cursor-pointer whitespace-nowrap"
                     >
-                        Subscribe
+                        Get insights
                     </button>
                 </motion.form>
             </div>

@@ -139,10 +139,10 @@ export default function OurOfficesSection() {
                         </div>
 
                         <h2 className="mt-6 font-aeonik text-4xl font-normal leading-[1.05] tracking-tight text-[#191819] sm:text-5xl lg:text-6xl">
-                            Built across continents, managed as one team.
+                            Operating across regions, aligned as one team
                         </h2>
                         <p className="mt-5 max-w-lg font-aeonik text-base leading-relaxed text-[#4B474B] sm:text-lg">
-                            We work across Pakistan and the United States, giving clients reliable coverage, fast communication, and hands-on support wherever the project is based.
+                            We work across the United States and Pakistan, combining client-side presence with a strong engineering base. This allows faster communication, better alignment, and consistent execution across time zones.
                         </p>
 
                         <div className="mt-8 flex flex-wrap gap-3">
@@ -153,7 +153,7 @@ export default function OurOfficesSection() {
                                 Get in touch
                             </Link>
                             <span className="inline-flex items-center rounded-full border border-[#E7E2E7] px-5 py-3 font-aeonik text-sm text-[#4B474B]">
-                                Hover the pins to view office details
+                                Hover to view location details
                             </span>
                         </div>
                     </div>

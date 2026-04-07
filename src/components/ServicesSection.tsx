@@ -6,43 +6,25 @@ import { motion } from 'framer-motion';
 
 const SERVICES = [
   {
-    title: 'AI Development and Automation',
+    title: 'AI Systems and Automation',
     icon: '/services/Devices.webp',
-    description: 'We design and build AI-powered systems that solve real problems. This includes AI agents, LLM-based workflows, model training, and intelligent automation tailored to your product or internal operations.\n\n Our team works deeply with Python-based stacks and modern AI frameworks, handling everything from architecture and experimentation to production deployment and monitoring.',
+    description: 'We build AI-powered systems that improve how products operate and how teams work.\n\nThis includes AI agents, LLM workflows, automation pipelines, and intelligent integrations. Whether it is embedding AI into an existing product or building AI-first systems from scratch, the focus is always on real use cases, not experiments.',
     image: '/services/custom.webp',
     link: '/services/ai-development',
     wide: true,
   },
   {
-    title: 'Web Application Development',
+    title: 'Product Development',
     icon: '/services/HandGrabbing.webp',
-    description: 'We build robust web applications using modern stacks like MERN and Python. Many of our products are AI-native by design, while others focus on performance, reliability, and clean user experience.\n\n Whether it is a customer-facing platform, internal tool, or SaaS product, we build systems that are easy to maintain and ready to scale.',
+    description: 'We design and build production-ready software products, from early-stage builds to full-scale systems.\n\nThis includes SaaS platforms, internal tools, customer-facing applications, and complex systems built for real-world usage. We handle architecture, backend systems, frontend, and everything required to take a product from idea to a stable, scalable system.',
     image: '/services/nocode.webp',
     link: '/services/website-application',
     wide: true,
   },
   {
-    title: 'Mobile Application Development',
-    icon: '/services/Code.webp',
-    description: 'We develop mobile applications that integrate seamlessly with your backend systems and business logic. From MVPs to production-ready apps, we focus on stability, performance, and long-term usability rather than quick demos.',
-    link: '/services/mobile-application',
-  },
-  {
-    title: 'No-Code and Workflow Automation',
-    icon: '/services/GraduationCap.webp',
-    description: 'For teams that need speed without unnecessary complexity, we offer no-code and low-code solutions using tools like n8n, CMS platforms, and modern automation stacks.\n\n This is ideal for internal tools, integrations, dashboards, and rapid launches where efficiency matters more than custom code everywhere.',
-    link: '/services/no-code-automation',
-  },
-  {
-    title: 'DevOps and Infrastructure',
-    icon: '/services/File.webp',
-    description: 'We handle deployment, cloud setup, CI pipelines, monitoring, and scaling. Our goal is simple: your product should be stable, observable, and easy to operate as usage grows.\n\n We support both new infrastructure setups and improvements to existing systems.',
-    link: '/services/devops',
-  },
-  {
-    title: 'Dedicated Teams and Augmentation',
+    title: 'Dedicated Engineering Teams',
     icon: '/services/ArrowsClockwise.webp',
-    description: 'We provide dedicated engineers and full teams who integrate directly into your workflow. This model works well for companies that need long-term ownership without the overhead of hiring internally.\n\n You get experienced developers, clear communication, and consistent delivery.',
+    description: 'We provide engineers and full teams that integrate directly into your workflow for long-term development.\n\nThis model works for companies building continuously, scaling products, or extending internal teams without the overhead of hiring internally. You get consistent delivery, ownership, and engineers who understand the product, not just isolated tasks.',
     image: '/services/squarespace-home-page.webp',
     link: '/services/augmentation',
     wide: true,
@@ -104,10 +86,10 @@ export default function ServicesSection() {
                 backgroundClip: 'text',
               }}
             >
-              Built Around Real Product Needs
+              Built around real product execution, not generic development
             </h2>
             <p className="mt-6 font-aeonik text-lg text-white">
-              We offer a focused set of services covering the full lifecycle of modern software products. From AI-driven systems to web and mobile applications, we build what is needed, cut what is not, and stay involved long after launch.
+              We focus on a small set of core services that cover how modern software is actually built and scaled. Everything else is handled within these, without unnecessary fragmentation.
             </p>
           </div>
           <button className="rounded-full bg-[#2B2A2B] px-8 py-4 font-aeonik text-base font-medium text-white transition-all hover:bg-[#3A383A]">
@@ -116,23 +98,13 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-9">
-          {/* Row 1: 2 large cards */}
-          <ServiceCard service={SERVICES[0]} className="lg:col-span-5" />
-          <ServiceCard service={SERVICES[1]} className="lg:col-span-4" />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          {/* Top row: 50/50 */}
+          <ServiceCard service={SERVICES[0]} />
+          <ServiceCard service={SERVICES[1]} />
 
-          {/* Row 2: 3 cards */}
-          <ServiceCard service={SERVICES[2]} className="lg:col-span-3" />
-          <ServiceCard service={SERVICES[3]} className="lg:col-span-3" />
-          <ServiceCard service={SERVICES[4]} className="lg:col-span-3" />
-
-          {/* Row 3: 2 large cards */}
-          <ServiceCard service={SERVICES[5]} className="lg:col-span-9" />
-          {/* <ServiceCard service={SERVICES[6]} className="lg:col-span-3" /> */}
-
-          {/* Row 4: 2 cards (One wide, one normal) */}
-          {/* <ServiceCard service={SERVICES[7]} className="lg:col-span-3" /> */}
-          {/* <ServiceCard service={SERVICES[8]} className="lg:col-span-3" /> */}
+          {/* Bottom row: full width */}
+          <ServiceCard service={SERVICES[2]} className="lg:col-span-2" />
         </div>
       </div>
     </section>
@@ -143,7 +115,7 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
   const isWide = service.wide;
 
   const hasImage = !!service.image;
-  const isTopImage = hasImage && ['Web Application Development, Hassle-Free Design', 'Dedicated Teams and Augmentation', 'SEO Optimization'].includes(service.title);
+  const isTopImage = hasImage && ['Product Development', 'Dedicated Engineering Teams', 'SEO Optimization'].includes(service.title);
 
   // Tailored positioning based on the specific mockup for each card
   const getImagePlacement = () => {
@@ -153,11 +125,11 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
     if (service.title === 'SEO Optimization') return "w-[80%] h-[40%] right-[-5%] top-0 lg:w-[70%] lg:h-[35%] lg:right-[-2%] lg:top-0";
 
     switch (service.title) {
-      case 'AI Development and Automation':
+      case 'AI Systems and Automation':
         return "w-[85%] h-[50%] right-[-5%] bottom-0 lg:w-[55%] lg:h-[65%] lg:right-[-2%] lg:bottom-0";
-      case 'Web Application Development':
+      case 'Product Development':
         return "w-[90%] h-[55%] right-[-5%] top-0 lg:w-[55%] lg:h-[80%] lg:right-[-2%] lg:top-0";
-      case 'Dedicated Teams and Augmentation':
+      case 'Dedicated Engineering Teams':
         return "w-[90%] h-[55%] right-[-5%] top-[-5%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:top-[-5%]";
       case 'Website Management':
         return "w-[85%] h-[50%] right-[-5%] bottom-[-2%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:bottom-[-2%]";
@@ -248,9 +220,9 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
               src={service.image}
               alt={`${service.title} visual`}
               fill
-              className={`object-contain ${service.title === 'AI Development and Automation' ? 'object-right-bottom' :
-                service.title === 'Web Application Development' ? 'object-right-top' :
-                  service.title === 'Dedicated Teams and Augmentation' ? 'object-right-top' :
+              className={`object-contain ${service.title === 'AI Systems and Automation' ? 'object-right-bottom' :
+                service.title === 'Product Development' ? 'object-right-top' :
+                  service.title === 'Dedicated Engineering Teams' ? 'object-right-top' :
                     'object-right-bottom'
                 }`}
             />

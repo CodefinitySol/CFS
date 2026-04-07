@@ -9,6 +9,8 @@ import { motion } from 'framer-motion';
 
 type Testimonial = {
   name: string;
+  role: string;
+  company: string;
   rating: number;
   text: string;
 };
@@ -16,26 +18,36 @@ type Testimonial = {
 const TESTIMONIALS_ROW_1: Testimonial[] = [
   {
     name: 'Michelle Choruri',
+    role: 'Founder',
+    company: 'Zappy Ltd',
     rating: 5,
     text: 'Codefinity is a team of Avengers.',
   },
   {
     name: 'Tyler',
+    role: 'Founder',
+    company: 'ZeroFill LLC',
     rating: 5,
     text: 'I appreciate the high-quality work. I needed a quick delivery without overcomplicating things, and the CFS team provided exactly that.',
   },
   {
     name: 'Joshua Dennis',
+    role: 'CTO',
+    company: 'Ask Trevor',
     rating: 5,
     text: 'Teams like Codefinity come around once in a while. They do not shy away from calls, they make sure requirements are met, and the work gets delivered.',
   },
   {
     name: 'Johnny Slionski',
+    role: 'Founder',
+    company: 'Design Me Marketing',
     rating: 5,
     text: 'They cleaned up the mess created by the previous team. Nothing but respect for these guys.',
   },
   {
     name: 'GEO',
+    role: 'Product Lead',
+    company: 'Waltz AI LLC',
     rating: 5,
     text: 'We hired 14 people through them, and not a single resource was a bad fit. Waltz happened because of them.',
   },
@@ -44,26 +56,36 @@ const TESTIMONIALS_ROW_1: Testimonial[] = [
 const TESTIMONIALS_ROW_2: Testimonial[] = [
   {
     name: 'Claire Thompson',
+    role: 'VP Engineering',
+    company: 'ChangeLab Ltd',
     rating: 5,
     text: 'We brought Codefinity in to shape an AI workflow that was still fuzzy in our heads. They helped us define the use case, cut the noise, and ship something practical that our team now uses every week.',
   },
   {
     name: 'Marcus Lee',
+    role: 'Head of Product',
+    company: 'Flow Agency LLC',
     rating: 5,
     text: 'Our MERN stack product needed senior people who could move fast without breaking the foundation. Codefinity came in, organized the backend properly, cleaned up the frontend, and made the whole app feel stable again.',
   },
   {
     name: 'Nina',
+    role: 'Founder',
+    company: 'Colored Caramel LLC',
     rating: 5,
     text: 'The mobile app work felt very collaborative from day one. They were thoughtful about edge cases, performance, and handoff details, and the final product felt polished instead of rushed.',
   },
   {
     name: 'David Romero',
+    role: 'Technical Director',
+    company: 'Schole AI LLC',
     rating: 5,
     text: 'What stood out for me was the consulting mindset. They did not just say yes to every request. They pushed back when needed, explained trade-offs clearly, and helped us make better product decisions.',
   },
   {
     name: 'Hannah Cole',
+    role: 'Product Lead',
+    company: 'LOOMIA GmbH',
     rating: 5,
     text: 'We asked Codefinity to help us evaluate an AI feature before committing a larger budget. They gave us honest guidance, built a lean proof of concept, and saved us from spending months in the wrong direction.',
   },
@@ -156,9 +178,17 @@ function InfiniteCarousel({ testimonials, speed = 40 }: { testimonials: Testimon
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-aeonik text-lg font-medium text-white transition-colors group-hover:text-white/90">
-                      {testimonial.name}
-                    </h3>
+                    <div className="flex flex-col">
+                      <h3 className="font-aeonik text-lg font-medium text-white transition-colors group-hover:text-white/90">
+                        {testimonial.name}
+                      </h3>
+                      <p className="font-aeonik text-xs uppercase tracking-[0.12em] text-white/55">
+                        {testimonial.role}
+                      </p>
+                      <p className="mt-1 font-aeonik text-xs leading-snug text-white/45">
+                        {testimonial.company}
+                      </p>
+                    </div>
                     <MdVerified className="h-5 w-5 shrink-0 text-white/50" aria-hidden />
                   </div>
                 </div>
@@ -209,7 +239,10 @@ export default function TestimonialsSection() {
             Over 200+ reviews
           </h2>
           <p className="mt-6 font-aeonik text-lg text-white">
-            Honest feedback from teams who trusted Codefinity Solutions with AI work, product builds, mobile applications, and technical consulting.
+            Trusted by founders and teams building real products
+          </p>
+          <p className="mt-4 max-w-3xl font-aeonik text-base leading-relaxed text-white/75">
+            Codefinity Solutions has worked with startups, product teams, and growing companies across AI, SaaS, and custom software development. Our clients rely on us for speed, clarity, and systems that actually hold up in production.
           </p>
         </motion.div>
       </div>

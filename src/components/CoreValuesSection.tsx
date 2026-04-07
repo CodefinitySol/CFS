@@ -5,8 +5,9 @@ import { useState } from 'react';
 const values = [
     {
         id: 1,
-        title: 'Clarity Over Noise',
-        description: 'We believe most software problems come from unclear thinking, not lack of tools. We take time upfront to understand the problem, ask uncomfortable questions when needed, and make decisions that reduce complexity instead of adding to it. Clear scope, clear ownership, and clear communication are part of how we protect projects from drifting or breaking later.',
+        title: 'Clarity over noise',
+        description:
+            'Most software problems come from poor decisions early on, not lack of tools. We focus on understanding the problem properly, defining clear scope, and making decisions that reduce complexity instead of adding to it.',
         icon: (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9.00003 12.75L12.554 16.307C12.835 16.588 13.292 16.588 13.573 16.307L18 11.88C18.666 11.214 18.666 10.134 18 9.46797L13.5 4.96797C12.834 4.30097 11.754 4.30097 11.088 4.96797L9.00003 7.05697" />
@@ -18,8 +19,9 @@ const values = [
     },
     {
         id: 2,
-        title: 'Quality That Holds Up',
-        description: 'We care about how software behaves months and years after launch. That means clean code, sensible architecture, and decisions that make systems easier to maintain, not harder. We avoid rushing work just to ship faster. Consistency and reliability matter more than shortcuts.',
+        title: 'Quality that holds up',
+        description:
+            'We build systems that remain stable after launch, not just during demos. That means clean architecture, maintainable code, and decisions that support long-term reliability.',
         icon: (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="8" r="6" />
@@ -30,8 +32,9 @@ const values = [
     },
     {
         id: 3,
-        title: 'Adaptability With Purpose',
-        description: 'Technology changes quickly. We stay current, but we do not chase trends blindly. New tools and approaches are evaluated based on whether they solve a real problem for the product. This applies especially to AI. We use it where it adds value and leave it out where it does not.',
+        title: 'Adaptability with purpose',
+        description:
+            'We use modern tools and AI where they create real value. Every choice is intentional, based on impact, not trends.',
         icon: (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
@@ -41,8 +44,9 @@ const values = [
     },
     {
         id: 4,
-        title: 'Real Partnerships',
-        description: 'We work best when there is mutual trust. That means honest timelines, direct feedback, and shared responsibility for outcomes. Our clients are not treated as tickets in a queue. We stay involved, communicate openly, and care about the success of what we build together.',
+        title: 'Real partnerships',
+        description:
+            'We work as part of the product team, not an external vendor. Clear communication, ownership, and accountability are part of how we deliver consistent results.',
         icon: (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="8" r="6" />
@@ -79,11 +83,11 @@ export default function CoreValuesSection() {
                     <div className="flex flex-col items-start gap-8">
                         <div className="inline-flex items-center rounded-full bg-[#CFD6DC] px-4 py-1.5">
                             <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
-                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B]">Our Values</span>
+                            <span className="font-aeonik text-xs font-medium text-[#2B2A2B]">Our values</span>
                         </div>
 
                         <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819] xl:max-w-sm">
-                            What Guides Our Work
+                            What drives how we build and deliver
                         </h2>
                     </div>
 

@@ -6,21 +6,21 @@ import { motion } from 'framer-motion';
 const stats = [
     {
         id: 1,
-        title: 'Products Shipped',
+        title: 'Products shipped',
         value: '52+',
-        description: 'Products built and actively running in production across different industries and stages.',
+        description: 'Products built and actively running in production across multiple industries and use cases',
     },
     {
         id: 2,
-        title: 'Years of Hands-On Delivery',
-        value: '3+',
-        description: 'Years of focused experience delivering web, mobile, AI, and infrastructure solutions with consistency.',
+        title: 'Team size',
+        value: '38',
+        description: 'Engineers across product development, AI systems, and scalable infrastructure',
     },
     {
         id: 3,
-        title: 'Client Satisfaction',
+        title: 'Client satisfaction',
         value: '100%',
-        description: 'Every client we currently work with continues to trust us with their product and development needs.',
+        description: 'Long-term clients who continue to trust us with ongoing product development and growth',
     },
 ];
 
@@ -102,12 +102,12 @@ export default function RecordOfResultsSection() {
 
                             {/* Heading */}
                             <h2 className="font-aeonik text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819] mb-8">
-                                A Record Of Results
+                                A record of execution
                             </h2>
 
                             {/* Description */}
                             <p className="font-aeonik text-sm sm:text-base text-[#4B474B] max-w-xl">
-                                Our growth has come from doing the work properly and standing behind it. These numbers reflect real products shipped, long-term client relationships, and systems that continue to run in production.
+                                These numbers reflect real products shipped, teams supported long-term, and systems actively running in production.
                             </p>
                         </div>
 

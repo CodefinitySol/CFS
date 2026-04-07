@@ -35,9 +35,9 @@ const STATS = [
     prefix: '',
   },
   {
-    label: 'Years of delivery experience',
-    value: 3,
-    prefix: '0',
+    label: 'Team size',
+    value: 38,
+    prefix: '',
     suffix: '',
   },
   {
@@ -131,22 +131,19 @@ export default function MeetSam() {
                 Who we are
               </span>
               <h2 className="font-aeonik text-3xl font-normal leading-[1.1] text-[#191819] sm:text-4xl md:text-5xl">
-                Meet Codefinity Solutions
+                Product engineering team focused on building systems that last.
               </h2>
             </div>
 
             <div className="space-y-3 font-aeonik text-md leading-relaxed text-black">
               <p>
-                Codefinity Solutions is a product-focused software development team built around one idea: good software comes from clear thinking, strong execution, and people who care about the outcome.
+                Codefinity Solutions works with founders and growing companies to design and build production-ready software. We do not just ship features, we build systems that are stable, scalable, and ready for real-world use from day one.
               </p>
               <p>
-                We work with founders, product teams, and growing businesses to design and build web and mobile applications that are reliable from day one and flexible enough to grow over time. Our work spans modern web stacks, cloud infrastructure, AI-driven systems, and practical automation. Always with an emphasis on maintainability, performance, and real-world use.
+                Our work spans web platforms, AI-powered systems, internal tools, and complex product builds. Every decision is made with long-term performance, maintainability, and growth in mind.
               </p>
               <p>
-                What sets us apart is how we work. We stay close to the problem, ask the right questions early, and make technical decisions with long-term impact in mind. No overengineering. No rushed shortcuts. Just thoughtful development backed by experience.
-              </p>
-              <p>
-                We started as a small team and grew quickly by delivering results and earning trust. Today, we continue to scale carefully, building strong partnerships and products that teams are proud to ship.
+                We stay close to the problem, move fast without breaking fundamentals, and focus on what actually matters delivering software that works reliably at scale.
               </p>
             </div>
 
@@ -175,7 +172,7 @@ export default function MeetSam() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
           >
-            <div className="flex aspect-[4/5] w-full flex-col gap-3 sm:gap-4">
+            <div className="flex w-full flex-col gap-3 sm:gap-4">
                 {STATS.map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -187,7 +184,7 @@ export default function MeetSam() {
                       delay: 0.12 * index,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="group relative flex min-h-0 flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-[#E7E2E7]/90 bg-white/90 px-5 py-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9)] backdrop-blur-sm transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-[0_12px_40px_-16px_rgba(91,83,91,0.45)] sm:px-7 sm:py-6"
+                    className="group relative flex min-h-[160px] flex-col justify-center overflow-hidden rounded-2xl border border-[#E7E2E7]/90 bg-white/90 px-5 py-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9)] backdrop-blur-sm transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-[0_12px_40px_-16px_rgba(91,83,91,0.45)] sm:min-h-[180px] sm:px-7 sm:py-6"
                   >
                     <div
                       className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"

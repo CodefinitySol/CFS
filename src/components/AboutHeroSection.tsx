@@ -21,7 +21,7 @@ export default function AboutHeroSection() {
             }}
           >
             <span className="h-1.5 w-1.5 rounded-full bg-white mr-1"></span>
-            <span className="font-aeonik text-xs font-medium text-white">About me</span>
+            <span className="font-aeonik text-xs font-medium text-white">About us</span>
           </div>
 
           <h1 className="font-aeonik text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-normal leading-[1.1] mb-10 tracking-tight text-white"
@@ -41,21 +41,21 @@ export default function AboutHeroSection() {
                   backgroundClip: 'text',
                 }}
               >
-                We Build
+                We build
               </span>
             </span>{' '}
-            Software That Teams Can Rely On
+            software that holds up in production
           </h1>
 
           <div className="max-w-2xl mx-auto mb-6">
             <p className="font-aeonik text-base sm:text-md text-white leading-relaxed">
-              Codefinity Solutions is a product focused software development company built by engineers who care about how software holds up after launch.
+              Codefinity Solutions is a product engineering team focused on building systems that are stable, scalable, and ready for real-world use.
               <br />
               <br />
-              We started small and grew quickly by doing the work properly. Clear planning. Strong execution. Ownership at every stage. Today, our team builds web, mobile, and AI driven products for companies that want systems they can trust, scale, and improve over time.
+              We work with founders and companies to design and deliver production-ready software across web, mobile, and AI systems. The focus is always the same - build it right, so it works reliably as the product grows.
               <br />
               <br />
-              We are not tied to trends or templates. We focus on understanding the problem, choosing the right tools, and building software that works in real conditions with real users.
+              Our approach is straightforward. Understand the problem, make the right technical decisions early, and execute without unnecessary complexity. No overengineering, no shortcuts, no fragile systems that break under real usage.
             </p>
           </div>
 

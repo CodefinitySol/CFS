@@ -65,10 +65,10 @@ export default function Footer() {
               </h2>
               <div className="space-y-6 mb-10 max-w-2xl">
                 <p className="font-aeonik text-lg leading-relaxed text-white/70">
-                  If you are building a new product, scaling an existing system, or need a reliable engineering team, we are open to a conversation.
+                  If you are building, scaling, or fixing a product, we can help you move forward with clarity and execution.
                 </p>
                 <p className="font-aeonik text-lg leading-relaxed text-white/70">
-                  We work best with teams that value clarity, ownership, and long-term thinking. If that sounds like you, let&apos;s talk through your goals and see if there is a fit.
+                  We work with teams that need reliable delivery, strong ownership, and systems that hold up as they grow.
                 </p>
               </div>
               <Link
@@ -77,7 +77,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#2B2A2B] px-8 py-4 text-base font-medium text-white transition-all hover:brightness-110 active:scale-95"
               >
-                Schedule a call
+                Book a 20-min call
                 <HiArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>

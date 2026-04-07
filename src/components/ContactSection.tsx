@@ -105,19 +105,19 @@ export default function ContactSection() {
                       backgroundClip: 'text',
                     }}
                   >
-                    Start Your Project
+                    Start your project with a team that knows how to execute
                   </h2>
                   <div className="mt-8 max-w-md font-aeonik text-base leading-relaxed text-white opacity-90 lg:text-lg">
                     <p>
-                      If you are planning a new product, improving an existing
-                      system, or need a reliable team to support ongoing
-                      development, we are happy to talk.
+                      If you are building a new product, scaling an existing
+                      system, or need a reliable engineering team, we can help
+                      you move forward without wasted time.
                     </p>
                     <br />
                     <p>
-                      Start with a short discovery call. We will listen, ask the
-                      right questions, and help you figure out the next practical
-                      step. No pressure. No commitment.
+                      We start with a focused call to understand your goals,
+                      constraints, and what needs to be built. You leave with
+                      clarity on the next steps, not vague advice.
                     </p>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function ContactSection() {
                       height={60}
                     />
                     <span className="font-aeonik text-base text-white lg:text-lg">
-                      Product focused engineering
+                      Product-focused engineering
                     </span>
                   </div>
 
@@ -144,7 +144,7 @@ export default function ContactSection() {
                       height={60}
                     />
                     <span className="font-aeonik text-base text-white lg:text-lg">
-                      AI, web, and mobile development
+                      AI systems and scalable applications
                     </span>
                   </div>
 
@@ -156,7 +156,7 @@ export default function ContactSection() {
                       height={60}
                     />
                     <span className="font-aeonik text-base text-white lg:text-lg">
-                      Clear communication and ownership
+                      Clear ownership and consistent delivery
                     </span>
                   </div>
                 </div>
@@ -169,7 +169,7 @@ export default function ContactSection() {
                     className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95"
                     style={{ backgroundColor: '#2B2A2B' }}
                   >
-                    Schedule a call
+                    Book a 20-min call
                     <HiArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
@@ -307,7 +307,7 @@ export default function ContactSection() {
                   className="w-full cursor-pointer rounded-full py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95"
                   style={{ backgroundColor: '#2B2A2B' }}
                 >
-                  Submit
+                  Send project details
                 </button>
               </motion.form>
             </div>

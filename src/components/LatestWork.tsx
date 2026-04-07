@@ -10,26 +10,31 @@ const PROJECTS = [
   {
     tag: 'Security',
     title: 'Waltz',
+    summary: 'Enterprise security platform for real-time access control and threat monitoring',
     image: '/waltz.png',
   },
   {
     tag: 'SaaS',
     title: 'Zappy',
+    summary: 'SaaS platform automating agency workflows and improving team efficiency',
     image: '/zappy.png',
   },
   {
     tag: 'Tech',
     title: 'ZeroFill',
+    summary: 'Sustainable tech platform optimizing global supply chain resource tracking',
     image: '/zerofill.png',
   },
   {
     tag: 'Education',
     title: 'Schole AI',
+    summary: 'AI-powered learning platform delivering personalized education at scale',
     image: '/schole.png',
   },
   {
     tag: 'Agency',
     title: 'Flow',
+    summary: 'Agency management system for project tracking, resource planning, and client collaboration',
     image: '/flow.png',
   },
 ];
@@ -52,13 +57,13 @@ export default function LatestWork() {
               Recent work
             </span>
             <h2 className="font-aeonik text-4xl font-normal leading-tight text-[#191819] sm:text-4xl md:text-5xl">
-              Products Built for Real Use
+              Products built for real-world usage at scale
             </h2>
             <p className="font-aeonik text-base text-[#6D656D] md:text-lg">
-              We have worked on products across different stages, from early MVPs to systems supporting thousands of users. Some are AI-driven platforms. Others are ecommerce applications, internal tools, or customer-facing web and mobile apps. What they all share is a focus on reliability, clarity, and long-term use.
+              We have designed and delivered products across early-stage builds and full-scale systems handling real users. This includes AI platforms, internal tools, SaaS products, and customer-facing web and mobile applications.
             </p>
             <p className="font-aeonik text-base text-[#6D656D] md:text-lg">
-              Each project starts with understanding the problem, not just the feature list. We design the architecture, choose the right stack, and build with scale and maintenance in mind. The result is software that teams can run confidently, improve over time, and depend on in production.
+              Every product is built with a clear focus on performance, scalability, and long-term reliability. We prioritize architecture and execution from day one so teams can operate with confidence and grow without rebuilding.
             </p>
           </div>
           <Link
@@ -125,6 +130,9 @@ export default function LatestWork() {
                   <h3 className="font-aeonik text-xl font-normal text-[#191819] sm:text-2xl">
                     {project.title}
                   </h3>
+                  <p className="font-aeonik text-sm leading-relaxed text-[#6D656D] sm:text-[15px]">
+                    {project.summary}
+                  </p>
 
                   <div className="relative mt-2 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#F1F5F9] ring-1 ring-[#E7E2E7]/80 sm:mt-3">
                     <Image

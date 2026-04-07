@@ -87,7 +87,7 @@ export default function HeroSection() {
                 size="xl"
                 className="leading-[1.2]"
               >
-                Software Built to Scale, <br /> Not{' '}
+                We build production-ready software that{' '}
                 <span className="relative inline-block px-4 py-2">
                   <span
                     className="relative z-10 bg-clip-text text-transparent"
@@ -98,7 +98,7 @@ export default function HeroSection() {
                       backgroundClip: 'text',
                     }}
                   >
-                    Just Ship
+                    actually scales
                   </span>
                   <span
                     className="absolute inset-0 z-0 bg-[url('/squareborder.png')] bg-[length:100%_100%] bg-center bg-no-repeat"
@@ -111,7 +111,7 @@ export default function HeroSection() {
             {/* Description */}
             <motion.div variants={itemVariants}>
               <Paragraph size="md" variant="light" className="max-w-2xl">
-                We design and build reliable software products from web and mobile applications to complex systems that grow with your business. Our team works across modern stacks, AI-driven workflows, and cloud infrastructure to turn ideas into products that are stable, maintainable, and ready for real users. Clear communication. Thoughtful engineering. No shortcuts.
+                From early-stage ideas to full-scale systems, we design and deliver products that actually hold up in the real world. Our team uses AI-accelerated workflows, modern stacks, and clean architecture to ship faster without compromising scalability or stability. No overengineering. No shortcuts. Just systems that work and continue to work as you grow.
               </Paragraph>
             </motion.div>
 
@@ -126,7 +126,7 @@ export default function HeroSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/90 bg-white px-5 py-3 font-aeonik text-base font-medium text-gray-900 transition-all hover:border-white hover:shadow-lg"
               >
-                <span>Schedule a call</span>
+                <span>Book a 20-min build strategy call</span>
                 <svg
                   className="h-4 w-4"
                   fill="none"
@@ -153,7 +153,7 @@ export default function HeroSection() {
                 <div>
                   <p className="font-aeonik text-sm font-bold text-white">132+ people</p>
                   <p className="font-aeonik text-xs leading-snug text-white/70">
-                    Satisfied working with Codefinity Solutions
+                    Trusted by teams building real products
                   </p>
                 </div>
               </div>
