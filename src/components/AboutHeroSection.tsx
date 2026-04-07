@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutHeroSection() {
   return (
-    <section className="relative min-h-screen w-full bg-[#191819] py-10 overflow-hidden flex flex-col justify-center">
+    <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-[#191819] py-10 md:min-h-[min(68vh,560px)] md:py-8 lg:min-h-screen lg:py-10">
 
       <motion.div
         className="relative z-10 mx-auto w-full max-w-4xl px-4 sm:px-6 md:px-8"

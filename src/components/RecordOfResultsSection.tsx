@@ -133,7 +133,7 @@ export default function RecordOfResultsSection() {
             {/* Bottom Part - Split Background for Overlapping Effect */}
             <div className="bg-[#E8ECF0] px-4 sm:px-6 pb-20 lg:bg-gradient-to-b lg:from-[#E8ECF0] lg:from-50% lg:via-white lg:via-50% lg:to-white lg:to-100% lg:px-8 xl:px-12">
                 <div className="mx-auto max-w-[1600px] -mt-12 lg:-mt-32">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                         {stats.map((stat, index) => (
                             <motion.div
                                 key={stat.id}

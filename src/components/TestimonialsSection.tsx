@@ -265,8 +265,9 @@ export default function TestimonialsSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="inline-flex flex-wrap items-center justify-center gap-4 rounded-full border border-white/10 bg-[#191819] py-2 pl-3 pr-2 sm:gap-6 sm:pl-4">
-          <div className="flex items-center gap-4">
+        {/* Mobile: social proof in pill, CTA below; sm+: single pill with both */}
+        <div className="flex w-full max-w-md flex-col items-stretch gap-4 sm:max-w-none sm:inline-flex sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 sm:rounded-full sm:border sm:border-white/10 sm:bg-[#191819] sm:py-2 sm:pl-3 sm:pr-2 sm:pl-4">
+          <div className="flex items-center gap-4 rounded-full border border-white/10 bg-[#191819] py-2 pl-3 pr-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:py-0 sm:pl-0 sm:pr-0">
             <div className="flex -space-x-3">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-[#191819]">
@@ -274,7 +275,7 @@ export default function TestimonialsSection() {
                 </div>
               ))}
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="font-aeonik text-sm font-bold text-white">132+ people</p>
               <p className="font-aeonik text-xs leading-snug text-white/70">
                 Satisfied working with Codefinity Solutions
@@ -285,7 +286,7 @@ export default function TestimonialsSection() {
             href={CALENDLY_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-[#2B2A2B] px-5 py-2.5 font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A]"
+            className="w-full rounded-full bg-[#2B2A2B] px-5 py-3 text-center font-aeonik text-sm font-medium text-white transition-all hover:bg-[#3A383A] sm:w-auto sm:py-2.5"
           >
             Book a call
           </Link>

@@ -39,29 +39,48 @@ const OFFICES: Office[] = [
     },
 ];
 
+function OfficeLocationCard({ office }: { office: Office }) {
+    return (
+        <>
+            <p className="font-aeonik text-[11px] uppercase tracking-[0.24em] text-[#6E6A6E]">
+                {office.country}
+            </p>
+            <h3 className="mt-2 font-aeonik text-2xl text-[#191819]">{office.label}</h3>
+            <div className="mt-4 space-y-1 font-aeonik text-sm leading-relaxed text-[#4B474B]">
+                {office.address.map((line) => (
+                    <p key={line}>{line}</p>
+                ))}
+            </div>
+            {office.phone ? (
+                <p className="mt-4 font-aeonik text-sm text-[#191819]">{office.phone}</p>
+            ) : null}
+        </>
+    );
+}
+
 function MapPin({
     office,
     pinLeftPct,
     pinTopPct,
     isActive,
     onActivate,
-    onDeactivate,
+    onToggle,
 }: {
     office: Office;
     pinLeftPct: number;
     pinTopPct: number;
     isActive: boolean;
     onActivate: () => void;
-    onDeactivate: () => void;
+    onToggle: () => void;
 }) {
-    const cardPositionClass =
+    const cardDesktopPositionClass =
         office.align === 'left'
-            ? 'left-1/2 ml-5 -translate-y-1/2'
-            : 'right-1/2 mr-5 -translate-y-1/2';
+            ? 'lg:left-1/2 lg:ml-5 lg:-translate-y-1/2'
+            : 'lg:left-auto lg:right-1/2 lg:mr-5 lg:-translate-y-1/2';
 
     return (
         <div
-            className="absolute z-20"
+            className={`absolute ${isActive ? 'z-30' : 'z-20'}`}
             style={{
                 left: `${pinLeftPct}%`,
                 top: `${pinTopPct}%`,
@@ -72,10 +91,18 @@ function MapPin({
                 type="button"
                 onMouseEnter={onActivate}
                 onFocus={onActivate}
-                onClick={onActivate}
-                onBlur={onDeactivate}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    // Touch / tap-first devices: toggle; fine-pointer + hover: click still selects
+                    if (window.matchMedia('(hover: none)').matches) {
+                        onToggle();
+                    } else {
+                        onActivate();
+                    }
+                }}
+                aria-expanded={isActive}
                 aria-label={`${office.label}, ${office.country}`}
-                className="group relative"
+                className="group relative flex min-h-[44px] min-w-[44px] touch-manipulation items-center justify-center"
             >
                 <span className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2B2A2B]/10 blur-md transition duration-300 group-hover:scale-110" />
                 <span className="relative flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-[#2B2A2B] shadow-[0_12px_28px_rgba(25,24,25,0.18)]">
@@ -85,23 +112,15 @@ function MapPin({
                 <span className="absolute left-1/2 top-[29px] h-2.5 w-2.5 -translate-x-1/2 rotate-45 rounded-[2px] bg-[#2B2A2B]" />
             </button>
 
+            {/* lg+: card beside pin; mobile/tablet uses centered card in map (see parent) */}
             <div
-                className={`pointer-events-none absolute top-1/2 hidden min-w-[260px] ${cardPositionClass} rounded-[20px] border border-[#E7E2E7] bg-white p-5 text-left shadow-[0_18px_60px_rgba(25,24,25,0.12)] lg:block ${
-                    isActive ? 'opacity-100' : 'opacity-0'
-                } transition duration-200`}
+                aria-hidden={!isActive}
+                onClick={(e) => e.stopPropagation()}
+                className={`pointer-events-none invisible absolute opacity-0 transition duration-200 max-lg:hidden lg:top-1/2 lg:z-30 lg:min-w-[260px] lg:rounded-[20px] lg:border lg:border-[#E7E2E7] lg:bg-white lg:p-5 lg:text-left lg:shadow-[0_18px_60px_rgba(25,24,25,0.12)] ${cardDesktopPositionClass} ${
+                    isActive ? 'lg:visible lg:opacity-100' : ''
+                }`}
             >
-                <p className="font-aeonik text-[11px] uppercase tracking-[0.24em] text-[#6E6A6E]">
-                    {office.country}
-                </p>
-                <h3 className="mt-2 font-aeonik text-2xl text-[#191819]">{office.label}</h3>
-                <div className="mt-4 space-y-1 font-aeonik text-sm leading-relaxed text-[#4B474B]">
-                    {office.address.map((line) => (
-                        <p key={line}>{line}</p>
-                    ))}
-                </div>
-                {office.phone ? (
-                    <p className="mt-4 font-aeonik text-sm text-[#191819]">{office.phone}</p>
-                ) : null}
+                <OfficeLocationCard office={office} />
             </div>
         </div>
     );
@@ -121,6 +140,10 @@ export default function OurOfficesSection() {
             };
         });
     }, [project]);
+
+    const activeOfficeData = activeOffice
+        ? OFFICES.find((o) => o.id === activeOffice) ?? null
+        : null;
 
     return (
         <section className="bg-white px-6 py-12 lg:px-8 lg:py-18 xl:px-12">
@@ -152,17 +175,27 @@ export default function OurOfficesSection() {
                             >
                                 Get in touch
                             </Link>
-                            <span className="inline-flex items-center rounded-full border border-[#E7E2E7] px-5 py-3 font-aeonik text-sm text-[#4B474B]">
-                                Hover to view location details
+                            <span className="inline-flex items-center rounded-full border border-[#E7E2E7] px-5 py-3 font-aeonik text-sm text-[#4B474B] lg:hidden">
+                                Tap a pin to view location details
+                            </span>
+                            <span className="hidden items-center rounded-full border border-[#E7E2E7] px-5 py-3 font-aeonik text-sm text-[#4B474B] lg:inline-flex">
+                                Hover a pin to view location details
                             </span>
                         </div>
                     </div>
 
                     <div className="relative" onMouseLeave={() => setActiveOffice(null)}>
                         <div className="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[480px]">
-                            <WorldMapOfficesSvg landPaths={landPaths} className="absolute inset-0 h-full w-full" />
+                            <WorldMapOfficesSvg
+                                landPaths={landPaths}
+                                className="pointer-events-none absolute inset-0 h-full w-full"
+                            />
 
-                            <div className="absolute inset-0">
+                            <div
+                                className="absolute inset-0 cursor-default"
+                                onClick={() => setActiveOffice(null)}
+                                role="presentation"
+                            >
                                 {OFFICES.map((office) => {
                                     const pos = pinPositions.find((p) => p.id === office.id);
                                     if (!pos) return null;
@@ -174,11 +207,24 @@ export default function OurOfficesSection() {
                                             pinTopPct={pos.topPct}
                                             isActive={activeOffice === office.id}
                                             onActivate={() => setActiveOffice(office.id)}
-                                            onDeactivate={() => setActiveOffice(null)}
+                                            onToggle={() =>
+                                                setActiveOffice((prev) =>
+                                                    prev === office.id ? null : office.id,
+                                                )
+                                            }
                                         />
                                     );
                                 })}
                             </div>
+
+                            {activeOfficeData ? (
+                                <div
+                                    className="pointer-events-auto absolute left-1/2 top-1/2 z-40 block w-[min(92%,280px)] -translate-x-1/2 -translate-y-1/2 rounded-[20px] border border-[#E7E2E7] bg-white p-5 text-left shadow-[0_18px_60px_rgba(25,24,25,0.12)] lg:hidden"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <OfficeLocationCard office={activeOfficeData} />
+                                </div>
+                            ) : null}
                         </div>
                     </div>
                 </motion.div>
