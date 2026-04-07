@@ -78,52 +78,88 @@ export default function ProcessSection() {
           </h2>
         </motion.div>
 
-        {/* Steps Grid */}
-        <div className="grid gap-8 lg:grid-cols-3">
-          {STEPS.map((step, index) => (
-            <motion.div
-              key={index}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-xl min-h-[640px]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              {/* Background Number */}
-              <div className="absolute left-[-18] top-0 font-aeonik text-[180px] font-bold leading-none text-[#2B2A2B] opacity-[0.08] transition-colors group-hover:text-white group-hover:opacity-10">
-                {step.number}
-              </div>
-
-              {/* Content Container */}
-              <div className="relative z-10 flex flex-1 flex-col pb-44 lg:pb-60">
-                {/* Icon */}
-                <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[#191819] transition-colors group-hover:bg-white/10 group-hover:text-white">
-                  {step.icon}
+        {/* Tablet (md–lg): 50/50 + full-width row; Desktop (lg+): three equal columns */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {STEPS.map((step, index) => {
+            const isWide = index === 2;
+            return (
+              <motion.div
+                key={index}
+                className={`group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 transition-all duration-500 hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-xl ${
+                  isWide
+                    ? 'md:col-span-2 md:min-h-[400px] md:flex-row md:items-start md:gap-10 md:p-10 lg:col-span-1 lg:min-h-[640px] lg:flex-col lg:gap-0 lg:p-8 min-h-[380px]'
+                    : 'min-h-[640px]'
+                }`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                {/* Background Number */}
+                <div
+                  className={`absolute left-[-18] top-0 font-aeonik font-bold leading-none text-[#2B2A2B] opacity-[0.08] transition-colors group-hover:text-white group-hover:opacity-10 ${
+                    isWide
+                      ? 'text-[140px] md:left-4 md:top-2 md:text-[160px] lg:left-[-18] lg:top-0 lg:text-[180px]'
+                      : 'text-[180px]'
+                  }`}
+                >
+                  {step.number}
                 </div>
 
-                {/* Title */}
-                <h3 className="mb-4 font-aeonik text-2xl font-normal text-[#191819] transition-all duration-300 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-[linear-gradient(94.13deg,#e8ecf0_.14%,#2B2A2B_153.8%)] sm:text-3xl">
-                  {step.title}
-                </h3>
+                {/* Content Container */}
+                <div
+                  className={`relative z-10 flex flex-1 flex-col ${
+                    isWide
+                      ? 'pb-0 md:min-w-0 md:max-w-[58%] md:flex-1 md:pb-0 md:pr-4 lg:max-w-none lg:pr-0 lg:pb-60'
+                      : 'pb-44 lg:pb-60'
+                  }`}
+                >
+                  {/* Icon */}
+                  <div
+                    className={`mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-[#191819] transition-colors group-hover:bg-white/10 group-hover:text-white ${
+                      isWide ? 'md:mb-6 lg:mb-8' : ''
+                    }`}
+                  >
+                    {step.icon}
+                  </div>
 
-                {/* Description */}
-                <p className="mb-12 font-aeonik text-base text-black transition-colors group-hover:text-white">
-                  {step.description}
-                </p>
+                  {/* Title */}
+                  <h3 className="mb-4 font-aeonik text-2xl font-normal text-[#191819] transition-all duration-300 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-[linear-gradient(94.13deg,#e8ecf0_.14%,#2B2A2B_153.8%)] sm:text-3xl">
+                    {step.title}
+                  </h3>
 
-              </div>
+                  {/* Description */}
+                  <p
+                    className={`mb-12 font-aeonik text-base text-black transition-colors group-hover:text-white ${
+                      isWide ? 'md:mb-0 lg:mb-12' : ''
+                    }`}
+                  >
+                    {step.description}
+                  </p>
+                </div>
 
-              {/* Image Area */}
-              <div className="absolute -bottom-2 -right-2 h-72 w-[90%] overflow-hidden pointer-events-none">
-                <Image
-                  src={step.image}
-                  alt={step.title}
-                  fill
-                  className="object-contain object-right-bottom"
-                />
-              </div>
-            </motion.div>
-          ))}
+                {/* Image Area — tablet wide row: compact split; desktop: same absolute treatment as other columns */}
+                <div
+                  className={
+                    isWide
+                      ? 'relative mt-6 h-52 w-full shrink-0 overflow-hidden md:mt-0 md:h-[260px] md:w-[42%] md:max-w-md md:flex-none lg:pointer-events-none lg:absolute lg:-bottom-2 lg:-right-2 lg:mt-0 lg:h-72 lg:w-[90%] lg:max-w-none'
+                      : 'absolute -bottom-2 -right-2 h-72 w-[90%] overflow-hidden pointer-events-none'
+                  }
+                >
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    className={
+                      isWide
+                        ? 'object-contain object-center md:object-right-bottom lg:object-right-bottom'
+                        : 'object-contain object-right-bottom'
+                    }
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

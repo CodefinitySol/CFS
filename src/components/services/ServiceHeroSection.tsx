@@ -11,6 +11,8 @@ interface ServiceHeroSectionProps {
     title: React.ReactNode;
     description: React.ReactNode;
     imageSrc: string;
+    /** Primary CTA label (defaults to Schedule a call). */
+    ctaText?: string;
     /** Match home hero: solid dark only. Set true to restore full-bleed background art. */
     showBackgroundImage?: boolean;
     bgImageSrc?: string;
@@ -23,6 +25,7 @@ export default function ServiceHeroSection({
     title,
     description,
     imageSrc,
+    ctaText = 'Schedule a call',
     showBackgroundImage = false,
     bgImageSrc = '/bg-gradient.webp',
     sectionBgColor = '#191819',
@@ -52,16 +55,16 @@ export default function ServiceHeroSection({
             )}
 
             <motion.div
-                className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-1 flex-col justify-center px-4 pb-16 pt-10 sm:px-8 lg:px-16 lg:pb-22 lg:pt-12"
+                className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-6 pb-16 pt-10 sm:px-8 lg:px-10 lg:pb-22 lg:pt-12 xl:px-12"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20 xl:gap-24">
 
                     {/* Left Content */}
-                    <div className="w-full lg:w-[45%] flex flex-col items-start gap-8">
+                    <div className="flex-1 flex flex-col items-start gap-8">
                         {/* Badge */}
                         <div
                             className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 backdrop-blur-sm"
@@ -92,7 +95,7 @@ export default function ServiceHeroSection({
                             className="group inline-flex items-center gap-2 rounded-full px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                             style={{ backgroundColor: '#2B2A2B' }}
                         >
-                            <span className="font-aeonik text-sm font-medium text-white">Schedule a call</span>
+                            <span className="font-aeonik text-sm font-medium text-white">{ctaText}</span>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                                 <path d="M1 11L11 1M11 1H1M11 1V11" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
@@ -100,7 +103,7 @@ export default function ServiceHeroSection({
                     </div>
 
                     {/* Right Image */}
-                    <div className="w-full lg:w-[75%] relative">
+                    <div className="w-full lg:w-[52%] relative">
                         <div className="relative w-full aspect-[4/3] lg:aspect-[16/10]">
                             <Image
                                 src={imageSrc}

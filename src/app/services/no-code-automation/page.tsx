@@ -4,64 +4,83 @@ import ContactSection from '@/components/ContactSection';
 
 const NO_CODE_FEATURES = [
     {
-        title: "Workflow automation",
-        description: "Design and implementation of automated workflows to reduce manual work and operational friction.",
-        icon: "/services-section/offer-item-1.webp"
+        title: 'Workflow automation',
+        description:
+            'Automated systems that remove repetitive work and improve operational efficiency',
+        icon: '/services-section/offer-item-1.webp',
     },
     {
-        title: "System integrations",
-        description: "Connecting tools, platforms, and services into a single, reliable workflow.",
-        icon: "/services-section/offer-item-2.webp"
+        title: 'System integrations',
+        description:
+            'Connecting internal tools, APIs, and platforms into a unified workflow',
+        icon: '/services-section/offer-item-2.webp',
     },
     {
-        title: "Internal tools and dashboards",
-        description: "No-code applications built to support operations, reporting, and team workflows.",
-        icon: "/services-section/offer-item-3.webp"
+        title: 'Internal tools and dashboards',
+        description:
+            'Custom systems to manage operations, reporting, and team processes',
+        icon: '/services-section/offer-item-3.webp',
     },
     {
-        title: "Rapid product validation",
-        description: "Quick builds to test ideas, processes, or features before committing to full development.",
-        icon: "/services-section/offer-item-4.webp"
+        title: 'Rapid system builds',
+        description:
+            'Quick implementation of operational systems without unnecessary complexity',
+        icon: '/services-section/offer-item-4.webp',
     },
     {
-        title: "Optimization and maintenance",
-        description: "Ongoing improvements to keep workflows efficient, stable, and easy to manage.",
-        icon: "/services-section/offer-item-5.webp"
+        title: 'Optimization and reliability',
+        description:
+            'Ongoing improvements to keep systems stable, efficient, and easy to manage',
+        icon: '/services-section/offer-item-5.webp',
     },
     {
-        title: "Priority automation support",
-        description: "Responsive support for updates, fixes, and time-sensitive automation needs.",
-        icon: "/services-section/offer-item-6.webp"
-    }
+        title: 'Ongoing support',
+        description: 'Support for updates, fixes, and evolving operational needs',
+        icon: '/services-section/offer-item-6.webp',
+    },
 ];
 
 const TECH_STACK = [
-    "N8N", "Wordpress", "Wix", "SquareSpace", "Loveable", "Replit", "API integrations", "Cloud services"
-]
+    'N8N',
+    'CMS platforms',
+    'Internal tools',
+    'API integrations',
+    'Cloud services',
+];
 
 export default function NoCodeAutomationPage() {
     return (
         <main className="min-h-screen bg-white">
             <ServiceHeroSection
-                badgeText="No-code and automation"
+                badgeText="Automation systems"
+                ctaText="Book a 20-min call"
                 title={
                     <span
-                        className="bg-clip-text text-transparent block"
+                        className="block bg-clip-text text-transparent"
                         style={{
-                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
+                            backgroundImage:
+                                'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         }}
                     >
-                        Fast, Flexible Systems Without Heavy Engineering
+                        Operational systems that remove manual work
                     </span>
                 }
-                description={"Not every product or workflow needs custom code. We help teams move faster by building reliable systems using no-code and low-code tools where they make sense.\n\n Our focus is on speed, clarity, and control. The result is automation that works, scales, and stays easy to manage."}
+                description={
+                    'We design and build automation systems that streamline workflows, reduce operational overhead, and keep teams focused on what actually matters.\n\nThis is not about quick hacks. Every system is structured to be reliable, maintainable, and aligned with how your product or operations evolve over time.'
+                }
                 imageSrc="/services-section/website-migration.webp"
             />
             <GrowthSection
                 variant="light"
                 badge="What we offer"
-                title={"You focus on the business.\n We’ll handle the workflows."}
-                description="Our no-code and automation services are ideal for internal tools, integrations, and rapid product validation. We apply the same discipline as custom development, without unnecessary complexity."
+                title="Automation built into real workflows, not disconnected tools"
+                description={
+                    <>
+                        <p>
+                            We create systems that connect your tools, processes, and data into a single flow. The goal is simple: fewer manual steps, fewer errors, and better visibility across operations.
+                        </p>
+                    </>
+                }
                 techStack={TECH_STACK}
                 features={NO_CODE_FEATURES}
             />

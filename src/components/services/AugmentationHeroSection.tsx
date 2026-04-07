@@ -37,39 +37,21 @@ export default function AcuityHeroSection() {
 
                         {/* Heading */}
                         <h1 className="font-aeonik text-4xl sm:text-4xl lg:text-4xl xl:text-5xl font-normal leading-[1.1] tracking-tight text-[#191819]">
-                            Dedicated Development Teams by
-                            <span className="relative inline-block px-4 py-2 ml-2">
-                                <span
-                                    className="relative z-10"
-                                >
-                                    Codefinity
-                                </span>
-                                <span
-                                    className="absolute inset-0 z-0 bg-[url('/squareborder.png')] bg-[length:100%_100%] bg-center bg-no-repeat brightness-0"
-                                    aria-hidden="true"
-                                />
-                            </span>
+                            Dedicated engineering teams that actually execute
                         </h1>
 
                         {/* Description Section */}
-                        <div className="space-y-3 max-w-xl">
-                            <p className="font-aeonik text-md font-medium text-[#191819]">
-                                Scale faster. Ship consistently. Stay in control.
+                        <div className="max-w-xl space-y-3 font-aeonik text-base leading-relaxed text-[#191819] sm:text-md">
+                            <p>
+                                Scale your product without slowing down hiring. We provide experienced engineers who integrate directly into your workflow and operate as part of your team from day one.
                             </p>
-                            <div className="space-y-2 font-aeonik text-[#191819] leading-relaxed text-base sm:text-md">
-                                <p>
-                                    Hiring shouldn’t slow your product down. Our team augmentation model gives you access to experienced developers who plug directly into your workflow and work as an extension of your internal team.
-                                </p>
-                                <p>
-                                    Whether you need to speed up delivery, cover skill gaps, or scale without long-term hiring risk, we provide engineers who understand real-world product development and take ownership from day one.
-                                </p>
-                                <p>
-                                    No handoffs. No friction. Just focused execution.
-                                </p>
-                                <p className="font-medium text-md text-[#191819]">
-                                    Your roadmap. Our people. One team.
-                                </p>
-                            </div>
+                            <p>
+                                Whether you need to move faster, add capacity, or bring in specific expertise, we deliver engineers who understand real product development and take ownership of what they build.
+                            </p>
+                            <p>No handoffs. No friction. Just consistent delivery.</p>
+                            <p className="font-medium text-md text-[#191819]">
+                                Your roadmap. Our team. One system.
+                            </p>
                         </div>
 
                         {/* CTA Button */}

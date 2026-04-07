@@ -89,6 +89,12 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
           </div>
         </div>
 
+        {isContactPage && (
+          <p className="mb-6 font-aeonik text-base leading-relaxed text-[#4D494D] sm:text-[15px]">
+            Tell us what you are building. We&apos;ll take it from there.
+          </p>
+        )}
+
         <form
           onSubmit={handleSubmit}
           className="space-y-6"
@@ -149,7 +155,11 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             name="message"
             value={formData.message}
             onChange={handleInputChange}
-            placeholder="Tell us a little about your project, timeline, or goals."
+            placeholder={
+              isContactPage
+                ? 'Tell us what you are building, timeline, and current challenges'
+                : 'Tell us a little about your project, timeline, or goals.'
+            }
             label={
               <>
                 Message <span className="text-[#6b7280]">*</span>
@@ -166,7 +176,7 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             size="md"
             className="w-full !bg-[#2B2A2B] hover:!bg-[#2E2B2E] shadow-lg hover:shadow-xl"
           >
-            Submit enquiry
+            {isContactPage ? 'Send project details' : 'Submit enquiry'}
           </Button>
         </form>
       </div>

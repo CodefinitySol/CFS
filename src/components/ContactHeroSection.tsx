@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { IoMailOutline } from 'react-icons/io5';
@@ -50,22 +49,22 @@ export default function ContactHeroSection() {
                         {/* Badge */}
                         <div className="inline-flex items-center rounded-full px-4 py-1.5 bg-[#CFD6DC] text-[#2B2A2B]">
                             <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B] mr-2"></span>
-                            <span className="font-aeonik text-xs font-medium">Contact us</span>
+                            <span className="font-aeonik text-xs font-medium">Contact</span>
                         </div>
 
                         {/* Heading */}
                         <div className="space-y-4">
-                            <h1 className="font-aeonik text-5xl font-normal text-[#191819] sm:text-6xl">
-                                Start a project
+                            <h1 className="font-aeonik text-4xl font-normal leading-tight text-[#191819] sm:text-5xl lg:text-6xl">
+                                Start a project with a team that executes
                             </h1>
-                            <h2 className="font-aeonik text-2xl sm:text-2xl font-normal text-black">
-                                We Will Respond To Your Enquiry Within 24 Hours.
-                            </h2>
                         </div>
 
                         {/* Description */}
+                        <p className="font-aeonik text-md max-w-lg leading-relaxed text-[#191819]">
+                            If you are building, scaling, or fixing a product, send us the details. We review every enquiry properly and respond with clear next steps.
+                        </p>
                         <p className="font-aeonik text-md max-w-lg text-[#191819]">
-                            We&apos;d love to hear about your project. Use the form to get in touch and tell us what you&apos;re working on. Prefer a direct connection? You can also reach us on LinkedIn, Instagram, or by email.
+                            Prefer a direct connection? Reach us on LinkedIn, Instagram, or by email.
                         </p>
 
                         {/* Social Links */}
@@ -83,36 +82,6 @@ export default function ContactHeroSection() {
                                     {link.icon}
                                 </a>
                             ))}
-                        </div>
-
-                        {/* Social proof */}
-                        <div className="mt-4 flex items-center gap-4">
-                            <div className="flex -space-x-3">
-                                {[1, 2, 3].map((i) => (
-                                    <div key={i} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white">
-                                        <Image src={`/about-us/review-${i}.webp`} alt="Client" fill className="object-cover" />
-                                    </div>
-                                ))}
-                            </div>
-                            <div>
-                                <p className="font-aeonik text-sm font-bold text-[#191819]">132+ people</p>
-                                <p className="font-aeonik text-xs leading-snug text-[#191819]/60">
-                                    Satisfied working with Codefinity Solutions
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Awards */}
-                        <div className="flex items-center gap-3 sm:gap-4 pt-4 w-full">
-                            <div className="relative w-34 h-18 transition-all cursor-pointer brightness-0">
-                                <Image src="/marketplace.webp" alt="Award" fill className="object-contain" />
-                            </div>
-                            <div className="relative w-34 h-18 transition-all cursor-pointer brightness-0">
-                                <Image src="/community.webp" alt="Award" fill className="object-contain" />
-                            </div>
-                            <div className="relative w-34 h-18 transition-all cursor-pointer brightness-0">
-                                <Image src="/member.webp" alt="Award" fill className="object-contain" />
-                            </div>
                         </div>
                     </motion.div>
 

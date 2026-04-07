@@ -48,11 +48,17 @@ const SERVICE_FAQS = [
 
 interface ServiceFAQSectionProps {
     items?: { question: string; answer: string }[];
+    badgeText?: string;
+    title?: string;
 }
 
 import { motion } from 'framer-motion';
 
-export default function ServiceFAQSection({ items = SERVICE_FAQS }: ServiceFAQSectionProps) {
+export default function ServiceFAQSection({
+    items = SERVICE_FAQS,
+    badgeText = 'FAQS',
+    title = 'General Questions',
+}: ServiceFAQSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
@@ -74,12 +80,12 @@ export default function ServiceFAQSection({ items = SERVICE_FAQS }: ServiceFAQSe
                         }}
                     >
                         <span className="h-1.5 w-1.5 rounded-full bg-[#2B2A2B]/60 mr-2"></span>
-                        <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">FAQS</span>
+                        <span className="font-aeonik text-xs font-medium text-[#2B2A2B] tracking-wide">{badgeText}</span>
                     </div>
 
                     {/* Heading */}
                     <h2 className="font-aeonik text-4xl sm:text-5xl lg:text-6xl font-normal text-[#191819] tracking-tight">
-                        General Questions
+                        {title}
                     </h2>
                 </div>
 

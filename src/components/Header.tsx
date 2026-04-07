@@ -23,37 +23,18 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Services',
     dropdownItems: [
       {
-        title: 'Website Application Development',
-        desc: 'Bespoke Squarespace websites.',
-        iconPath:
-          'M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 2v10h12V8H6z',
-        href: '/services/website-application',
-      },
-      {
-        title: 'Mobile Application',
-        desc: 'Get seen online.',
-        iconPath: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
-        href: '/services/mobile-application',
-      },
-      {
-        title: 'AI development',
-        desc: 'Monthly website care.',
+        title: 'AI Systems & Automation',
+        desc: 'Production-ready AI systems for real products',
         iconPath:
           'M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z',
         href: '/services/ai-development',
       },
       {
-        title: 'No-code and automation',
-        desc: 'Migrate your site to Squarespace.',
+        title: 'Product development',
+        desc: 'Real products, not prototypes',
         iconPath:
-          'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
-        href: '/services/no-code-automation',
-      },
-      {
-        title: 'DevOps and infrastructure',
-        desc: 'Squarespace online store builds.',
-        iconPath: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
-        href: '/services/devops',
+          'M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 2v10h12V8H6z',
+        href: '/services/website-application',
       },
       {
         title: 'Augmentation',
@@ -61,6 +42,19 @@ const NAV_ITEMS: NavItem[] = [
         iconPath:
           'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
         href: '/services/augmentation',
+      },
+      {
+        title: 'Automation systems',
+        desc: 'Operational workflows without manual work',
+        iconPath:
+          'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
+        href: '/services/no-code-automation',
+      },
+      {
+        title: 'Infrastructure',
+        desc: 'Stable systems at scale',
+        iconPath: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
+        href: '/services/devops',
       },
     ],
   },
@@ -161,10 +155,10 @@ export default function Header({ isLight = false }: HeaderProps) {
           {/* Layout box stays h-12 / sm:h-16 so header height unchanged; scale draws larger */}
           <div className="relative h-12 w-40 shrink-0 origin-left scale-[1.2] sm:h-16 sm:w-52 sm:scale-[1.14]">
             <Image
-              src="/logo.svg"
+              src="/codefinity-logo-white.png"
               alt="Codefinity Solutions"
               fill
-              className={`object-contain object-left ${isLight ? '' : 'brightness-0 invert'}`}
+              className={`object-contain object-left ${isLight ? 'invert' : ''}`}
               priority
             />
           </div>
@@ -308,8 +302,13 @@ export default function Header({ isLight = false }: HeaderProps) {
           {/* Mobile Header */}
           <div className="flex items-center justify-between px-6 py-6 sm:px-10 sm:py-8">
             <Link href="/" onClick={handleCloseMenu} className="block">
-              <div className="relative w-36 h-10">
-                <Image src="/logo.svg" alt="Codefinity Solutions" fill className="object-contain" />
+              <div className="relative h-10 w-36">
+                <Image
+                  src="/codefinity-logo-white.png"
+                  alt="Codefinity Solutions"
+                  fill
+                  className="object-contain invert"
+                />
               </div>
             </Link>
             <button

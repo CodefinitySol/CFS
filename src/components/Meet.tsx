@@ -166,13 +166,13 @@ export default function MeetSam() {
 
           {/* Right: stats stack (replaces photo) */}
           <motion.div
-            className="relative mx-auto w-full max-w-[500px] lg:mr-0 lg:max-w-[520px]"
+            className="relative mx-auto w-full max-w-[500px] md:max-w-none lg:mr-0 lg:max-w-[520px]"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
           >
-            <div className="flex w-full flex-col gap-3 sm:gap-4">
+            <div className="flex w-full flex-col gap-3 sm:gap-4 md:flex-row md:gap-3 lg:flex-col lg:gap-4">
                 {STATS.map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -184,7 +184,7 @@ export default function MeetSam() {
                       delay: 0.12 * index,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="group relative flex min-h-[160px] flex-col justify-center overflow-hidden rounded-2xl border border-[#E7E2E7]/90 bg-white/90 px-5 py-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9)] backdrop-blur-sm transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-[0_12px_40px_-16px_rgba(91,83,91,0.45)] sm:min-h-[180px] sm:px-7 sm:py-6"
+                    className="group relative flex min-h-[160px] min-w-0 flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-[#E7E2E7]/90 bg-white/90 px-4 py-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.9)] backdrop-blur-sm transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-[#2B2A2B] hover:bg-[#2B2A2B] hover:shadow-[0_12px_40px_-16px_rgba(91,83,91,0.45)] sm:min-h-[180px] sm:px-5 sm:py-6 md:min-h-[150px] md:px-4 md:py-5 lg:min-h-[160px] lg:px-7 lg:py-6"
                   >
                     <div
                       className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
@@ -195,14 +195,14 @@ export default function MeetSam() {
                     />
                     <div className="absolute bottom-0 left-0 top-0 z-0 w-1 rounded-full bg-[#2B2A2B] transition-[width,background-color] duration-300 ease-out group-hover:w-1.5 group-hover:bg-white/45" />
                     <div className="relative z-10">
-                      <p className="font-aeonik text-[clamp(2.5rem,8vw,3.75rem)] font-medium leading-none text-[#191819] transition-[color,transform] duration-300 ease-out group-hover:text-white group-hover:translate-x-0.5">
+                      <p className="font-aeonik text-[clamp(2rem,5vw,3.75rem)] font-medium leading-none text-[#191819] transition-[color,transform] duration-300 ease-out group-hover:text-white group-hover:translate-x-0.5 md:text-[clamp(1.75rem,4vw,2.25rem)] lg:text-[clamp(2.5rem,8vw,3.75rem)]">
                         <Counter
                           target={stat.value}
                           prefix={stat.prefix}
                           suffix={stat.suffix}
                         />
                       </p>
-                      <p className="mt-3 max-w-[20ch] font-aeonik text-[11px] font-medium uppercase leading-snug tracking-[0.18em] text-[#6D656D] transition-[color] duration-300 ease-out group-hover:text-white/95 sm:text-xs sm:tracking-[0.22em]">
+                      <p className="mt-3 max-w-[20ch] font-aeonik text-[10px] font-medium uppercase leading-snug tracking-[0.14em] text-[#6D656D] transition-[color] duration-300 ease-out group-hover:text-white/95 sm:text-[11px] sm:tracking-[0.18em] md:max-w-none md:text-[10px] md:leading-tight md:tracking-[0.12em] lg:max-w-[20ch] lg:text-xs lg:tracking-[0.22em]">
                         {stat.label}
                       </p>
                     </div>

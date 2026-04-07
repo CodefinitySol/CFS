@@ -4,64 +4,78 @@ import ContactSection from '@/components/ContactSection';
 
 const DEVOPS_FEATURES = [
     {
-        title: "Cloud infrastructure setup",
-        description: "Design and configuration of cloud environments tailored to your application and usage needs.",
-        icon: "/services-section/offer-item-1.webp"
+        title: 'Infrastructure setup',
+        description:
+            'Cloud environments designed around your product’s architecture and usage patterns',
+        icon: '/services-section/offer-item-1.webp',
     },
     {
-        title: "Deployment pipelines",
-        description: "Automated build and deployment pipelines that support consistent and repeatable releases.",
-        icon: "/services-section/offer-item-2.webp"
+        title: 'Deployment systems',
+        description:
+            'Automated pipelines for consistent, reliable releases without manual overhead',
+        icon: '/services-section/offer-item-2.webp',
     },
     {
-        title: "Monitoring and logging",
-        description: "System monitoring and logging to track performance, detect issues early, and reduce downtime.",
-        icon: "/services-section/offer-item-3.webp"
+        title: 'Monitoring and observability',
+        description:
+            'Systems to track performance, detect issues early, and maintain uptime',
+        icon: '/services-section/offer-item-3.webp',
     },
     {
-        title: "Scalability and performance",
-        description: "Infrastructure planning and optimization to support growth without instability.",
-        icon: "/services-section/offer-item-4.webp"
+        title: 'Scalability and performance',
+        description:
+            'Infrastructure designed to handle growth without breaking under load',
+        icon: '/services-section/offer-item-4.webp',
     },
     {
-        title: "Security and access control",
-        description: "Configuration of secure environments, permissions, and best practices to protect systems and data.",
-        icon: "/services-section/offer-item-5.webp"
+        title: 'Security and access control',
+        description:
+            'Structured access, permissions, and best practices to protect systems and data',
+        icon: '/services-section/offer-item-5.webp',
     },
     {
-        title: "Priority DevOps support",
-        description: "Responsive support for incidents, updates, and time-sensitive operational needs.",
-        icon: "/services-section/offer-item-6.webp"
-    }
+        title: 'Ongoing infrastructure support',
+        description:
+            'Support for incidents, updates, and evolving system requirements',
+        icon: '/services-section/offer-item-6.webp',
+    },
 ];
 
 const TECH_STACK = [
-    "Cloud platforms", "CI/CD tools", "Containerization tools", "Monitoring and logging systems", "Infrastructure automation tools"
-]
+    'Cloud platforms',
+    'CI/CD pipelines',
+    'Containerized environments',
+    'Monitoring systems',
+    'Infrastructure automation',
+];
 
 export default function DevOpsPage() {
     return (
         <main className="min-h-screen bg-white">
             <ServiceHeroSection
-                badgeText="DevOps and infrastructure"
+                badgeText="Infrastructure"
+                ctaText="Book a 20-min call"
                 title={
                     <span
-                        className="bg-clip-text text-transparent block"
+                        className="block bg-clip-text text-transparent"
                         style={{
-                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
+                            backgroundImage:
+                                'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         }}
                     >
-                        Infrastructure That Keeps Products Running
+                        Systems that keep products stable at scale
                     </span>
                 }
-                description={"Good infrastructure stays out of the way until it is needed. We design and manage systems that keep applications stable, observable, and ready to scale as usage grows.\n\n Our focus is on reliability, clarity, and control, so teams can operate confidently without constant firefighting."}
+                description={
+                    'We design and manage infrastructure that keeps your product reliable, observable, and ready to handle growth. Everything is built to support real usage, not just initial deployment.\n\nThe focus is simple: systems should run predictably, scale when needed, and not require constant intervention.'
+                }
                 imageSrc="/services-section/ecommer-hero-img.webp"
             />
             <GrowthSection
                 variant="light"
                 badge="What we offer"
-                title={"You focus on building features.\n We’ll keep the system running."}
-                description="Our DevOps and infrastructure services support products at every stage, from early deployment to large-scale systems. We help teams ship faster while keeping operations predictable and secure."
+                title="Infrastructure aligned with how your product operates"
+                description="We build and manage the systems behind your product so teams can ship features without worrying about stability, deployments, or scaling issues."
                 techStack={TECH_STACK}
                 features={DEVOPS_FEATURES}
             />

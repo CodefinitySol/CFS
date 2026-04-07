@@ -97,54 +97,74 @@ export default function ServicesSection() {
           </button>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-          {/* Top row: 50/50 */}
+        {/* Services Grid: row 1 = 50/50, row 2 = full width (shorter card, split on md+) */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <ServiceCard service={SERVICES[0]} />
           <ServiceCard service={SERVICES[1]} />
-
-          {/* Bottom row: full width */}
-          <ServiceCard service={SERVICES[2]} className="lg:col-span-2" />
+          <ServiceCard service={SERVICES[2]} fullWidthRow />
         </div>
       </div>
     </section>
   );
 }
 
-function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0], className?: string }) {
+function ServiceCard({
+  service,
+  fullWidthRow = false,
+}: {
+  service: (typeof SERVICES)[0];
+  fullWidthRow?: boolean;
+}) {
   const isWide = service.wide;
 
   const hasImage = !!service.image;
-  const isTopImage = hasImage && ['Product Development', 'Dedicated Engineering Teams', 'SEO Optimization'].includes(service.title);
+  const isTopImage =
+    hasImage &&
+    ['Product Development', 'Dedicated Engineering Teams', 'SEO Optimization'].includes(service.title);
 
-  // Tailored positioning based on the specific mockup for each card
+  // Tailored positioning based on the specific mockup for each card (absolute layout only)
   const getImagePlacement = () => {
-    if (!hasImage) return "";
+    if (!hasImage) return '';
 
     // Mobile-first classes
-    if (service.title === 'SEO Optimization') return "w-[80%] h-[40%] right-[-5%] top-0 lg:w-[70%] lg:h-[35%] lg:right-[-2%] lg:top-0";
+    if (service.title === 'SEO Optimization')
+      return 'w-[80%] h-[40%] right-[-5%] top-0 lg:w-[70%] lg:h-[35%] lg:right-[-2%] lg:top-0';
 
     switch (service.title) {
       case 'AI Systems and Automation':
-        return "w-[85%] h-[50%] right-[-5%] bottom-0 lg:w-[55%] lg:h-[65%] lg:right-[-2%] lg:bottom-0";
+        return 'w-[85%] h-[50%] right-[-5%] bottom-0 lg:w-[55%] lg:h-[65%] lg:right-[-2%] lg:bottom-0';
       case 'Product Development':
-        return "w-[90%] h-[55%] right-[-5%] top-0 lg:w-[55%] lg:h-[80%] lg:right-[-2%] lg:top-0";
+        return 'w-[90%] h-[55%] right-[-5%] top-0 lg:w-[55%] lg:h-[80%] lg:right-[-2%] lg:top-0';
       case 'Dedicated Engineering Teams':
-        return "w-[90%] h-[55%] right-[-5%] top-[-5%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:top-[-5%]";
+        return 'w-[90%] h-[55%] right-[-5%] top-[-5%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:top-[-5%]';
       case 'Website Management':
-        return "w-[85%] h-[50%] right-[-5%] bottom-[-2%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:bottom-[-2%]";
+        return 'w-[85%] h-[50%] right-[-5%] bottom-[-2%] lg:w-[60%] lg:h-[70%] lg:right-[-5%] lg:bottom-[-2%]';
       case 'E-Commerce Solutions':
-        return "w-[85%] h-[50%] right-0 bottom-0 lg:w-[55%] lg:h-[70%] lg:right-0 lg:bottom-0";
+        return 'w-[85%] h-[50%] right-0 bottom-0 lg:w-[55%] lg:h-[70%] lg:right-0 lg:bottom-0';
       default:
-        return "w-[60%] h-full right-0 top-0 lg:w-[60%] lg:h-full lg:right-0 lg:top-0";
+        return 'w-[60%] h-full right-0 top-0 lg:w-[60%] lg:h-full lg:right-0 lg:top-0';
     }
   };
 
   const imagePlacement = getImagePlacement();
 
+  const useAbsoluteImage = hasImage && !fullWidthRow;
+  const contentPaddingForImage =
+    useAbsoluteImage && hasImage
+      ? isTopImage
+        ? 'pt-64 sm:pt-80 lg:pt-10'
+        : 'pb-64 sm:pb-80 lg:pb-10'
+      : '';
+  const minHeightPair =
+    useAbsoluteImage && hasImage ? 'min-h-[580px] md:min-h-[640px]' : fullWidthRow ? '' : 'min-h-0';
+
   return (
     <motion.div
-      className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/5 bg-[#191819] transition-[border-color] duration-300 hover:border-white/25 ${className}`}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/5 bg-[#191819] transition-[border-color] duration-300 hover:border-white/25 ${
+        fullWidthRow
+          ? 'md:col-span-2 min-h-[380px] md:min-h-[400px] md:flex-row md:items-start md:gap-10 p-8 sm:p-10 md:p-10'
+          : ''
+      }`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -155,12 +175,14 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
         aria-hidden
       />
       <div
-        className={`relative z-10 flex flex-col p-8 sm:p-10 ${isWide ? 'lg:w-[60%]' : 'w-full'} 
-        ${hasImage ? (isTopImage ? 'pt-64 sm:pt-80 lg:pt-10' : 'pb-64 sm:pb-80 lg:pb-10') : ''} 
-        h-full ${hasImage ? 'min-h-[520px] sm:min-h-[580px]' : 'min-h-0'} lg:min-h-0`}
+        className={`relative z-10 flex h-full flex-col ${
+          fullWidthRow
+            ? 'min-w-0 flex-1 md:max-w-[58%] md:pr-2'
+            : `p-8 sm:p-10 ${isWide ? 'lg:w-[60%]' : 'w-full'}`
+        } ${contentPaddingForImage} ${minHeightPair} lg:min-h-0`}
       >
         {/* Icon */}
-        <div className="mb-8 h-12 w-12 sm:h-14 sm:w-14">
+        <div className={`mb-8 h-12 w-12 sm:h-14 sm:w-14 ${fullWidthRow ? 'md:mb-6' : ''}`}>
           <Image
             src={service.icon}
             alt={service.title}
@@ -211,24 +233,36 @@ function ServiceCard({ service, className = '' }: { service: typeof SERVICES[0],
       </div>
 
       {/* Decorative Image */}
-      {service.image && (
-        <div
-          className={`pointer-events-none absolute z-[2] ${imagePlacement}`}
-        >
-          <div className="relative h-full w-full">
+      {service.image &&
+        (fullWidthRow ? (
+          <div className="relative z-[2] mt-6 h-52 w-full shrink-0 overflow-hidden md:mt-0 md:h-[260px] md:w-[42%] md:max-w-md md:flex-none">
             <Image
               src={service.image}
               alt={`${service.title} visual`}
               fill
-              className={`object-contain ${service.title === 'AI Systems and Automation' ? 'object-right-bottom' :
-                service.title === 'Product Development' ? 'object-right-top' :
-                  service.title === 'Dedicated Engineering Teams' ? 'object-right-top' :
-                    'object-right-bottom'
-                }`}
+              className="object-contain object-center md:object-right-top"
             />
           </div>
-        </div>
-      )}
+        ) : (
+          <div className={`pointer-events-none absolute z-[2] ${imagePlacement}`}>
+            <div className="relative h-full w-full">
+              <Image
+                src={service.image}
+                alt={`${service.title} visual`}
+                fill
+                className={`object-contain ${
+                  service.title === 'AI Systems and Automation'
+                    ? 'object-right-bottom'
+                    : service.title === 'Product Development'
+                      ? 'object-right-top'
+                      : service.title === 'Dedicated Engineering Teams'
+                        ? 'object-right-top'
+                        : 'object-right-bottom'
+                }`}
+              />
+            </div>
+          </div>
+        ))}
     </motion.div>
   );
 }

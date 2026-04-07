@@ -47,11 +47,11 @@ export default function Footer() {
         <NewsletterSection />
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
 
-          {/* Top Section: CTA & Explore */}
-          <div className="mb-20 flex w-full flex-col gap-10 lg:flex-row lg:items-start lg:justify-center lg:gap-14 xl:gap-20">
+          {/* Top Section: CTA & Explore — row from tablet (md), same as desktop */}
+          <div className="mb-20 flex w-full flex-col gap-10 md:flex-row md:items-start md:justify-center md:gap-10 lg:gap-14 xl:gap-20">
 
             {/* Left: CTA */}
-            <div className="flex max-w-2xl flex-col items-start pt-4 lg:max-w-xl xl:max-w-2xl">
+            <div className="flex min-w-0 max-w-2xl flex-1 flex-col items-start pt-4 md:max-w-xl lg:max-w-xl xl:max-w-2xl">
               <h2
                 className="mb-6 font-aeonik text-3xl font-normal leading-tight sm:text-3xl lg:text-5xl"
                 style={{
@@ -83,7 +83,7 @@ export default function Footer() {
             </div>
 
             {/* Explore */}
-            <div className="w-full shrink-0 pt-4 lg:w-48 lg:min-w-[12rem]">
+            <div className="w-full shrink-0 pt-4 md:w-48 md:min-w-[12rem] lg:w-48 lg:min-w-[12rem]">
               <h3
                 className="font-aeonik text-xl font-normal lg:text-2xl"
                 style={{

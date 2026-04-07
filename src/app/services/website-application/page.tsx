@@ -4,64 +4,81 @@ import ContactSection from '@/components/ContactSection';
 
 const GROWTH_FEATURES = [
     {
-        title: "Custom web application development",
-        description: "Design and development of web applications tailored to your product requirements and user needs.",
-        icon: "/services-section/offer-item-1.webp"
+        title: 'Custom product development',
+        description:
+            'End-to-end development of software products aligned with business goals and real user needs',
+        icon: '/services-section/offer-item-1.webp',
     },
     {
-        title: "Frontend and backend architecture",
-        description: "Structured frontend and backend systems built for clarity, performance, and long-term maintainability.",
-        icon: "/services-section/offer-item-2.webp"
+        title: 'System architecture',
+        description:
+            'Design of scalable systems across frontend, backend, and infrastructure with long-term maintainability in mind',
+        icon: '/services-section/offer-item-2.webp',
     },
     {
-        title: "API and system integration",
-        description: "Seamless integration with third-party services, internal systems, and external APIs.",
-        icon: "/services-section/offer-item-3.webp"
+        title: 'API and integrations',
+        description:
+            'Integration of internal systems, third-party services, and APIs as part of a cohesive product',
+        icon: '/services-section/offer-item-3.webp',
     },
     {
-        title: "Performance optimization",
-        description: "Identification and resolution of bottlenecks to keep applications fast, responsive, and stable.",
-        icon: "/services-section/offer-item-4.webp"
+        title: 'Performance and reliability',
+        description:
+            'Optimization to ensure systems remain fast, stable, and predictable under real usage',
+        icon: '/services-section/offer-item-4.webp',
     },
     {
-        title: "Scalability and refactoring",
-        description: "Ongoing improvements to support growth, new features, and increasing user demand without breaking existing functionality.",
-        icon: "/services-section/offer-item-5.webp"
+        title: 'Scalability and evolution',
+        description:
+            'Continuous improvements to support growth, new features, and increasing complexity without breaking the system',
+        icon: '/services-section/offer-item-5.webp',
     },
     {
-        title: "Priority web support",
-        description: "Responsive support for production issues, updates, and time-sensitive changes.",
-        icon: "/services-section/offer-item-6.webp"
-    }
+        title: 'Ongoing product support',
+        description:
+            'Support for production systems, updates, and continuous development as the product evolves',
+        icon: '/services-section/offer-item-6.webp',
+    },
 ];
 
 const TECH_STACK = [
-    "JavaScript", "TypeScript", "React", "Node.js", "Express", "MongoDB", "Python", "REST APIs"
-]
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Node.js',
+    'Express',
+    'MongoDB',
+    'Python',
+    'REST APIs',
+];
 
 export default function WebsiteApplicationPage() {
     return (
         <main className="min-h-screen bg-white">
             <ServiceHeroSection
-                badgeText="Web application development"
+                badgeText="Product development"
+                ctaText="Book a 20-min call"
                 title={
                     <span
-                        className="bg-clip-text text-transparent block"
+                        className="block bg-clip-text text-transparent"
                         style={{
-                            backgroundImage: 'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
+                            backgroundImage:
+                                'linear-gradient(94.13deg,#e8ecf0 .14%,#2B2A2B 153.8%)',
                         }}
                     >
-                        Web Applications Built for Scale and Stability
+                        End-to-end product engineering for real systems
                     </span>
                 }
-                description={"We build web applications that are designed to grow with your product and your users. From early MVPs to mature platforms, our focus is on clean architecture, performance, and long-term maintainability. \n\n Our work balances speed with structure, so teams can ship confidently without creating problems later."}
+                description={
+                    'We design and build production-ready software products, from early-stage builds to full-scale platforms. Every system is built with clean architecture, strong foundations, and long-term scalability in mind.\n\nWe move fast without compromising structure, so teams can ship confidently and continue to build without constant rewrites.'
+                }
                 imageSrc="/services-section/hero-img.webp"
             />
             <GrowthSection
                 variant="light"
                 badge="What we offer"
-                title={"You focus on the product. \n We’ll handle the web application."}
-                description="Our web application development services adapt to your product stage and technical needs. Whether you are building from scratch or improving an existing system, we work in a way that supports steady progress and clear ownership."
+                title="Product development aligned with how real systems grow"
+                description="We handle the full product lifecycle, from initial architecture to scaling systems in production. Whether you are building from scratch or improving an existing product, we focus on stability, clarity, and long-term maintainability."
                 techStack={TECH_STACK}
                 features={GROWTH_FEATURES}
             />
@@ -69,5 +86,3 @@ export default function WebsiteApplicationPage() {
         </main>
     );
 }
-
-

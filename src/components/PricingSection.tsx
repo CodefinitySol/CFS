@@ -71,7 +71,7 @@ export default function PricingSection({
   title = "Flexible engagement models based on how you build",
   description = "Choose a setup based on your product stage, complexity, and how involved you need us to be",
   plans = DEFAULT_PLANS,
-  containerClassName = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+  containerClassName = 'grid-cols-1 md:grid-cols-3'
 }: PricingSectionProps) {
   return (
     <section className="bg-white pb-4 sm:pb-4 pt-22 sm:pt-22 overflow-hidden">
@@ -103,7 +103,7 @@ export default function PricingSection({
 
         {/* Pricing Container */}
         <div className={`${containerClassName && containerClassName.includes('max-w-') ? containerClassName.match(/max-w-[^\s]+/)?.[0] : 'max-w-full'} mx-auto`}>
-          <div className={`grid ${containerClassName ? containerClassName.replace(/max-w-[^\s]+/g, '').replace('mx-auto', '').trim() : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-4 sm:gap-5 lg:gap-6`}>
+          <div className={`grid ${containerClassName ? containerClassName.replace(/max-w-[^\s]+/g, '').replace('mx-auto', '').trim() : 'grid-cols-1 md:grid-cols-3'} gap-3 sm:gap-4 md:gap-4 lg:gap-6`}>
             {plans.map((plan, index) => (
               <PricingCard key={plan.name} plan={plan} index={index} />
             ))}
@@ -119,7 +119,8 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
   return (
     <motion.div
       className={`
-        group relative flex h-full flex-col rounded-[20px] bg-white p-8 text-[#191819] shadow-[0_1px_0_rgba(25,24,25,0.05),0_10px_30px_-18px_rgba(25,24,25,0.22)] transition-all duration-300 hover:bg-[#191819] sm:p-12 lg:p-14
+        group relative flex h-full min-w-0 flex-col rounded-2xl bg-white p-8 text-[#191819] shadow-[0_1px_0_rgba(25,24,25,0.05),0_10px_30px_-18px_rgba(25,24,25,0.22)] transition-all duration-300 hover:bg-[#191819]
+        sm:p-12 md:p-5 lg:rounded-[20px] lg:p-14
       `}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -127,9 +128,9 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
       {/* Badge */}
-      <div className="relative mb-12 inline-flex items-center justify-center min-w-[120px] h-[44px] self-start">
+      <div className="relative mb-6 inline-flex h-9 min-w-[96px] items-center justify-center self-start sm:mb-7 sm:h-10 sm:min-w-[108px] md:mb-6 lg:mb-12 lg:h-[44px] lg:min-w-[120px]">
         {/* Decorative corner background */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none">
+        <div className="pointer-events-none absolute inset-0 h-full w-full">
           <Image
             src="/square.png"
             alt=""
@@ -138,30 +139,32 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
           />
         </div>
 
-        <div className="relative z-10 px-6 font-aeonik text-sm font-medium tracking-wide text-[#2B2A2B] transition-colors duration-300 group-hover:text-white/90">
+        <div className="relative z-10 px-4 font-aeonik text-xs font-medium tracking-wide text-[#2B2A2B] transition-colors duration-300 group-hover:text-white/90 sm:text-sm lg:px-6 lg:text-sm">
           {plan.name}
         </div>
       </div>
 
       {/* Pricing */}
-      <div className="mb-10 flex items-baseline gap-3">
+      <div className="mb-5 flex flex-wrap items-baseline gap-x-2 gap-y-1 sm:mb-6 md:mb-5 lg:mb-10 lg:gap-3">
         {plan.price !== "Custom pricing" ? (
           <>
-            <span className="text-base font-normal text-[#2B2A2B]/60 transition-colors duration-300 group-hover:text-white/50">From</span>
+            <span className="text-xs font-normal text-[#2B2A2B]/60 transition-colors duration-300 group-hover:text-white/50 sm:text-sm lg:text-base">
+              From
+            </span>
             <span
-              className="font-aeonik text-4xl font-normal tracking-tight text-[#191819] transition-colors duration-300 group-hover:text-white lg:text-4xl"
+              className="font-aeonik text-2xl font-normal tracking-tight text-[#191819] transition-colors duration-300 group-hover:text-white sm:text-3xl lg:text-4xl"
             >
               {plan.price}
             </span>
             {plan.priceSuffix && (
-              <span className="text-lg font-normal text-[#2B2A2B]/60 transition-colors duration-300 group-hover:text-white/50">
+              <span className="text-sm font-normal text-[#2B2A2B]/60 transition-colors duration-300 group-hover:text-white/50 lg:text-lg">
                 {plan.priceSuffix}
               </span>
             )}
           </>
         ) : (
           <span
-            className="font-aeonik text-4xl font-normal tracking-tight text-[#191819] transition-colors duration-300 group-hover:text-white lg:text-4xl"
+            className="font-aeonik text-2xl font-normal tracking-tight text-[#191819] transition-colors duration-300 group-hover:text-white sm:text-3xl lg:text-4xl"
           >
             {plan.price}
           </span>
@@ -169,21 +172,21 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
       </div>
 
       {/* Description */}
-      <p className="mb-12 font-aeonik text-base leading-relaxed text-[#2B2A2B] transition-colors duration-300 group-hover:text-white">
+      <p className="mb-6 font-aeonik text-sm leading-relaxed text-[#2B2A2B] transition-colors duration-300 group-hover:text-white sm:mb-7 sm:text-[15px] md:mb-6 lg:mb-12 lg:text-base">
         {plan.description}
       </p>
 
       {/* Features Heading */}
-      <h4 className="mb-6 font-aeonik text-2xl font-normal text-[#191819] transition-colors duration-300 group-hover:text-white">
+      <h4 className="mb-3 font-aeonik text-lg font-normal text-[#191819] transition-colors duration-300 group-hover:text-white sm:text-xl md:mb-3 lg:mb-6 lg:text-2xl">
         What&apos;s included
       </h4>
 
       {/* Features List */}
-      <ul className="mb-12 space-y-3 flex-1">
+      <ul className="mb-6 space-y-2 flex-1 sm:mb-7 md:mb-6 lg:mb-12 lg:space-y-3">
         {plan.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-4">
-            <IoCheckmarkCircle className="mt-1 h-5 w-5 shrink-0 text-[#2B2A2B] transition-colors duration-300 group-hover:text-white" />
-            <span className="font-aeonik text-base leading-snug text-[#191819]/80 transition-colors duration-300 group-hover:text-white/85">
+          <li key={feature} className="flex items-start gap-2.5 sm:gap-3 lg:gap-4">
+            <IoCheckmarkCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#2B2A2B] transition-colors duration-300 group-hover:text-white sm:h-[18px] sm:w-[18px] lg:mt-1 lg:h-5 lg:w-5" />
+            <span className="font-aeonik text-sm leading-snug text-[#191819]/80 transition-colors duration-300 group-hover:text-white/85 lg:text-base">
               {feature}
             </span>
           </li>
@@ -196,8 +199,8 @@ function PricingCard({ plan, index }: { plan: PricingPlan, index: number }) {
         target="_blank"
         rel="noopener noreferrer"
         className={`
-          flex w-full cursor-pointer items-center justify-center gap-2 rounded-full py-5 font-aeonik text-base font-medium transition-all duration-300
-          border border-[#E7E2E7] bg-[#2B2A2B] text-white hover:bg-[#3A383A]
+          mt-auto flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full py-3.5 font-aeonik text-sm font-medium transition-all duration-300
+          border border-[#E7E2E7] bg-[#2B2A2B] text-white hover:bg-[#3A383A] sm:py-4 sm:text-[15px] lg:gap-2 lg:py-5 lg:text-base
         `}
       >
         Discuss your project

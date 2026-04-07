@@ -154,44 +154,60 @@ export default function GrowthSection({
                 </motion.div>
 
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div
+                    className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${isLight ? 'gap-6' : 'gap-6 lg:gap-8'}`}
+                >
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
-                            className={`flex h-full flex-col items-start gap-12 rounded-[12px] border p-10 transition-all duration-300 ${
+                            className={`group relative flex h-full cursor-pointer flex-col items-start rounded-[12px] border ${
                                 isLight
-                                    ? 'border-[#E7E2E7] bg-[#F8F9FA] hover:border-[#191819]/20 hover:bg-white'
-                                    : 'group border-white/5 bg-[#212327]/40 hover:border-white/10 hover:bg-[#212327]/60'
+                                    ? 'gap-8 border-transparent bg-[#F1F4F6] p-8 shadow-sm transition-all duration-500 hover:bg-[#2B2A2B] hover:shadow-2xl'
+                                    : 'gap-8 border-white/5 bg-[#212327]/40 p-8 transition-all duration-300 hover:border-white/10 hover:bg-[#212327]/60'
                             }`}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                         >
-
-                            <Image
-                                src={feature.icon}
-                                alt={feature.title}
-                                width={50}
-                                height={50}
-                                className="object-contain"
-                            />
-
-                            <div className="flex flex-col gap-6">
-                                {/* Feature Title */}
-                                <h3 className="font-aeonik text-2xl font-normal tracking-tight"
-                                    style={textGradient}
+                            {/* Icon + title (one row, matches augmentation) */}
+                            <div className="flex w-full items-center gap-4">
+                                <div
+                                    className={`relative h-[50px] w-[50px] shrink-0 ${
+                                        isLight ? 'text-[#191819]' : ''
+                                    }`}
+                                >
+                                    <Image
+                                        src={feature.icon}
+                                        alt={feature.title}
+                                        width={50}
+                                        height={50}
+                                        className={`object-contain transition-all duration-300 ${
+                                            isLight ? 'group-hover:brightness-0 group-hover:invert' : ''
+                                        }`}
+                                    />
+                                </div>
+                                <h3
+                                    className={`min-w-0 flex-1 font-aeonik text-2xl font-normal leading-tight ${
+                                        isLight
+                                            ? 'text-[#191819] transition-all duration-300 group-hover:bg-[linear-gradient(94.13deg,#e8ecf0_0.14%,#2B2A2B_153.8%)] group-hover:bg-clip-text group-hover:text-transparent'
+                                            : ''
+                                    } inline-block`}
+                                    style={isLight ? undefined : textGradient}
                                 >
                                     {feature.title}
                                 </h3>
-
-                                {/* Feature Description */}
-                                <p
-                                    className={`font-aeonik text-base leading-relaxed ${isLight ? 'text-[#4D494D]' : 'text-[#E8ECF0]'}`}
-                                >
-                                    {feature.description}
-                                </p>
                             </div>
+
+                            <p
+                                className={`font-aeonik text-base leading-relaxed transition-colors duration-300 ${
+                                    isLight
+                                        ? 'text-[#191819] group-hover:text-white/80'
+                                        : 'text-[#E8ECF0]'
+                                }`}
+                            >
+                                {feature.description}
+                            </p>
                         </motion.div>
                     ))}
                 </div>
