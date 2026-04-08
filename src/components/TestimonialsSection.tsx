@@ -266,7 +266,7 @@ export default function TestimonialsSection() {
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         {/* Mobile: social proof in pill, CTA below; sm+: single pill with both */}
-        <div className="flex w-full max-w-md flex-col items-stretch gap-4 sm:max-w-none sm:inline-flex sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 sm:rounded-full sm:border sm:border-white/10 sm:bg-[#191819] sm:py-2 sm:pl-3 sm:pr-2 sm:pl-4">
+        <div className="flex w-full max-w-md flex-col items-stretch gap-4 sm:w-auto sm:max-w-none sm:inline-flex sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 sm:rounded-full sm:border sm:border-white/10 sm:bg-[#191819] sm:py-2 sm:pl-3 sm:pr-2 sm:pl-4">
           <div className="flex items-center gap-4 rounded-full border border-white/10 bg-[#191819] py-2 pl-3 pr-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:py-0 sm:pl-0 sm:pr-0">
             <div className="flex -space-x-3">
               {[1, 2, 3].map((i) => (

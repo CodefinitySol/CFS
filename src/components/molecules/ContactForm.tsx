@@ -13,6 +13,13 @@ const SUBJECT_OPTIONS = [
 ];
 
 export default function ContactForm({ isAugmentation, isContactPage }: { isAugmentation?: boolean; isContactPage?: boolean }) {
+  const isSubmitEnquiryVariant = !isAugmentation && !isContactPage;
+  const darkFieldClassName = isSubmitEnquiryVariant
+    ? '!border-white/15 !bg-white/5 !text-white placeholder:!text-white/35 focus:!border-white/25 focus:!bg-white/10 focus:!ring-white/10'
+    : '';
+  const darkSelectClassName = isSubmitEnquiryVariant
+    ? '[&_button]:!border-white/15 [&_button]:!bg-white/5 [&_button]:!text-white [&_button]:focus:!ring-white/10 [&_button]:hover:!border-white/25 [&_button]:hover:!bg-white/10 [&_button_span]:!text-white/70 [&_button_svg]:!text-white/60 [&_.animate-dropdown-enter>div]:!border-white/15 [&_.animate-dropdown-enter>div]:!bg-[#343538] [&_.animate-dropdown-enter>div]:!shadow-[0_10px_40px_rgba(0,0,0,0.45)] [&_.animate-dropdown-enter_button]:!text-white/75 [&_.animate-dropdown-enter_button:hover]:!bg-white/10 [&_.animate-dropdown-enter_button:hover]:!text-white [&_.animate-dropdown-enter_button]:!font-normal'
+    : '';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,7 +48,7 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
 
   return (
     <div className={(isAugmentation || isContactPage) ? "rounded-[18px] bg-[#DDE3E7] p-2" : ""}>
-      <div className={`relative rounded-[16px] bg-white p-10 sm:p-12 ${(isAugmentation || isContactPage) ? '' : 'rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]'}`}>
+      <div className={`relative rounded-[16px] p-10 sm:p-12 ${isSubmitEnquiryVariant ? 'bg-[#343538] [&_label]:text-white/70' : 'bg-white'} ${(isAugmentation || isContactPage) ? '' : 'rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]'}`}>
         {/* START A PROJECT Circle */}
         <div className={`absolute z-20 ${(isAugmentation || isContactPage) ? 'h-20 w-20 -left-10 -top-10 sm:h-24 sm:w-24 sm:-left-12 sm:-top-12' : 'h-16 w-16 -left-6 -top-6 sm:h-20 sm:w-20 sm:-left-7 sm:-top-7'}`}>
           <div className={`relative h-full w-full rounded-full border border-white/10 backdrop-blur-md ${(isAugmentation || isContactPage) ? 'bg-[#F2F4F6]/60' : 'bg-[#191819]/60 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'}`}>
@@ -111,10 +118,11 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
               placeholder="Enter full name"
               label={
                 <>
-                  Name <span className="text-[#6b7280]">*</span>
+                  Name <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
                 </>
               }
               required
+              className={darkFieldClassName}
             />
 
             {/* Email Field */}
@@ -127,10 +135,11 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
               placeholder="Enter email"
               label={
                 <>
-                  Email <span className="text-[#6b7280]">*</span>
+                  Email <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
                 </>
               }
               required
+              className={darkFieldClassName}
             />
           </div>
 
@@ -143,10 +152,11 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             placeholder="Select one"
             label={
               <>
-                Subject <span className="text-[#6b7280]">*</span>
+                Subject <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
               </>
             }
             required
+            className={darkSelectClassName}
           />
 
           {/* Message Field */}
@@ -162,11 +172,12 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             }
             label={
               <>
-                Message <span className="text-[#6b7280]">*</span>
+                Message <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
               </>
             }
             required
             rows={7}
+            className={darkFieldClassName}
           />
 
           {/* Submit Button */}
@@ -176,7 +187,7 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             size="md"
             className="w-full !bg-[#2B2A2B] hover:!bg-[#2E2B2E] shadow-lg hover:shadow-xl"
           >
-            {isContactPage ? 'Send project details' : 'Submit enquiry'}
+            {isContactPage ? 'Send project details' : 'Start your Project Today'}
           </Button>
         </form>
       </div>

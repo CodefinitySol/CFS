@@ -12,7 +12,7 @@ export default function AcuityHeroSection() {
             {/* Header */}
             <Header isLight={true} />
 
-            <div className="relative z-10 mx-auto flex w-full max-w-[1700px] flex-1 flex-col justify-center px-4 sm:px-6 pb-10 pt-10 lg:px-16 lg:pb-22 lg:pt-12">
+            <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-4 sm:px-6 pb-10 pt-10 lg:px-16 lg:pb-22 lg:pt-12">
                 <motion.div
                     className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 xl:gap-32"
                     initial={{ opacity: 0, y: 40 }}

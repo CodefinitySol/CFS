@@ -6,7 +6,7 @@ export default function StartProjectSection() {
     return (
         <section className="bg-white px-4 sm:px-6 py-12 lg:py-24 lg:px-16 xl:px-24">
             <motion.div
-                className="mx-auto max-w-[1920px]"
+                className="mx-auto max-w-[1600px]"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -1,5 +1,6 @@
 import ContactHeroSection from '@/components/ContactHeroSection';
 import OurOfficesSection from '@/components/OurOfficesSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 
 const CONTACT_FAQS = [
@@ -40,6 +41,7 @@ export default function ContactPage() {
         <main className="min-h-screen bg-white">
             <ContactHeroSection />
             <OurOfficesSection />
+            <TestimonialsSection />
             <ServiceFAQSection
                 items={CONTACT_FAQS}
                 badgeText="FAQS"
