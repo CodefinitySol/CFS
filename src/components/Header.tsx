@@ -155,10 +155,10 @@ export default function Header({ isLight = false }: HeaderProps) {
           {/* Centered scale on mobile avoids asymmetric overflow; sm+ matches prior art direction */}
           <div className="relative h-12 w-40 shrink-0 origin-center scale-100 sm:h-16 sm:w-52 sm:origin-left sm:scale-[1.14] lg:scale-[1.2]">
             <Image
-              src="/codefinity-logo-white.png"
+              src="/logo.png"
               alt="Codefinity Solutions"
               fill
-              className={`object-contain object-left ${isLight ? 'invert' : ''}`}
+              className={`object-contain object-left ${isLight ? '' : 'invert'}`}
               priority
             />
           </div>
@@ -315,10 +315,10 @@ export default function Header({ isLight = false }: HeaderProps) {
             <Link href="/" onClick={handleCloseMenu} className="block">
               <div className="relative h-10 w-36">
                 <Image
-                  src="/codefinity-logo-white.png"
+                  src="/logo.png"
                   alt="Codefinity Solutions"
                   fill
-                  className="object-contain invert"
+                  className="object-contain"
                 />
               </div>
             </Link>
