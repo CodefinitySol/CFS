@@ -22,6 +22,8 @@ export default function ContactSection() {
     subject: '',
     message: '',
   });
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [submitError, setSubmitError] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -56,9 +58,24 @@ export default function ContactSection() {
     setIsDropdownOpen(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setSubmitStatus('loading');
+    setSubmitError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, source: 'Contact Section' }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok) throw new Error(data.error || 'Something went wrong');
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      setSubmitStatus('error');
+      setSubmitError(err instanceof Error ? err.message : 'Failed to send');
+    }
   };
 
   return (
@@ -179,11 +196,24 @@ export default function ContactSection() {
               <motion.form
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-8"
+                data-lpignore="true"
+                data-1p-ignore
+                data-bwignore
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
+                {submitStatus === 'success' && (
+                  <p className="rounded-xl bg-white/10 px-4 py-3 font-aeonik text-sm text-white">
+                    Thanks — we received your message and will get back to you soon.
+                  </p>
+                )}
+                {submitStatus === 'error' && submitError && (
+                  <p className="rounded-xl bg-red-500/20 px-4 py-3 font-aeonik text-sm text-red-300">
+                    {submitError}
+                  </p>
+                )}
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div className="flex flex-col gap-3">
                     <label className="ml-1 text-sm font-medium text-white/60">
@@ -196,7 +226,11 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       placeholder="Enter full name"
                       required
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none"
+                      disabled={submitStatus === 'loading'}
+                      data-lpignore="true"
+                      data-1p-ignore
+                      data-bwignore
+                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none disabled:opacity-60"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
@@ -210,7 +244,11 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       placeholder="Enter email"
                       required
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none"
+                      disabled={submitStatus === 'loading'}
+                      data-lpignore="true"
+                      data-1p-ignore
+                      data-bwignore
+                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none disabled:opacity-60"
                     />
                   </div>
                 </div>
@@ -222,7 +260,8 @@ export default function ContactSection() {
                   <div className="relative" ref={dropdownRef}>
                     <button
                       type="button"
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      disabled={submitStatus === 'loading'}
+                      onClick={() => submitStatus !== 'loading' && setIsDropdownOpen(!isDropdownOpen)}
                       className={`flex w-full items-center justify-between rounded-2xl border bg-white/5 px-6 py-4 text-left transition-all duration-200 focus:outline-none ${isDropdownOpen
                         ? 'border-[#2B2A2B] ring-1 ring-[#2B2A2B]'
                         : 'border-white/10 hover:border-white/20'
@@ -298,16 +337,21 @@ export default function ContactSection() {
                     rows={6}
                     placeholder="Tell us about your project, goals, or timeline."
                     required
-                    className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none"
+                    disabled={submitStatus === 'loading'}
+                    data-lpignore="true"
+                    data-1p-ignore
+                    data-bwignore
+                    className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white transition-all placeholder:text-white/20 focus:border-[#2B2A2B] focus:outline-none disabled:opacity-60"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full cursor-pointer rounded-full py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95"
+                  disabled={submitStatus === 'loading'}
+                  className="w-full cursor-pointer rounded-full py-4 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
                   style={{ backgroundColor: '#2B2A2B' }}
                 >
-                  Send project details
+                  {submitStatus === 'loading' ? 'Sending…' : 'Send project details'}
                 </button>
               </motion.form>
             </div>

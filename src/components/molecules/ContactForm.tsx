@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Input, Textarea, Button, Select } from '@/components/atoms';
+import { useHydrated } from '@/hooks/useHydrated';
 
 const SUBJECT_OPTIONS = [
   { label: 'New product development', value: 'new-product-development' },
@@ -12,25 +13,39 @@ const SUBJECT_OPTIONS = [
   { label: 'Something else', value: 'something-else' },
 ];
 
-export default function ContactForm({ isAugmentation, isContactPage }: { isAugmentation?: boolean; isContactPage?: boolean }) {
-  const isSubmitEnquiryVariant = !isAugmentation && !isContactPage;
-  const darkFieldClassName = isSubmitEnquiryVariant
-    ? '!border-white/15 !bg-white/5 !text-white placeholder:!text-white/35 focus:!border-white/25 focus:!bg-white/10 focus:!ring-white/10'
-    : '';
-  const darkSelectClassName = isSubmitEnquiryVariant
-    ? '[&_button]:!border-white/15 [&_button]:!bg-white/5 [&_button]:!text-white [&_button]:focus:!ring-white/10 [&_button]:hover:!border-white/25 [&_button]:hover:!bg-white/10 [&_button_span]:!text-white/70 [&_button_svg]:!text-white/60 [&_.animate-dropdown-enter>div]:!border-white/15 [&_.animate-dropdown-enter>div]:!bg-[#343538] [&_.animate-dropdown-enter>div]:!shadow-[0_10px_40px_rgba(0,0,0,0.45)] [&_.animate-dropdown-enter_button]:!text-white/75 [&_.animate-dropdown-enter_button:hover]:!bg-white/10 [&_.animate-dropdown-enter_button:hover]:!text-white [&_.animate-dropdown-enter_button]:!font-normal'
-    : '';
+function resolveFormSource(
+  formSource: string | undefined,
+  isContactPage: boolean | undefined,
+  isAugmentation: boolean | undefined,
+) {
+  if (formSource) return formSource;
+  if (isContactPage) return 'Contact Page';
+  if (isAugmentation) return 'Augmentation Page';
+  return 'Hero Form';
+}
+
+export default function ContactForm({
+  isAugmentation,
+  isContactPage,
+  formSource,
+}: {
+  isAugmentation?: boolean;
+  isContactPage?: boolean;
+  /** Override auto-detected source (e.g. Project Section) */
+  formSource?: string;
+}) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const hydrated = useHydrated();
 
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -40,54 +55,69 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
     setFormData((prev) => ({ ...prev, subject: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setStatus('loading');
+    setErrorMessage('');
+    const source = resolveFormSource(formSource, isContactPage, isAugmentation);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, source }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage(err instanceof Error ? err.message : 'Failed to send');
+    }
   };
 
   return (
-    <div className={(isAugmentation || isContactPage) ? "rounded-[18px] bg-[#DDE3E7] p-2" : ""}>
-      <div className={`relative rounded-[16px] p-10 sm:p-12 ${isSubmitEnquiryVariant ? 'bg-[#343538] [&_label]:text-white/70' : 'bg-white'} ${(isAugmentation || isContactPage) ? '' : 'rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]'}`}>
+    <div className={(isAugmentation || isContactPage) ? 'rounded-[18px] bg-[#DDE3E7] p-2' : ''}>
+      <div
+        className={`relative rounded-[16px] bg-white p-10 sm:p-12 ${isAugmentation || isContactPage ? '' : 'rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]'}`}
+      >
         {/* START A PROJECT Circle */}
-        <div className={`absolute z-20 ${(isAugmentation || isContactPage) ? 'h-20 w-20 -left-10 -top-10 sm:h-24 sm:w-24 sm:-left-12 sm:-top-12' : 'h-16 w-16 -left-6 -top-6 sm:h-20 sm:w-20 sm:-left-7 sm:-top-7'}`}>
-          <div className={`relative h-full w-full rounded-full border border-white/10 backdrop-blur-md ${(isAugmentation || isContactPage) ? 'bg-[#F2F4F6]/60' : 'bg-[#191819]/60 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'}`}>
-            {/* Inner Glass Glow */}
+        <div
+          className={`absolute z-20 ${isAugmentation || isContactPage ? 'h-20 w-20 -left-10 -top-10 sm:h-24 sm:w-24 sm:-left-12 sm:-top-12' : 'h-16 w-16 -left-6 -top-6 sm:h-20 sm:w-20 sm:-left-7 sm:-top-7'}`}
+        >
+          <div
+            className={`relative h-full w-full rounded-full border border-white/10 backdrop-blur-md ${isAugmentation || isContactPage ? 'bg-[#F2F4F6]/60' : 'bg-[#191819]/60 shadow-[0_8px_32px_rgba(0,0,0,0.3)]'}`}
+          >
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 via-transparent to-white/10" />
-
-            {/* Sharp Rim Highlight */}
             <div className="absolute inset-0 rounded-full border border-white/20 shadow-[inset_0_0_12px_rgba(255,255,255,0.05)]" />
-
-            {/* Center Plus */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className={`font-aeonik text-xl font-light ${(isAugmentation || isContactPage) ? 'text-[#536F85]' : 'text-white/90'}`}>
+              <span
+                className={`font-aeonik text-xl font-light ${isAugmentation || isContactPage ? 'text-[#536F85]' : 'text-white/90'}`}
+              >
                 +
               </span>
             </div>
 
             <div className="absolute inset-0">
-              <svg
-                className="h-full w-full"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg className="h-full w-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <path
                   id="circle-path-form"
                   d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                   fill="none"
                 />
                 <text
-                  fill={(isAugmentation || isContactPage) ? '#536F85' : 'white'}
+                  fill={isAugmentation || isContactPage ? '#536F85' : 'white'}
                   fontSize="7.5"
                   fontWeight="1000"
                   fontFamily="Aeonik, sans-serif"
                   className="uppercase tracking-[0.3em]"
-                  style={{ textShadow: (isAugmentation || isContactPage) ? '0 1px 2px rgba(0,0,0,0.2)' : 'none' }}
+                  style={{
+                    textShadow: isAugmentation || isContactPage ? '0 1px 2px rgba(0,0,0,0.2)' : 'none',
+                  }}
                 >
-                  <textPath
-                    href="#circle-path-form"
-                    startOffset="0%"
-                  >
+                  <textPath href="#circle-path-form" startOffset="0%">
                     Start a project • Start a project •
                   </textPath>
                 </text>
@@ -102,13 +132,36 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
           </p>
         )}
 
+        {status === 'success' && (
+          <p className="mb-4 rounded-xl bg-green-50 px-4 py-3 font-aeonik text-sm text-green-800">
+            Thanks — we received your message and will get back to you soon.
+          </p>
+        )}
+        {status === 'error' && errorMessage && (
+          <p className="mb-4 rounded-xl bg-red-50 px-4 py-3 font-aeonik text-sm text-red-800">
+            {errorMessage}
+          </p>
+        )}
+
+        {!hydrated ? (
+          <div className="space-y-6" aria-hidden>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="h-[76px] rounded-xl bg-[#f8f9fa]" />
+              <div className="h-[76px] rounded-xl bg-[#f8f9fa]" />
+            </div>
+            <div className="h-[76px] rounded-xl bg-[#f8f9fa]" />
+            <div className="h-[180px] rounded-xl bg-[#f8f9fa]" />
+            <div className="h-12 rounded-full bg-[#2B2A2B]/20" />
+          </div>
+        ) : (
         <form
           onSubmit={handleSubmit}
           className="space-y-6"
+          data-lpignore="true"
+          data-1p-ignore
+          data-bwignore
         >
-          {/* Name and Email Row */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {/* Name Field */}
             <Input
               type="text"
               id="name"
@@ -118,14 +171,13 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
               placeholder="Enter full name"
               label={
                 <>
-                  Name <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
+                  Name <span className="text-[#6b7280]">*</span>
                 </>
               }
               required
-              className={darkFieldClassName}
+              disabled={status === 'loading'}
             />
 
-            {/* Email Field */}
             <Input
               type="email"
               id="email"
@@ -135,15 +187,14 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
               placeholder="Enter email"
               label={
                 <>
-                  Email <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
+                  Email <span className="text-[#6b7280]">*</span>
                 </>
               }
               required
-              className={darkFieldClassName}
+              disabled={status === 'loading'}
             />
           </div>
 
-          {/* Subject Field */}
           <Select
             name="subject"
             options={SUBJECT_OPTIONS}
@@ -152,14 +203,13 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             placeholder="Select one"
             label={
               <>
-                Subject <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
+                Subject <span className="text-[#6b7280]">*</span>
               </>
             }
             required
-            className={darkSelectClassName}
+            disabled={status === 'loading'}
           />
 
-          {/* Message Field */}
           <Textarea
             id="message"
             name="message"
@@ -172,24 +222,29 @@ export default function ContactForm({ isAugmentation, isContactPage }: { isAugme
             }
             label={
               <>
-                Message <span className={isSubmitEnquiryVariant ? 'text-white/45' : 'text-[#6b7280]'}>*</span>
+                Message <span className="text-[#6b7280]">*</span>
               </>
             }
             required
             rows={7}
-            className={darkFieldClassName}
+            disabled={status === 'loading'}
           />
 
-          {/* Submit Button */}
           <Button
             type="submit"
             variant="secondary"
             size="md"
-            className="w-full !bg-[#2B2A2B] hover:!bg-[#2E2B2E] shadow-lg hover:shadow-xl"
+            className="w-full !bg-[#2B2A2B] hover:!bg-[#2E2B2E] shadow-lg hover:shadow-xl disabled:opacity-60"
+            disabled={status === 'loading'}
           >
-            {isContactPage ? 'Send project details' : 'Start your Project Today'}
+            {status === 'loading'
+              ? 'Sending…'
+              : isContactPage
+                ? 'Send project details'
+                : 'Start your Project Today'}
           </Button>
         </form>
+        )}
       </div>
     </div>
   );
