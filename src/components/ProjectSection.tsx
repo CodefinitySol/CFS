@@ -142,7 +142,7 @@ export default function ProjectSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <ContactForm />
+            <ContactForm formSource="Project Section" />
           </motion.div>
         </div>
       </div>
