@@ -19,6 +19,7 @@ export interface SelectProps {
     className?: string;
     required?: boolean;
     name?: string;
+    disabled?: boolean;
 }
 
 const Select = ({
@@ -31,7 +32,8 @@ const Select = ({
     helperText,
     className = '',
     required = false,
-    name
+    name,
+    disabled = false,
 }: SelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -72,8 +74,9 @@ const Select = ({
             <div className="relative">
                 <button
                     type="button"
-                    onClick={() => setIsOpen(!isOpen)}
-                    className={`flex w-full items-center justify-between rounded-xl border px-5 py-4 font-aeonik text-base transition-all duration-200 outline-none ring-offset-0 focus:ring-2 ${isOpen
+                    disabled={disabled}
+                    onClick={() => !disabled && setIsOpen(!isOpen)}
+                    className={`flex w-full items-center justify-between rounded-xl border px-5 py-4 font-aeonik text-base transition-all duration-200 outline-none ring-offset-0 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-60 ${isOpen
                             ? 'border-gray-300 bg-white ring-gray-100'
                             : error
                                 ? 'border-red-500/50 bg-[#f8f9fa] ring-red-500/50'

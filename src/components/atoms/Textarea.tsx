@@ -14,7 +14,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             : 'border-gray-200 focus:border-gray-300 focus:bg-white focus:ring-gray-100';
 
         return (
-            <div className="w-full">
+            <div className="w-full" suppressHydrationWarning>
                 {label && (
                     <label className="mb-3 block font-aeonik text-base font-normal text-[#4D494D]">
                         {label}
@@ -22,6 +22,9 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 )}
                 <textarea
                     ref={ref}
+                    data-lpignore="true"
+                    data-1p-ignore
+                    data-bwignore
                     className={`${baseStyles} ${errorStyles} ${className}`}
                     {...props}
                 />
